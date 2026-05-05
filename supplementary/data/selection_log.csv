@@ -1,0 +1,61 @@
+theorem_id,included_in_48_slate,exclusion_reason
+inequality_chain_001,yes,
+nonneg_bounded_001,yes,
+nonneg_bounded_002,yes,
+inequality_chain_002,yes,
+nonneg_bounded_003,yes,
+nonneg_bounded_004,yes,
+nonneg_bounded_005,yes,
+inequality_chain_003,yes,
+monotonic_monotone_001,yes,
+nonneg_bounded_006,yes,
+inequality_chain_004,yes,
+equality_linear_001,yes,
+inequality_chain_005,yes,
+nonneg_bounded_007,yes,
+equality_simple_002,yes,
+monotonic_monotone_002,yes,
+monotonic_monotone_003,yes,
+nonneg_bounded_008,yes,
+inequality_bound_006,yes,
+nonneg_bounded_009,yes,
+nonneg_bounded_010,yes,
+equality_simple_003,yes,
+inequality_chain_007,yes,
+nonneg_bounded_011,yes,
+nonneg_bounded_012,yes,
+nonneg_bounded_013,yes,
+nonneg_bounded_014,yes,
+nonneg_bounded_015,yes,
+nonneg_bounded_016,yes,
+nonneg_bounded_017,yes,
+nonneg_bounded_018,yes,
+algebraic_general_001,yes,
+algebraic_general_002,yes,
+algebraic_general_003,yes,
+inequality_chain_008,yes,
+monotonic_monotone_004,yes,
+monotonic_monotone_005,yes,
+monotonic_monotone_006,yes,
+monotonic_monotone_007,yes,
+monotonic_monotone_008,yes,
+monotonic_monotone_009,yes,
+nonneg_sqrt_019,yes,
+algebraic_general_004,yes,
+real_sqrt_lt_sqrt,yes,
+nat_le_add_right,yes,
+real_add_sq_le_sq_add_sq,yes,
+div_le_div_of_nonneg_left,yes,
+mul_nonneg,yes,
+mathlib_canon_006,no,supplementary T0 target (not in headline slate)
+mathlib_canon_007,no,supplementary T0 target (not in headline slate)
+equality_linear_002,no,supplementary T1 target (not in headline slate)
+nonneg_bounded_032,no,supplementary T1 target (not in headline slate)
+monotonic_monotone_006,no,supplementary T1 target (not in headline slate)
+inequality_chain_006,no,supplementary T1 target (not in headline slate)
+inequality_chain_007,no,supplementary T1 target (not in headline slate)
+library_gap_001,no,T4: missing Mathlib API (sub-Gaussian MGF closure for sums)
+library_gap_002,no,T4: missing Mathlib API (Ville inequality for supermartingales)
+library_gap_003,no,T4: missing Mathlib API (vector-valued time-uniform CS)
+library_gap_004,no,T4: missing Mathlib API (time-uniform CLT)
+capability_ceiling_001,no,T5: unresolved (finite-precision equivalence break)

@@ -1,0 +1,2367 @@
+target,capability,drafter,attempt,sampler,closed,build_ok,axioms_clean,wall_sec,candidate
+quantization_error,friendly,dspv2_fp16_48slate,0,greedy,False,False,,58.91,":= by
+  simp [quantizeReals, abs_div, abs_mul, abs_of_nonneg, abs_of_nonpos, mul_comm]
+  <;> norm_cast
+  <;> field_simp [mul_comm]
+  <;> norm_cast
+  <;> linarith"
+quantization_error,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,250.18,":= by
+  have h : âĪĢ (s : âĦķ) (x : âĦĿ), |x - quantizeReals x| âī¤ 2 ^ (-s :âĦ¤) := by
+    intro s x
+    rw [quantizeReals]
+    have hâĤģ : |x - âĨĳâĮĬx * 2 ^ sâĮĭ / 2 ^ s| âī¤ 1 / 2 ^ s := by
+      rw [abs_le]
+      constructor <;> norm_num <;>
+      field_simp [div_le_iff, le_div_iff] <;>
+      rw [âĨĲ sub_nonneg] <;>
+      field_simp [sub_nonneg] <;>
+      norm_cast <;>
+      linarith [Int.flo"
+quantization_error,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,79.15,":= by
+simp [abs_div, abs_mul, abs_of_nonneg, abs_of_nonpos, mul_comm]
+  <;> norm_cast
+  <;> field_simp
+  <;> ring
+  <;> norm_cast
+  <;> simp [abs_div, abs_mul, abs_of_nonneg, abs_of_nonpos, mul_comm]"
+quantization_error,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,46.62,":= by
+  simp [quantizeReal, abs_mul, abs_of_pos, mul_comm]
+  <;> norm_cast
+  <;> field_simp
+  <;> ring_nf
+  <;> norm_cast
+  <;> linarith"
+quantization_error,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,62.23,":= by
+  norm_num
+  <;>
+  rcases s with (_ | _ | _ | _) <;>
+  rcases x with (_ | _ | _) <;>
+  simp_all [quantizeReal, abs_eq_max_neg, max_eq_iff, pow_succ] <;>
+  norm_num <;>
+  linarith"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,0,greedy,False,False,,242.2,":= by
+  simp [quantizeReals, Real.log_le_sub_one_of_pos]
+  <;> norm_num
+  <;> linarith [Real.log_pos (by norm_num : (1:âĦĿ) < 2)]
+  <;> linarith [Real.log_pos (by norm_num : (1:âĦĿ) < 2)]"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,56.32,":= by
+  induction s <;> simp_all [quantizeReals, Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,213.64,":= by
+  have hâĤĢ : (0 : âĦĿ) âī¤ x := by linarith
+  have hâĤģ : (0 : âĦĿ) âī¤ 2 ^ (-(s : âĦ¤)) := by positivity
+  have hâĤĤ : (0 : âĦĿ) âī¤ x + 2 ^ (-(s : âĦ¤)) := by linarith
+  have hâĤĥ : (0 : âĦĿ) âī¤ (2 : âĦĿ) ^ (-(s : âĦ¤)) := by positivity
+  have hâĤĦ : (0 : âĦĿ) âī¤ x + (2 : âĦĿ) ^ (-(s : âĦ¤)) := by linarith
+  have hâĤħ : (0 : âĦĿ) âī¤ (x + (2 : âĦĿ) ^ (-(s : âĦ¤))) := by linarith
+  have "
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,40.96,":= by
+  induction s <;> simp_all [quantizeReals, pow_succ, mul_add, add_mul, mul_comm, mul_left_comm]
+  <;> norm_num
+  <;> linarith"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,97.24,":= by
+
+  have hâĤĢ := quantizeReals x
+  have hâĤģ := hâĤĢ
+  have hâĤĤ := hâĤģ
+  have hâĤĥ := hâĤĤ
+  norm_cast at hâĤĢ hâĤģ hâĤĤ hâĤĥ âĬ¢
+  <;> simp_all [pow_add, pow_mul, mul_assoc, mul_comm, mul_left_comm]
+  <;> nlinarith [pow_pos (by norm_num : (0 : âĦĿ) < 2) s, pow_pos (by norm_num : (0 : âĦĿ) < 2) (-s)]"
+etahr_nonneg,trivial,dspv2_fp16_48slate,0,greedy,False,False,,243.02,":= by
+  simp_all [hr_nonneg_test]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [hr_nonneg_test]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [hr_nonneg_test]"
+etahr_nonneg,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,30.48,":= by
+  induction b <;> simp_all [Nat.succ_le_iff, Nat.zero_le, Nat.zero_lt_succ]
+  <;> omega"
+etahr_nonneg,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,244.52,":= by
+  simp_all [add_nonneg, mul_nonneg, zero_le_one, zero_le_two, zero_le_three]
+  <;>
+  norm_num
+  <;>
+  aesop"
+etahr_nonneg,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,70.27,":= by
+  -- Use the `norm_num` tactic to handle the numerical computation and simplification.
+  norm_num [Nat.factorial, Nat.choose, mul_assoc, mul_comm, mul_left_comm]
+  -- Use the `omega` tactic to solve the resulting linear arithmetic problem.
+  <;> omega
+  <;> norm_num
+  <;> omega
+  <;> norm_num"
+etahr_nonneg,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,245.0,":= by
+  -- Use the fact that the sum of probabilities is 1 to show that the expected value is at least the average of the probabilities.
+  have hâĤģ : âĪĳ i : Î¹, p i = 1 := by simp_all [Finset.sum_const, nsmul_eq_mul]
+  have hâĤĤ : âĪĳ i : Î¹, p i * 1 = 1 := by simp_all [Finset.sum_const, nsmul_eq_mul]
+  have hâĤĥ : âĪĳ i : Î¹, p i * etaHRb i = âĪĳ i : Î¹, p i * etaHRb i := rfl
+  have hâĤĦ : âĪĳ "
+etahr_mono,friendly,dspv2_fp16_48slate,0,greedy,False,False,,244.49,":= by
+  simp_all [hr_mono]
+  <;> aesop
+  <;> aesop"
+etahr_mono,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,243.52,":= by
+  aesop
+  <;> aesop
+  <;> aesop"
+etahr_mono,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,21.07,":= by
+  simp_all [Nat.add_comm, Nat.add_left_comm]
+  <;> omega"
+etahr_mono,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,245.18,":= by
+  simp [hr_mono_test, hr_mono_test]
+  <;> aesop
+  <;> aesop"
+etahr_mono,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,133.11,":= by
+  -- We need to show that the function `f(b) = b * (betaHR betaHR b)` is monotonically increasing.
+  -- This can be done by showing that the derivative of `f(b)` is non-negative for all `b`.
+  have hâĤģ : âĪĢ b : âĦķ, b * (betaHR betaHR b) âī¤ (b + 1) * (betaHR betaHR (b + 1)) := by
+    intro b
+    -- Use the fact that `betaHR` is monotonically increasing.
+    simp [betaHR, Nat.div_eq_of_lt,"
+etahr_le_slack,challenging,dspv2_fp16_48slate,0,greedy,False,False,,240.88,":= by
+  simp [hr_le_slack_test, mul_assoc]
+  <;> norm_cast
+  <;> simp_all [mul_assoc]
+  <;> norm_cast
+  <;> linarith"
+etahr_le_slack,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,33.98,":= by
+simp [hr_le_slack, mul_assoc]"
+etahr_le_slack,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,42.85,":= by
+  norm_cast
+  <;> simp_all [BitPrecision.bits, BitPrecision.scale]
+  <;> norm_cast
+  <;> linarith
+  <;> norm_cast
+  <;> linarith"
+etahr_le_slack,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,240.03,":= by
+  norm_num [mul_assoc]
+  <;> simp_all [mul_assoc]
+  <;> norm_cast
+  <;> simp_all [mul_assoc]
+  <;> norm_cast"
+etahr_le_slack,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,59.41,":= by
+  simp_all [pow_add, mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_cast
+  <;> field_simp [pow_add, mul_assoc, mul_comm, mul_left_comm]
+  <;> ring_nf
+  <;> norm_cast
+  <;> linarith"
+etabetting_pos,friendly,dspv2_fp16_48slate,0,greedy,False,False,,239.87,":= by
+  simp [etaBetting]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+etabetting_pos,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,59.53,":= fun(b:)0<b:=by
+
+-- We need to show that if b is a positive real number, then 0 < b."
+etabetting_pos,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,240.67,":= by
+  simp [betting_pos]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+etabetting_pos,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,243.56,":= by
+  simp [beta]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+etabetting_pos,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,241.27,":= by
+  simp [etaBetting]
+  <;> positivity
+  <;> simp_all [mul_pos, zero_lt_one]
+  <;> norm_num
+  <;> linarith
+  <;> simp_all [mul_pos, zero_lt_one]
+  <;> norm_num
+  <;> linarith"
+etabetting_nonneg,trivial,dspv2_fp16_48slate,0,greedy,False,False,,239.48,:= b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b
+etabetting_nonneg,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,243.64,:= b+1
+etabetting_nonneg,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,240.95,":= by
+    simp_all [betting_def]
+    <;>
+    norm_num
+    <;>
+    aesop"
+etabetting_nonneg,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,232.6,:= b/32.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+etabetting_nonneg,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,233.16,:= 0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0:=0
+etabetting_antitone,friendly,dspv2_fp16_48slate,0,greedy,False,False,,21.9,":= by
+  intro a b h
+  simp_all [Nat.div_eq_of_lt]
+  <;> omega"
+etabetting_antitone,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,37.69,":= by
+  -- Introduce the variables and assumptions
+  intro a hâĤĢ hâĤģ
+  -- Use the given assumptions to prove the statement
+  simp_all [Nat.div_eq_of_lt]
+  <;> omega"
+etabetting_antitone,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,232.08,:= b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b
+etabetting_antitone,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,231.93,:= b.bb:=b.bb:=b.b
+etabetting_antitone,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,232.34,":= begin
+  intro a
+  simp_all [Nat.div_eq_of_lt]
+  <;> omega
+  <;> omega"
+etabetting_le_etahr,challenging,dspv2_fp16_48slate,0,greedy,False,False,,231.57,":= by
+  simp [betaBetting, betaHR]
+  <;> rfl
+  <;> simp_all [Finset.sum_range_succ, Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith
+  <;> rfl"
+etabetting_le_etahr,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,232.21,:= funb:âĦĿâĨ¦ifbâī¤0then1elseifbâī¥1then0elseb.theorembetting_le_etahr_test:(b:)1betaBettingbetaHRb:=funb:âĦĿâĨ¦ifbâī¤0then1elseifbâī¥1then0elseb.theorembetting_le_etahr_test:(b:)1betaBettingbetaHRb:=funb:âĦĿâĨ¦ifbâī¤0then1elseifbâī¥1then0elseb.theorembetting_le_etahr_test:(b:)1betaBettingbetaHRb:=funb:âĦĿâĨ¦ifbâī¤0then1elseifbâī¥1then0elseb.theorembetting_le_etahr_test:(b:)1betaBettingbetaHRb:=f
+etabetting_le_etahr,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,241.04,:= bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=bybetaBettingbetaHRb:=b
+etabetting_le_etahr,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,49.06,:= hr_test_hr_test_le_beta_hr_test_of_le_one(b)
+etabetting_le_etahr,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,243.48,":= by
+  simp [hr_test, betting_le_hr_test]
+  <;>
+  tauto
+  <;>
+  aesop"
+etavector_nonneg,trivial,dspv2_fp16_48slate,0,greedy,False,False,,243.08,":= by
+  simp_all [Vector.eta]
+  <;> aesop
+  <;> aesop"
+etavector_nonneg,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,243.35,":= by
+  simp_all [Vector.eta, List.map]
+  <;> aesop
+  <;> norm_num
+  <;> linarith
+  <;> aesop"
+etavector_nonneg,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,49.3,":= by
+  intro i
+  simp [b]
+  <;>
+    exact
+      by
+        simp [b]
+        <;>
+          exact
+            by"
+etavector_nonneg,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,257.5,:= b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.2theoremvector_nonneg_test:(b:)0etaVectorb:=b.1b.
+etavector_nonneg,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,246.91,":= funb=>b.1.map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa=>a.1)@[1,2,3,4,5].map(funa="
+etavector_mono,friendly,dspv2_fp16_48slate,0,greedy,False,False,,244.74,":= by
+  simp_all [Vector.cons, Vector.nil, Vector.append, Vector.map, Vector.zipWith, Vector.zip,
+    Vector.ofFn, List.zipWith, List.zip, List.map, List.ofFn]
+  <;> aesop
+  <;> aesop"
+etavector_mono,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,245.31,:= b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b
+etavector_mono,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,243.48,":= by
+  aesop
+  <;> aesop
+  <;> aesop"
+etavector_mono,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,243.06,":= by
+  intro b betaVector
+  simp_all [Vector.cons, Vector.nil, Vector.get]
+  <;> aesop
+  <;> simp_all [Vector.get]
+  <;> aesop
+  <;> simp_all [Vector.get]"
+etavector_mono,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,13.09,":= by
+simp_all [Vector.cons]
+<;> aesop"
+etavector_eq_sqrt_two_mul_etahr,friendly,dspv2_fp16_48slate,0,greedy,False,False,,60.29,":= by
+  simp [etaVector, etaHR, mul_comm]
+  <;> ring_nf
+  <;> norm_num
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq]
+  <;> ring_nf
+  <;> norm_num
+  <;> linarith [Real.sqrt_nonneg 2]"
+etavector_eq_sqrt_two_mul_etahr,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,56.01,":= by
+  simp [etaVector, etaHR, mul_assoc]
+  <;> congr
+  <;> funext x
+  <;> simp [mul_comm]
+  <;> ring
+  <;> field_simp
+  <;> ring
+  <;> norm_num
+  <;> linarith"
+etavector_eq_sqrt_two_mul_etahr,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,96.03,":= by
+  have hâĤģ := etaVectorb
+  have hâĤĤ := etaHRb
+  have hâĤĥ := hâĤģ.symm
+  have hâĤĦ := hâĤĤ.symm
+  simp_all [Complex.ext_iff, Complex.normSq, mul_comm]
+  <;> ring_nf
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf
+  <;> nlinarith [Real.sqrt_nonneg 2, Real.sq_sqrt (show (0 : âĦĿ) âī¤ 2 by norm_num)]"
+etavector_eq_sqrt_two_mul_etahr,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,239.35,":= by
+  rw [etaVector]
+  <;> simp [Real.sqrt_eq_iff_sq_eq, mul_comm]
+  <;> ring_nf
+  <;> norm_num
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq, mul_comm]
+  <;> ring_nf
+  <;> norm_num
+  <;> rw [âĨĲ sub_eq_zero]
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq, mul_comm]"
+etavector_eq_sqrt_two_mul_etahr,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,239.66,":= by
+  have hâĤģ := etaVector_eq_sqrt_two_mul_etaHR_test b
+  simp_all
+  <;>
+    aesop
+  <;>
+    aesop"
+etahr_le_etavector,friendly,dspv2_fp16_48slate,0,greedy,False,False,,240.66,":= by
+  simp_all [hr_le_etavector_test]
+  <;> aesop
+  <;> aesop"
+etahr_le_etavector,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,71.66,":= by
+  -- Given a set of vectors, we need to show that the expectation of the sum of their norms is less than or equal to the sum of their expectations.
+  -- This follows from the linearity of expectation and the fact that the expectation of a norm is less than or equal to the norm of the expectation.
+  simp_all [Finset.sum_apply, Finset.sum_comm, Finset.sum_le_sum]
+  <;>
+  exact?"
+etahr_le_etavector,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,106.43,":= by
+  -- We use the fact that the sum of the probabilities of all possible outcomes is 1.
+  have hâĤģ : âĪĳ b : Î², b.2 = 1 := by
+    -- This is a given condition in the problem statement.
+    exact?
+  -- We need to show that the sum of the probabilities of all possible outcomes is still 1.
+  have hâĤĤ : âĪĳ b : Î², b.2 = 1 := by
+    -- This is a given condition in the problem statement.
+    exa"
+etahr_le_etavector,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,85.85,":= by
+    -- Use the fact that HR is a subset of betaVector
+    have hâĤģ : HR betaVector âī¤ betaVector := by
+      -- Prove that HR is a subset of betaVector
+      exact?
+    -- Use the fact that HR is a subset of betaVector
+    have hâĤĤ : HR betaVector âī¤ betaVector := by
+      -- Prove that HR is a subset of betaVector
+      exact?
+    -- Combine the results to show the desired inequality
+  "
+etahr_le_etavector,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,18.6,":= by
+simp [hr_le_eta, hr_le_beta, hr_le_beta]"
+etaasymptotic_nonneg,trivial,dspv2_fp16_48slate,0,greedy,False,False,,245.46,":= by
+  simp_all [Asymptotic]
+  <;> aesop
+  <;> aesop"
+etaasymptotic_nonneg,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,18.51,":= 0:=b=0:=by
+
+intro h
+
+simp_all
+
+<;> aesop"
+etaasymptotic_nonneg,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,240.78,:= by
+etaasymptotic_nonneg,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,44.49,:= 0)
+etaasymptotic_nonneg,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,237.02,":= 0:=by
+
+  simp [Asymptotic]
+  <;> aesop
+  <;> aesop"
+etaasymptotic_const,trivial,dspv2_fp16_48slate,0,greedy,False,False,,21.45,":= by
+simp_all [Nat.div_eq_of_lt]
+<;> norm_num
+<;> aesop"
+etaasymptotic_const,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,233.94,":= by
+simp [Function.comp, etaAsymptotic]"
+etaasymptotic_const,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,235.22,":= by
+simp_all [etaAsymptotic]
+-- Use the definition of etaAsymptotic to simplify the goal.
+-- This will automatically handle the asymptotic behavior of the function.
+<;>
+  aesop
+  -- Use the aesop tactic to automatically solve the goal by applying known lemmas and rules.
+  <;>
+  simp_all [Nat.div_eq_of_lt]
+  -- Simplify the goal using the fact that if a number is less than another, their division"
+etaasymptotic_const,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,236.59,:= by simp [bb]theoremetaAsymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=by simp [bb]theoremetaAsymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=by simp [bb]theoremetaAsymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=by simp [bb]theoremetaAsymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=by simp [bb]theoremetaAsymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptotic
+etaasymptotic_const,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,16.04,":= by simp_all [Nat.div_eq_of_lt]
+<;> aesop"
+etaasymptotic_le_etahr,friendly,dspv2_fp16_48slate,0,greedy,False,False,,234.46,":= by
+  simp_all [Asymptotic.betaHR]
+  <;> aesop
+  <;> aesop"
+etaasymptotic_le_etahr,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,234.35,":= by
+  -- Use the given asymptotic equivalence to prove the desired inequality.
+  have h := @betaHRb
+  simp_all [Asymptotic.isTheta_iff_exists_eq]
+  <;> aesop
+  <;> aesop"
+etaasymptotic_le_etahr,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,14.65,":= by
+  -- Use the given asymptotic inequality to prove the desired inequality.
+  exact?"
+etaasymptotic_le_etahr,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,234.29,":= by
+  intro b
+  simp_all [betaHR]
+  <;>
+  apply?
+  <;>
+  norm_num"
+etaasymptotic_le_etahr,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,234.03,":= by
+  simp_all [Nat.div_eq_of_lt]
+  <;> omega
+  <;> norm_num
+  <;> omega"
+ranking_four_way,challenging,dspv2_fp16_48slate,0,greedy,False,False,,232.74,:= fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:âĦķ) => (fun(b:â
+ranking_four_way,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,237.01,:= b.1b.2b.3b.4b.5b.6b.7b.8b.9b.10b.11b.12b.13b.14b.15b.16b.17b.18b.19b.20b.21b.22b.23b.24b.25b.26b.27b.28b.29b.30b.31b.32b.33b.34b.35b.36b.37b.38b.39b.40b.41b.42b.43b.44b.45b.46b.47b.48b.49b.50b.51b.52b.53b.54b.55b.56b.57b.58b.59b.60b.61b.62b.63b.64b.65b.66b.67b.68b.69b.70b.71b.72b.73b.74b.75b.76b.77b.78b.79b.80b.81b.82b.83b.84b.85b.86b.87b.88b.89b.90b.91b.92b.93b.94b.95b.96b.97b.98b
+ranking_four_way,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,230.81,":= by
+  simp_all [betaHR, betaAsymptotic, betaBetting]
+  <;> aesop
+  <;> aesop"
+ranking_four_way,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,230.49,:= b
+ranking_four_way,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,114.49,":= by
+  -- Use the given conditions to derive the ranking
+  rcases b with (_ | _ | _ | _) <;> simp_all [betaHR, betaVector, betaAsymptotic, betaBetting]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [betaHR, betaVector, betaAsymptotic, betaBetting]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [betaHR, betaVector, betaAsymptotic, betaBetting]"
+slack_nonneg,friendly,dspv2_fp16_48slate,0,greedy,False,False,,11.7,":= by
+simp [BitPrecision.zero]
+<;> aesop"
+slack_nonneg,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,27.53,":= by
+simp [slack, Nat.zero_eq]
+<;> rfl
+<;> simp_all [Nat.zero_eq]
+<;> rfl"
+slack_nonneg,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,16.41,":= by
+simp [BitPrecision.zero]
+<;> norm_num
+<;> aesop"
+slack_nonneg,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,231.12,":= by
+simp [BitPrecision.zero]
+<;> aesop"
+slack_nonneg,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,231.35,":= by
+  simp [BitPrecision.zero]
+  <;> aesop
+  <;> simp_all [BitPrecision.zero]
+  <;> aesop
+  <;> simp_all [BitPrecision.zero]"
+slack_antitone_in_scale,challenging,dspv2_fp16_48slate,0,greedy,False,False,,230.95,":= by
+  simp [BitPrecision.scale, Nat.div_eq_of_lt]
+  <;> omega
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> omega
+  <;> simp_all [Nat.div_eq_of_lt]"
+slack_antitone_in_scale,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,88.81,":= âŁ¨bp.precision,by simp [bp.scale]âŁ©theorem scale_test2 (bp : BitPrecision) : bp.scale bp = âŁ¨bp.precision, by simp [bp.scale]âŁ© := by
+lean4code_prettify"
+slack_antitone_in_scale,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,231.33,":= by
+  simp [BitPrecision.scale, Nat.div_eq_of_lt]
+  <;> omega
+  <;> simp_all
+  <;> omega
+  <;> simp_all"
+slack_antitone_in_scale,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,229.1,":= by
+
+  simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+slack_antitone_in_scale,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,229.35,":= by
+
+simp [Nat.div_eq_of_lt]
+
+-- We need to show that for any bit precision `bp`, the scale of `bp` is less than or equal to the scale of `bp.succ`.
+
+-- Given the definition of `scale`, we know that `scale bp = 2 ^ bp.scale` and `scale bp.succ = 2 ^ bp.succ.scale`.
+
+-- Since `bp.succ.scale = bp.scale + 1`, we have `2 ^ bp.succ.scale = 2 ^ (bp.scale + 1) = 2 * 2 ^ bp.scale`.
+
+-- This implies that"
+sharpslack_nonneg,friendly,dspv2_fp16_48slate,0,greedy,False,False,,22.46,":= by
+simp [sharpSlack, Nat.div_eq_of_lt]
+<;> norm_num
+<;> aesop"
+sharpslack_nonneg,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,14.94,":= by
+simp[sharpSlack, Nat.zero_eq]
+<;> aesop"
+sharpslack_nonneg,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,232.29,:= bycasesbp <;>simp_all[BitPrecision.zero]theoremsharpslack_nonneg_test_2:(c:)(bp:BitPrecision)0c00sharpSlackcbp:=bycasesbp <;>simp_all[BitPrecision.zero]theoremsharpslack_nonneg_test_3:(c:)(bp:BitPrecision)0c00sharpSlackcbp:=bycasesbp <;>simp_all[BitPrecision.zero]theoremsharpslack_nonneg_test_4:(c:)(bp:BitPrecision)0c00sharpSlackcbp:=bycasesbp <;>simp_all[BitPrecision.zero]theoremsharpslack_non
+sharpslack_nonneg,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,135.27,":= by
+  -- We need to show that the slack term is non-negative.
+  -- Given the definition of slack:
+  -- slack := (1 - 2 * p) * c
+  -- We can use the fact that p is a probability, so 0 âī¤ p âī¤ 1.
+  -- This implies that 0 âī¤ 1 - 2 * p âī¤ 1.
+  -- Since c is a non-negative constant, the product (1 - 2 * p) * c is also non-negative.
+  cases bp <;> simp_all [BitPrecision, sharpSlack]
+  <;> norm_num"
+sharpslack_nonneg,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,236.23,":= by
+  cases c <;> cases bpf <;> norm_num
+  <;> simp_all [BitPrecision, sharpSlack]
+  <;> norm_num
+  <;> aesop
+  <;> norm_num
+  <;> aesop"
+sharpslack_mono_in_c,friendly,dspv2_fp16_48slate,0,greedy,False,False,,243.89,":= by
+  simp_all [BitPrecision, Nat.div_eq_of_lt]
+  <;> omega
+  <;> omega"
+sharpslack_mono_in_c,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,17.96,":= by
+simp [BitPrecision, Nat.div_eq_of_lt]
+<;> aesop"
+sharpslack_mono_in_c,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,240.48,":= by
+  simp_all [Nat.div_eq_of_lt]
+  <;> aesop
+  <;> norm_num
+  <;> omega
+  <;> aesop
+  <;> norm_num
+  <;> omega"
+sharpslack_mono_in_c,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,239.47,":= by
+  simp [BitPrecision.fromNat, Nat.div_eq_of_lt]
+  <;> aesop
+  <;> simp_all
+  <;> omega
+  <;> aesop
+  <;> simp_all
+  <;> omega"
+sharpslack_mono_in_c,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,239.04,":= by
+  cases bp <;> simp_all [BitPrecision.cases]
+  <;> norm_num
+  <;> aesop
+  <;> norm_num
+  <;> aesop"
+realizedcoverageavg_singleton,friendly,dspv2_fp16_48slate,0,greedy,False,False,,235.13,":= by
+simp [realizedCoverageAvg, realizedCoverage, claim.realizedCoverage, singletonAdversary,
+  realizedCoverageAvg_singleton_test_aux]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [Finset.sum_singleton]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [Finset.sum_singleton]"
+realizedcoverageavg_singleton,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,50.63,":= by
+simp [realizedCoverageAvg, realizedCoverage, avg_singleton]"
+realizedcoverageavg_singleton,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,248.17,":= by
+simp [realizedCoverageAvg, realizedCoverage, claim.realizedCoverage, realizedCoverageAvg,
+  realizedCoverage, claim.realizedCoverage, realizedCoverageAvg, realizedCoverage, claim.realizedCoverage,
+  realizedCoverageAvg, realizedCoverage, claim.realizedCoverage]
+  <;> rfl
+  <;> simp_all [Finset.sum_singleton]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+realizedcoverageavg_singleton,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,239.75,":= by
+simp_all [CoverageClaim, realizedCoverageAvg_def, realizedCoverage_def, mul_comm, mul_assoc, mul_left_comm,
+  div_eq_mul_inv, mul_inv_rev, mul_assoc]
+  <;> field_simp [inv_mul_cancel_left]
+  <;> ring
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [inv_mul_cancel_left]
+  <;> aesop
+  <;> simp_all [inv_mul_cancel_left]"
+realizedcoverageavg_singleton,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,16.71,":= by
+  simp [realizedCoverageAvg_def]
+  <;>
+  aesop"
+realizedcoverageavg_bounded,friendly,dspv2_fp16_48slate,0,greedy,False,False,,235.72,":= by
+  simp_all [CoverageClaim, StoppingImpl, AdversaryFamily, realizedCoverageAvg_def]
+  <;>
+  aesop
+  <;>
+  norm_num"
+realizedcoverageavg_bounded,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,233.79,":= by
+  simp_all [CoverageClaim, realizedCoverageAvg_eq_expectedCoverageAvg]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+realizedcoverageavg_bounded,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,39.72,":= by
+    simp [CoverageClaim, StoppingImpl, AdversaryFamily, realizedCoverageAvg, âĨĲ Finset.sum_mul, âĨĲ Finset.sum_add_distrib]
+    <;> norm_num
+    <;> aesop"
+realizedcoverageavg_bounded,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,70.21,":= by
+  -- Use the given bounds and properties of the adversary family and stopping implementation
+  have hâĤĢ := realizedCoverageBoundimpladvclaim
+  have hâĤģ := realizedCoverageBoundimpladvclaim
+  have hâĤĤ := realizedCoverageBoundimpladvclaim
+  -- Normalize the numbers to simplify the proof
+  norm_num at hâĤĢ hâĤģ hâĤĤ âĬ¢
+  -- Use the properties of the bounds and the given conditions to prove "
+realizedcoverageavg_bounded,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,233.79,":= by
+  simp_all [CoverageClaim, RealizedCoverageAvg]
+  <;> norm_num
+  <;> rfl
+  <;> aesop
+  <;> aesop"
+c_hr_sharp_pos,friendly,dspv2_fp16_48slate,0,greedy,False,False,,233.16,":= by
+  norm_num
+  <;> apply Nat.succ_pos
+  <;> norm_num
+  <;> apply Nat.succ_pos
+  <;> norm_num"
+c_hr_sharp_pos,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,233.88,":= by
+  -- We use the fact that the real numbers are uncountable and the human race is finite.
+  norm_num [c_HR_sharp]
+  <;> apply Nat.zero_lt_one
+  <;> simp
+  <;> norm_num
+  <;> apply Nat.zero_lt_one
+  <;> simp
+  <;> norm_num"
+c_hr_sharp_pos,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,234.12,":= by
+norm_num"
+c_hr_sharp_pos,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,84.97,":= by
+  -- Use the fact that c_HR_sharp is defined as the supremum of a set of positive numbers.
+  have h : 0 < c_HR_sharp := by
+    -- Use the property of the supremum of a set of positive numbers.
+    exact lt_of_le_of_lt (by exact? : (0 : âĦĿ) âī¤ c_HR_sharp) (by exact? : (c_HR_sharp : âĦĿ) < c_HR_sharp + 1)
+  -- The result follows from the property of the supremum.
+  exact h"
+c_hr_sharp_pos,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,234.32,":= by
+  -- We use the fact that the harmonic series diverges to show that c_HR_sharp is positive.
+  exact Nat.zero_lt_one.trans_le (by decide)
+  <;> rfl
+  <;> simp [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> decide
+  <;> rfl
+  <;> simp [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> decide"
+c_betting_sharp_pos,trivial,dspv2_fp16_48slate,0,greedy,False,False,,241.19,":= by
+  simp [c_betting_sharp]
+  <;> norm_num
+  <;> apply Nat.zero_lt_one
+  <;> norm_num
+  <;> apply Nat.zero_lt_one"
+c_betting_sharp_pos,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,239.76,":= by
+  norm_num [c_betting_sharp]
+  <;> positivity
+  <;> linarith [Nat.factorial_pos 0]
+  <;> linarith [Nat.factorial_pos 0]"
+c_betting_sharp_pos,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,240.16,:= by
+c_betting_sharp_pos,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,238.44,":= by
+norm_num[c_betting_sharp]
+theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by
+norm_num[c_betting_sharp]
+theoremc_betting_sharp_pos_test2:0<c_betting_sharp:=by"
+c_betting_sharp_pos,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,235.93,":= by
+  norm_num
+  <;> simp [c_betting_sharp]
+  <;> norm_num
+  <;> linarith [c_betting_sharp_pos]
+  <;> linarith [c_betting_sharp_pos]"
+c_vector_sharp_pos,friendly,dspv2_fp16_48slate,0,greedy,False,False,,235.29,":= by
+  simp [c_vector_sharp]
+  <;> norm_num
+  <;> apply Nat.zero_lt_one
+  <;> norm_num
+  <;> apply Nat.zero_lt_one"
+c_vector_sharp_pos,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,235.18,":= by
+  norm_num
+  <;> simp [c_vector_sharp]
+  <;> norm_num
+  <;> linarith [Real.sqrt_nonneg 2]
+  <;> linarith [Real.sqrt_nonneg 2]"
+c_vector_sharp_pos,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,40.84,":= by
+    simp [c_vector_sharp]
+    <;> norm_num
+    <;> positivity
+  <;> simp_all [c_vector_sharp]
+  <;> norm_num
+  <;> linarith"
+c_vector_sharp_pos,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,235.07,":= by
+    exact by
+      norm_num
+      <;>
+      simp [c_vector_sharp]
+      <;>
+      norm_num"
+c_vector_sharp_pos,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,234.81,":= by
+  -- We need to show that the vector sharp constant is positive.
+  -- This is a placeholder for the actual proof, which would involve detailed analysis.
+  exact by norm_num
+  <;> simp [c_vector_sharp]
+  <;> norm_num
+  <;> linarith [Real.sqrt_nonneg 2]
+  <;> linarith [Real.sqrt_nonneg 2]"
+c_acs_sharp_pos,friendly,dspv2_fp16_48slate,0,greedy,False,False,,234.02,":= by
+  norm_num
+  <;> apply Nat.zero_lt_one
+  <;> norm_num
+  <;> apply Nat.zero_lt_one
+  <;> norm_num"
+c_acs_sharp_pos,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,233.71,":= by
+  norm_num
+  <;> aesop
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> omega
+  <;> linarith
+  <;> norm_num
+  <;> omega
+  <;> linarith"
+c_acs_sharp_pos,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,232.79,":= by
+norm_num[c_aCS_sharp]"
+c_acs_sharp_pos,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,232.6,":= by
+  simp [c_aCS_sharp]
+  <;> norm_num
+  <;> apply Nat.succ_pos
+  <;> apply Nat.zero_lt_succ
+  <;> apply Nat.zero_lt_succ"
+c_acs_sharp_pos,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,232.49,:= by
+boundary_pos,friendly,dspv2_fp16_48slate,0,greedy,False,False,,231.47,":= by
+  simp [boundary, c0]
+  <;> norm_num
+  <;> linarith
+  <;> aesop
+  <;> aesop"
+boundary_pos,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,233.97,":= by
+  simp [boundary]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+boundary_pos,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,232.58,":= by
+  simp [boundary]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+boundary_pos,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,232.71,":= by
+
+simp [boundary, Finset.card_pos]
+
+-- This lemma is used to show that the boundary of a nonempty set is positive."
+boundary_pos,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,235.33,":= by
+  simp [boundary, Finset.sum_eq_zero]
+  <;> aesop
+  <;> aesop"
+boundary_antitone,friendly,dspv2_fp16_48slate,0,greedy,False,False,,243.36,":= by
+  simp_all [boundary, Set.mem_setOf_eq]
+  <;> aesop
+  <;> aesop"
+boundary_antitone,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,46.23,":= by
+
+simp_all [boundary, Set.mem_setOf_eq]
+
+<;>
+
+intro x hx <;>
+
+simp_all [Set.mem_setOf_eq] <;>
+
+norm_num <;>
+
+linarith"
+boundary_antitone,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,248.83,":= by
+  simp [boundary, Set.mem_setOf_eq]
+  <;> aesop
+  <;> aesop"
+boundary_antitone,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,236.64,":= by
+
+simp [boundary, Set.Icc, Set.Ioc, Set.Ioc_eq_empty, Nat.le_of_lt_succ]
+
+<;> omega
+
+<;> aesop
+
+<;> norm_num
+
+<;> aesop
+
+<;> norm_num"
+boundary_antitone,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,79.52,":= byintroh;cases' h withhâĤģ hâĤĤ <;> simp_all [boundary, Set.mem_setOf_eq, Nat.div_eq_of_lt] <;> omega"
+slacklower_nonneg,friendly,dspv2_fp16_48slate,0,greedy,False,False,,247.32,":= by
+  cases bp <;> simp [slackLower]
+  <;> norm_num
+  <;> linarith
+  <;> linarith"
+slacklower_nonneg,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,4.05,":= by
+simp"
+slacklower_nonneg,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,25.4,":= by
+
+simp
+
+<;> simp_all [BitPrecision.ofNat]
+
+<;> norm_num
+
+<;> aesop"
+slacklower_nonneg,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,8.63,":= by
+simp[BitPrecision.slackLower]"
+slacklower_nonneg,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,27.43,":= by
+  cases bp <;> simp_all [BitPrecision.zero_lt_one]
+  <;> norm_num
+  <;> linarith"
+slack_tight,challenging,dspv2_fp16_48slate,0,greedy,False,False,,232.73,":= by
+  simp [slackLower]
+  <;> norm_num
+  <;> positivity
+  <;> linarith [pow_pos (by norm_num : (0:âĦĿ) < 2) (-(bp.scale:âĦķ))]
+  <;> positivity
+  <;> linarith [pow_pos (by norm_num : (0:âĦĿ) < 2) (-(bp.scale:âĦķ))]"
+slack_tight,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,234.54,":= by
+  simp [slackLower, BitPrecision.scale, pow_add, mul_add, mul_comm, mul_left_comm]
+  <;> norm_num
+  <;> linarith
+  <;> norm_cast
+  <;> simp_all [pow_add, mul_add, mul_comm, mul_left_comm]
+  <;> linarith
+  <;> norm_cast
+  <;> simp_all [pow_add, mul_add, mul_comm, mul_left_comm]"
+slack_tight,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,44.29,":= by
+simp [slackLower, mul_assoc, mul_comm, mul_left_comm]
+ <;> norm_cast
+ <;> simp [pow_add, pow_mul, mul_assoc, mul_comm, mul_left_comm]
+ <;> positivity"
+slack_tight,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,42.53,":= by
+  induction bp <;> simp_all [BitPrecision.scale, BitPrecision.prec, Nat.pow_succ]
+  <;> norm_num
+  <;> ring_nf
+  <;> norm_num
+  <;> linarith"
+slack_tight,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,233.31,":= by
+  norm_num
+  <;> cases bp <;> simp_all [Nat.pow_succ]
+  <;> norm_num
+  <;> positivity
+  <;> linarith
+  <;> norm_num
+  <;> positivity
+  <;> linarith"
+c_hr_sharp_ge_one,friendly,dspv2_fp16_48slate,0,greedy,False,False,,76.81,":= by
+  have h : Real.sqrt (2 * Real.log 2) âī¥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    have hâĤģ : (1 : âĦĿ) âī¤ 2 := by norm_num
+    have hâĤĤ : (0 : âĦĿ) âī¤ Real.log 2 := Real.log_nonneg (by norm_num)
+    nlinarith [Real.log_two_gt_d9]
+  exact h"
+c_hr_sharp_ge_one,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,238.47,":= by
+  apply Real.le_sqrt_of_sq_le
+  norm_num
+  <;>
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9]
+  <;>
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9]"
+c_hr_sharp_ge_one,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,244.32,":= by
+norm_num[Real.log_pos]
+<;>
+apply le_of_lt
+<;>
+norm_num"
+c_hr_sharp_ge_one,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,132.0,":= by
+  have hâĤģ : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hâĤĤ : 0 < Real.sqrt (2 * Real.log 2) := Real.sqrt_pos.mpr (by positivity)
+  have hâĤĥ : 1 âī¤ Real.sqrt (2 * Real.log 2) := by
+    apply Real.le_sqrt_of_sq_le
+    have : (1 : âĦĿ) ^ 2 âī¤ 2 * Real.log 2 := by
+      have : Real.log 2 âī¥ 0 := Real.log_nonneg (by norm_num)
+      nlinarith [Real.log_le_sub_one_of_pos (by norm_nu"
+c_hr_sharp_ge_one,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,89.31,":= by
+  have h : Real.sqrt (2 * Real.log 2) âī¥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    have h1 : (1 : âĦĿ) âī¤ 2 := by norm_num
+    have h2 : (0 : âĦĿ) âī¤ Real.log 2 := Real.log_nonneg (by norm_num)
+    nlinarith [Real.log_le_sub_one_of_pos (by norm_num : (0 : âĦĿ) < 2)]
+  exact h"
+c_hr_sharp_le_sqrt_two,friendly,dspv2_fp16_48slate,0,greedy,False,False,,219.62,":= by
+  have hâĤģ : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hâĤĤ : 0 < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hâĤĥ : 0 < Real.log 2 * Real.sqrt 2 := mul_pos hâĤģ hâĤĤ
+  have hâĤĦ : Real.log 2 < 2 := by
+    have : Real.log 2 < 2 := by
+      refine' (Real.log_lt_sub_one_of_pos (by norm_num) (by norm_num)).trans_le _
+      norm_num
+    linarith
+  have hâĤħ : Real.sqrt (2 * "
+c_hr_sharp_le_sqrt_two,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,113.43,":= by
+  have hâĤĢ : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hâĤģ : 0 < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  apply Real.le_sqrt_of_sq_le
+  norm_num
+  have hâĤĤ : (Real.log 2) âī¥ 0 := Real.log_nonneg (by norm_num)
+  nlinarith [Real.sq_sqrt (show 0 âī¤ 2 by norm_num),
+    Real.log_le_sub_one_of_pos (by norm_num : (0 : âĦĿ) < 2) ,
+    Real.log_two_lt_d9]"
+c_hr_sharp_le_sqrt_two,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,236.4,":= by
+  have hâĤģ : 0 âī¤ Real.sqrt (2 * Real.log 2) := Real.sqrt_nonneg _
+  have hâĤĤ : 0 âī¤ Real.sqrt 2 := Real.sqrt_nonneg _
+  have hâĤĥ : Real.sqrt (2 * Real.log 2) âī¤ Real.sqrt 2 := by
+    apply Real.sqrt_le_sqrt
+    have : Real.log 2 âī¤ 1 := by
+      nlinarith [Real.log_le_sub_one_of_pos (by norm_num : (0 : âĦĿ) < 2)]
+    nlinarith
+  nlinarith [Real.sqrt_nonneg (2 * Real.log 2), Real.sqrt"
+c_hr_sharp_le_sqrt_two,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,236.11,":= by
+  have hâĤģ : Real.sqrt (2 * Real.log 2) âī¤ Real.sqrt 2 := by
+    apply Real.sqrt_le_sqrt
+    have hâĤĤ : Real.log 2 âī¤ 1 := by
+      -- Use the fact that the logarithm function is increasing and log_2(2) = 1
+      have hâĤĥ : Real.log 2 âī¤ 1 := by
+        nlinarith [Real.log_le_sub_one_of_pos (by norm_num : (0 : âĦĿ) < 2)]
+      nlinarith
+    nlinarith
+  simpa using hâĤģ
+  <;> norm_num
+ "
+c_hr_sharp_le_sqrt_two,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,219.46,":= by
+
+-- Use the fact that the square root function is strictly increasing.
+have hâĤģ : 0 âī¤ Real.log 2 := Real.log_nonneg (by norm_num)
+have hâĤĤ : 0 âī¤ Real.sqrt 2 := Real.sqrt_nonneg 2
+have hâĤĥ : Real.sqrt 2 âī¥ 0 := Real.sqrt_nonneg 2
+-- Use the fact that the square root function is strictly increasing.
+have hâĤĦ : Real.sqrt (2 * Real.log 2) âī¤ Real.sqrt 2 := by
+  apply Real.sqrt_le_sqrt
+"
+c_hr_sharp_le_six_fifths,friendly,dspv2_fp16_48slate,0,greedy,False,False,,66.54,":= by
+  have hâĤģ : Real.sqrt (2 * Real.log 2) âī¤ 6 / 5 := by
+    apply Real.sqrt_le_iff.mpr
+    constructor
+    Â· positivity
+    Â·
+      have := Real.log_two_lt_d9
+      norm_num at this âĬ¢
+      nlinarith [Real.log_two_gt_d9]
+  exact hâĤģ"
+c_hr_sharp_le_six_fifths,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,239.84,":= by
+  have := Real.sqrt_nonneg (2 * Real.log 2)
+  have := Real.sqrt_nonneg (2 * Real.log 2)
+  have := Real.log_pos (by norm_num : (1 : âĦĿ) < 2)
+  have := Real.log_pos (by norm_num : (1 : âĦĿ) < 2)"
+c_hr_sharp_le_six_fifths,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,255.83,":= by
+norm_num [Real.sqrt_le_iff, Real.log_le_sub_one_of_pos]
+ <;>
+ norm_num
+ <;>
+ nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.sqrt_nonneg 2, Real.sqrt_nonneg 3, Real.sqrt_nonneg 4, Real.sqrt_nonneg 5]"
+c_hr_sharp_le_six_fifths,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,191.5,":= by
+norm_num[Real.sqrt_eq_iff_sq_eq, Real.log_one, Real.log_pow, Real.log_inv, Real.log_div,
+  Real.log_mul, Real.log_rpow, Real.log_le_log, Real.log_lt_log, Real.log_le_sub_one_of_pos,
+  Real.log_pos, Real.log_lt_sub_one_of_pos, Real.log_nonneg, Real.log_nonpos, Real.log_le_sub_one_of_pos,
+  Real.log_lt_sub_one_of_pos]
+<;> norm_num
+<;> nlinarith [Real.sqrt_nonneg 2, Real.log_nonneg (by norm_num"
+c_hr_sharp_le_six_fifths,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,253.71,":= by
+norm_num
+  <;>
+    rw [Real.sqrt_le_left] <;>
+      norm_num <;>
+        norm_num <;>
+          nlinarith [Real.log_two_gt_d9]
+  <;>"
+etabetting_le_one,friendly,dspv2_fp16_48slate,0,greedy,False,False,,253.16,":= by
+  simp_all [betaBetting]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+etabetting_le_one,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,26.62,":= by
+    -- Use the given inequality to prove the desired result.
+    exact?
+  <;> simp_all
+  <;> aesop"
+etabetting_le_one,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,134.15,":= by
+  -- We need to show that etaBetting b âī¤ 1 for all b.
+  have hâĤĢ : etaBetting b âī¤ 1 := by
+    -- We use the fact that the sum of the probabilities of all possible outcomes is 1.
+    simp [etaBetting, le_of_lt]
+    -- We need to show that the sum of the probabilities is less than or equal to 1.
+    <;> norm_num
+    <;> rcases b with (_ | _ | _ | _ | _ | _ | _ | _ | _ | _) <;>
+      simp_"
+etabetting_le_one,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,261.39,:= 1b2:=1b3:=1b4:=1b5:=1b6:=1b7:=1b8:=1b9:=1b10:=1b11:=1b12:=1b13:=1b14:=1b15:=1b16:=1b17:=1b18:=1b19:=1b20:=1b21:=1b22:=1b23:=1b24:=1b25:=1b26:=1b27:=1b28:=1b29:=1b30:=1b31:=1b32:=1b33:=1b34:=1b35:=1b36:=1b37:=1b38:=1b39:=1b40:=1b41:=1b42:=1b43:=1b44:=1b45:=1b46:=1b47:=1b48:=1b49:=1b50:=1b51:=1b52:=1b53:=1b54:=1b55:=1b56:=1b57:=1b58:=1b59:=1b60:=1b61:=1b62:=1b63:=1b64:=1b65:=1b66:=1b67:=1b68:=1b6
+etabetting_le_one,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,251.96,":= by
+simp_all [b1]
+-- Simplify the expression using the given hypothesis `b1` which states that `b = 1`.
+-- This step confirms that the probability of betting `b = 1` is 1, which is a valid probability.
+ <;> aesop
+```lean4```lean4"
+etabetting_lt_one,friendly,dspv2_fp16_48slate,0,greedy,False,False,,253.06,":= by
+  norm_num
+  <;>
+  exact?
+  <;>
+  aesop"
+etabetting_lt_one,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,27.63,":= by
+
+  simp_all [div_lt_one, mul_comm]
+  <;> norm_num
+  <;> nlinarith"
+etabetting_lt_one,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,211.79,":= by
+
+  have hâĤģ : b < 1 := by assumption
+  have hâĤĤ : 0 < b := by assumption
+  have hâĤĥ : 0 < 1 - b := by linarith
+  have hâĤĦ : 0 < b ^ 2 := by nlinarith
+  have hâĤħ : 0 < b ^ 3 := by nlinarith
+  have hâĤĨ : 0 < b ^ 4 := by nlinarith
+  have hâĤĩ : 0 < b ^ 5 := by nlinarith
+  have hâĤĪ : 0 < b ^ 6 := by nlinarith
+  have hâĤī : 0 < b ^ 7 := by nlinarith
+  have hâĤģâĤĢ : 0 < b ^ 8 := by nlinari"
+etabetting_lt_one,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,254.34,:= 1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/2:=1/
+etabetting_lt_one,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,37.95,":= by
+    have hâĤģ : b < 1 := by assumption
+    simp_all [betaBetting]
+    <;> norm_num
+    <;> nlinarith
+  <;> nlinarith"
+etahr_over_etabetting_gt_one,challenging,dspv2_fp16_48slate,0,greedy,False,False,,46.61,":= by
+  simp_all [div_eq_mul_inv]
+  <;> norm_num
+  <;> apply lt_of_sub_pos
+  <;> field_simp
+  <;> ring_nf
+  <;> nlinarith"
+etahr_over_etabetting_gt_one,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,252.48,":= by
+    have hâĤģ : 0 < b := by assumption
+    have hâĤĤ : 0 < etaHRb := by assumption
+    have hâĤĥ : 0 < etaBettingb := by assumption
+    have hâĤĦ : 0 < b * etaHRb := by positivity
+    have hâĤħ : 0 < b * etaBettingb := by positivity
+    field_simp [hâĤģ.ne', hâĤĤ.ne', hâĤĥ.ne', hâĤĦ.ne', hâĤħ.ne']
+    rw [div_lt_div_iff (by positivity) (by positivity)]
+    ring_nf
+    nlinarith [mul_pos hâĤģ"
+etahr_over_etabetting_gt_one,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,233.93,":= by
+  simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> omega
+  <;> linarith
+  <;> nlinarith
+  <;> nlinarith"
+etahr_over_etabetting_gt_one,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,110.42,":= by
+  -- We aim to show that the expected value of the winnings from betting is greater than the expected value of the winnings from betting with a house edge.
+  have h1 : 0 < etaHR b := by apply etaHR_pos
+  have h2 : 0 < etaBetting b := by apply etaBetting_pos
+  have h3 : etaHR b < etaBetting b := by apply etaHR_lt_etaBetting
+  field_simp [h1, h2, h3]
+  rw [div_lt_div_iff] <;>
+    nlinarith [mu"
+etahr_over_etabetting_gt_one,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,233.82,":= by
+  simp_all [div_eq_mul_inv]
+  <;> norm_num
+  <;> ring_nf
+  <;> norm_num
+  <;> nlinarith
+  <;> nlinarith"
+eta_betting_lt_hr,friendly,dspv2_fp16_48slate,0,greedy,False,False,,241.68,":= by
+  simp [familyBetting.etab, familyHR.etab]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+eta_betting_lt_hr,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,37.68,":= by
+  simp [familyHR.etab, familyBetting.etab]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+eta_betting_lt_hr,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,238.44,":= by
+
+  have hâĤģ := familyHR.etab
+  have hâĤĤ := familyBetting.etab
+  simp_all [Nat.lt_succ_iff]
+  <;> omega
+  <;> linarith
+  <;> linarith"
+eta_betting_lt_hr,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,236.84,:= >familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetti
+eta_betting_lt_hr,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,47.03,":= by
+    apply lt_of_le_of_lt (le_of_eq rfl)
+    simp_all [familyHR.etab]
+    <;> norm_num
+    <;> linarith
+  <;> norm_num
+  <;> linarith"
+eta_hr_lt_vector,friendly,dspv2_fp16_48slate,0,greedy,False,False,,234.75,":= by
+  simp_all [familyHR.etab, familyVector.etab]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+eta_hr_lt_vector,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,235.94,":= by
+
+  simp_all [familyHR.etab, familyVector.etab, Finset.sum_const, nsmul_eq_mul, mul_one,
+    Finset.card_fin]
+  <;> norm_num
+  <;> rfl
+  <;> aesop
+  <;> simp_all [Finset.sum_const, nsmul_eq_mul, mul_one, Finset.card_fin]
+  <;> norm_num
+  <;> rfl
+  <;> aesop
+  <;> simp_all [Finset.sum_const, nsmul_eq_mul, mul_one, Finset.card_fin]"
+eta_hr_lt_vector,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,18.81,":= by
+  simp [familyHR.etab, familyVector.etab]
+  <;> rfl"
+eta_hr_lt_vector,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,20.05,":= by
+  rfl
+  <;> simp_all [FamilyVector.eta]
+  <;> aesop"
+eta_hr_lt_vector,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,236.43,:= 1bfamilyHR.etab<familyVector.etab:=1b:=(1:âĦķ)
+ranking_3_way,trivial,dspv2_fp16_48slate,0,greedy,False,False,,235.03,":= by
+  simp [familyBetting.etab, familyHR.etab, familyVector.etab]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+ranking_3_way,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,236.52,":= by
+simp [familyBetting.etab, familyHR.etab, familyVector.etab]
+<;> norm_num
+<;> linarith
+<;> linarith"
+ranking_3_way,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,38.56,":= by
+  norm_num [Nat.gcd_eq_right]
+  <;> decide
+  <;> rfl
+  <;> decide
+  <;> rfl"
+ranking_3_way,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,236.02,":= by
+    simp_all [ranking_3_way_test]
+    <;> tauto
+  <;> aesop
+  <;> norm_num
+  <;> aesop
+  <;> norm_num"
+ranking_3_way,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,236.36,":= by
+  decide
+  <;> simp_all [Nat.lt_succ_iff]
+  <;> decide
+  <;> omega
+  <;> decide
+  <;> omega"
+ranking_4_way_master,challenging,dspv2_fp16_48slate,0,greedy,False,False,,36.66,":= by
+  simp [b, a]
+  <;> norm_num
+  <;> rfl
+  <;> simp [b, a]
+  <;> norm_num
+  <;> rfl"
+ranking_4_way_master,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,233.79,":= by
+    simp_all [Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> aesop
+    <;> simp_all [Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> aesop
+    <;> simp_all [Nat.div_eq_of_lt]"
+ranking_4_way_master,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,239.31,:= by
+ranking_4_way_master,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,236.11,":= by
+  simp_all [Nat.div_eq_of_lt]
+  <;>
+  tauto
+  <;>
+  omega"
+ranking_4_way_master,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,234.56,":= by
+  -- We will use the Master Theorem to solve this recurrence relation.
+  have h1 : âĪĢ n : âĦķ, 4^n = 4^n := by simp
+  have h2 : âĪĢ n : âĦķ, 2^n = 2^n := by simp
+  have h3 : âĪĢ n : âĦķ, 1^n = 1^n := by simp
+  -- Use the Master Theorem to solve the recurrence relation.
+  simp_all [Nat.pow_succ, Nat.mul_assoc]
+  <;> norm_num
+  <;> rfl
+  <;> rfl"
+dichotomy_universal_monotonicity_impossible,challenging,dspv2_fp16_48slate,0,greedy,False,False,,232.02,":= by
+  simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+dichotomy_universal_monotonicity_impossible,challenging,dspv2_fp16_48slate,1,temp0.7,False,False,,232.65,":= by
+
+  have hâĤģ := xt
+  have hâĤĤ := dxt
+  have hâĤĥ := d
+  have hâĤĦ := t
+  have hâĤħ := dx(t+1)
+  have hâĤĨ := xtmin
+  have hâĤĩ := bp.bits
+  have hâĤĪ := bp.scale
+  have hâĤī := bp
+  simp_all [Nat.pow_succ, Nat.pow_zero, Nat.mul_zero, Nat.add_zero, Nat.sub_zero, Nat.zero_sub,
+    Nat.sub_self, Nat.zero_add, Nat.add_zero, Nat.sub_zero, Nat.zero_sub, Nat.sub_self,
+    Nat.zero_add, Nat.add_zer"
+dichotomy_universal_monotonicity_impossible,challenging,dspv2_fp16_48slate,2,temp0.7,False,False,,231.91,":= by
+simp_all [Nat.ceil_eq_iff, Nat.floor_eq_iff]
+<;> norm_num
+<;> rcases bp with âŁ¨_, _âŁ©
+<;> simp_all [Nat.ceil_eq_iff, Nat.floor_eq_iff]
+<;> norm_num
+<;> rcases dxt with (rfl | rfl) <;> norm_num
+<;> simp_all [Nat.ceil_eq_iff, Nat.floor_eq_iff]"
+dichotomy_universal_monotonicity_impossible,challenging,dspv2_fp16_48slate,3,temp0.7,False,False,,231.99,":= by
+  induction t <;> simp_all [Nat.div_eq_of_lt] <;> norm_num
+  <;> aesop
+  <;> simp_all [Nat.div_eq_of_lt] <;> norm_num
+  <;> aesop
+  <;> simp_all [Nat.div_eq_of_lt] <;> norm_num"
+dichotomy_universal_monotonicity_impossible,challenging,dspv2_fp16_48slate,4,temp0.7,False,False,,232.43,:= by
+betting_comparison_t2,friendly,dspv2_fp16_48slate,0,greedy,False,False,,237.07,":= by
+  norm_num [familyBetting.slackFnbp, familyHR.slackFnbp]
+  <;> rfl
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rfl"
+betting_comparison_t2,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,75.08,":= by
+  -- We use the fact that the familyBetting.slackFnbp is less than the familyHR.slackFnbp.
+  have h1 : familyBetting.slackFnbp < familyHR.slackFnbp := by
+    norm_num [familyBetting.slackFnbp, familyHR.slackFnbp]
+  -- Since we have established that familyBetting.slackFnbp < familyHR.slackFnbp, we can conclude the proof.
+  exact h1"
+betting_comparison_t2,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,50.75,":= by
+  simp [familyBetting.slackFnbp, familyHR.slackFnbp]
+  <;> norm_num
+  <;> rfl
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rfl"
+betting_comparison_t2,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,236.61,":= by
+  simp [familyBetting.slackFnbp, familyHR.slackFnbp]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+betting_comparison_t2,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,235.6,":= by
+  -- Use the given betting odds to compare the probabilities
+  norm_num [Betting.slackFnbp, HR.slackFnbp]
+  <;> apply le_of_lt
+  <;> norm_num
+  <;> apply le_of_lt
+  <;> norm_num"
+real_sqrt_lt_sqrt,trivial,dspv2_fp16_48slate,0,greedy,False,False,,235.29,":= by
+  intro x y hâĤĢ hâĤģ
+  rw [Real.sqrt_lt_sqrt_iff] <;> nlinarith
+  <;> nlinarith
+  <;> nlinarith"
+real_sqrt_lt_sqrt,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,235.1,":= by
+  intro x y hxy hx hy
+  rw [Real.sqrt_lt (by positivity) (by positivity)]
+  <;> nlinarith [Real.sq_sqrt (by linarith : 0 âī¤ x), Real.sq_sqrt (by linarith : 0 âī¤ y),
+    sq_nonneg (Real.sqrt x - Real.sqrt y), sq_nonneg (Real.sqrt x + Real.sqrt y)]
+  <;> linarith
+  <;> assumption
+  <;> assumption"
+real_sqrt_lt_sqrt,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,74.0,":= by
+  intro h
+  apply lt_of_not_ge
+  intro h'
+  have hâĤģ : Real.sqrt x âī¥ Real.sqrt y := by
+    apply Real.sqrt_le_sqrt
+    linarith
+  nlinarith [Real.sqrt_nonneg x, Real.sqrt_nonneg y, Real.sq_sqrt (by linarith : 0 âī¤ x),
+    Real.sq_sqrt (by linarith : 0 âī¤ y)]"
+real_sqrt_lt_sqrt,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,105.35,":= by
+  intro x y hx hy
+  have h1 : 0 âī¤ x := by linarith
+  have h2 : 0 âī¤ y := by linarith
+  have h3 : 0 âī¤ Real.sqrt x := Real.sqrt_nonneg x
+  have h4 : 0 âī¤ Real.sqrt y := Real.sqrt_nonneg y
+  have h5 : Real.sqrt x < Real.sqrt y := by
+    apply Real.sqrt_lt_sqrt
+    Â· linarith
+    Â· linarith
+  nlinarith [Real.sq_sqrt (by linarith : 0 âī¤ x), Real.sq_sqrt (by linarith : 0 âī¤ y)]"
+real_sqrt_lt_sqrt,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,71.83,:= byintrohxhy;rw[Real.sqrt_lt' (by nlinarith)] <;> nlinarith
+nat_le_add_right,trivial,dspv2_fp16_48slate,0,greedy,False,False,,236.46,:= n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheorem
+nat_le_add_right,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,237.28,":= Nat.le_add_right n mexample1:=by
+norm_num
+example2:=by
+  simp [Nat.le_add_right]
+  <;> omega
+example3:=by
+  simp [Nat.le_add_right]
+  <;> omega
+example4:=by"
+nat_le_add_right,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,237.22,:= n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheorem
+nat_le_add_right,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,237.22,:= by
+nat_le_add_right,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,291.08,":= by
+  -- Use the omega tactic to solve the inequality involving natural numbers.
+  omega
+  <;> omega
+  <;> omega"
+real_add_sq_le_sq_add_sq,friendly,dspv2_fp16_48slate,0,greedy,False,False,,162.79,":= by
+  have hâĤģ : 0 âī¤ Real.sqrt (a^2 + b^2) := Real.sqrt_nonneg _
+  have hâĤĤ : 0 âī¤ Real.sqrt (x^2 + y^2) := Real.sqrt_nonneg _
+  have hâĤĥ : 0 âī¤ Real.sqrt (a^2 + b^2) * Real.sqrt (x^2 + y^2) := mul_nonneg hâĤģ hâĤĤ
+  nlinarith [sq_sqrt (show 0 âī¤ a^2 + b^2 by nlinarith), sq_sqrt (show 0 âī¤ x^2 + y^2 by nlinarith),
+    sq_nonneg (a * x + b * y), sq_nonneg (a * y - b * x), sq_nonneg (a * "
+real_add_sq_le_sq_add_sq,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,272.64,":= by
+  have hâĤģ : 0 âī¤ Real.sqrt (a ^ 2 + b ^ 2) := Real.sqrt_nonneg _
+  have hâĤĤ : 0 âī¤ Real.sqrt (x ^ 2 + y ^ 2) := Real.sqrt_nonneg _
+  have hâĤĥ : 0 âī¤ Real.sqrt (a ^ 2 + b ^ 2) * Real.sqrt (x ^ 2 + y ^ 2) := mul_nonneg hâĤģ hâĤĤ
+  have hâĤĦ : (Real.sqrt (a ^ 2 + b ^ 2) + Real.sqrt (x ^ 2 + y ^ 2)) ^ 2 âī¤ (a ^ 2 + b ^ 2 + x ^ 2 + y ^ 2) + 2 * Real.sqrt (a ^ 2 + b ^ 2) * Real.sqrt (x ^ 2"
+real_add_sq_le_sq_add_sq,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,250.0,":= by
+  have hâĤģ : 0 âī¤ Real.sqrt (a ^ 2 + b ^ 2) := Real.sqrt_nonneg _
+  have hâĤĤ : 0 âī¤ Real.sqrt (x ^ 2 + y ^ 2) := Real.sqrt_nonneg _
+  have hâĤĥ : 0 âī¤ Real.sqrt (a ^ 2 + b ^ 2) * Real.sqrt (x ^ 2 + y ^ 2) := mul_nonneg hâĤģ hâĤĤ
+  nlinarith [sq_sqrt (show 0 âī¤ a ^ 2 + b ^ 2 by positivity), sq_sqrt (show 0 âī¤ x ^ 2 + y ^ 2 by positivity),
+    sq_nonneg (a * x + b * y), sq_nonneg (a * y"
+real_add_sq_le_sq_add_sq,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,121.72,":= by
+norm_num
+<;>
+nlinarith [sq_nonneg (a - b), sq_nonneg (x - y), sq_nonneg (a + b), sq_nonneg (x + y),
+  Real.sqrt_nonneg (a^2 + b^2), Real.sqrt_nonneg (x^2 + y^2),
+  Real.sq_sqrt (show 0 âī¤ a^2 + b^2 by nlinarith),
+  Real.sq_sqrt (show 0 âī¤ x^2 + y^2 by nlinarith),
+  sq_nonneg (Real.sqrt (a^2 + b^2) - Real.sqrt (x^2 + y^2)),
+  sq_nonneg (Real.sqrt (a^2 + b^2) + Real.sqrt (x^2 + y^2))]"
+real_add_sq_le_sq_add_sq,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,233.8,":= by
+  intro a b x y
+  have hâĤģ : 0 âī¤ Real.sqrt (a^2 + b^2) := Real.sqrt_nonneg (a^2 + b^2)
+  have hâĤĤ : 0 âī¤ Real.sqrt (x^2 + y^2) := Real.sqrt_nonneg (x^2 + y^2)
+  have hâĤĥ : 0 âī¤ Real.sqrt (a^2 + b^2) * Real.sqrt (x^2 + y^2) := mul_nonneg hâĤģ hâĤĤ
+  apply le_of_sub_nonneg
+  have hâĤĦ : (Real.sqrt (a^2 + b^2) + Real.sqrt (x^2 + y^2)) ^ 2 âī¥ 0 := sq_nonneg (Real.sqrt (a^2 + b^2) + Real."
+div_le_div_of_nonneg_left,friendly,dspv2_fp16_48slate,0,greedy,False,False,,235.42,":= by
+  intro a b c hâĤĢ hâĤģ hâĤĤ
+  rw [div_le_div_iff] <;> nlinarith
+  <;> assumption
+  <;> assumption"
+div_le_div_of_nonneg_left,friendly,dspv2_fp16_48slate,1,temp0.7,False,False,,235.36,":= by
+  intro a b c hâĤĢ hâĤģ
+  have hâĤĤ : 0 < c := by linarith
+  have hâĤĥ : 0 < b := by linarith
+  have hâĤĦ : 0 < a := by linarith
+  have hâĤħ : 0 < a * b := by positivity
+  have hâĤĨ : 0 < a * c := by positivity
+  have hâĤĩ : 0 < b * c := by positivity
+  field_simp [hâĤĤ.ne', hâĤĥ.ne', hâĤĦ.ne', hâĤħ.ne', hâĤĨ.ne', hâĤĩ.ne']
+  rw [div_le_div_iff] <;> nlinarith
+  <;> assumption
+  <;> assumptio"
+div_le_div_of_nonneg_left,friendly,dspv2_fp16_48slate,2,temp0.7,False,False,,72.27,":= by
+
+  intro a b c hâĤĢ hâĤģ hâĤĤ
+  have hâĤĥ : 0 âī¤ a * c := by positivity
+  have hâĤĦ : 0 âī¤ b * c := by positivity
+  have hâĤħ : 0 âī¤ a * b := by positivity
+  field_simp [hâĤĢ.ne', hâĤģ.ne', hâĤĤ.ne'] at *
+  rw [div_le_div_iff] <;> nlinarith"
+div_le_div_of_nonneg_left,friendly,dspv2_fp16_48slate,3,temp0.7,False,False,,44.84,":= by
+  intro a b c
+  intro hâĤĢ hâĤģ
+  have hâĤĤ : a / b âī¤ a / c := by
+    apply Nat.div_le_div_left
+    Â· exact hâĤģ
+    Â· exact hâĤĢ
+  exact hâĤĤ"
+div_le_div_of_nonneg_left,friendly,dspv2_fp16_48slate,4,temp0.7,False,False,,29.23,":= by
+intro a b c
+intro hâĤĢ hâĤģ
+exact (div_le_div_iff (by positivity) (by positivity)).mpr (by nlinarith)"
+mul_nonneg,trivial,dspv2_fp16_48slate,0,greedy,False,False,,20.3,":= by
+  intro a b
+  intro hâĤģ hâĤĤ
+  apply mul_nonneg
+  <;> assumption"
+mul_nonneg,trivial,dspv2_fp16_48slate,1,temp0.7,False,False,,239.65,":= by
+  -- We use the fact that the product of two non-negative numbers is non-negative.
+  simp [mul_nonneg]
+  <;> assumption
+  <;> linarith
+  <;> assumption
+  <;> linarith"
+mul_nonneg,trivial,dspv2_fp16_48slate,2,temp0.7,False,False,,237.14,":= by
+  aesop
+  <;> aesop
+  <;> aesop"
+mul_nonneg,trivial,dspv2_fp16_48slate,3,temp0.7,False,False,,235.96,":= by
+    intro a b hâĤĢ hâĤģ
+    have hâĤĤ : 0 âī¤ a * b := by
+      apply mul_nonneg
+      <;> assumption
+    exact hâĤĤ
+  <;> simp_all
+  <;> nlinarith
+  <;> nlinarith"
+mul_nonneg,trivial,dspv2_fp16_48slate,4,temp0.7,False,False,,20.71,":= by
+  intro a b
+  intro ha hb
+  apply mul_nonneg
+  exact ha
+  exact hb"
+quantization_error,friendly,dspv2_fp16_48slate,5,temp0.7,False,False,,245.1,":= by
+norm_num [quantizeReal, abs_of_nonneg, Nat.cast_ofNat]
+  <;> ring_nf
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [abs_of_nonneg, Nat.cast_ofNat]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [abs_of_nonneg, Nat.cast_ofNat]"
+quantization_error,friendly,dspv2_fp16_48slate,6,temp0.7,False,False,,70.76,":= by
+  have h₁ : ∀ x : ℝ, |x - quantizeReals x| = |x - round x| := by
+    intro x
+    simp [quantizeReals]
+  simp_all [h₁]
+  <;> norm_cast
+  <;> simp_all [abs_sub_round]
+  <;> norm_cast
+  <;> linarith"
+quantization_error,friendly,dspv2_fp16_48slate,7,temp0.7,False,False,,50.59,":= by
+  induction s <;> simp_all [quantizeReals, abs_div, abs_of_nonneg, Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith
+  <;> norm_cast
+  <;> omega"
+quantization_error,friendly,dspv2_fp16_48slate,8,temp0.7,False,False,,79.44,":= by
+  simp [quantizeReals, sub_eq_add_neg, abs_eq_max_neg, max_def, neg_mul, neg_neg, mul_comm]
+  <;> norm_cast
+  <;> rfl
+  <;> simp [mul_comm]
+  <;> norm_cast
+  <;> rfl
+  <;> simp [mul_comm]"
+quantization_error,friendly,dspv2_fp16_48slate,9,temp0.7,False,False,,37.6,":= by
+  simp [abs_sub_comm]
+  <;> norm_cast
+  <;> simp [Nat.pow_succ]
+  <;> norm_cast
+  <;> linarith"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,5,temp0.7,False,False,,90.8,":= by
+    induction s <;> simp_all [quantizeReals, pow_succ, mul_assoc, mul_comm, mul_left_comm]
+    <;> norm_num
+    <;> ring_nf
+    <;> norm_num
+    <;> linarith
+  <;> simp_all [quantizeReals, pow_succ, mul_assoc, mul_comm, mul_left_comm]"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,6,temp0.7,False,False,,245.84,":= by
+  simp_all [quantizeReal, pow_add, pow_mul, mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_cast
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith
+  <;> omega
+  <;> aesop
+  <;> aesop"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,7,temp0.7,False,False,,61.28,":= by
+    simp [quantizeReals, pow_add, mul_assoc, mul_comm, mul_left_comm]
+    <;> norm_cast
+    <;> field_simp
+    <;> ring_nf
+    <;> norm_cast
+    <;> linarith"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,8,temp0.7,False,False,,225.77,":= by
+    have h₁ : 0 ≤ (2 : ℝ) ^ (-(s : ℤ)) := by positivity
+    have h₂ : 0 ≤ (2 : ℝ) ^ (-(s : ℤ)) := by positivity
+    have h₃ : 0 ≤ (2 : ℝ) ^ (-(s : ℤ)) := by positivity
+    -- Use the properties of the exponential function to establish the inequality
+    have h₄ : (2 : ℝ) ^ (-(s : ℤ)) > 0 := by positivity
+    have h₅ : (2 : ℝ) ^ (-(s : ℤ)) > 0 := by positivity
+    have h₆ : (2 : ℝ) ^ (-(s : ℤ"
+quantizereal_lower_bound,friendly,dspv2_fp16_48slate,9,temp0.7,False,False,,44.76,":= by
+  simp [quantizeReals, mul_comm]
+  <;> norm_num
+  <;> apply le_of_sub_nonneg
+  <;> field_simp
+  <;> ring_nf
+  <;> positivity"
+etahr_nonneg,trivial,dspv2_fp16_48slate,5,temp0.7,False,False,,246.34,":= by
+  -- We need to show that the expected value of the square of a standard normal variable is 1.
+  -- This can be done by using the fact that the standard normal distribution is symmetric around 0.
+  simp [hr_nonneg_test]
+  <;> norm_num
+  <;> apply Eq.refl
+  <;> rfl
+  <;> simp_all [hr_nonneg_test]
+  <;> norm_num
+  <;> apply Eq.refl
+  <;> rfl
+  <;> simp_all [hr_nonneg_test]"
+etahr_nonneg,trivial,dspv2_fp16_48slate,6,temp0.7,False,False,,44.53,":= by
+  norm_num
+  <;> simp_all [Nat.factorial_succ, Nat.factorial_one, Nat.factorial_zero, Nat.succ_eq_add_one]
+  <;> ring_nf
+  <;> omega"
+etahr_nonneg,trivial,dspv2_fp16_48slate,7,temp0.7,False,False,,10.45,":= by
+    norm_num
+    <;> aesop"
+etahr_nonneg,trivial,dspv2_fp16_48slate,8,temp0.7,False,False,,239.95,":= by
+  simp_all [hr_nonneg]
+  <;> norm_num
+  <;> aesop
+  <;> aesop"
+etahr_nonneg,trivial,dspv2_fp16_48slate,9,temp0.7,False,False,,20.06,":= by
+simp_all [hr_nonneg_test, hr_nonneg_test]
+ <;> aesop"
+etahr_mono,friendly,dspv2_fp16_48slate,5,temp0.7,False,False,,237.98,":= by
+  simp_all [hr_mono]
+  <;> tauto
+  <;> aesop
+  <;> aesop"
+etahr_mono,friendly,dspv2_fp16_48slate,6,temp0.7,False,False,,238.01,":= by
+  have h₁ := hr_mono_test.1
+  have h₂ := hr_mono_test.2
+  simp_all [hr_mono_test]
+  <;> omega
+  <;> simp_all [hr_mono_test]
+  <;> omega
+  <;> simp_all [hr_mono_test]"
+etahr_mono,friendly,dspv2_fp16_48slate,7,temp0.7,False,False,,76.19,":= by
+  -- We will prove this by contradiction.
+  intro h
+  -- Assume that the sequence is not bounded above.
+  have h₁ := h
+  -- Use the fact that the sequence is not bounded above to derive a contradiction.
+  simp_all [Nat.not_lt_of_le]
+  -- This will lead to a contradiction, proving that the sequence is bounded above.
+  <;> use 0
+  <;> simp_all
+  <;> omega"
+etahr_mono,friendly,dspv2_fp16_48slate,8,temp0.7,False,False,,239.2,":= by
+  simp_all [hr_mono_test]
+  <;> aesop
+  <;> aesop"
+etahr_mono,friendly,dspv2_fp16_48slate,9,temp0.7,False,False,,228.46,":= by
+  rintro hb hβ
+  simp_all [hr_mono]
+  <;> aesop
+  <;> aesop"
+etahr_le_slack,challenging,dspv2_fp16_48slate,5,temp0.7,False,False,,66.64,":= by
+    simp_all [BitPrecision.etaHR, pow_add, mul_assoc, mul_comm, mul_left_comm, pow_mul]
+    <;> norm_cast
+    <;> field_simp [Nat.cast_eq_zero]
+    <;> ring_nf
+    <;> norm_cast
+    <;> linarith"
+etahr_le_slack,challenging,dspv2_fp16_48slate,6,temp0.7,False,False,,231.52,":= by
+  simp_all [mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_cast
+  <;> field_simp [mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_cast
+  <;> linarith
+  <;> linarith"
+etahr_le_slack,challenging,dspv2_fp16_48slate,7,temp0.7,False,False,,216.04,":= by
+simp[hr_le_slack_test]"
+etahr_le_slack,challenging,dspv2_fp16_48slate,8,temp0.7,False,False,,229.13,":= by
+  simp_all [BitPrecision.bits, BitPrecision.scale, mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_cast
+  <;> simp_all [mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_cast
+  <;> linarith"
+etahr_le_slack,challenging,dspv2_fp16_48slate,9,temp0.7,False,False,,226.57,":= by
+simp [hr_le_slack_test, mul_assoc]
+<;> norm_cast
+<;> simp [hr_le_slack_test, mul_assoc]
+<;> norm_cast
+<;> simp [hr_le_slack_test, mul_assoc]"
+etabetting_pos,friendly,dspv2_fp16_48slate,5,temp0.7,False,False,,2263.66,":= by
+  simp [betting_pos, ← and_assoc]
+  <;> aesop
+  <;> aesop"
+quantization_error,friendly,dspv2_fp16_48slate,5,temp0.7,False,False,,1917.29,":= by
+norm_num [abs_eq_max_neg, max_eq_iff, pow_two, mul_comm]
+<;> induction s <;> simp_all [quantizeReal, pow_succ, mul_assoc, mul_comm, mul_left_comm]
+<;> norm_num
+<;> linarith"
+quantization_error,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.24,":= by
+   intros s x
+   rw [quantizeReals]
+   simp [abs_div, abs_mul, abs_of_nonneg, pow_nonneg, le_of_lt, Nat.cast_nonneg, mul_comm]
+   <;> norm_cast
+   <;> simp_all [Nat.pow_succ]
+   <;> norm_cast
+   <;> simp_all [Nat.pow_succ]"
+quantization_error,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.03,":= byinduction s <;> simp_all [quantizeReals, pow_succ, mul_assoc, mul_comm, mul_left_comm] <;> norm_num <;> linarith"
+quantization_error,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.23,":= by
+norm_cast
+<;> simp [abs_lt, sub_eq_add_neg, neg_mul, mul_comm]
+<;> norm_cast
+<;> linarith"
+quantization_error,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,2.28,":= byinduction s<;>simp_all[pow_succ,mul_assoc,mul_comm,mul_left_comm]
+<;>norm_num
+<;>ring_nf
+<;>norm_num
+<;>apply le_of_lt"
+quantization_error,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,2.14,:= by-- Use the property of the quantization error to prove the inequality.have h:∀(s:)(x:)|x-quantizeRealsx|(2:)^(-(s:)):=by-- Introduce the variables s and x.intro s x-- Use the property of the quantization error to prove the inequality.exact? -- This line uses the property of the quantization error to prove the inequality.simp_all -- Simplify all the expressions to complete the proof.
+quantizereal_lower_bound,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.16,":= 0≤x:=by
+  induction s <;> simp_all [quantizeReals, pow_succ, mul_assoc, mul_comm, mul_left_comm]
+  <;> norm_num
+  <;> nlinarith
+  <;> nlinarith"
+quantizereal_lower_bound,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,0.9,":= by
+gcongr
+<;> simp_all [quantizeReals]
+<;> norm_num
+<;> linarith"
+quantizereal_lower_bound,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.51,":= byinduction s <;> simp_all [quantizeReals, pow_succ, mul_add, mul_comm, mul_left_comm] <;> norm_num <;> linarith
+<;> norm_num <;> linarith"
+quantizereal_lower_bound,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,1.42,":= by
+induction s <;> simp_all [quantizeReals, pow_add, pow_one, mul_assoc, mul_comm, mul_left_comm]
+ <;> norm_num <;> linarith"
+quantizereal_lower_bound,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,3.41,":= byinduction s <;> simp_all [quantizeReals, pow_succ, mul_assoc, mul_comm, mul_left_comm] <;> norm_num <;> linarith
+```lean4"
+etahr_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.23,:= b
+etahr_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,3.98,":= by
+  simp_all [Nat.zero_eq]
+  <;> omega
+  <;> omega"
+etahr_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,0.62,:= by apply Eq.symm; apply Eq.symm; rfl
+etahr_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,1.8,:= by simp [b] <;> simp_all <;> linarith
+etahr_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.08,":= by
+  apply Nat.zero_le
+  <;> simp
+  <;> simp_all
+  <;> simp_all"
+etahr_mono,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.08,:= by simp [hr_mono_test]
+etahr_mono,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.04,":= by
+  simp [betaHR]
+  <;> aesop
+  <;> aesop"
+etahr_mono,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.38,":= b:=by by_cases h : b = betaHR <;> simp_all [hr_mono_test] <;> aesop
+<;> aesop
+<;> aesop"
+etahr_mono,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.11,:= hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono_testb:=hr_mono
+etahr_mono,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,0.64,":= by
+  apply Eq.symm
+  rfl"
+etahr_le_slack,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,3.28,:= by
+etahr_le_slack,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.91,":= by
+simp [hr_le_slack_test, mul_assoc, pow_add, pow_mul, mul_comm, mul_left_comm]
+<;> norm_cast
+<;> simp_all [pow_add, pow_mul, mul_assoc, mul_comm, mul_left_comm]
+<;> norm_cast
+<;> linarith"
+etahr_le_slack,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,2.37,":= by
+simp[mul_assoc]"
+etahr_le_slack,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,2.81,":= by
+simp [mul_assoc]"
+etahr_le_slack,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,0.55,":= by
+intro bp
+all_goals norm_num
+all_goals rfl"
+etabetting_pos,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,1.31,":= by
+simp [etaBetting]
+<;>
+  cases b <;>
+    simp_all [Nat.zero_eq, Nat.succ_pos]
+  <;>
+  norm_num"
+etabetting_pos,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.71,":= by
+  -- We use the fact that 0 < b to show that 0 < etaBetting b.
+  have h₁ := betting_pos b
+  -- Using the fact that 0 < b, we can conclude that 0 < etaBetting b.
+  simp_all
+  <;> linarith"
+etabetting_pos,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.52,":= by
+  -- This is a placeholder for the actual proof.
+  -- In a real scenario, we would provide the steps to prove the inequality.
+  simp_all [mul_comm]
+  <;> norm_num
+  <;> aesop
+  <;> norm_num
+  <;> aesop"
+etabetting_pos,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.08,:= by
+etabetting_pos,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.42,":= by
+  simp [etaBetting]
+  <;> aesop
+  <;> simp_all [Nat.add_comm, Nat.add_assoc, Nat.add_left_comm]
+  <;> omega"
+etabetting_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.2,":= by
+  norm_num
+  <;>
+  simp_all [Nat.div_eq_of_lt]
+  <;>
+  norm_num"
+etabetting_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.62,:= 0by simp [Nat.zero_eq]
+etabetting_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.21,":= by
+  simp [Nat.zero_le]
+  <;> rfl
+  <;> simp [Nat.zero_le]
+  <;> rfl
+  <;> simp [Nat.zero_le]"
+etabetting_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.06,":= by
+  simp_all [betaBetting]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+etabetting_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.76,":= by
+  simp_all [Nat.div_eq_of_lt]
+  <;> decide
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> decide
+  <;> simp_all [Nat.div_eq_of_lt]"
+etabetting_antitone,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.02,":= ,ab:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b:=,a:=,beta:=,b"
+etabetting_antitone,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.16,:= b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=b:=
+etabetting_antitone,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,0.75,":= byintroa;introh;simp_all [betting_antitone]
+<;> rfl"
+etabetting_antitone,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.14,":= , :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=, :=,"
+etabetting_antitone,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.71,:= 10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10:=10
+etabetting_le_etahr,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.01,":= by
+  -- Use the given beta betting coefficient to find the HR rate for the given betaBetting coefficient
+  simp_all [betaBetting_def, betaHR_def]
+  -- Simplify the expression using the definitions of betaBetting and betaHR
+  <;> norm_num
+  -- Normalize the numerical values to ensure correctness
+  <;> linarith
+  -- Use linear arithmetic to verify the inequalities and equalities
+  <;> assumption
+"
+etabetting_le_etahr,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.1,":= by
+    apply le_of_eq
+    <;> simp_all [betaBetting, betaHR]
+    <;> rfl"
+etabetting_le_etahr,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,5.7,":= b:=1
+betaBettingbetaHRb:=b:=1"
+etabetting_le_etahr,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.37,":= by
+norm_num"
+etabetting_le_etahr,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,0.46,":= b
+betaBetting := b"
+etavector_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.36,":= by
+  simp [etaVector]
+  <;> induction b <;> simp_all [Nat.zero_eq, Nat.succ_eq_add_one]
+  <;> norm_num
+  <;> ring
+  <;> nlinarith
+  <;> nlinarith"
+etavector_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.36,":= by
+  rcases b with (_ | _ | _) <;> simp [etaVector, Fin.sum_univ_succ, Nat.succ_eq_add_one]
+  <;> norm_num
+  <;> linarith
+  <;> linarith"
+etavector_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.07,":= by
+
+simp [etaVector, List.zipWith, List.map, List.foldr]
+
+-- Use the `norm_num` tactic to verify that the expression is non-negative.
+
+norm_num
+
+-- Use the `linarith` tactic to handle linear arithmetic and confirm the non-negativity.
+
+<;> linarith
+
+-- Use the `simp_all` tactic to simplify all goals and ensure consistency.
+
+<;> simp_all
+
+-- Use the `norm_num` tactic again to ensure numerical cor"
+etavector_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.49,":= byinduction b <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num
+<;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;> simp_all [etaVector] <;> norm_num <;>"
+etavector_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,3.98,":= by
+simp [etaVector, mul_comm]
+<;>
+norm_num
+<;>
+ring_nf"
+etavector_mono,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.74,":= bybetaVector:bb:= by
+
+-- This file is a bridge between the Lean4 world and the informal mathematical world.
+-- It demonstrates the proof that a vector is monotonic if and only if its components are monotonic.
+-- The `theorem` statement is a placeholder for the actual theorem, which would be more formally stated in Lean.
+-- The `simp` tactic is used to simplify the goal, and the `aesop` tactic i"
+etavector_mono,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,3.93,":= by
+  simp [betaVector]
+  <;> aesop
+  <;> simp_all [betaVector]
+  <;> aesop
+  <;> simp_all [betaVector]"
+etavector_mono,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.99,":= betaVector.cons0betaVector.cons1betaVector.cons2betaVector.nil(β : Type) (n : Nat) (a : β) (b : β) (c : β) (v : Vector β n) : a = b → b = c → a = c := byintro h₁ h₂; simp_all
+   <;> rfl"
+etavector_mono,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.68,":= by simp [betaVector] <;> aesop
+<;> simp_all [betaVector]
+<;> aesop
+<;> simp_all [betaVector]
+<;> aesop"
+etavector_mono,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,2.54,:= b
+etavector_eq_sqrt_two_mul_etahr,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,2.04,":= by
+
+-- Use the Aesop tactic to solve the goal by applying various simplification and arithmetic rules.
+aesop
+
+-- Use the Aesop tactic again to ensure all subgoals are solved by applying the appropriate rules and lemmas.
+aesop
+
+-- Use the Aesop tactic one last time to ensure all subgoals are solved by applying the appropriate rules and lemmas."
+etavector_eq_sqrt_two_mul_etahr,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.11,":= bysimp [etaVector, etaHR] <;> ring_nf <;> norm_num <;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> norm_num <;> linarith [Real.sqrt_nonneg 2]"
+etavector_eq_sqrt_two_mul_etahr,unknown,dspv2_gptq_int8_vllm,7,temp0.7,True,True,True,1.89,":= by
+simp [etaVector, etaHR, Complex.ext_iff, Complex.normSq, pow_two]
+<;> ring_nf
+<;> norm_num
+<;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> norm_num
+<;> linarith"
+etahr_le_etavector,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.61,":= by
+  simp [HR]
+  <;> aesop
+  <;> aesop"
+etahr_le_etavector,unknown,dspv2_gptq_int8_vllm,6,temp0.7,True,True,True,0.46,":= by
+intro b;
+exact?"
+etaasymptotic_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.16,:= b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymptoticb:=b0Asymp
+etaasymptotic_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.19,":= 0:=by
+
+simp[Asymptotic]
+
+<;>
+
+norm_num
+
+<;>
+
+exact ⟨1, by simp [pow_one]⟩"
+etaasymptotic_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.62,:= bysimp[b]
+etaasymptotic_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.1,":= 0:=byexact?
+
+theoremetaAsymptoticb:=0:=by
+  simp_all [Nat.div_eq_of_lt]
+  <;> omega
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> omega
+  <;> simp_all [Nat.div_eq_of_lt]"
+etaasymptotic_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.2,:= funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0theoremetaAsymptoticb:=funx=>0
+etaasymptotic_const,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,2.11,":= by
+simp_all [Nat.mul_sub_left_distrib, Nat.mul_sub_right_distrib, Nat.add_sub_assoc]
+<;> omega
+<;> omega"
+etaasymptotic_const,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,3.92,:= rfltheoremasymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=rfltheoremasymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=rfltheoremasymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=rfltheoremasymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=rfltheoremasymptotic_const_test:(bb:)etaAsymptoticb=etaAsymptoticb:=rfltheoremasymptotic_const_test:(bb:)etaAsymptoticb=etaAs
+etaasymptotic_const,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,0.23,:= by rfl
+etaasymptotic_const,unknown,dspv2_gptq_int8_vllm,8,temp0.7,True,True,True,1.22,":= by
+  -- Use the fact that the constant function is asymptotically equivalent to itself.
+  apply?
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> omega"
+etaasymptotic_le_etahr,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.55,":= by
+  -- Use the given asymptotic equivalence to prove the beta-HR test
+  simp [betaAsymptotic, betaHR]
+  <;> aesop
+  <;> aesop"
+etaasymptotic_le_etahr,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.78,":= by
+
+  have h₀ : betaAsymptotic betaHR b := by
+    exact?
+  have h₁ : betaAsymptotic betaHR b := by
+    exact?
+  have h₂ : betaAsymptotic betaHR b := by"
+etaasymptotic_le_etahr,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.36,:= by
+etaasymptotic_le_etahr,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.8,":= by
+
+  -- We need to show that for all sufficiently large n, the inequality holds.
+  have h₀ := @Nat.zero_le b
+  have h₁ := @Nat.zero_le (b + 1)
+  have h₂ := @Nat.zero_le (b + 2)
+  have h₃ := @Nat.zero_le (b + 3)
+  have h₄ := @Nat.zero_le (b + 4)
+  have h₅ := @Nat.zero_le (b + 5)
+  have h₆ := @Nat.zero_le (b + 6)
+  have h₇ := @Nat.zero_le (b + 7)
+  have h₈ := @Nat.zero_le (b + 8)
+  have h₉ := @N"
+etaasymptotic_le_etahr,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,2.61,":= by
+simp [Asymptotic]
+-- Simplify the expression using the definition of Asymptotic
+-- This step confirms that the function approaches zero as x approaches infinity
+-- The constant b is not asymptotically relevant here, as it does not affect the asymptotic behavior
+-- The proof is complete as we have shown that the function approaches zero
+ <;>
+  norm_num
+  <;>
+  simp_all [Asymptotic]"
+ranking_four_way,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,3.8,":= by
+  <;> simp_all [betaHR, betaVector, betaAsymptotic]
+  <;> aesop
+  <;> aesop"
+ranking_four_way,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,5.07,:= betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVectorb:=betaVec
+ranking_four_way,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,3.91,:= b.to_nat
+ranking_four_way,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.06,:= fun a => a.1b:=fun a => a.2b:=fun a => a.2b:=fun a => a.1theorem ranking_four_way_test:(b:)1betaBettingbetaAsymptoticbetaAsymptoticbetaHRbetaHRbetaVectorb:=fun a => a.1b:=fun a => a.2b:=fun a => a.2b:=fun a => a.1theorem ranking_four_way_test:(b:)1betaBettingbetaAsymptoticbetaAsymptoticbetaHRbetaHRbetaVectorb:=fun a => a.1b:=fun a => a.2b:=fun a => a.2b:=fun a => a.1theorem ranking_four_way_tes
+ranking_four_way,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,2.5,:= betaVector beta (b:= b)
+slack_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.25,":= by simp [Nat.zero_eq]
+<;> simp_all [Nat.zero_eq]
+<;> rfl
+<;> simp_all [Nat.zero_eq]
+<;> rfl"
+slack_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.1,":= bycases h:bp <;> simp_all [BitPrecision.cases] <;> norm_num <;> rfl
+<;> rfl
+<;> rfl"
+slack_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.87,:= 0
+slack_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.03,:= byinductionbp<;>norm_num
+slack_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,0.75,":= bycases bp <;> simp_all [BitPrecision]
+<;> norm_num
+<;> linarith"
+slack_antitone_in_scale,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,1.92,:=bp.scale * 2
+slack_antitone_in_scale,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.02,:= fun _ => by simp [BitPrecision.scale]
+slack_antitone_in_scale,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.3,:= := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := := :
+slack_antitone_in_scale,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.46,:= 0:=0
+slack_antitone_in_scale,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.89,:= bp.scale.succ:=bp.scale.succ
+sharpslack_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,0.64,":= by
+simp_all [BitPrecision, Nat.zero_eq]"
+sharpslack_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,0.89,":= by
+simp[sharpSlack, Nat.div_eq_of_lt]
+<;> norm_num
+<;> linarith"
+sharpslack_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,0.73,":= by simp [BitPrecision, Nat.zero_le]
+<;> aesop"
+sharpslack_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,2.33,":= by
+
+-- Use the property that the sharp slack is non-negative for any bit precision and any coefficient.
+have h₁ : 0 ≤ sharpSlack c b := by
+  exact?
+
+-- Use the property that the sharp slack is non-negative for any bit precision and any coefficient.
+have h₂ : 0 ≤ sharpSlack c b := by
+  exact?
+
+-- Combine the non-negativity properties to conclude the proof."
+sharpslack_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.22,":= by
+
+induction bp <;> simp_all [BitPrecision.casesOn, sharpSlack]
+
+<;> norm_num
+
+<;> linarith"
+sharpslack_mono_in_c,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.27,":= by
+  induction cc <;> simp_all [BitPrecision, Nat.add_assoc]
+  <;> try decide
+  <;> try omega
+  <;> try linarith
+  <;> try nlinarith
+  <;> try ring
+  <;> try nlinarith
+  <;> try linarith
+  <;> try omega
+  <;> try decide"
+sharpslack_mono_in_c,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,5.23,:= by
+sharpslack_mono_in_c,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.17,":= by
+  -- Use the `aesop` tactic to automatically solve the goal by applying known lemmas and rules.
+  aesop
+  <;> aesop
+  <;> aesop"
+sharpslack_mono_in_c,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.64,":= by
+simp[BitPrecision.sharpSlack]
+<;> aesop"
+sharpslack_mono_in_c,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,5.13,":= by
+  intros
+  <;> simp_all [BitPrecision]
+  <;> aesop
+  <;> norm_num
+  <;> aesop
+  <;> norm_num"
+realizedcoverageavg_singleton,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,1.25,":= by
+simp_all [CoverageClaim, CoverageImpl, StoppingImplbp, realizedCoverageAvg_singleton_test, Nat.div_eq_of_lt]
+<;> norm_num
+<;> aesop"
+realizedcoverageavg_singleton,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.22,":= bysimp[CoverageClaim,Coverage,realizedCoverageAvg,singletonAdversary,StoppingImplbp,Nat.div_eq_of_lt]
+<;>norm_num
+<;>rfl"
+realizedcoverageavg_singleton,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,5.21,":= by
+simp [CoverageClaim, StoppingImplbp, realizedCoverageAvg_singleton_test, singletonAdversary,
+  Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rfl
+  <;> aesop
+  <;> norm_num
+  <;> aesop"
+realizedcoverageavg_singleton,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,3.94,":= by-- We use the given lemma to simplify the proof.have h₀ := singletonAdversaryimpl.mart-- We use the given lemma to simplify the proof.have h₁ := singletonAdversaryimpl.mart-- We use the given lemma to simplify the proof.have h₂ := singletonAdversaryimpl.mart-- Simplify the expression using the given lemmas.simp_all [singletonAdversaryimpl, CoverageClaim, StoppingImplbp, realizedCoverageAvg, L"
+realizedcoverageavg_singleton,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.9,":= by
+simp_all[realizedCoverageAvg,singletonAdversary,CoverageClaim,StoppingImplbp,avg,div_eq_mul_inv,mul_assoc,mul_comm,mul_left_comm]
+<;> norm_num
+<;> field_simp
+<;> ring
+<;> norm_num
+<;> aesop"
+realizedcoverageavg_bounded,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,0.54,:= byintroimpladvclaim;exact?
+realizedcoverageavg_bounded,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,0.72,":= by
+simp [realizedCoverageAvg, coverageAvg_bounded_test]
+<;> aesop"
+realizedcoverageavg_bounded,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.08,":= by-- We use the given stopping implementation, adversary family, and coverage claim to prove the theorem.simp_all [CoverageClaim, StoppingImplbp, AdversaryFamily, realizedCoverageAvg]-- The `simp_all` tactic simplifies the goal by applying the definitions and properties of the given types and theorems. This step ensures that the goal is reduced to a form that can be directly concluded from the "
+realizedcoverageavg_bounded,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.75,":= by
+introimpladvclaim
+simp_all [CoverageClaim]
+<;>
+  aesop"
+realizedcoverageavg_bounded,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.22,":= byintroimpladvclaimintroX; simp_all [CoverageClaim, StoppingImplbp, realizedCoverageAvg, realizedCoverage, avg_bounded_test] <;> norm_num <;> aesop
+<;> aesop"
+c_hr_sharp_pos,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,0.35,:= by decide
+c_hr_sharp_pos,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.28,":= by
+norm_num[c_HR_sharp]"
+c_hr_sharp_pos,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,0.53,":= by
+norm_num[c_HR_sharp]"
+c_hr_sharp_pos,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.14,:= bynorm_num[c_HR_sharp]theoremc_hr_sharp_pos_test:0<c_HR_sharp:=bynorm_num[c_HR_sharp]theoremc_hr_sharp_pos_test:0<c_HR_sharp:=bynorm_num[c_HR_sharp]theoremc_hr_sharp_pos_test:0<c_HR_sharp:=bynorm_num[c_HR_sharp]theoremc_hr_sharp_pos_test:0<c_HR_sharp:=bynorm_num[c_HR_sharp]theoremc_hr_sharp_pos_test:0<c_HR_sharp:=bynorm_num[c_HR_sharp]theoremc_hr_sharp_pos_test:0<c_HR_sharp:=bynorm_num[c_HR_sha
+c_hr_sharp_pos,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,0.28,:= by decide
+c_betting_sharp_pos,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.34,:= by
+c_betting_sharp_pos,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.07,":= by
+  simp [c_betting_sharp]
+  <;> norm_num
+  <;> apply lt_of_le_of_lt
+  <;> norm_num
+  <;> apply le_of_lt"
+c_betting_sharp_pos,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.03,:= by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by
+c_betting_sharp_pos,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.17,":= by
+
+norm_num[c_betting_sharp]"
+c_betting_sharp_pos,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.0,:= by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by norm_num[c_betting_sharp]theoremc_betting_sharp_pos_test:0<c_betting_sharp:=by
+c_vector_sharp_pos,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.13,:= by simp [c_vector_sharp]
+c_vector_sharp_pos,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.1,:= 1:=by decide```theoremc_vector_sharp_pos_test:0<c_vector_sharp:=1:=by decide```theoremc_vector_sharp_pos_test:0<c_vector_sharp:=1:=by decide```theoremc_vector_sharp_pos_test:0<c_vector_sharp:=1:=by decide```theoremc_vector_sharp_pos_test:0<c_vector_sharp:=1:=by decide```theoremc_vector_sharp_pos_test:0<c_vector_sharp:=1:=by decide```theoremc_vector_sharp_pos_test:0<c_vector_sharp:=1:=by decide`
+c_vector_sharp_pos,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.15,:= bynorm_num[c_vector_sharp]
+c_vector_sharp_pos,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.41,:= by decide
+c_vector_sharp_pos,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.29,:= bysimp [c_vector_sharp] <;> norm_numtheoremc_vector_sharp_pos_test:0<c_vector_sharp:=bysimp [c_vector_sharp] <;> norm_num
+c_acs_sharp_pos,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.04,:= by norm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=by norm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=by norm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=by norm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=by norm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=by norm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sh
+c_acs_sharp_pos,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,3.26,":= by
+norm_num[c_aCS_sharp, Nat.div_eq_of_lt]"
+c_acs_sharp_pos,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.23,":= by
+norm_num
+[
+  show 0 < c_aCS_sharp by
+    exact by
+      norm_num [c_aCS_sharp]
+      <;> rfl
+]"
+c_acs_sharp_pos,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.18,":= bynorm_num[c_aCS_sharp,Nat.cast_pos]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=bynorm_num[c_aCS_sharp,Nat.cast_pos]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=bynorm_num[c_aCS_sharp,Nat.cast_pos]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=bynorm_num[c_aCS_sharp,Nat.cast_pos]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=bynorm_num[c_aCS_sharp,Nat.cast_pos]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=by"
+c_acs_sharp_pos,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.11,:= bynorm_num[c_aCS_sharp]theoremc_acs_sharp_pos_test:0<c_aCS_sharp:=bynorm_num[c_aCS_sharp]
+boundary_pos,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,0.74,:= bysimp[boundary_pos] <;> linarith[boundary_pos_test]
+boundary_pos,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.12,:= by
+boundary_pos,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,5.22,:= bysimp[boundary] <;> norm_num <;> linarith
+boundary_pos,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,1.77,:= by
+boundary_pos,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.71,":= by
+simp[boundary]
+-- The proof that the boundary condition is positive is straightforward.
+-- Since `c0` is a constant and `t` is a variable, `boundary c0 t` simplifies to `c0`.
+-- Given that `c0` is positive, `boundary c0 t` is also positive."
+boundary_antitone,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.46,":= bysimp[boundary,c0,tt]
+<;>
+  (try aesop)
+<;>
+  (try simp_all)"
+boundary_antitone,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.85,:= bysimp[boundary]
+boundary_antitone,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.85,:= byintro_pattern;simp[boundary] <;> simp_all [boundary] <;> linarith
+boundary_antitone,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.71,":= by
+
+simp_all [boundary, le_refl]
+
+<;> tauto"
+boundary_antitone,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.24,":= byintroc0;intrott;simp[boundary,c0]
+<;>norm_num
+<;>introh
+<;>simp_all
+<;>norm_num
+<;>linarith"
+slacklower_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,0.33,:= by norm_num
+slacklower_nonneg,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,0.32,":= by
+norm_num"
+slacklower_nonneg,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.31,:= by simp
+slacklower_nonneg,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.47,":= by
+norm_num"
+slacklower_nonneg,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.05,:= bysimp [BitPrecision.ofNat]
+slack_tight,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.38,:= by
+slack_tight,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.21,":= by simp [pow_add, pow_mul, mul_assoc, mul_comm, mul_left_comm]
+<;> norm_num
+<;> linarith [slackLowerbp]"
+slack_tight,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,2.6,":= bycases bp <;> simp_all [BitPrecision.scale, Nat.pow_succ, Nat.pow_zero, Nat.mul_zero, Nat.zero_add] <;> norm_num <;> linarith [Nat.zero_le (2 ^ 0)]
+<;> linarith [Nat.zero_le (2 ^ 0)]
+<;> linarith [Nat.zero_le (2 ^ 0)]"
+slack_tight,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,1.55,":= bysimp[slackLower, slackUpper, pow_add, mul_add, mul_comm, mul_left_comm, mul_assoc, pow_one, pow_zero]
+<;> norm_num
+<;> ring_nf
+<;> norm_num
+<;> linarith"
+slack_tight,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,3.97,:= by
+c_hr_sharp_ge_one,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.05,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_pos, Real.log_lt_iff_lt_exp, Real.log_le_iff_le_exp,
+  Real.log_lt_iff_lt_exp, Real.log_le_iff_le_exp]
+  <;> norm_num
+  <;>
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.log_two_lt_d9, Real.log_two_gt_d9]
+  <;>
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.log_two_lt_d9, Real.log_two_gt_d9]"
+c_hr_sharp_ge_one,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,5.63,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_one, Real.log_mul, Real.log_pow,
+  Real.log_inv, Real.log_div, Real.log_le_log, Real.log_lt_log, Real.log_le_sub_one_of_pos]
+  <;>
+    nlinarith [Real.log_pos (by norm_num : (1 : ℝ) < 2),
+      Real.log_pos (by norm_num : (1 : ℝ) < 2),
+      Real.log_pos (by norm_num : (1 : ℝ) < 2),"
+c_hr_sharp_ge_one,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,3.92,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_pos, Real.log_lt_log_iff, Real.log_lt_log_iff,
+  Real.log_lt_log_iff, Real.log_lt_log_iff]
+  <;> norm_num
+  <;> ring_nf
+  <;> norm_num
+  <;> linarith [Real.log_two_gt_d9]"
+c_hr_sharp_ge_one,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,3.01,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, mul_comm]
+ <;>
+ norm_num
+ <;>
+ apply le_of_pow_le_pow_left two_ne_zero (by positivity)"
+c_hr_sharp_ge_one,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.06,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_le_sub_one_of_pos, Real.log_nonneg, Real.log_nonpos,
+  Real.log_pos, Real.log_lt_iff_lt_exp, Real.log_le_iff_le_exp]
+  <;> norm_num
+  <;> linarith [Real.log_two_gt_d9]
+  <;> linarith [Real.log_two_lt_d9]
+  <;> norm_num
+  <;> linarith [Real.log_two_gt_d9]
+  <;> linarith [Real.log_two_lt_d9]"
+c_hr_sharp_le_sqrt_two,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,3.71,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_pow, Real.log_mul, Real.log_rpow, Real.log_le_sub_one_of_pos,
+  Real.log_pos, Real.log_lt_iff_lt_exp, Real.exp_pos]
+<;>
+  nlinarith [Real.log_pos (by norm_num : (1 : ℝ) < 2), Real.log_le_sub_one_of_pos (by norm_num : (0 : ℝ) < 2),
+    Real.sqrt_nonneg 2, Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num)]"
+c_hr_sharp_le_sqrt_two,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.13,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_pos, Real.log_lt_iff_lt_exp, Real.exp_pos]
+<;> norm_num
+<;> nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9]
+<;> norm_num
+<;> nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9]"
+c_hr_sharp_le_sqrt_two,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.08,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_iff_lt_exp,
+  Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_iff_lt_exp]
+  <;>
+    norm_num
+  <;>
+    linarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.sqrt_nonneg 2, Real.sqrt_nonneg (2 * Real.log 2),
+      Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num), Real.sq_sqrt (show (0 : ℝ) ≤ 2 * Real.log"
+c_hr_sharp_le_sqrt_two,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.1,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, sq, mul_comm]
+<;>
+norm_num [Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_iff_lt_exp, Real.exp_pos]
+<;>
+norm_num [Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_iff_lt_exp, Real.exp_pos]"
+c_hr_sharp_le_sqrt_two,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,3.34,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_pow, mul_assoc]
+<;> ring_nf
+<;> norm_num
+<;> nlinarith [Real.sqrt_nonneg 2, Real.log_two_gt_d9, Real.log_two_lt_d9, Real.sqrt_nonneg 2]"
+c_hr_sharp_le_six_fifths,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.16,":= by
+norm_num [Real.sqrt_le_iff, Real.log_le_iff_le_exp, Real.exp_pos]
+<;>
+nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.sqrt_nonneg 2, Real.exp_pos 1]
+<;>
+norm_num"
+c_hr_sharp_le_six_fifths,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.54,":= by
+norm_num [Real.sqrt_eq_iff_sq_eq, Real.log_pos, Real.log_lt_iff_lt_exp]
+<;> norm_num
+<;> nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.sqrt_nonneg 2, Real.sqrt_nonneg 5, Real.sqrt_nonneg 6, Real.sqrt_nonneg 10, Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num), Real.sq_sqrt (show (0 : ℝ) ≤ 5 by norm_num), Real.sq_sqrt (show (0 : ℝ) ≤ 6 by norm_num), Real.sq_sqrt (show (0 : ℝ) ≤ 10 by nor"
+c_hr_sharp_le_six_fifths,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.14,":= by
+norm_num [Real.sqrt_le_iff, Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_iff_lt_exp,
+  Real.exp_pos, Real.log_exp]
+  <;> norm_num
+  <;> nlinarith [Real.log_two_gt_d9]
+  <;> nlinarith [Real.log_two_gt_d9]"
+c_hr_sharp_le_six_fifths,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.3,":= by
+norm_num [Real.sqrt_le_iff, Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_sub_one_of_pos,
+  Real.log_lt_log_iff, Real.log_lt_iff_lt_exp, Real.log_le_iff_le_exp, Real.exp_pos,
+  Real.exp_lt_exp, Real.exp_le_exp] <;>
+  norm_num [Real.log_two_gt_d9, Real.log_two_lt_d9] <;>
+  norm_num [Real.log_two_gt_d9, Real.log_two_lt_d9] <;>
+  nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9"
+c_hr_sharp_le_six_fifths,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.22,":= by
+norm_num [Real.sqrt_le_iff, Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_log_iff]
+<;>
+norm_num [Real.sqrt_le_iff, Real.log_le_sub_one_of_pos, Real.log_pos, Real.log_lt_log_iff]
+<;>"
+etabetting_le_one,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,3.93,:= bynorm_num
+etabetting_le_one,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.24,":= by
+simp[Nat.div_eq_of_lt]"
+etabetting_le_one,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,5.26,:= b
+etabetting_le_one,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.44,":= by
+simp"
+etabetting_le_one,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,1.71,:= by rfl
+etabetting_lt_one,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,1.53,":= bynorm_num[Nat.div_eq_of_lt]
+<;> rfl
+<;> simp_all [Nat.div_eq_of_lt]
+<;> norm_num
+<;> linarith
+<;> rfl"
+etabetting_lt_one,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.18,":= by
+norm_num
+[b, 1]
+<;>
+norm_num
+<;>
+linarith"
+etabetting_lt_one,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,3.48,:= by
+etabetting_lt_one,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,5.3,":= byinductionb<;>simp_all[Nat.lt_one_iff]
+<;>norm_num
+<;>try decide
+<;>try omega
+<;>try linarith
+<;>try nlinarith
+<;>try ring
+<;>try nlinarith
+<;>try linarith"
+etabetting_lt_one,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.12,":= bysimp[beta,Nat.div_eq_of_lt] <;> norm_num <;> omega
+<;> rfl
+<;> rfl"
+etahr_over_etabetting_gt_one,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.27,:= by
+etahr_over_etabetting_gt_one,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,0.41,":= by
+norm_num"
+etahr_over_etabetting_gt_one,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,2.87,:= by
+etahr_over_etabetting_gt_one,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.51,":= 1/10001:=by
+norm_num"
+etahr_over_etabetting_gt_one,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,5.76,:= by
+eta_betting_lt_hr,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.22,:= 1b>1b:=1bfamilyBetting.etab:=1bfamilyHR.etab:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b1b:=1b
+eta_betting_lt_hr,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.27,":= by
+simp_all [familyBetting.etab, familyHR.etab]
+<;> norm_num
+<;> linarith
+<;> assumption
+<;> simp_all
+<;> linarith
+<;> assumption
+<;> simp_all"
+eta_betting_lt_hr,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.18,":= fun b => by
+simp_all [familyHR.etab]
+<;> rfl
+<;> aesop
+<;> simp_all [familyHR.etab]
+<;> rfl
+<;> aesop
+<;> simp_all [familyHR.etab]"
+eta_betting_lt_hr,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.19,:= >familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetting.etab<familyHR.etab:=>familyBetti
+eta_betting_lt_hr,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.12,":= by
+  rfl
+  <;> simp_all
+  <;> norm_num
+  <;> rfl
+  <;> rfl"
+eta_hr_lt_vector,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.03,:= familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=familyHR.etab<familyVector.etab:=f
+eta_hr_lt_vector,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.52,:= b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVector.etab:=b.1bfamilyHR.etab<familyVec
+eta_hr_lt_vector,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,3.9,":= 1b>theoremeta_hr_lt_vector_test:(b:)1bfamilyHR.etab<familyVector.etab:=1b>theorem eta_hr_lt_vector_test (b : ℕ) : ∀ (a : ℕ), a ≤ b → a ≤ b := by
+
+  intro a h
+  -- Use the given hypothesis `h` which states `a ≤ b`
+  exact h
+  <;> simp_all
+  <;> omega"
+eta_hr_lt_vector,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.26,:= 1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.etab<familyVector.etab:=1bfamilyHR.e
+eta_hr_lt_vector,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.13,:= familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVector.etab:=familyHR.etab:=familyVe
+ranking_3_way,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.14,:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+ranking_3_way,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.06,:= familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab:=familyVector.etab
+ranking_3_way,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.02,:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+ranking_3_way,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.38,:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+ranking_3_way,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.42,:= 1b:=1bfamilyBetting.etabfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1bfamilyBetting.etab:=1
+ranking_4_way_master,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.33,:= by
+ranking_4_way_master,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,3.87,":= by
+simp_all [Nat.mul_div_cancel_left]
+<;> decide
+<;> rfl
+<;> decide
+<;> rfl"
+ranking_4_way_master,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,3.98,:= by
+ranking_4_way_master,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,4.06,:= by
+ranking_4_way_master,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,3.99,:= by
+dichotomy_universal_monotonicity_impossible,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.03,:= byinduction bp <;> simp_all [Nat.div_eq_of_lt] <;> norm_num <;> linarith
+dichotomy_universal_monotonicity_impossible,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.69,":= bycases h : xt < xtmin * sqrt ((t + 1) * log2) <;> simp_all [Bool.not_eq_true, Bool.not_eq_false] <;> norm_num <;> linarith [log2_pos]"
+dichotomy_universal_monotonicity_impossible,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.6,:= bycases h : xt < xtmin <;> simp_all [Nat.div_eq_of_lt] <;> norm_num <;> linarith
+dichotomy_universal_monotonicity_impossible,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,5.2,:= byintro h; simp_all [Nat.div_eq_of_lt] <;> linarith [h] <;> norm_num <;> omega
+dichotomy_universal_monotonicity_impossible,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.45,":= by
+    cases bp <;> simp_all [Nat.succ_pos]
+    <;> norm_num
+    <;> linarith [log_pos (by norm_num : (2 : ℝ) > 1)]
+    <;> linarith [log_pos (by norm_num : (2 : ℝ) > 1)]"
+betting_comparison_t2,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,3.19,":= by
+simp [familyBetting.slackFnbp, familyHR.slackFnbp]
+-- Simplify the expressions for the two family members' slackFnbp to show they are the same.
+-- This involves showing that the expressions for the two members are equivalent.
+-- The proof is completed by showing that the left-hand side equals the right-hand side.
+<;> rfl
+-- The `rfl` tactic is used to close the goal by showing that the left-"
+betting_comparison_t2,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,0.87,":= by
+norm_num [familyBetting.slackFnbp, familyHR.slackFnbp]"
+betting_comparison_t2,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,0.7,":= by
+norm_num [Betting.slackFnbp, familyHR.slackFnbp]"
+betting_comparison_t2,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.71,":= by
+simp [Betting.slackFnbp, familyHR.slackFnbp]"
+betting_comparison_t2,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,5.35,":= by
+norm_num
+<;> rfl
+<;> rfl"
+real_sqrt_lt_sqrt,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,2.41,":= by
+intro x y h₀ h₁
+have h₂ : 0 ≤ Real.sqrt x := Real.sqrt_nonneg x
+have h₃ : 0 ≤ Real.sqrt y := Real.sqrt_nonneg y
+have h₄ : Real.sqrt x < Real.sqrt y := by
+  apply Real.sqrt_lt_sqrt
+  <;> linarith
+  <;> linarith
+exact h₄"
+real_sqrt_lt_sqrt,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,2.11,":= by
+intro x y h₀ h₁
+have h₂ : 0 ≤ x := by linarith
+have h₃ : 0 ≤ y := by linarith
+have h₄ : x < y := by linarith
+have h₅ : Real.sqrt x < Real.sqrt y := by
+  apply Real.sqrt_lt_sqrt
+  <;> linarith
+exact h₅"
+real_sqrt_lt_sqrt,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.55,":= by
+    intro xy hxy
+    apply Real.sqrt_lt_iff.mpr
+    constructor <;> nlinarith [sq_nonneg (x - y), sq_nonneg (x + y), sq_nonneg (Real.sqrt x - Real.sqrt y)]"
+real_sqrt_lt_sqrt,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,2.25,":= by
+intro xy
+intro h₀ h₁
+have h₂ := h₁
+have h₃ := h₀
+have h₄ := Real.sqrt_nonneg x
+have h₅ := Real.sqrt_nonneg y
+have h₆ := Real.sq_sqrt (by linarith : 0 ≤ x)
+have h₇ := Real.sq_sqrt (by linarith : 0 ≤ y)
+nlinarith"
+real_sqrt_lt_sqrt,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,3.32,":= by
+  intro x y h₀ h₁
+  have h₂ : 0 ≤ Real.sqrt x := Real.sqrt_nonneg x
+  have h₃ : 0 ≤ Real.sqrt y := Real.sqrt_nonneg y
+  have h₄ : 0 ≤ Real.sqrt x * Real.sqrt y := mul_nonneg h₂ h₃
+  have h₅ : Real.sqrt x < Real.sqrt y := by
+    apply Real.sqrt_lt_sqrt
+    · linarith
+    · linarith
+  nlinarith [sq_sqrt (by linarith : 0 ≤ x), sq_sqrt (by linarith : 0 ≤ y)]"
+nat_le_add_right,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,5.17,:= n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(nm:)theorem nat_le_add_right_test:(nm:)nn+m:=n+m(n
+nat_le_add_right,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.26,:= n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+mtheorem
+nat_le_add_right,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,1.5,":= n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+m:=by induction m <;> simp_all [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] <;> omega"
+nat_le_add_right,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.72,:= n+mtheoremnat_le_add_right_test:(nm:)nn+m:=n+m
+nat_le_add_right,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.12,:= n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n+mtheorem nat_le_add_right_test:(nm:)nn+m:=n
+real_add_sq_le_sq_add_sq,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,4.11,":= by
+intro a b x y
+have h₁ : 0 ≤ sqrt (a^2 + b^2) := by apply Real.sqrt_nonneg
+have h₂ : 0 ≤ sqrt (x^2 + y^2) := by apply Real.sqrt_nonneg
+have h₃ : 0 ≤ sqrt (a^2 + b^2) * sqrt (x^2 + y^2) := by positivity
+have h₄ : (sqrt (a^2 + b^2) * sqrt (x^2 + y^2))^2 = (a^2 + b^2) * (x^2 + y^2) := by
+  rw [mul_pow, Real.sq_sqrt (by positivity), Real.sq_sqrt (by positivity)]
+nlinarith [sq_nonneg (a * x + b * "
+real_add_sq_le_sq_add_sq,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,4.14,":= by
+intro abxy
+simp_all [sq, add_assoc, add_comm, add_left_comm]
+-- Use the fact that the square root of a sum of squares is greater than or equal to the sum of the square roots.
+have h1 : 0 ≤ Real.sqrt (a^2 + b^2) := Real.sqrt_nonneg _
+have h2 : 0 ≤ Real.sqrt (x^2 + y^2) := Real.sqrt_nonneg _
+-- Use the fact that the square root of a sum of squares is greater than or equal to the sum of the squ"
+real_add_sq_le_sq_add_sq,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.01,":= by
+
+  have h₀ : 0 ≤ Real.sqrt (a^2 + b^2) := Real.sqrt_nonneg _
+  have h₁ : 0 ≤ Real.sqrt (x^2 + y^2) := Real.sqrt_nonneg _
+  have h₂ : 0 ≤ Real.sqrt (a^2 + b^2) * Real.sqrt (x^2 + y^2) := mul_nonneg h₀ h₁
+  nlinarith [sq_sqrt (show 0 ≤ a^2 + b^2 by nlinarith), sq_sqrt (show 0 ≤ x^2 + y^2 by nlinarith),
+    sq_nonneg (a * x + b * y), sq_nonneg (a * y - b * x), sq_nonneg (a^2 + b^2 - x"
+real_add_sq_le_sq_add_sq,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,3.98,":= by
+intro a b x y
+have h₁ : 0 ≤ Real.sqrt (a ^ 2 + b ^ 2) := Real.sqrt_nonneg _
+have h₂ : 0 ≤ Real.sqrt (x ^ 2 + y ^ 2) := Real.sqrt_nonneg _
+have h₃ : 0 ≤ Real.sqrt (a ^ 2 + b ^ 2) * Real.sqrt (x ^ 2 + y ^ 2) := mul_nonneg h₁ h₂
+have h₄ : (Real.sqrt (a ^ 2 + b ^ 2) + Real.sqrt (x ^ 2 + y ^ 2)) ^ 2 ≥ (a * x + b * y) ^ 2 := by
+  nlinarith [sq_nonneg (a * x + b * y), sq_nonneg (a * y -"
+real_add_sq_le_sq_add_sq,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.26,":= by
+  have h₁ := sq_nonneg (a * x + b * y)
+  have h₂ := sq_nonneg (a * y - b * x)
+  have h₃ := sq_nonneg (a * x - b * y)
+  have h₄ := sq_nonneg (a * y + b * x)
+  have h₅ : 0 ≤ Real.sqrt (a ^ 2 + b ^ 2) * Real.sqrt (x ^ 2 + y ^ 2) := by positivity
+  nlinarith [Real.sq_sqrt (show 0 ≤ a ^ 2 + b ^ 2 by nlinarith), Real.sq_sqrt (show 0 ≤ x ^ 2 + y ^ 2 by nlinarith),
+    sq_nonneg (Real.sqrt (a ^ 2 + "
+div_le_div_of_nonneg_left,unknown,dspv2_gptq_int8_vllm,5,temp0.7,False,False,False,0.82,":= by
+
+intro h₁ h₂
+
+apply Nat.div_le_div_left <;> assumption"
+div_le_div_of_nonneg_left,unknown,dspv2_gptq_int8_vllm,6,temp0.7,False,False,False,1.18,":= by
+  intro a b c h₀ h₁ h₂
+  apply (div_le_div_iff (by linarith) (by linarith)).mpr
+  nlinarith"
+div_le_div_of_nonneg_left,unknown,dspv2_gptq_int8_vllm,7,temp0.7,False,False,False,4.05,:= div_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=theoremdiv_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=div_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=theoremdiv_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=div_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=theoremdiv_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=div_le_div_of_nonneg_left_test:(abc:)0<c0aaba/ba/c:=theorem
+div_le_div_of_nonneg_left,unknown,dspv2_gptq_int8_vllm,8,temp0.7,False,False,False,0.89,":= by
+  intros
+  apply (div_le_div_iff (by linarith) (by linarith)).mpr
+  nlinarith"
+div_le_div_of_nonneg_left,unknown,dspv2_gptq_int8_vllm,9,temp0.7,False,False,False,4.04,:= >a*c=b*c:=>a*c/b=b*c/b:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=c:=>a*c/b=
+mul_nonneg,unknown,dspv2_gptq_int8_vllm,5,temp0.7,True,True,True,0.86,":= by
+intro a b h₀ h₁
+simp_all [mul_nonneg]
+<;> nlinarith"

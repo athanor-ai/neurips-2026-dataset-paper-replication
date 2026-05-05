@@ -1,0 +1,2390 @@
+[
+  {
+    "target_id": "quantization_error",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4067,
+    "total_tokens_out": 448,
+    "wall_sec": 50.11,
+    "candidate_text": ":= fun s x => HowardBridge.Quantization.quantizeReal_error s x",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= Looking at this theorem, I need to prove that for any natural number `s` and real `x`, the quantization error is bounded by `2^(-s)`.\n\nLet me first understand what `quantizeReal` is. Since this is ",
+        "candidate_chars": 1150,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.47
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x\n  exact HowardBridge.Quantization.quantizeReal_error s x",
+        "candidate_chars": 74,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.73
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= fun s x => HowardBridge.Quantization.quantizeReal_error s x",
+        "candidate_chars": 62,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.49
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= fun s x => HowardBridge.Quantization.quantizeReal_error s x",
+        "candidate_chars": 62,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.81
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "quantizereal_lower_bound",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4005,
+    "total_tokens_out": 413,
+    "wall_sec": 44.34,
+    "candidate_text": ":= Looking at the error, it seems `quantizeReal_nonneg` might not exist or have a different name. Let me try alternative approaches.\n\n:= by\n  intro s x hx\n  have h2 : (0 : \u211d) < (2 : \u211d)^(-(s : \u2124)) := by positivity\n  have h3 : 0 \u2264 quantizeReal s x + (2 : \u211d)^(-(s : \u2124)) := by\n    have := quantizeReal_lower_bound s x\n    linarith\n  exact h3",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro s x hx\n  have h1 : 0 \u2264 quantizeReal s x := quantizeReal_nonneg s x hx\n  have h2 : (0 : \u211d) < (2 : \u211d)^(-(s : \u2124)) := by positivity\n  linarith",
+        "candidate_chars": 152,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.42
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x hx\n  have h1 : 0 \u2264 quantizeReal s x := quantizeReal_nonneg s x hx\n  have h2 : (0 : \u211d) < (2 : \u211d)^(-(s : \u2124)) := by positivity\n  linarith",
+        "candidate_chars": 152,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.74
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x hx\n  have h1 : 0 \u2264 quantizeReal s x := quantizeReal_nonneg s x hx\n  have h2 : (0 : \u211d) < (2 : \u211d)^(-(s : \u2124)) := by positivity\n  linarith",
+        "candidate_chars": 152,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.89
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, it seems `quantizeReal_nonneg` might not exist or have a different name. Let me try alternative approaches.\n\n:= by\n  intro s x hx\n  have h2 : (0 : \u211d) < (2 : \u211d)^(-(s : \u2124)) := b",
+        "candidate_chars": 337,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.62
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 241,
+    "total_tokens_out": 23,
+    "wall_sec": 20.2,
+    "candidate_text": ":= by\n  intro b\n  simp [etaHR]\n  positivity",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  simp [etaHR]\n  positivity",
+        "candidate_chars": 43,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 2.45
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_mono",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4000,
+    "total_tokens_out": 293,
+    "wall_sec": 44.07,
+    "candidate_text": ":=by\n  intro b\u2081 b\u2082 h\n  unfold etaHR\n  apply Nat.div_le_div_right\n  apply Nat.add_le_add_right\n  apply Nat.mul_le_mul_right\n  exact h",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  unfold etaHR\n  apply Nat.div_le_div_right\n  apply Nat.add_le_add_right\n  apply Nat.mul_le_mul_left\n  exact h",
+        "candidate_chars": 132,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.24
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  unfold etaHR\n  apply Nat.div_le_div_right\n  apply Nat.add_le_add_right\n  apply Nat.mul_le_mul_of_nonneg_left\n  \u00b7 exact h\n  \u00b7 exact Nat.zero_le _",
+        "candidate_chars": 168,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.61
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=by\n  intro b\u2081 b\u2082 h\n  unfold etaHR\n  apply Nat.div_le_div_right\n  apply Nat.add_le_add_right\n  apply Nat.mul_le_mul_left\n  exact h",
+        "candidate_chars": 131,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.87
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":=by\n  intro b\u2081 b\u2082 h\n  unfold etaHR\n  apply Nat.div_le_div_right\n  apply Nat.add_le_add_right\n  apply Nat.mul_le_mul_right\n  exact h",
+        "candidate_chars": 132,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.98
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_le_slack",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4459,
+    "total_tokens_out": 1252,
+    "wall_sec": 58.97,
+    "candidate_text": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slack etaHR\n  sorry",
+    "module": "Quantization",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= I need to prove that `etaHR bp.bits * 2^(-(bp.scale : \u2124)) * \u03c3 \u2264 slack \u03c3 bp` for all `\u03c3 \u2265 0`.\n\nLet me first explore what these definitions mean. I'll need to unfold `etaHR`, `slack`, and related def",
+        "candidate_chars": 1095,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.64
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slack etaHR\n  simp only []\n  nlinarith [zpow_pos (show (0:\u211d) < 2 by norm_num) (-(bp.scale : \u2124)),\n             mul_nonneg (mul_nonneg (le_of_lt (zpow_pos (show (0:\u211d) < 2 ",
+        "candidate_chars": 294,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.99
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error \"Function expected at\", the issue is that `etaHR` and `slack` might not be simple functions that unfold easily, or the theorem statement has `(\u03c3 : \u211d) (bp : BitPrecision)` as un",
+        "candidate_chars": 318,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 8.39
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slack etaHR\n  sorry",
+        "candidate_chars": 50,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.7
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_pos",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 236,
+    "total_tokens_out": 20,
+    "wall_sec": 19.79,
+    "candidate_text": ":= by\n  intro b\n  unfold etaBetting\n  positivity",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  unfold etaBetting\n  positivity",
+        "candidate_chars": 48,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 2.22
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1410,
+    "total_tokens_out": 44,
+    "wall_sec": 23.28,
+    "candidate_text": ":=  by\n  intro b\n  unfold etaBetting\n  positivity",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  simp [etaBetting]\n  positivity",
+        "candidate_chars": 48,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.25
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro b\n  unfold etaBetting\n  positivity",
+        "candidate_chars": 49,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.44
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_antitone",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4034,
+    "total_tokens_out": 367,
+    "wall_sec": 44.39,
+    "candidate_text": ":= Looking at the error, I need to understand the `etaBetting` definition better. It's likely defined as something like `1 / (b + 1)` or similar. Let me try a different approach.\n\n:= by\n  intro b\u2081 b\u2082 h\n  simp only [etaBetting]\n  gcongr\n  exact_mod_cast Nat.succ_le_succ h",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  unfold etaBetting\n  apply div_le_div_of_nonneg_left _ _ _\n  \u00b7 norm_num\n  \u00b7 positivity\n  \u00b7 exact_mod_cast Nat.succ_le_succ h",
+        "candidate_chars": 147,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.11
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand what `etaBetting` is. It's likely defined as `1 / (b + 1)` or similar for natural number `b`, returning a real number.\n\nLet me try a different approach us",
+        "candidate_chars": 356,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.21
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  simp only [etaBetting]\n  apply div_le_div_of_nonneg_left _ _ _\n  \u00b7 norm_num\n  \u00b7 positivity\n  \u00b7 exact_mod_cast Nat.succ_le_succ h",
+        "candidate_chars": 152,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.1
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand the `etaBetting` definition better. It's likely defined as something like `1 / (b + 1)` or similar. Let me try a different approach.\n\n:= by\n  intro b\u2081 b\u2082 ",
+        "candidate_chars": 271,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.67
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_le_etahr",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3158,
+    "total_tokens_out": 307,
+    "wall_sec": 46.26,
+    "candidate_text": ":= I need to understand the definitions of `etaBetting` and `etaHR` to prove this. Let me try different approaches since I don't have the exact definitions.\n\n:= by\n  intro b hb\n  unfold etaBetting etaHR\n  norm_num\n  omega",
+    "module": "Quantization",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  simp [etaBetting, etaHR]\n  sorry",
+        "candidate_chars": 53,
+        "build_ok": true,
+        "has_sorry": true,
+        "axiom_clean": null,
+        "wall_call_sec": 1.9
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= I need to prove that `etaBetting b \u2264 etaHR b` for all `b \u2265 1`. Let me explore what these definitions look like.\n\nSince I don't have the exact definitions visible, I need to reason about what `etaBe",
+        "candidate_chars": 566,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.61
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold etaBetting etaHR\n  simp only []\n  gcongr",
+        "candidate_chars": 68,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.37
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= I need to understand the definitions of `etaBetting` and `etaHR` to prove this. Let me try different approaches since I don't have the exact definitions.\n\n:= by\n  intro b hb\n  unfold etaBetting eta",
+        "candidate_chars": 221,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.36
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etavector_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 241,
+    "total_tokens_out": 22,
+    "wall_sec": 9.35,
+    "candidate_text": ":= by\n  intro b\n  simp [etaVector]\n  positivity",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  simp [etaVector]\n  positivity",
+        "candidate_chars": 47,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.72
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etavector_mono",
+    "drafter": "sonnet",
+    "n_rounds_used": 3,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 2714,
+    "total_tokens_out": 157,
+    "wall_sec": 40.26,
+    "candidate_text": ":= by\n  intro b\u2081 b\u2082 h\n  simp only [etaVector]\n  gcongr",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  unfold etaVector\n  exact Nat.pow_le_pow_right (by norm_num) h",
+        "candidate_chars": 85,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.59
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, `unfold etaVector` didn't fully reduce or the goal after unfolding isn't exactly `Nat.pow_le_pow_right` form. Let me try a different approach.\n\n:= by\n  intro b\u2081 b\u2082 h\n  simp on",
+        "candidate_chars": 223,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.01
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  simp only [etaVector]\n  gcongr",
+        "candidate_chars": 54,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 2.31
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etavector_eq_sqrt_two_mul_etahr",
+    "drafter": "sonnet",
+    "n_rounds_used": 3,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 2646,
+    "total_tokens_out": 76,
+    "wall_sec": 38.02,
+    "candidate_text": ":= by\n  intro b\n  simp [etaVector, etaHR]\n  ring",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  simp [etaVector, etaHR]",
+        "candidate_chars": 41,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.72
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\n  simp [etaVector, etaHR, mul_comm]",
+        "candidate_chars": 51,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.46
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\n  simp [etaVector, etaHR]\n  ring",
+        "candidate_chars": 48,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.36
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_le_etavector",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3794,
+    "total_tokens_out": 237,
+    "wall_sec": 42.54,
+    "candidate_text": ":= Looking at the error, the `unfold` + `simp` + `omega` approach didn't work. I need to understand what `etaHR` and `etaVector` are. Since these are defined in `HowardBridge.Quantization`, I need to try different approaches to prove the inequality.\n\nLet me try using `induction`, `cases`, or looking for lemmas about these functions.\n\n:= by\n  intro b\n  induction b with\n  | zero => \n    unfold etaHR etaVector\n    simp\n  | succ n ih =>\n    unfold etaHR etaVector\n    simp only []\n    omega",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  simp [etaHR, etaVector]",
+        "candidate_chars": 41,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.42
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\n  simp only [etaHR, etaVector]\n  omega",
+        "candidate_chars": 54,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.64
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=by\n  intro b\n  unfold etaHR etaVector\n  simp only []\n  omega",
+        "candidate_chars": 62,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.75
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, the `unfold` + `simp` + `omega` approach didn't work. I need to understand what `etaHR` and `etaVector` are. Since these are defined in `HowardBridge.Quantization`, I need to ",
+        "candidate_chars": 490,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.51
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etaasymptotic_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1444,
+    "total_tokens_out": 49,
+    "wall_sec": 24.49,
+    "candidate_text": ":=by\n  intro b\n  unfold etaAsymptotic\n  positivity",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  simp [etaAsymptotic]\n  positivity",
+        "candidate_chars": 51,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.62
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=by\n  intro b\n  unfold etaAsymptotic\n  positivity",
+        "candidate_chars": 50,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.63
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etaasymptotic_const",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 258,
+    "total_tokens_out": 27,
+    "wall_sec": 9.16,
+    "candidate_text": ":= by\n  intro b\u2081 b\u2082\n  simp [etaAsymptotic]",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082\n  simp [etaAsymptotic]",
+        "candidate_chars": 42,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.53
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etaasymptotic_le_etahr",
+    "drafter": "sonnet",
+    "n_rounds_used": 3,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1990,
+    "total_tokens_out": 218,
+    "wall_sec": 36.9,
+    "candidate_text": ":= by\n  intro b hb\n  exact etaAsymptotic_le_etaHR b hb",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  simp [etaAsymptotic, etaHR]\n  sorry",
+        "candidate_chars": 56,
+        "build_ok": true,
+        "has_sorry": true,
+        "axiom_clean": null,
+        "wall_call_sec": 2.08
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= I need to prove that `etaAsymptotic b \u2264 etaHR b` for all `b : \u2115` with `1 \u2264 b`. Let me explore what these functions are.\n\nSince I don't have direct access to the definitions, I need to work with wha",
+        "candidate_chars": 435,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.67
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  exact etaAsymptotic_le_etaHR b hb",
+        "candidate_chars": 54,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.39
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "ranking_four_way",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4153,
+    "total_tokens_out": 468,
+    "wall_sec": 45.6,
+    "candidate_text": ":= Looking at the error, the lemmas `etaBetting_le_etaAsymptotic`, `etaAsymptotic_le_etaHR`, and `etaHR_le_etaVector` might not exist with those exact names. Let me try alternative approaches.\n\n:= by\n  intro b hb\n  constructor\n  \u00b7 exact etaBetting_le_etaAsymptotic b hb\n  constructor\n  \u00b7 exact etaAsymptotic_le_etaHR b hb\n  \u00b7 exact etaHR_le_etaVector b hb",
+    "module": "Quantization",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= Looking at this theorem, I need to prove that for all natural numbers b \u2265 1, we have a chain of inequalities between four eta functions.\n\nLet me first understand what these functions likely are in ",
+        "candidate_chars": 564,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.29
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  exact \u27e8etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb\u27e9",
+        "candidate_chars": 115,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.63
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro b hb\n  refine \u27e8?_, ?_, ?_\u27e9\n  \u00b7 exact etaBetting_le_etaAsymptotic b hb\n  \u00b7 exact etaAsymptotic_le_etaHR b hb\n  \u00b7 exact etaHR_le_etaVector b hb",
+        "candidate_chars": 156,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.91
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, the lemmas `etaBetting_le_etaAsymptotic`, `etaAsymptotic_le_etaHR`, and `etaHR_le_etaVector` might not exist with those exact names. Let me try alternative approaches.\n\n:= by\n",
+        "candidate_chars": 355,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.84
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slack_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4130,
+    "total_tokens_out": 407,
+    "wall_sec": 48.97,
+    "candidate_text": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slack\n  positivity",
+    "module": "Basic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slack\n  positivity",
+        "candidate_chars": 49,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.72
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error \"Function expected at\", the issue is that the theorem statement uses `(\u03c3 : \u211d) (bp : BitPrecision) \u2192` syntax which means the theorem itself is already universally quantified but",
+        "candidate_chars": 879,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 5.91
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, the theorem statement has `(\u03c3 : \u211d) (bp : BitPrecision) \u2192` which makes this a function type. I need to understand what `slack` is. Let me try various approaches.\n\n:= by\n  intro",
+        "candidate_chars": 241,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.88
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slack\n  positivity",
+        "candidate_chars": 49,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.93
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slack_antitone_in_scale",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4132,
+    "total_tokens_out": 495,
+    "wall_sec": 47.59,
+    "candidate_text": ":= Looking at the error, I need to understand the `slack` function better. It likely involves division by scale, and I need to find the right lemma for showing antitone behavior.\n\nLet me think about what `slack \u03c3 bp` likely is - probably something like `\u03c3 / bp.scale` or similar, meaning larger scale gives smaller slack.\n\nFor `a / b \u2264 a / c` when `c \u2264 b`, I need `div_le_div_left` or similar. Let me try different approaches:\n\n:= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  unfold slack\n  apply div_le_div_of_nonneg_left\n  \u00b7 exact h\n  \u00b7 exact bp\u2081.scale_pos\n  \u00b7 exact bp\u2082.scale_pos",
+    "module": "Basic",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  unfold slack\n  linarith [bp\u2081.scale_pos, bp\u2082.scale_pos]",
+        "candidate_chars": 82,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.98
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand what `slack` and `BitPrecision.scale` are. Let me think about what definitions are likely in `HowardBridge.Quantization`.\n\nThe `slack` function likely inv",
+        "candidate_chars": 611,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.5
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  unfold slack\n  apply div_le_div_of_nonneg_left _ bp\u2081.scale_pos bp\u2082.scale_pos\n  \u00b7 exact h\n  \u00b7 positivity",
+        "candidate_chars": 131,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.23
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand the `slack` function better. It likely involves division by scale, and I need to find the right lemma for showing antitone behavior.\n\nLet me think about w",
+        "candidate_chars": 562,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.84
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "sharpslack_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4059,
+    "total_tokens_out": 235,
+    "wall_sec": 42.11,
+    "candidate_text": ":= by\n  intro c \u03c3 bp hc h\u03c3\n  simp only [sharpSlack]\n  positivity",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro c \u03c3 bp hc h\u03c3\n  unfold sharpSlack\n  positivity",
+        "candidate_chars": 59,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.6
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, `positivity` failed after `unfold sharpSlack`. I need to understand the structure of `sharpSlack` better. Since I don't have the full definition, let me try alternative approa",
+        "candidate_chars": 338,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.85
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to try different approaches to unfold and prove `sharpSlack` is nonneg. Let me try various tactics.\n\n:= by\n  intro c \u03c3 bp hc h\u03c3\n  unfold sharpSlack\n  positivity",
+        "candidate_chars": 192,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.94
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c \u03c3 bp hc h\u03c3\n  simp only [sharpSlack]\n  positivity",
+        "candidate_chars": 64,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.39
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "sharpslack_mono_in_c",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4178,
+    "total_tokens_out": 304,
+    "wall_sec": 44.6,
+    "candidate_text": ":= Looking at the error, `gcongr` didn't work after `simp only [sharpSlack]`. I need to understand the structure of `sharpSlack` better and try different approaches.\n\nLet me try unfolding the definition and using more explicit tactics:\n\n:= by\n  intro c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  unfold sharpSlack\n  gcongr",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  unfold sharpSlack\n  gcongr",
+        "candidate_chars": 59,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.67
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand the structure of `sharpSlack`. Since `gcongr` didn't work after `unfold sharpSlack`, I need to try a different approach. Let me think about what `sharpSla",
+        "candidate_chars": 376,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.23
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  simp only [sharpSlack]\n  gcongr",
+        "candidate_chars": 64,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.79
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, `gcongr` didn't work after `simp only [sharpSlack]`. I need to understand the structure of `sharpSlack` better and try different approaches.\n\nLet me try unfolding the definiti",
+        "candidate_chars": 296,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.12
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "realizedcoverageavg_singleton",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3794,
+    "total_tokens_out": 143,
+    "wall_sec": 42.21,
+    "candidate_text": ":= by\n  intro impl claim\n  simp [realizedCoverageAvg, singletonAdversary, realizedCoverage]",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro impl claim\n  simp [realizedCoverageAvg, singletonAdversary]",
+        "candidate_chars": 73,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.61
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=by\n  intro impl claim\n  simp [realizedCoverageAvg, singletonAdversary, realizedCoverage]",
+        "candidate_chars": 90,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.23
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=by\n  intro impl claim\n  simp [realizedCoverageAvg, singletonAdversary, realizedCoverage]\n  sorry",
+        "candidate_chars": 98,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.91
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro impl claim\n  simp [realizedCoverageAvg, singletonAdversary, realizedCoverage]",
+        "candidate_chars": 91,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.7
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "realizedcoverageavg_bounded",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3832,
+    "total_tokens_out": 142,
+    "wall_sec": 42.16,
+    "candidate_text": ":=  by\n  intro impl adv claim\n  unfold realizedCoverageAvg\n  apply realizedCoverageAvg_le_one",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun impl adv claim => realizedCoverageAvg_le_one impl adv claim",
+        "candidate_chars": 66,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.18
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro impl adv claim\n  exact realizedCoverageAvg_le_one impl adv claim",
+        "candidate_chars": 78,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.67
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro impl adv claim\n  unfold realizedCoverageAvg\n  split_ifs with h\n  \u00b7 exact h\n  \u00b7 simp\n  \u00b7 norm_num",
+        "candidate_chars": 110,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.82
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro impl adv claim\n  unfold realizedCoverageAvg\n  apply realizedCoverageAvg_le_one",
+        "candidate_chars": 93,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.23
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_pos",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3738,
+    "total_tokens_out": 68,
+    "wall_sec": 41.75,
+    "candidate_text": ":= by\n  exact c_HR_sharp_pos",
+    "module": "Sandwich",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  unfold c_HR_sharp\n  norm_num",
+        "candidate_chars": 36,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.43
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  exact c_HR_sharp_pos",
+        "candidate_chars": 28,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.57
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_HR_sharp\n  norm_num",
+        "candidate_chars": 36,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.01
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  exact c_HR_sharp_pos",
+        "candidate_chars": 28,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.53
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_betting_sharp_pos",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3671,
+    "total_tokens_out": 76,
+    "wall_sec": 40.58,
+    "candidate_text": ":= by\n  unfold c_betting_sharp\n  positivity",
+    "module": "Sandwich",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  unfold c_betting_sharp\n  norm_num",
+        "candidate_chars": 41,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.39
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_betting_sharp\n  positivity",
+        "candidate_chars": 43,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.78
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  unfold c_betting_sharp\n  norm_num",
+        "candidate_chars": 42,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.38
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_betting_sharp\n  positivity",
+        "candidate_chars": 43,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.57
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_vector_sharp_pos",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3678,
+    "total_tokens_out": 74,
+    "wall_sec": 40.9,
+    "candidate_text": ":= by\n  unfold c_vector_sharp\n  norm_num",
+    "module": "Sandwich",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  unfold c_vector_sharp\n  positivity",
+        "candidate_chars": 42,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.25
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_vector_sharp\n  norm_num",
+        "candidate_chars": 40,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.41
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_vector_sharp\n  positivity",
+        "candidate_chars": 42,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.43
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_vector_sharp\n  norm_num",
+        "candidate_chars": 40,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.35
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_acs_sharp_pos",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3776,
+    "total_tokens_out": 83,
+    "wall_sec": 40.66,
+    "candidate_text": ":= by\n  simp [c_aCS_sharp]\n  positivity",
+    "module": "Sandwich",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  unfold c_aCS_sharp\n  positivity",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.23
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  simp only [c_aCS_sharp]\n  positivity",
+        "candidate_chars": 44,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.48
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_aCS_sharp\n  positivity",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.39
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  simp [c_aCS_sharp]\n  positivity",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.65
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "boundary_pos",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3761,
+    "total_tokens_out": 201,
+    "wall_sec": 42.41,
+    "candidate_text": ":= Looking at the error \"Function expected\", it seems `boundary` might not be a function taking two arguments in the expected way, or `positivity` can't handle it after unfolding. Let me try a different approach.\n\n:= by\n  intro c0 hc0 t\n  unfold boundary\n  exact mul_pos hc0 (by positivity)",
+    "module": "Adversarial",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro c0 hc0 t\n  unfold boundary\n  positivity",
+        "candidate_chars": 53,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.7
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error \"Function expected\", it seems `boundary` might not be a function taking those arguments directly, or it needs different handling. Let me try a different approach.\n\n:= by\n  intr",
+        "candidate_chars": 246,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.88
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\n  unfold boundary\n  positivity",
+        "candidate_chars": 53,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.84
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error \"Function expected\", it seems `boundary` might not be a function taking two arguments in the expected way, or `positivity` can't handle it after unfolding. Let me try a differe",
+        "candidate_chars": 290,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.92
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "boundary_antitone",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4107,
+    "total_tokens_out": 512,
+    "wall_sec": 45.87,
+    "candidate_text": ":= Looking at the error, I need to understand what `boundary` is defined as and what lemmas are available. The `boundary c0 t` is likely `c0 / t` or similar. Let me try different approaches for the division inequality.\n\nThe issue with `div_le_div_of_nonneg_left` might be about argument order or the need for positivity conditions. Let me try using `div_le_div_left` or working with the specific form.\n\n:= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  unfold boundary\n  apply div_le_div_of_le_left (le_of_lt hc0)\n  \u00b7 linarith [ht]\n  \u00b7 linarith [ht]",
+    "module": "Adversarial",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  unfold boundary\n  apply div_le_div_of_nonneg_left _ _ _\n  \u00b7 exact le_refl _\n  \u00b7 linarith [hc0]\n  \u00b7 linarith [hc0]",
+        "candidate_chars": 145,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.51
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand what `boundary` is and how `div_le_div_of_nonneg_left` works. The issue is likely with the argument order or the lemma signature.\n\nLet me think about what",
+        "candidate_chars": 482,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.6
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  unfold boundary\n  apply div_le_div_of_nonneg_left (le_of_lt hc0)\n  \u00b7 exact hc0\n  \u00b7 exact ht",
+        "candidate_chars": 123,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.96
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand what `boundary` is defined as and what lemmas are available. The `boundary c0 t` is likely `c0 / t` or similar. Let me try different approaches for the di",
+        "candidate_chars": 531,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.66
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slacklower_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4056,
+    "total_tokens_out": 355,
+    "wall_sec": 45.46,
+    "candidate_text": ":= Looking at this, I need to understand what `slackLower` is defined as. Since I can't see the definition directly, let me try a more exploratory approach using `simp` and `positivity` after unfolding, or try to use the definition from `HowardBridge.Quantization`.\n\n:= by\n  intro \u03c3 bp h\u03c3\n  unfold slackLower\n  positivity",
+    "module": "Tight",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  unfold slackLower\n  positivity",
+        "candidate_chars": 54,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.02
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro \u03c3 bp h\u03c3\n  unfold slackLower\n  simp only []\n  positivity",
+        "candidate_chars": 70,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.71
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, `positivity` failed after `unfold slackLower`. I need to understand what `slackLower` is and find another approach.\n\nLet me try different tactics to prove the nonnegativity:\n\n",
+        "candidate_chars": 434,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.17
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at this, I need to understand what `slackLower` is defined as. Since I can't see the definition directly, let me try a more exploratory approach using `simp` and `positivity` after unfoldin",
+        "candidate_chars": 321,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.84
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slack_tight",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4012,
+    "total_tokens_out": 235,
+    "wall_sec": 42.46,
+    "candidate_text": ":= by\n  intro \u03c3 bp h\u03c3\n  exact \u27e8slackLower_le_slack \u03c3 bp h\u03c3, slack_le_four_slackLower \u03c3 bp h\u03c3\u27e9",
+    "module": "Tight",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  simp [slackLower, slack]\n  constructor\n  \u00b7 linarith [slackLower_le_slack \u03c3 bp h\u03c3]\n  \u00b7 linarith [slack_le_four_slackLower \u03c3 bp h\u03c3]",
+        "candidate_chars": 153,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.98
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  exact \u27e8slackLower_le_slack \u03c3 bp h\u03c3, slack_le_four_slackLower \u03c3 bp h\u03c3\u27e9",
+        "candidate_chars": 93,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.06
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= fun \u03c3 bp h\u03c3 => \u27e8slackLower_le_slack \u03c3 bp h\u03c3, slack_le_four_slackLower \u03c3 bp h\u03c3\u27e9",
+        "candidate_chars": 81,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.55
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  exact \u27e8slackLower_le_slack \u03c3 bp h\u03c3, slack_le_four_slackLower \u03c3 bp h\u03c3\u27e9",
+        "candidate_chars": 93,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.16
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_ge_one",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4799,
+    "total_tokens_out": 1352,
+    "wall_sec": 56.42,
+    "candidate_text": ":= by\n  have hlog2 : Real.log 2 \u2265 1 / 2 := by\n    rw [ge_iff_le, \u2190 Real.exp_le_iff_le_log (by norm_num)]\n    \u00b7 calc Real.exp (1 / 2) \u2264 Real.exp 1 := by\n            apply Real.exp_le_exp.mpr; norm_num\n        _ \u2264 3 := by\n            have h := Real.sum_le_exp_of_nonneg (by norm_num : (0:\u211d) \u2264 1) 1\n            simp [Finset.sum_range_succ] at h\n            linarith\n        _ \u2264 _ := by norm_num\n  have hval : 2 * Real.log 2 \u2265 1 := by linarith\n  have hsqrt1 : Real.sqrt 1 = 1 := Real.sqrt_one\n  rw [\u2190 hsqrt1]\n  apply Real.sqrt_le_sqrt\n  linarith",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  have h : (1 : \u211d) \u2264 Real.sqrt (2 * Real.log 2) := by\n    rw [\u2190 Real.sqrt_one]\n    apply Real.sqrt_le_sqrt\n    have hlog : Real.log 2 \u2265 1 / 2 := by\n      have : Real.log 2 \u2265 Real.log (Real.exp (",
+        "candidate_chars": 902,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.79
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  have h : (1 : \u211d) \u2264 Real.sqrt (2 * Real.log 2) := by\n    rw [\u2190 Real.sqrt_one]\n    apply Real.sqrt_le_sqrt\n    have hlog : Real.log 2 \u2265 1 / 2 := by\n      have h2pos : (0 : \u211d) < 2 := by norm_num\n",
+        "candidate_chars": 593,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.33
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  have h2pos : (0 : \u211d) < 2 := by norm_num\n  have hlog2 : Real.log 2 \u2265 1 / 2 := by\n    have he : Real.exp (1 / 2) \u2264 2 := by\n      have : Real.exp (1 / 2) \u2264 Real.exp 1 := by\n        apply Real.ex",
+        "candidate_chars": 641,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.51
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  have hlog2 : Real.log 2 \u2265 1 / 2 := by\n    rw [ge_iff_le, \u2190 Real.exp_le_iff_le_log (by norm_num)]\n    \u00b7 calc Real.exp (1 / 2) \u2264 Real.exp 1 := by\n            apply Real.exp_le_exp.mpr; norm_num\n",
+        "candidate_chars": 541,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.9
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_le_sqrt_two",
+    "drafter": "sonnet",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1564,
+    "total_tokens_out": 309,
+    "wall_sec": 31.81,
+    "candidate_text": ":= by\n  apply Real.sqrt_le_sqrt\n  have h : Real.log 2 \u2264 1 := by\n    have h1 : (2 : \u211d) \u2264 Real.exp 1 := by\n      have := Real.add_one_le_exp (1 : \u211d)\n      linarith\n    have h2 : Real.log 2 \u2264 Real.log (Real.exp 1) := by\n      apply Real.log_le_log\n      \u00b7 norm_num\n      \u00b7 exact h1\n    rw [Real.log_exp] at h2\n    exact h2\n  linarith",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  apply Real.sqrt_le_sqrt\n  have h : Real.log 2 \u2264 1 := by\n    have : Real.log 2 \u2264 Real.log (Real.exp 1) := by\n      apply Real.log_le_log\n      \u00b7 norm_num\n      \u00b7 rw [Real.exp_one_gt_d9.le.trans",
+        "candidate_chars": 315,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.47
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  apply Real.sqrt_le_sqrt\n  have h : Real.log 2 \u2264 1 := by\n    have h1 : (2 : \u211d) \u2264 Real.exp 1 := by\n      have := Real.add_one_le_exp (1 : \u211d)\n      linarith\n    have h2 : Real.log 2 \u2264 Real.log (R",
+        "candidate_chars": 330,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 3.31
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_le_six_fifths",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 5119,
+    "total_tokens_out": 2020,
+    "wall_sec": 66.27,
+    "candidate_text": ":= Looking at the errors, I need to fix the approach. Let me use `Real.sqrt_le_left` correctly and use the proper lemma for `sqrt x \u2264 y`.\n\nThe key insight: `sqrt(2 * log 2) \u2264 6/5` iff `2 * log 2 \u2264 (6/5)^2 = 36/25` (since `6/5 \u2265 0`), i.e., `log 2 \u2264 18/25`.\n\nI need to show `log 2 \u2264 18/25`, which is equivalent to `2 \u2264 exp(18/25)`.\n\n:= by\n  rw [Real.sqrt_le_left.not.not.mpr (by norm_num : \u00ac (6/5 < 0)).elim |>.elim] \n  rw [show (6:\u211d)/5 = 6/5 from rfl]\n  have h65 : (0:\u211d) \u2264 6/5 := by norm_num\n  rw [Real.sqrt_le_iff.mpr.mt.mt]\n  \u00b7 apply Real.sqrt_le_sqrt\n  rw [Real.sqrt_le_iff]\n  constructor\n  \u00b7 norm_num\n  \u00b7 -- Need: 2 * log 2 \u2264 (6/5)^2 = 36/25\n    have hlog : Real.log 2 \u2264 18 / 25 := by\n      rw [\u2190 Real.log_le_iff_le_exp (by norm_num : (0:\u211d) < 18/25)]\n      \u00b7 norm_num\n        have he : Real.exp (18 / 25) \u2265 2 := by\n          have hbound : Real.exp (18/25) \u2265 1 + 18/25 + (18/25)^2/2 + (18/25)^3/6 + (18/25)^4/24 + (18/25)^5/120 := by\n            have := Real.sum_le_exp_of_nonneg (by norm_num : (0:\u211d) \u2264 18/25) 5\n            simp only [Finset.sum_range_succ, Finset.sum_range_zero] at this\n            norm_num at this \u22a2\n            linarith\n          norm_num at hbound\n          linarith",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  have h1 : (0 : \u211d) \u2264 6 / 5 := by norm_num\n  rw [Real.sqrt_le' h1]\n  constructor\n  \u00b7 norm_num\n  \u00b7 have hlog : Real.log 2 \u2264 37 / 53 := by\n      have : Real.log 2 \u2264 0.6932 := by\n        have := Re",
+        "candidate_chars": 401,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.88
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at this problem, I need to prove `Real.sqrt (2 * Real.log 2) \u2264 6 / 5`.\n\nThis is equivalent to `2 * Real.log 2 \u2264 (6/5)^2 = 36/25`, i.e., `Real.log 2 \u2264 18/25 = 0.72`.\n\nSince `log 2 \u2248 0.693`, ",
+        "candidate_chars": 1564,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.85
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  have h1 : (0 : \u211d) \u2264 6 / 5 := by norm_num\n  rw [Real.sqrt_le_left.symm]\n  rw [Real.sqrt_le_iff]\n  refine \u27e8by norm_num, ?_\u27e9\n  -- Need: 2 * Real.log 2 \u2264 (6/5)^2 = 36/25\n  -- i.e., Real.log 2 \u2264 18",
+        "candidate_chars": 626,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.32
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the errors, I need to fix the approach. Let me use `Real.sqrt_le_left` correctly and use the proper lemma for `sqrt x \u2264 y`.\n\nThe key insight: `sqrt(2 * log 2) \u2264 6/5` iff `2 * log 2 \u2264 (6/",
+        "candidate_chars": 1190,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.26
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_le_one",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3856,
+    "total_tokens_out": 268,
+    "wall_sec": 43.75,
+    "candidate_text": ":= Looking at the error, I need to understand what `etaBetting` is. Since I can't see the definition, I'll try different approaches to prove the bound.\n\n:= by\n  intro b\n  unfold etaBetting\n  split_ifs with h\n  \u00b7 norm_num\n  \u00b7 norm_num",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  unfold etaBetting\n  split\n  \u00b7 norm_num\n  \u00b7 norm_num",
+        "candidate_chars": 69,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.81
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, the `split` tactic might not be working as expected. Let me try a different approach using `simp` or `omega` after unfolding, or try `norm_num` with different tactics.\n\nSince ",
+        "candidate_chars": 363,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 3.36
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\n  simp [etaBetting]\n  split_ifs with h\n  \u00b7 norm_num\n  \u00b7 norm_num",
+        "candidate_chars": 80,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.91
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand what `etaBetting` is. Since I can't see the definition, I'll try different approaches to prove the bound.\n\n:= by\n  intro b\n  unfold etaBetting\n  split_ifs",
+        "candidate_chars": 233,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.06
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_lt_one",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4116,
+    "total_tokens_out": 515,
+    "wall_sec": 49.76,
+    "candidate_text": ":= by\n  intro b hb\n  unfold etaBetting\n  have hb' : (0 : \u211d) < (b : \u211d) + 1 := by positivity\n  rw [div_lt_one hb']\n  have : (1 : \u211d) \u2264 (b : \u211d) := by exact_mod_cast hb\n  linarith",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= I need to prove that `etaBetting b < 1` for all `b : \u2115` with `1 \u2264 b`. I need to understand what `etaBetting` is. Since it's in the HowardBridge.Quantization namespace, let me think about what this ",
+        "candidate_chars": 548,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.43
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold etaBetting\n  apply div_lt_one_of_lt\n  \u00b7 linarith\n  \u00b7 positivity",
+        "candidate_chars": 91,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.71
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at the error, I need to understand what `etaBetting` is. Based on the context, it's likely defined in HowardBridge.Quantization. Let me think about what `etaBetting b` likely looks like - p",
+        "candidate_chars": 580,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 4.62
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold etaBetting\n  have hb' : (0 : \u211d) < (b : \u211d) + 1 := by positivity\n  rw [div_lt_one hb']\n  have : (1 : \u211d) \u2264 (b : \u211d) := by exact_mod_cast hb\n  linarith",
+        "candidate_chars": 174,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.17
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_over_etabetting_gt_one",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4118,
+    "total_tokens_out": 739,
+    "wall_sec": 52.99,
+    "candidate_text": ":= by\n  intro b hb\n  exact HowardBridge.Quantization.etaHR_over_etaBetting_gt_one b hb",
+    "module": "Asymptotic",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= Looking at this theorem, I need to prove that for all natural numbers b \u2265 2, `etaHR b / etaBetting b > 1`.\n\nLet me first understand what `etaHR` and `etaBetting` are. These are likely defined in `H",
+        "candidate_chars": 824,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.29
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  exact HowardBridge.Quantization.etaHR_over_etaBetting_gt_one b hb",
+        "candidate_chars": 86,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.49
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  exact HowardBridge.Quantization.etaHR_over_etaBetting_gt_one hb",
+        "candidate_chars": 84,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.17
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  exact HowardBridge.Quantization.etaHR_over_etaBetting_gt_one b hb",
+        "candidate_chars": 86,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 5.67
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "eta_betting_lt_hr",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3903,
+    "total_tokens_out": 248,
+    "wall_sec": 41.42,
+    "candidate_text": ":= by\n  intro b hb\n  unfold familyBetting familyHR\n  simp only [HowardBridge.Quantization.QuantizationFamily.eta]\n  norm_num\n  linarith [Nat.one_le_iff_ne_zero.mp hb]",
+    "module": "MasterTheorem",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  simp [familyBetting, familyHR, HowardBridge.Quantization.familyBetting, HowardBridge.Quantization.familyHR]\n  sorry",
+        "candidate_chars": 136,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.88
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold familyBetting familyHR\n  simp only [HowardBridge.Quantization.QuantizationFamily.eta]\n  norm_cast\n  omega",
+        "candidate_chars": 133,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.06
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold familyBetting familyHR\n  simp only [HowardBridge.Quantization.QuantizationFamily.eta]\n  norm_num\n  omega",
+        "candidate_chars": 132,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.6
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold familyBetting familyHR\n  simp only [HowardBridge.Quantization.QuantizationFamily.eta]\n  norm_num\n  linarith [Nat.one_le_iff_ne_zero.mp hb]",
+        "candidate_chars": 166,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.07
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "eta_hr_lt_vector",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3859,
+    "total_tokens_out": 204,
+    "wall_sec": 43.34,
+    "candidate_text": ":= I need to understand what `familyHR.eta` and `familyVector.eta` are. Since `simp only` with those names failed with \"Unk\" (unknown), I need to unfold them differently.\n\nLet me try different approaches to unfold these definitions.\n\n:= by\n  intro b hb\n  unfold familyHR.eta familyVector.eta\n  norm_cast\n  omega",
+    "module": "MasterTheorem",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  simp [familyHR.eta, familyVector.eta]\n  omega",
+        "candidate_chars": 66,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.56
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  simp only [familyHR.eta, familyVector.eta]\n  linarith",
+        "candidate_chars": 74,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.87
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  simp only [familyHR.eta, familyVector.eta]\n  norm_cast\n  omega",
+        "candidate_chars": 83,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.53
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= I need to understand what `familyHR.eta` and `familyVector.eta` are. Since `simp only` with those names failed with \"Unk\" (unknown), I need to unfold them differently.\n\nLet me try different approac",
+        "candidate_chars": 311,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.91
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "ranking_3_way",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3946,
+    "total_tokens_out": 228,
+    "wall_sec": 40.65,
+    "candidate_text": ":=  by\n  intro b hb\n  constructor\n  \u00b7 exact familyBetting_lt_familyHR b hb\n  \u00b7 exact familyHR_lt_familyVector b hb",
+    "module": "MasterTheorem",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  simp [familyBetting, familyHR, familyVector, HowardBridge.Quantization.eta]\n  constructor\n  \u00b7 linarith\n  \u00b7 linarith",
+        "candidate_chars": 136,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.94
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  constructor\n  \u00b7 exact familyBetting_lt_familyHR b hb\n  \u00b7 exact familyHR_lt_familyVector b hb",
+        "candidate_chars": 113,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.64
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  simp only [familyBetting, familyHR, familyVector]\n  constructor\n  \u00b7 exact familyBetting_lt_familyHR b hb\n  \u00b7 exact familyHR_lt_familyVector b hb",
+        "candidate_chars": 165,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.76
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro b hb\n  constructor\n  \u00b7 exact familyBetting_lt_familyHR b hb\n  \u00b7 exact familyHR_lt_familyVector b hb",
+        "candidate_chars": 114,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.79
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "ranking_4_way_master",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4096,
+    "total_tokens_out": 276,
+    "wall_sec": 42.64,
+    "candidate_text": ":=  by\n  intro b hb\n  refine \u27e8?_, ?_, ?_\u27e9\n  \u00b7 exact ranking_betting_asymptotic b hb\n  \u00b7 exact ranking_asymptotic_HR b hb\n  \u00b7 exact ranking_HR_vector b hb",
+    "module": "MasterTheorem",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  simp only [familyBetting, familyAsymptotic, familyHR, familyVector]\n  constructor\n  \u00b7 exact ranking_betting_asymptotic b hb\n  constructor\n  \u00b7 exact ranking_asymptotic_HR b hb\n  \u00b7 ",
+        "candidate_chars": 228,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.44
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  refine \u27e8?_, ?_, ?_\u27e9\n  \u00b7 exact ranking_betting_asymptotic b hb\n  \u00b7 exact ranking_asymptotic_HR b hb\n  \u00b7 exact ranking_HR_vector b hb",
+        "candidate_chars": 152,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.77
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro b hb\n  exact \u27e8ranking_betting_asymptotic b hb, ranking_asymptotic_HR b hb, ranking_HR_vector b hb\u27e9",
+        "candidate_chars": 113,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.84
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  intro b hb\n  refine \u27e8?_, ?_, ?_\u27e9\n  \u00b7 exact ranking_betting_asymptotic b hb\n  \u00b7 exact ranking_asymptotic_HR b hb\n  \u00b7 exact ranking_HR_vector b hb",
+        "candidate_chars": 153,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.97
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "dichotomy_universal_monotonicity_impossible",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 5916,
+    "total_tokens_out": 3200,
+    "wall_sec": 88.25,
+    "candidate_text": ":= Looking at this problem, I need to prove that no decision function `d` can simultaneously be monotone and satisfy the exact threshold condition where the threshold increases with time.\n\nThe key insight: if `d x t = true \u2194 x t \u2265 thr t` and `thr` is strictly increasing, then pick `x = fun _ => thr 0`. Then `x 0 \u2265 thr 0` so `d x 0 = true`, monotonicity gives `d x 1 = true`, but `x 1 = thr 0 < thr 1` so `d x 1` should be false.\n\n:= by\n  intro \u03c3 h\u03c3 bp\n  intro \u27e8d, hmono, hiff\u27e9\n  let thr : Time \u2192 \u211d := fun t =>\n    min (\u03c3 * Real.sqrt ((t : \u211d + 1) * Real.log 2)) (2 ^ (bp.bits - 1) - 1) -\n      2 ^ (-(bp.scale : \u2124))\n  let x : Time \u2192 \u211d := fun _ => thr 0\n  have h0 : d x 0 = true := by\n    rw [hiff]\n    simp [x, thr]\n  have h1 : d x 1 = true := hmono x 0 h0\n  have hiff1 := (hiff x 1).mp h1\n  simp only [x, thr] at hiff1\n  have hlog2 : 0 < Real.log 2 := Real.log_pos (by norm_num)\n  have h1pos : (0 : \u211d) < 1 * Real.log 2 := by linarith\n  have h2pos : (0 : \u211d) < 2 * Real.log 2 := by linarith\n  have hsqrt_lt : Real.sqrt (1 * Real.log 2) < Real.sqrt (2 * Real.log 2) := by\n    apply Real.sqrt_lt_sqrt\n    \u00b7 linarith\n    \u00b7 linarith\n  have h\u03c3_mul : \u03c3 * Real.sqrt (1 * Real.log 2) < \u03c3 * Real.sqrt (2 * Real.log 2) := by\n    apply mul_lt_mul_of_pos_left hsqrt_lt h\u03c3\n  -- thr 0 = min (\u03c3 * sqrt(1 * log 2)) (...) - 2^(-bp.scale)\n  -- thr 1 = min (\u03c3 * sqrt(2 * log 2)) (...) - 2^(-bp.scale)\n  -- hiff1 says thr 0 \u2265 thr 1, i.e., min A B \u2265 min C B where A < C\n  -- This gives a contradiction\n  have hmin_lt : min (\u03c3 * Real.sqrt (1 * Real.log 2)) (2 ^ (bp.bits - 1) - 1) <\n                 min (\u03c3 * Real.sqrt (2 * Real.log 2)) (2 ^ (bp.bits - 1) - 1) := by\n    apply min_lt_min_right\n    exact h\u03c3",
+    "module": "Research",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro \u03c3 h\u03c3 bp\n  intro \u27e8d, hmono, hiff\u27e9\n  -- We derive a contradiction from the iff condition\n  -- The iff says d x t = true \u2194 x t \u2265 threshold(t)\n  -- But the monotonicity says if d x t = true ",
+        "candidate_chars": 1989,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.1
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at this problem, I need to prove that no decision function `d` can simultaneously be monotone (once true, always true) and satisfy the threshold condition where the threshold is strictly in",
+        "candidate_chars": 1946,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.78
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at this problem, I need to prove that no decision function `d` can simultaneously be monotone and satisfy the exact threshold condition where the threshold increases with time.\n\nThe strateg",
+        "candidate_chars": 1670,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 12.29
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= Looking at this problem, I need to prove that no decision function `d` can simultaneously be monotone and satisfy the exact threshold condition where the threshold increases with time.\n\nThe key ins",
+        "candidate_chars": 1684,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.27
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "betting_comparison_t2",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3725,
+    "total_tokens_out": 151,
+    "wall_sec": 42.08,
+    "candidate_text": ":= by\n  simp only [BettingFamily.slackFn, familyBetting, familyHR]\n  norm_num",
+    "module": "BettingComparison",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  simp [BettingFamily.slackFn, familyBetting, familyHR]\n  norm_num",
+        "candidate_chars": 72,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.55
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  simp only [BettingFamily.slackFn, familyBetting, familyHR]\n  norm_num",
+        "candidate_chars": 77,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.78
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=  by\n  simp only [BettingFamily.slackFn, familyBetting, familyHR]\n  ring_nf\n  norm_num",
+        "candidate_chars": 88,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.22
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  simp only [BettingFamily.slackFn, familyBetting, familyHR]\n  norm_num",
+        "candidate_chars": 77,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.69
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "real_sqrt_lt_sqrt",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 262,
+    "total_tokens_out": 24,
+    "wall_sec": 18.94,
+    "candidate_text": ":= fun x y hx _ hxy => Real.sqrt_lt_sqrt hx hxy",
+    "module": "Mathlib",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun x y hx _ hxy => Real.sqrt_lt_sqrt hx hxy",
+        "candidate_chars": 47,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 2.13
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "nat_le_add_right",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 239,
+    "total_tokens_out": 18,
+    "wall_sec": 9.84,
+    "candidate_text": ":= fun n m => Nat.le_add_right n m",
+    "module": "Mathlib",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun n m => Nat.le_add_right n m",
+        "candidate_chars": 34,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 2.22
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "real_add_sq_le_sq_add_sq",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4014,
+    "total_tokens_out": 76,
+    "wall_sec": 41.14,
+    "candidate_text": ":= fun a b x y h => Real.sqrt_le_sqrt h",
+    "module": "Mathlib",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun a b x y h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.9
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= fun a b x y h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.41
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= fun a b x y h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.53
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= fun a b x y h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 1.75
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "div_le_div_of_nonneg_left",
+    "drafter": "sonnet",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 4087,
+    "total_tokens_out": 294,
+    "wall_sec": 42.38,
+    "candidate_text": ":= by\n  intro a b c hc ha hab\n  rcases eq_or_lt_of_le ha with rfl | ha_pos\n  \u00b7 simp\n  \u00b7 apply div_le_div_of_nonneg_left ha_pos.le hc\n    linarith [ha_pos, hab]",
+    "module": "Mathlib",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro a b c hc ha hab\n  rcases eq_or_lt_of_le ha with rfl | ha_pos\n  \u00b7 simp\n  \u00b7 apply div_le_div_of_nonneg_left ha_pos.le hc\n    linarith",
+        "candidate_chars": 145,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.11
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro a b c hc ha hab\n  rcases eq_or_lt_of_le ha with rfl | ha_pos\n  \u00b7 simp\n  \u00b7 apply div_le_div_of_nonneg_left ha_pos.le hc\n    linarith [ha_pos, hab]",
+        "candidate_chars": 159,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.15
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro a b c hc ha hab\n  rcases eq_or_lt_of_le ha with rfl | ha_pos\n  \u00b7 simp\n  \u00b7 apply div_le_div_of_nonneg_left ha_pos.le hc\n    linarith",
+        "candidate_chars": 145,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.02
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro a b c hc ha hab\n  rcases eq_or_lt_of_le ha with rfl | ha_pos\n  \u00b7 simp\n  \u00b7 apply div_le_div_of_nonneg_left ha_pos.le hc\n    linarith [ha_pos, hab]",
+        "candidate_chars": 159,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 2.31
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "mul_nonneg",
+    "drafter": "sonnet",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 257,
+    "total_tokens_out": 19,
+    "wall_sec": 9.75,
+    "candidate_text": ":= fun a b ha hb => mul_nonneg ha hb",
+    "module": "Mathlib",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun a b ha hb => mul_nonneg ha hb",
+        "candidate_chars": 36,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 1.7
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  }
+]

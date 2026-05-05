@@ -1,0 +1,386 @@
+[
+  {
+    "theorem_id": "quantization_error",
+    "module": "Quantization",
+    "statement": "(s : \u2115) (x : \u211d) \u2192 |x - quantizeReal s x| \u2264 (2 : \u211d)^(-(s : \u2124))",
+    "aristotle_proof_tactics": 8,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "quantizereal_lower_bound",
+    "module": "Quantization",
+    "statement": "(s : \u2115) (x : \u211d) \u2192 0 \u2264 x \u2192 0 \u2264 quantizeReal s x + (2 : \u211d)^(-(s : \u2124))",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etahr_nonneg",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 0 \u2264 etaHR b",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etahr_mono",
+    "module": "Quantization",
+    "statement": "\u2200 b\u2081 b\u2082 : \u2115, b\u2081 \u2264 b\u2082 \u2192 etaHR b\u2081 \u2264 etaHR b\u2082",
+    "aristotle_proof_tactics": 6,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etahr_le_slack",
+    "module": "Quantization",
+    "statement": "(\u03c3 : \u211d) (bp : BitPrecision) \u2192 0 \u2264 \u03c3 \u2192 etaHR bp.bits * 2^(-(bp.scale : \u2124)) * \u03c3 \u2264 slack \u03c3 bp",
+    "aristotle_proof_tactics": 12,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etabetting_pos",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 0 < etaBetting b",
+    "aristotle_proof_tactics": 5,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etabetting_nonneg",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 0 \u2264 etaBetting b",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etabetting_antitone",
+    "module": "Quantization",
+    "statement": "\u2200 b\u2081 b\u2082 : \u2115, b\u2081 \u2264 b\u2082 \u2192 etaBetting b\u2082 \u2264 etaBetting b\u2081",
+    "aristotle_proof_tactics": 8,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etabetting_le_etahr",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 etaBetting b \u2264 etaHR b",
+    "aristotle_proof_tactics": 13,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etavector_nonneg",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 0 \u2264 etaVector b",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etavector_mono",
+    "module": "Quantization",
+    "statement": "\u2200 b\u2081 b\u2082 : \u2115, b\u2081 \u2264 b\u2082 \u2192 etaVector b\u2081 \u2264 etaVector b\u2082",
+    "aristotle_proof_tactics": 6,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etavector_eq_sqrt_two_mul_etahr",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 etaVector b = Real.sqrt 2 * etaHR b",
+    "aristotle_proof_tactics": 5,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etahr_le_etavector",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 etaHR b \u2264 etaVector b",
+    "aristotle_proof_tactics": 6,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etaasymptotic_nonneg",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 0 \u2264 etaAsymptotic b",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etaasymptotic_const",
+    "module": "Quantization",
+    "statement": "(b\u2081 b\u2082 : \u2115) \u2192 etaAsymptotic b\u2081 = etaAsymptotic b\u2082",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etaasymptotic_le_etahr",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 etaAsymptotic b \u2264 etaHR b",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "ranking_four_way",
+    "module": "Quantization",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 etaBetting b \u2264 etaAsymptotic b \u2227 etaAsymptotic b \u2264 etaHR b \u2227 etaHR b \u2264 etaVector b",
+    "aristotle_proof_tactics": 10,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "slack_nonneg",
+    "module": "Basic",
+    "statement": "(\u03c3 : \u211d) (bp : BitPrecision) \u2192 0 \u2264 \u03c3 \u2192 0 \u2264 slack \u03c3 bp",
+    "aristotle_proof_tactics": 5,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "slack_antitone_in_scale",
+    "module": "Basic",
+    "statement": "(\u03c3 : \u211d) (bp\u2081 bp\u2082 : BitPrecision) \u2192 bp\u2081.scale \u2264 bp\u2082.scale \u2192 slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081",
+    "aristotle_proof_tactics": 1,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "sharpslack_nonneg",
+    "module": "SharpConstant",
+    "statement": "(c \u03c3 : \u211d) (bp : BitPrecision) \u2192 0 \u2264 c \u2192 0 \u2264 \u03c3 \u2192 0 \u2264 sharpSlack c \u03c3 bp",
+    "aristotle_proof_tactics": 7,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "sharpslack_mono_in_c",
+    "module": "SharpConstant",
+    "statement": "(c\u2081 c\u2082 \u03c3 : \u211d) (bp : BitPrecision) \u2192 0 \u2264 \u03c3 \u2192 c\u2081 \u2264 c\u2082 \u2192 sharpSlack c\u2081 \u03c3 bp \u2264 sharpSlack c\u2082 \u03c3 bp",
+    "aristotle_proof_tactics": 6,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "realizedcoverageavg_singleton",
+    "module": "SharpConstant",
+    "statement": "(impl : StoppingImpl \u03c3 bp) (claim : CoverageClaim) \u2192 realizedCoverageAvg impl (singletonAdversary impl.mart) claim = 1",
+    "aristotle_proof_tactics": 3,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "realizedcoverageavg_bounded",
+    "module": "SharpConstant",
+    "statement": "(impl : StoppingImpl \u03c3 bp) (adv : AdversaryFamily \u03c3) (claim : CoverageClaim) \u2192 realizedCoverageAvg impl adv claim \u2264 1",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_hr_sharp_pos",
+    "module": "Sandwich",
+    "statement": "0 < c_HR_sharp",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_betting_sharp_pos",
+    "module": "Sandwich",
+    "statement": "0 < c_betting_sharp",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_vector_sharp_pos",
+    "module": "Sandwich",
+    "statement": "0 < c_vector_sharp",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_acs_sharp_pos",
+    "module": "Sandwich",
+    "statement": "0 < c_aCS_sharp",
+    "aristotle_proof_tactics": 5,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "boundary_pos",
+    "module": "Adversarial",
+    "statement": "(c0 : \u211d) \u2192 0 < c0 \u2192 (t : Time) \u2192 0 < boundary c0 t",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "boundary_antitone",
+    "module": "Adversarial",
+    "statement": "(c0 : \u211d) \u2192 0 < c0 \u2192 \u2200 t\u2081 t\u2082 : Time, t\u2081 \u2264 t\u2082 \u2192 boundary c0 t\u2082 \u2264 boundary c0 t\u2081",
+    "aristotle_proof_tactics": 5,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "slacklower_nonneg",
+    "module": "Tight",
+    "statement": "(\u03c3 : \u211d) (bp : BitPrecision) \u2192 0 < \u03c3 \u2192 0 \u2264 slackLower \u03c3 bp",
+    "aristotle_proof_tactics": 5,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "slack_tight",
+    "module": "Tight",
+    "statement": "(\u03c3 : \u211d) (bp : BitPrecision) \u2192 0 < \u03c3 \u2192 slackLower \u03c3 bp \u2264 slack \u03c3 bp \u2227 slack \u03c3 bp \u2264 4 * slackLower \u03c3 bp + 2^(-(bp.scale : \u2124))",
+    "aristotle_proof_tactics": 11,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_hr_sharp_ge_one",
+    "module": "Asymptotic",
+    "statement": "Real.sqrt (2 * Real.log 2) \u2265 1",
+    "aristotle_proof_tactics": 3,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_hr_sharp_le_sqrt_two",
+    "module": "Asymptotic",
+    "statement": "Real.sqrt (2 * Real.log 2) \u2264 Real.sqrt 2",
+    "aristotle_proof_tactics": 3,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "c_hr_sharp_le_six_fifths",
+    "module": "Asymptotic",
+    "statement": "Real.sqrt (2 * Real.log 2) \u2264 6 / 5",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etabetting_le_one",
+    "module": "Asymptotic",
+    "statement": "(b : \u2115) \u2192 etaBetting b \u2264 1",
+    "aristotle_proof_tactics": 6,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etabetting_lt_one",
+    "module": "Asymptotic",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 etaBetting b < 1",
+    "aristotle_proof_tactics": 7,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "etahr_over_etabetting_gt_one",
+    "module": "Asymptotic",
+    "statement": "(b : \u2115) \u2192 2 \u2264 b \u2192 1 < etaHR b / etaBetting b",
+    "aristotle_proof_tactics": 8,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "eta_betting_lt_hr",
+    "module": "MasterTheorem",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 familyBetting.eta b < familyHR.eta b",
+    "aristotle_proof_tactics": 2,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "eta_hr_lt_vector",
+    "module": "MasterTheorem",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 familyHR.eta b < familyVector.eta b",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "ranking_3_way",
+    "module": "MasterTheorem",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 familyBetting.eta b < familyHR.eta b \u2227 familyHR.eta b < familyVector.eta b",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "local"
+  },
+  {
+    "theorem_id": "ranking_4_way_master",
+    "module": "MasterTheorem",
+    "statement": "(b : \u2115) \u2192 1 \u2264 b \u2192 familyBetting.eta b \u2264 familyAsymptotic.eta b \u2227 familyAsymptotic.eta b \u2264 familyHR.eta b \u2227 familyHR.eta b \u2264 familyVector.eta b",
+    "aristotle_proof_tactics": 8,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "dichotomy_universal_monotonicity_impossible",
+    "module": "Research",
+    "statement": "(\u03c3 : \u211d) \u2192 0 < \u03c3 \u2192 (bp : BitPrecision) \u2192 \u00ac\u2203 d : (Time \u2192 \u211d) \u2192 Time \u2192 Bool, (\u2200 x t, d x t = true \u2192 d x (t+1) = true) \u2227 (\u2200 x t, d x t = true \u2194 x t \u2265 min (\u03c3 * sqrt((t:\u211d + 1) * log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : \u2124)))",
+    "aristotle_proof_tactics": 15,
+    "capability": "challenging",
+    "source": "local"
+  },
+  {
+    "theorem_id": "betting_comparison_t2",
+    "module": "BettingComparison",
+    "statement": "familyBetting.slackFn \u03c3 bp < familyHR.slackFn \u03c3 bp",
+    "aristotle_proof_tactics": 8,
+    "capability": "friendly",
+    "source": "local"
+  },
+  {
+    "theorem_id": "real_sqrt_lt_sqrt",
+    "module": "Mathlib",
+    "statement": "(x y : \u211d) \u2192 0 \u2264 x \u2192 0 \u2264 y \u2192 x < y \u2192 Real.sqrt x < Real.sqrt y",
+    "aristotle_proof_tactics": 2,
+    "capability": "trivial",
+    "source": "mathlib"
+  },
+  {
+    "theorem_id": "nat_le_add_right",
+    "module": "Mathlib",
+    "statement": "(n m : \u2115) \u2192 n \u2264 n + m",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "mathlib"
+  },
+  {
+    "theorem_id": "real_add_sq_le_sq_add_sq",
+    "module": "Mathlib",
+    "statement": "(a b x y : \u211d) \u2192 a^2 + b^2 \u2264 x^2 + y^2 \u2192 sqrt(a^2 + b^2) \u2264 sqrt(x^2 + y^2)",
+    "aristotle_proof_tactics": 3,
+    "capability": "friendly",
+    "source": "mathlib"
+  },
+  {
+    "theorem_id": "div_le_div_of_nonneg_left",
+    "module": "Mathlib",
+    "statement": "(a b c : \u211d) \u2192 0 < c \u2192 0 \u2264 a \u2192 a \u2264 b \u2192 a / b \u2264 a / c",
+    "aristotle_proof_tactics": 4,
+    "capability": "friendly",
+    "source": "mathlib"
+  },
+  {
+    "theorem_id": "mul_nonneg",
+    "module": "Mathlib",
+    "statement": "(a b : \u211d) \u2192 0 \u2264 a \u2192 0 \u2264 b \u2192 0 \u2264 a * b",
+    "aristotle_proof_tactics": 1,
+    "capability": "trivial",
+    "source": "mathlib"
+  }
+]

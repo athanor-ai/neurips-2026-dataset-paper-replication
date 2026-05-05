@@ -1,0 +1,325 @@
+theorem_id,drafter_model,drafter_alias,attempt_idx,sampler,temperature,closed,axioms_clean,proof_match_vs_aristotle,dead_tactic_count,proof_length_chars,aristotle_length_chars,wall_sec_sample,wall_sec_verify,cost_usd_est,raw_output_preview,timestamp
+etaHR_nonneg,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,True,True,alternate,0,33,21,2.28,32.17,0.0011,":= by
+  unfold etaHR
+  positivity",20260423_123426
+etaHR_nonneg,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,True,True,alternate,0,33,21,2.13,8.78,0.0011,":= by
+  unfold etaHR
+  positivity",20260423_123501
+etaHR_nonneg,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,192,21,7.68,9.72,0.003,":= by positivity`
+
+Wait, I should think more carefully. If `positivity` doesn't work directly, I might need to unfold the definition. Let me try the simplest approach first.
+
+`:= by positivity",20260423_123512
+etaHR_mono,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,True,True,alternate,0,45,188,5.51,20.67,0.0035,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  gcongr",20260423_123529
+etaHR_mono,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,420,188,6.2,10.22,0.0064,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  gcongr`
+
+But I need to be more careful. Let me try:
+
+`:= by
+  intro b₁ b₂ h
+  simp only [etaHR]
+  gcongr`
+
+Or perhaps it's defined recursively and needs `Nat.le_",20260423_123555
+etaHR_mono,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,217,188,6.43,9.63,0.0051,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  gcongr`
+
+Or if it needs more:
+
+`:= by
+  intro b₁ b₂ h
+  simp only [etaHR]
+  gcongr`
+
+Let me try the most straightforward approach:
+
+`:= by
+  intro b₁ b₂ h
+  unfo",20260423_123612
+etaHR_le_slack,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,1477,2389,15.31,9.61,0.013,":= by
+  unfold slack etaHR
+  positivity`
+
+But this might not work if `slack` is defined differently. Let me think about another approach - perhaps `slack` is defined as a `max` or sum that includes th",20260423_123628
+etaHR_le_slack,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,148,2389,7.49,9.22,0.0066,":= by
+  unfold slack
+  linarith [mul_nonneg (mul_nonneg (etaHR_nonneg bp.bits) (zpow_pos_of_pos (by norm_num : (0:ℝ) < 2) (-(bp.scale : ℤ))).le) hσ]",20260423_123653
+etaHR_le_slack,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,1440,2389,12.97,9.39,0.013,":= by
+  unfold slack etaHR
+  simp only [BitPrecision.bits, BitPrecision.scale]
+  positivity`
+
+Actually, without knowing the exact definitions, let me try a more direct approach:
+
+`:= by
+  unfold slack",20260423_123709
+etaBetting_pos,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,True,True,alternate,0,38,431,1.69,19.58,0.001,":= by
+  unfold etaBetting
+  positivity",20260423_123732
+etaBetting_pos,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,True,True,alternate,0,38,431,6.81,9.84,0.001,":= by
+  unfold etaBetting
+  positivity",20260423_123753
+etaBetting_pos,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,True,True,alternate,0,38,431,1.94,10.61,0.001,":= by
+  unfold etaBetting
+  positivity",20260423_123810
+etaBetting_antitone,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,1180,647,10.2,9.04,0.0096,":= by
+  intro b₁ b₂ h
+  simp only [etaBetting]
+  gcongr`
+
+But I'm not sure about the exact definition. Let me think more carefully. The function `etaBetting` in quantization/betting contexts is often ",20260423_123822
+etaBetting_antitone,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,True,True,alternate,0,50,647,4.4,20.5,0.0041,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  gcongr",20260423_123841
+etaBetting_antitone,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,True,True,alternate,0,55,647,5.09,20.96,0.004,":= by
+  intro b₁ b₂ h
+  simp only [etaBetting]
+  gcongr",20260423_123906
+etaBetting_le_etaHR,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,95,1850,1.81,9.04,0.0016,":= by
+  unfold etaBetting etaHR
+  gcongr
+  · omega
+  · nlinarith [Nat.one_le_iff_ne_zero.mp hb]",20260423_123932
+etaBetting_le_etaHR,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,624,1850,7.07,11.25,0.0067,":= by
+  unfold etaBetting etaHR
+  gcongr
+  norm_num
+
+If that doesn't work, let me think more carefully. The names suggest:
+- `etaBetting` = learning rate for betting/online learning
+- `etaHR` = Hazan-",20260423_123943
+etaBetting_le_etaHR,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,854,1850,10.77,10.06,0.0099,":= by
+  unfold etaBetting etaHR
+  have hb' : (0 : ℝ) < b := by exact_mod_cast Nat.one_le_iff_ne_zero.mp hb |>.symm ▸ Nat.cast_pos.mpr (Nat.lt_of_lt_pred (by omega))
+  nlinarith [sq_nonneg (etaHR b - e",20260423_124001
+etaVector_eq_sqrt_two_mul_etaHR,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,31,240,2.34,10.29,0.0011,":= by
+  simp [etaVector, etaHR]",20260423_124022
+etaVector_eq_sqrt_two_mul_etaHR,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,31,240,1.99,9.54,0.0011,":= by
+  simp [etaVector, etaHR]",20260423_124035
+etaVector_eq_sqrt_two_mul_etaHR,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,31,240,1.59,10.12,0.0011,":= by
+  simp [etaVector, etaHR]",20260423_124046
+etaHR_le_etaVector,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,912,1118,10.65,10.19,0.008,":= by
+  simp [etaHR, etaVector]
+  norm_num
+
+If that doesn't work, let me think about what these functions might be. In quantization theory, `etaHR` might be a harmonic-related bound and `etaVector` a ",20260423_124058
+etaHR_le_etaVector,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,61,1118,1.73,9.73,0.0013,":= by
+  unfold etaHR etaVector
+  gcongr
+  exact Nat.le_refl _",20260423_124119
+etaHR_le_etaVector,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,39,1118,5.93,10.07,0.0036,":= by
+  simp [etaHR, etaVector]
+  omega",20260423_124130
+etaAsymptotic_le_etaHR,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,45,469,5.01,10.39,0.0034,":= by
+  unfold etaAsymptotic etaHR
+  norm_num",20260423_124146
+etaAsymptotic_le_etaHR,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,43,469,7.44,10.82,0.0033,":= by
+  simp [etaAsymptotic, etaHR]
+  omega",20260423_124202
+etaAsymptotic_le_etaHR,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,1237,469,8.85,9.42,0.0088,":= by
+  unfold etaAsymptotic etaHR
+  norm_num
+  linarith
+
+Wait, I should think more carefully. Without knowing the exact definitions, let me try `simp` with relevant lemmas or direct unfolding.
+
+:= by",20260423_124220
+ranking_four_way,anthropic/claude-sonnet-4-6,sonnet,0,greedy,0.0,False,,nonclose,0,142,2061,5.94,9.69,0.0047,":= by
+  refine ⟨?_, ?_, ?_⟩
+  · exact etaBetting_le_etaAsymptotic b hb
+  · exact etaAsymptotic_le_etaHR b hb
+  · exact etaHR_le_etaVector b hb",20260423_124238
+ranking_four_way,anthropic/claude-sonnet-4-6,sonnet,1,temp0.7,0.7,False,,nonclose,0,142,2061,4.84,9.27,0.0049,":= by
+  refine ⟨?_, ?_, ?_⟩
+  · exact etaBetting_le_etaAsymptotic b hb
+  · exact etaAsymptotic_le_etaHR b hb
+  · exact etaHR_le_etaVector b hb",20260423_124254
+ranking_four_way,anthropic/claude-sonnet-4-6,sonnet,2,temp0.7,0.7,False,,nonclose,0,142,2061,5.0,10.43,0.0056,":= by
+  refine ⟨?_, ?_, ?_⟩
+  · exact etaBetting_le_etaAsymptotic b hb
+  · exact etaAsymptotic_le_etaHR b hb
+  · exact etaHR_le_etaVector b hb",20260423_124308
+etaHR_nonneg,openai/kimi-k2.5,kimi,0,greedy,0.0,True,True,alternate,0,33,21,13.4,19.67,0.0032,":= by
+  unfold etaHR
+  positivity",20260423_124324
+etaHR_nonneg,openai/kimi-k2.5,kimi,1,temp0.7,0.7,True,True,alternate,0,33,21,25.8,19.31,0.0048,":= by
+  simp [etaHR]
+  positivity",20260423_124357
+etaHR_nonneg,openai/kimi-k2.5,kimi,2,temp0.7,0.7,True,True,alternate,0,43,21,31.05,19.85,0.0041,":= by
+  simp [etaHR]
+  all_goals positivity",20260423_124442
+etaHR_mono,openai/kimi-k2.5,kimi,0,greedy,0.0,True,True,alternate,0,45,188,23.11,21.37,0.0058,":= by
+  intro b₁ b₂ h
+  simp [etaHR]
+  gcongr",20260423_124533
+etaHR_mono,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,47,188,47.57,10.23,0.008,":= by
+  intro b₁ b₂ h
+  simp [etaHR]
+  linarith",20260423_124617
+etaHR_mono,openai/kimi-k2.5,kimi,2,temp0.7,0.7,False,,nonclose,0,111,188,32.61,9.12,0.0067,":= by
+  intro b₁ b₂ h
+  induction h with
+  | refl => rfl
+  | step _ ih =>
+    simp [etaHR] at ih ⊢
+    linarith",20260423_124715
+etaHR_le_slack,openai/kimi-k2.5,kimi,0,greedy,0.0,False,,nonclose,0,99,2389,13.2,10.08,0.0035,":= by
+  simp [slack]
+  all_goals nlinarith [hσ, show 0 ≤ (2 : ℝ) ^ (-(bp.scale : ℤ)) by positivity]",20260423_124757
+etaHR_le_slack,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,106,2389,22.49,10.21,0.0055,":= by
+  simp [slack, etaHR]
+  all_goals nlinarith [hσ, show 0 ≤ (2 : ℝ) ^ (-(bp.scale : ℤ)) by positivity]",20260423_124820
+etaHR_le_slack,openai/kimi-k2.5,kimi,2,temp0.7,0.7,False,,nonclose,0,96,2389,41.51,9.27,0.0051,":= by
+  simp [etaHR, slack]
+  nlinarith [hσ, show 0 ≤ (2 : ℝ) ^ (-(bp.scale : ℤ)) by positivity]",20260423_124853
+etaBetting_pos,openai/kimi-k2.5,kimi,0,greedy,0.0,True,True,alternate,0,38,431,17.29,19.29,0.0037,":= by
+  unfold etaBetting
+  positivity",20260423_124943
+etaBetting_pos,openai/kimi-k2.5,kimi,1,temp0.7,0.7,True,True,alternate,0,38,431,14.94,8.23,0.003,":= by
+  unfold etaBetting
+  positivity",20260423_125020
+etaBetting_pos,openai/kimi-k2.5,kimi,2,temp0.7,0.7,True,True,alternate,0,39,431,15.63,12.43,0.0041,":= by 
+  unfold etaBetting
+  positivity",20260423_125043
+etaBetting_antitone,openai/kimi-k2.5,kimi,0,greedy,0.0,True,True,alternate,1,71,647,35.27,18.81,0.0063,":= by
+  intro b₁ b₂ h
+  simp [etaBetting]
+  gcongr
+  all_goals linarith",20260423_125111
+etaBetting_antitone,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,128,647,22.6,8.73,0.0058,":= by
+  intro b₁ b₂ h
+  simp [etaBetting]
+  apply one_div_le_one_div_of_le (by positivity)
+  exact_mod_cast add_le_add_right h 1",20260423_125205
+etaBetting_antitone,openai/kimi-k2.5,kimi,2,temp0.7,0.7,True,True,alternate,1,69,647,75.5,18.39,0.0082,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  <;> gcongr
+  <;> linarith",20260423_125237
+etaBetting_le_etaHR,openai/kimi-k2.5,kimi,0,greedy,0.0,False,,nonclose,0,118,1850,30.26,9.27,0.0067,":= by 
+  have h : (b : ℝ) ≥ 1 := by exact_mod_cast hb
+  simp [etaBetting, etaHR]
+  nlinarith [sq_nonneg ((b : ℝ) - 1)]",20260423_125411
+etaBetting_le_etaHR,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,8,1850,38.02,8.21,0.0089,":= by
+  ",20260423_125450
+etaBetting_le_etaHR,openai/kimi-k2.5,kimi,2,temp0.7,0.7,False,,nonclose,0,48,1850,24.43,8.42,0.004,":= by
+  unfold etaBetting etaHR
+  nlinarith [hb]",20260423_125536
+etaVector_eq_sqrt_two_mul_etaHR,openai/kimi-k2.5,kimi,0,greedy,0.0,False,,nonclose,0,134,240,13.04,9.46,0.0035,":= by
+  simp [etaVector, etaHR]
+  ring_nf
+  norm_num
+  <;> nlinarith [Real.sqrt_nonneg 2, Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num)]",20260423_125609
+etaVector_eq_sqrt_two_mul_etaHR,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,68,240,33.73,8.51,0.0075,":= by
+  simp [etaVector, etaHR]
+  rw [Real.sqrt_mul (by positivity)]",20260423_125632
+etaVector_eq_sqrt_two_mul_etaHR,openai/kimi-k2.5,kimi,2,temp0.7,0.7,True,True,alternate,2,77,240,13.14,17.39,0.0032,":= by
+  simp [etaVector, etaHR]
+  <;> ring_nf <;> norm_num
+  <;> try linarith",20260423_125714
+etaHR_le_etaVector,openai/kimi-k2.5,kimi,0,greedy,0.0,False,,nonclose,0,53,1118,17.74,9.29,0.0037,":= by 
+  simp [etaHR, etaVector]
+  all_goals linarith",20260423_125744
+etaHR_le_etaVector,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,47,1118,41.75,8.6,0.0048,":= by
+  simp [etaHR, etaVector]
+  <;> nlinarith",20260423_125811
+etaHR_le_etaVector,openai/kimi-k2.5,kimi,2,temp0.7,0.7,False,,nonclose,0,53,1118,14.19,8.5,0.0035,":= by 
+  simp [etaHR, etaVector]
+  all_goals linarith",20260423_125902
+etaAsymptotic_le_etaHR,openai/kimi-k2.5,kimi,0,greedy,0.0,False,,nonclose,0,58,469,15.54,9.38,0.0044,":= by 
+  simp [etaAsymptotic, etaHR]
+  all_goals nlinarith",20260423_125924
+etaAsymptotic_le_etaHR,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,114,469,26.87,12.37,0.0048,":= by
+  have hb' : (b : ℝ) ≥ 1 := by exact_mod_cast hb
+  unfold etaAsymptotic etaHR
+  gcongr
+  all_goals nlinarith",20260423_125949
+etaAsymptotic_le_etaHR,openai/kimi-k2.5,kimi,2,temp0.7,0.7,False,,nonclose,0,62,469,16.56,9.79,0.0038,":= by
+  simp [etaAsymptotic, etaHR]
+  all_goals nlinarith [hb]",20260423_130029
+ranking_four_way,openai/kimi-k2.5,kimi,0,greedy,0.0,False,,nonclose,0,91,2061,27.26,11.43,0.0065,":= ⟨etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb⟩",20260423_130055
+ranking_four_way,openai/kimi-k2.5,kimi,1,temp0.7,0.7,False,,nonclose,0,91,2061,22.7,9.83,0.0056,":= ⟨etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb⟩",20260423_130134
+ranking_four_way,openai/kimi-k2.5,kimi,2,temp0.7,0.7,False,,nonclose,0,157,2061,26.68,8.72,0.0059,":= by
+  refine ⟨?_, ?_, ?_⟩
+  · simp [etaBetting, etaAsymptotic]; nlinarith
+  · simp [etaAsymptotic, etaHR]; nlinarith
+  · simp [etaHR, etaVector]; nlinarith",20260423_130206
+etaHR_nonneg,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,True,True,alternate,0,30,21,10.01,7.75,0.009,:= by unfold etaHR; positivity,20260423_130242
+etaHR_nonneg,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,16,21,7.35,69.15,0.0058,:= by positivity,20260423_130259
+etaHR_nonneg,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,16,21,7.53,14.29,0.0054,:= by positivity,20260423_130416
+etaHR_mono,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,True,True,alternate,0,45,188,12.43,23.48,0.0116,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  gcongr",20260423_130438
+etaHR_mono,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,True,True,alternate,0,46,188,11.79,22.21,0.0114,:= by intro b₁ b₂ h; simp only [etaHR]; gcongr,20260423_130514
+etaHR_mono,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,True,True,alternate,0,45,188,17.83,22.26,0.0187,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  gcongr",20260423_130548
+etaHR_le_slack,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,9,2389,27.96,10.77,0.0397,:= le_rfl,20260423_130628
+etaHR_le_slack,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,9,2389,28.29,10.56,0.0333,:= le_rfl,20260423_130707
+etaHR_le_slack,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,543,2389,37.22,11.87,0.0412,":= by
+  ` unless it's `0 ≤ b - a`, which requires `ring` or something first.
+  What if I use `nlinarith`? `nlinarith` requires the definitions to be unfolded or visible.
+  If I use `dsimp [slack]; nli",20260423_130745
+etaBetting_pos,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,16,431,9.59,9.72,0.0037,:= by positivity,20260423_130834
+etaBetting_pos,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,16,431,5.07,10.13,0.0035,:= by positivity,20260423_130854
+etaBetting_pos,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,True,True,alternate,0,35,431,8.94,20.41,0.0078,:= by unfold etaBetting; positivity,20260423_130909
+etaBetting_antitone,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,True,True,alternate,0,50,647,19.18,23.8,0.0201,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  gcongr",20260423_130938
+etaBetting_antitone,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,True,True,alternate,0,50,647,21.73,11.56,0.0225,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  gcongr",20260423_131021
+etaBetting_antitone,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,True,True,alternate,0,50,647,11.26,10.77,0.0106,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  gcongr",20260423_131055
+etaBetting_le_etaHR,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,150,1850,44.29,20.99,0.0403,":= by
+  unfold etaBetting etaHR
+  have hb0 : 0 ≤ (b : ℝ) := Nat.cast_nonneg b
+  have hb1 : 1 ≤ (b : ℝ) := Nat.one_le_cast.mpr hb
+  gcongr <;> linarith",20260423_131117
+etaBetting_le_etaHR,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,173,1850,38.85,10.31,0.0412,":= by
+  `? No, `omega` is for `Nat` and `Int`. `hb : 1 ≤ b`, so `omega` can prove `0 < b`.
+  But `gcongr` might leave goals over `ℝ`.
+  Let's consider what happens if we do:",20260423_131222
+etaBetting_le_etaHR,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,54,1850,37.34,27.74,0.0398,":= by
+  simp [etaBetting, etaHR]
+  gcongr <;> linarith",20260423_131311
+etaVector_eq_sqrt_two_mul_etaHR,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,6,240,6.92,20.73,0.0065,:= rfl,20260423_131416
+etaVector_eq_sqrt_two_mul_etaHR,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,6,240,15.97,13.34,0.0169,:= rfl,20260423_131444
+etaVector_eq_sqrt_two_mul_etaHR,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,6,240,11.04,11.2,0.0096,:= rfl,20260423_131513
+etaHR_le_etaVector,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,46,1118,18.25,11.53,0.018,:= by unfold etaHR etaVector; gcongr <;> omega,20260423_131535
+etaHR_le_etaVector,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,42,1118,17.77,11.5,0.0171,":= by
+  unfold etaHR etaVector
+  nlinarith",20260423_131605
+etaHR_le_etaVector,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,38,1118,15.32,10.65,0.0144,:= by unfold etaHR etaVector; linarith,20260423_131634
+etaAsymptotic_le_etaHR,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,152,469,38.48,10.8,0.0402,":= by
+  unfold etaAsymptotic etaHR
+  have hb_real : (1 : ℝ) ≤ b := by exact_mod_cast hb
+  have hb_pos : (0 : ℝ) < b := by linarith
+  gcongr <;> linarith",20260423_131700
+etaAsymptotic_le_etaHR,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,468,469,41.3,11.16,0.0412,":= by
+  ` or similar? No, `field_simp` is just a tactic.
+  If `hb : 1 ≤ b`, then `b > 0` and `b ≠ 0` etc.
+  Wait, if `b : ℕ`, then division is integer division!
+  If it's integer division, `field_simp",20260423_131750
+etaAsymptotic_le_etaHR,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,93,469,21.17,11.78,0.0209,":= by
+  unfold etaAsymptotic etaHR
+  have : (1 : ℝ) ≤ b := Nat.one_le_cast.mpr hb
+  nlinarith",20260423_131842
+ranking_four_way,gemini/gemini-3-pro-preview,gemini,0,greedy,0.0,False,,nonclose,0,91,2061,18.97,10.47,0.0207,":= ⟨etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb⟩",20260423_131915
+ranking_four_way,gemini/gemini-3-pro-preview,gemini,1,temp0.7,0.7,False,,nonclose,0,91,2061,13.68,11.05,0.0154,":= ⟨etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb⟩",20260423_131945
+ranking_four_way,gemini/gemini-3-pro-preview,gemini,2,temp0.7,0.7,False,,nonclose,0,91,2061,8.76,9.97,0.0091,":= ⟨etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb⟩",20260423_132009

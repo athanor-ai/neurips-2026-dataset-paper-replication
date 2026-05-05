@@ -1,0 +1,1840 @@
+tid,att,sampler,closed,wall_sec,candidate
+quantization_error,0,greedy,False,4.44,":= by
+  intro s x
+  have h₁ : |x - quantizeReal s x| ≤ (2 : ℝ)^(-(s : ℤ)) := by
+    rw [quantizeReal]
+    simp [abs_sub_round, mul_comm]
+    <;> norm_cast
+    <;> simp [round_eq, Int.floor_eq_iff, Int.ceil_eq_iff, mul_comm]
+    <;> norm_cast
+    <;> simp [abs_sub_round, mul_comm]"
+quantization_error,1,temp0.7,False,3.12,":= theorem quantization_error_test : (s : ℕ) (x : ℝ) → |x - quantizeReal s x| ≤ (2 : ℝ)^(-(s : ℤ)) := by
+  intro s x
+  have h := quantizeReal_spec s x
+  cases' abs_cases (x - quantizeReal s x) with h₁ h₁ <;> simp_all [abs_of_nonneg, abs_of_nonpos, zpow_neg]
+  <;> norm_cast
+  <;> linarith"
+quantization_error,2,temp0.7,False,4.29,":= by
+  intro s x
+  have h₁ : |x - quantizeReal s x| ≤ (2 : ℝ)^(-(s : ℤ)) := by
+    simp [quantizeReal, abs_sub_comm]
+    <;> norm_cast
+    <;> simp_all [Int.emod_eq_of_lt]
+    <;> norm_cast
+    <;> simp_all [Int.emod_eq_of_lt]"
+quantization_error,3,temp0.7,False,1.44,":= by
+  intro s x
+  have h₁ : |x - quantizeReal s x| ≤ (2 : ℝ)^(-(s : ℤ)) := by
+    exact?
+  exact h₁"
+quantization_error,4,temp0.7,False,1.99,":= by
+  intro s x
+  rw [quantizeReal]
+  simp [abs_sub_lt_iff, mul_comm]
+  norm_cast
+  <;>
+  simp_all [mul_comm]
+  <;>
+  norm_num"
+quantizereal_lower_bound,0,greedy,False,4.2,":= by
+  intro s x hx
+  simp [quantizeReal, hx]
+  <;> positivity
+  <;> norm_cast
+  <;> linarith
+  <;> positivity
+  <;> norm_cast
+  <;> linarith"
+quantizereal_lower_bound,1,temp0.7,False,1.44,":= by
+  intro s x hx
+  norm_num
+  <;> simp_all [quantizeReal, zpow_neg, zpow_ofNat, mul_comm]
+  <;> positivity
+  <;> linarith"
+quantizereal_lower_bound,2,temp0.7,False,4.25,":= by
+  intro s x hx
+  simp [quantizeReal, zpow_neg, zpow_ofNat, le_of_lt]
+  -- The `simp` tactic simplifies the expression using known properties of powers and non-negativity.
+  <;> positivity
+  -- The `positivity` tactic is used to prove non-negativity of the expression, leveraging the fact that `"
+quantizereal_lower_bound,3,temp0.7,False,2.85,":= theorem quantizereal_lower_bound_test : (s : ℕ) (x : ℝ) → 0 ≤ x → 0 ≤ quantizeReal s x + (2 : ℝ)^(-(s : ℤ)) := by
+  intro s x hx
+  have h₁ := quantizeReal_nonneg s x hx
+  have h₂ : (0 : ℝ) ≤ (2 : ℝ)^(-(s : ℤ)) := by positivity
+  linarith"
+quantizereal_lower_bound,4,temp0.7,False,0.98,":= by
+  intro s x hx
+  simp [quantizeReal, zpow_neg, zpow_ofNat]
+  positivity"
+etahr_nonneg,0,greedy,False,0.68,":= by
+  intro b
+  simp [etaHR]
+  <;> omega"
+etahr_nonneg,1,temp0.7,False,1.39,":= by
+  intro b
+  simp [etaHR]
+  <;> induction b with
+  | zero => simp
+  | succ b ih => simp_all [Nat.zero_le]
+  <;> omega"
+etahr_nonneg,2,temp0.7,False,0.81,":= by
+  intro b
+  simp [etaHR]
+  <;> omega"
+etahr_nonneg,3,temp0.7,False,4.23,":= by
+  intro b
+  simp [etaHR]
+  <;> aesop
+  <;> omega
+  <;> linarith
+  <;> norm_num
+  <;> ring
+  <;> nlinarith
+  <;> nlinarith"
+etahr_nonneg,4,temp0.7,False,4.4,":= by
+  intro b
+  simp [etaHR]
+  <;> omega
+  <;> simp_all
+  <;> omega
+  <;> simp_all"
+etahr_mono,0,greedy,False,1.12,":= by
+  intro b₁ b₂ h
+  simp_all [etaHR, Nat.div_eq_of_lt]
+  <;> omega"
+etahr_mono,1,temp0.7,False,1.77,":= by
+  intro b₁ b₂ h₁
+  simp_all [etaHR, le_refl]
+  <;> induction b₂ <;> induction b₁ <;> simp_all [Nat.le_succ_iff, Nat.le_of_lt_succ]
+  <;> omega"
+etahr_mono,2,temp0.7,False,4.34,":= by
+  intro b₁ b₂ h
+  simp_all [etaHR, Nat.add_le_add_iff_right]
+  <;> omega
+  <;> aesop
+  <;> omega
+  <;> aesop"
+etahr_mono,3,temp0.7,False,1.14,":= by
+  intro b₁ b₂ h
+  simp_all [etaHR, Nat.div_eq_of_lt]
+  <;> omega"
+etahr_mono,4,temp0.7,False,0.97,":= by
+  intro b₁ b₂ h
+  simp_all [etaHR, Nat.div_eq_of_lt]
+  <;> omega"
+etahr_le_slack,0,greedy,False,4.25,":= by
+  intro σ bp hσ
+  simp_all [etaHR, slack, BitPrecision]
+  <;> norm_cast
+  <;> ring_nf
+  <;> norm_num
+  <;> positivity
+  <;> linarith
+  <;> norm_cast
+  <;> ring_nf
+  <;> norm_num
+  <;> positivity
+  <;> linarith"
+etahr_le_slack,1,temp0.7,False,1.78,":= by
+  intro σ bp hσ
+  cases bp with
+  | mk bits scale =>
+    simp_all [slack, etaHR]
+    <;> norm_cast
+    <;> field_simp [hσ]
+    <;> ring_nf
+    <;> norm_cast
+    <;> positivity"
+etahr_le_slack,2,temp0.7,False,3.24,":= theorem etahr_le_slack_test : (σ : ℝ) (bp : BitPrecision) → 0 ≤ σ → etaHR bp.bits * 2^(-(bp.scale : ℤ)) * σ ≤ slack σ bp := by
+  intro σ bp hσ
+  cases bp
+  all_goals simp_all [slack, etaHR, hσ, mul_assoc, mul_comm, mul_left_comm]
+  all_goals norm_cast
+  all_goals
+    apply le_of_sub_nonneg
+    ri"
+etahr_le_slack,3,temp0.7,False,4.37,":= by
+  intro σ bp hσ
+  simp [slack, etaHR, hσ]
+  <;> norm_num
+  <;> positivity
+  <;> linarith
+  <;> ring_nf
+  <;> norm_cast
+  <;> linarith
+  <;> positivity"
+etahr_le_slack,4,temp0.7,False,2.34,":= by
+  intro σ bp hσ
+  norm_num [slack, etaHR]
+  <;>
+    ring_nf
+  <;>
+    norm_cast"
+etabetting_pos,0,greedy,False,1.44,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting, Nat.succ_pos]
+    <;> omega"
+etabetting_pos,1,temp0.7,False,2.64,":= theorem etabetting_pos_test : (b : ℕ) → 0 < etaBetting b := by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.mul_zero, Nat.add_zero, Nat.zero_add]
+    all_goals norm_num
+    <;> omega"
+etabetting_pos,2,temp0.7,False,1.96,":= theorem etabetting_pos_test : (b : ℕ) → 0 < etaBetting b := by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting]
+    <;> norm_num
+    <;> linarith"
+etabetting_pos,3,temp0.7,False,2.79,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting]
+    | succ b => simp_all [etaBetting]
+    <;> norm_num
+    <;> simp_all [Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.mul_zero, Nat.add_zero, Nat.zero_add]
+    <;> nlinari"
+etabetting_pos,4,temp0.7,False,2.09,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.mul_zero, Nat.add_zero]
+    <;> norm_num
+    <;> omega"
+etabetting_nonneg,0,greedy,True,1.53,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting, Nat.succ_eq_add_one, Nat.add_assoc]
+    <;> omega"
+etabetting_nonneg,1,temp0.7,True,1.92,":= by
+  intro b
+  simp [etaBetting]
+  <;> induction b <;> simp_all [Nat.succ_eq_add_one, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+  <;> norm_num
+  <;> linarith"
+etabetting_nonneg,2,temp0.7,True,1.35,":= by
+  intro b
+  simp [etaBetting]
+  <;> norm_num
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> omega"
+etabetting_nonneg,3,temp0.7,False,2.73,":= theorem etabetting_nonneg_test : (b : ℕ) → 0 ≤ etaBetting b := by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting]
+    | succ b => simp_all [etaBetting, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.mul_zero]
+    <;> omega"
+etabetting_nonneg,4,temp0.7,False,2.97,":= theorem etabetting_nonneg_test : (b : ℕ) → 0 ≤ etaBetting b := by
+  intro b
+  simp [etaBetting]
+  <;> induction b with
+  | zero => simp [Nat.zero_eq]
+  | succ b ih =>
+    simp_all [Nat.succ_eq_add_one, Nat.add_assoc]
+    <;> omega
+  <;> simp_all [Nat.succ_eq_add_one, Nat.add_assoc]
+  <;> omega"
+etabetting_antitone,0,greedy,False,4.47,":= by
+  intro b₁ b₂ h
+  simp_all [etaBetting, Nat.div_eq_of_lt]
+  <;> omega
+  <;> omega"
+etabetting_antitone,1,temp0.7,False,1.43,":= by
+  intro b₁ b₂ h
+  induction b₂ <;> cases b₁ <;> simp_all [etaBetting, Nat.succ_le_iff]
+  <;> linarith"
+etabetting_antitone,2,temp0.7,False,1.69,":= by
+  intro b₁ b₂ h
+  simp_all [etaBetting]
+  <;> cases b₁ <;> cases b₂ <;> simp_all [Nat.succ_le_iff, Nat.div_eq_of_lt]
+  <;> omega"
+etabetting_antitone,3,temp0.7,False,4.28,":= by
+  intro b₁ b₂ h
+  simp_all [etaBetting, Nat.div_eq_of_lt]
+  <;> omega
+  <;> omega"
+etabetting_antitone,4,temp0.7,False,4.16,":= by
+  intro b₁ b₂ h
+  simp_all [etaBetting, Nat.div_eq_of_lt]
+  <;> omega
+  <;> omega"
+etabetting_le_etahr,0,greedy,False,1.89,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting, etaHR]
+    | succ b =>
+      simp_all [etaBetting, etaHR, Nat.succ_le_iff]
+      <;> omega"
+etabetting_le_etahr,1,temp0.7,False,2.36,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting, etaHR]
+    | succ b =>
+      simp_all [etaBetting, etaHR, Nat.mul_sub_left_distrib, Nat.mul_sub_right_distrib]
+      <;> ring_nf at *
+      <;> omega"
+etabetting_le_etahr,2,temp0.7,False,2.09,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting, etaHR]
+    | succ b =>
+      simp_all [etaBetting, etaHR, Nat.mul_div_cancel_left]
+      <;> norm_num
+      <;> omega"
+etabetting_le_etahr,3,temp0.7,False,2.82,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero =>
+      -- Base case: b = 1
+      simp [etaBetting, etaHR]
+    | succ b =>
+      -- Inductive step: assume the statement holds for b, prove for b + 1
+      simp_all [etaBetting, etaHR, Nat.s"
+etabetting_le_etahr,4,temp0.7,False,2.16,":= by
+  intro b hb
+  cases b with
+  | zero => contradiction
+  | succ b =>
+    cases b with
+    | zero => simp [etaBetting, etaHR]
+    | succ b =>
+      simp_all [etaBetting, etaHR, Nat.mul_div_cancel_left]
+      <;> ring_nf
+      <;> omega"
+etavector_nonneg,0,greedy,False,1.84,":= by
+  intro b
+  simp [etaVector]
+  <;> induction b with
+  | zero => simp
+  | succ b ih =>
+    simp_all [Nat.succ_eq_add_one, Nat.add_assoc]
+    <;> norm_num
+    <;> linarith"
+etavector_nonneg,1,temp0.7,False,3.7,":= theorem etavector_nonneg_test : (b : ℕ) → 0 ≤ etaVector b := by
+  intro b
+  simp [etaVector]
+  <;>
+  induction b with
+  | zero =>
+    -- Base case: When b = 0, the eta vector is [1, 0, 0, 0, ...] which is non-negative.
+    simp [List.get]
+  | succ b ih =>
+    -- Inductive step: Assume the eta vec"
+etavector_nonneg,2,temp0.7,True,4.07,":= by
+  intro b
+  exact?
+  <;> simp_all [etaVector]
+  <;> positivity
+  <;> simp_all [etaVector]
+  <;> positivity"
+etavector_nonneg,3,temp0.7,False,1.63,":= by
+  intro b
+  simp [etaVector]
+  <;> induction b <;> simp_all [Nat.succ_eq_add_one, Nat.add_assoc]
+  <;> norm_num
+  <;> linarith"
+etavector_nonneg,4,temp0.7,True,4.22,":= by
+  intro b
+  exact?
+  <;> simp_all [Nat.zero_le]
+  <;> aesop
+  <;> simp_all [Nat.zero_le]
+  <;> aesop"
+etavector_mono,0,greedy,False,1.9,":= by
+  intro b₁ b₂ h
+  simp_all [etaVector, List.take, List.drop]
+  <;> induction b₂ <;> simp_all [Nat.le_succ_iff]
+  <;> cases b₁ <;> simp_all [Nat.le_succ_iff]
+  <;> omega"
+etavector_mono,1,temp0.7,False,1.47,":= by
+  intro b₁ b₂ h
+  simp_all [etaVector, List.take, List.drop]
+  <;> induction b₂ <;> simp_all [List.take, List.drop]
+  <;> omega"
+etavector_mono,2,temp0.7,False,4.3,":= theorem etavector_mono_test : ∀ b₁ b₂ : ℕ, b₁ ≤ b₂ → etaVector b₁ ≤ etaVector b₂ := by
+  intro b₁ b₂ h
+  simp_all [etaVector, List.take, List.drop]
+  <;>
+  (try cases b₂ <;> cases b₁ <;> simp_all [Nat.le_succ_iff]) <;>
+  (try decide) <;>
+  (try omega) <;>
+  (try linarith)
+  <;>
+  (try exact List."
+etavector_mono,3,temp0.7,False,1.59,":= by
+  intro b₁ b₂ h
+  simp_all [etaVector, List.take, List.drop, List.range]
+  <;> induction b₂ <;> simp_all [List.take, List.drop, List.range]
+  <;> omega"
+etavector_mono,4,temp0.7,False,4.04,":= by
+  intro b₁ b₂ h
+  simp_all [etaVector, List.take_subset, List.subset_def]
+  <;> induction b₂ <;> simp_all [Nat.le_succ_iff, List.take]
+  <;> aesop
+  <;> simp_all [Nat.le_succ_iff, List.take]
+  <;> aesop
+  <;> simp_all [Nat.le_succ_iff, List.take]"
+etavector_eq_sqrt_two_mul_etahr,0,greedy,False,2.49,":= by
+  intro b
+  induction b <;> simp_all [etaVector, etaHR, Real.sqrt_eq_iff_sq_eq, mul_comm]
+  <;> ring_nf
+  <;> norm_num
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq]
+  <;> ring_nf
+  <;> norm_num
+  <;> linarith [Real.sqrt_nonneg 2]"
+etavector_eq_sqrt_two_mul_etahr,1,temp0.7,False,2.93,":= by
+  intro b
+  induction b <;> simp_all [etaVector, etaHR, Real.sqrt_eq_iff_sq_eq]
+  <;> ring_nf
+  <;> norm_num
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq]
+  <;> ring_nf
+  <;> norm_num
+  <;> linarith [Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num)]"
+etavector_eq_sqrt_two_mul_etahr,2,temp0.7,False,4.2,":= by
+  intro b
+  induction b <;> simp_all [etaVector, etaHR, pow_succ]
+  <;> norm_num
+  <;> ring_nf
+  <;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf
+  <;> norm_num
+  <;> linarith [Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num)]
+  <;> simp_all [pow_succ]"
+etavector_eq_sqrt_two_mul_etahr,3,temp0.7,False,4.27,":= by
+  intro b
+  induction b <;> simp_all [etaVector, etaHR, Real.sqrt_eq_iff_sq_eq]
+  <;> ring_nf <;> norm_num <;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> norm_num
+  <;> nlinarith [Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num)]
+  <;> nlinarith [Real.sq_sqrt (show (0 : ℝ) ≤ 2 by norm_num)"
+etavector_eq_sqrt_two_mul_etahr,4,temp0.7,False,2.79,":= by
+  intro b
+  induction b with
+  | zero => simp [etaVector, etaHR]
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaVector, etaHR]
+    | succ b =>
+      simp_all [etaVector, etaHR, Nat.mul_div_cancel_left]
+      <;> norm_num
+      <;> ring_nf
+      <;> field_simp [Real.sqrt_eq_iff_sq_eq]"
+etahr_le_etavector,0,greedy,False,2.05,":= by
+  intro b
+  induction b with
+  | zero => simp [etaHR, etaVector]
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaHR, etaVector]
+    | succ b =>
+      simp_all [etaHR, etaVector, Nat.succ_le_iff]
+      <;> omega"
+etahr_le_etavector,1,temp0.7,False,1.37,":= by
+  intro b
+  induction b with
+  | zero => rfl
+  | succ b ih =>
+    simp_all [etaHR, etaVector, Nat.succ_eq_add_one]
+    <;> omega"
+etahr_le_etavector,2,temp0.7,False,1.89,":= by
+  intro b
+  simp [etaHR, etaVector]
+  <;> induction b with
+  | zero => simp
+  | succ b ih =>
+    cases b with
+    | zero => simp
+    | succ b =>
+      simp_all [Nat.div_eq_of_lt]
+      <;> omega"
+etahr_le_etavector,3,temp0.7,False,1.52,":= by
+  intro b
+  simp [etaHR, etaVector]
+  <;> induction b <;> simp_all [Nat.succ_eq_add_one, Nat.div_eq_of_lt]
+  <;> omega"
+etahr_le_etavector,4,temp0.7,False,3.55,":= by
+  intro b
+  unfold etaHR
+  unfold etaVector
+  simp [Finset.sum_range_succ, Nat.div_eq_of_lt]
+  <;> induction b with
+  | zero =>
+    -- Base case: b = 0
+    simp
+  | succ b ih =>
+    -- Inductive step: assume the statement holds for b, prove for b + 1
+    cases b with
+    | zero =>
+      -- Bas"
+etaasymptotic_nonneg,0,greedy,True,4.04,":= by
+  intro b
+  simp [etaAsymptotic]
+  <;> positivity
+  <;> simp_all [Nat.factorial_succ, Nat.mul_div_cancel_left]
+  <;> norm_num
+  <;> linarith
+  <;> simp_all [Nat.factorial_succ, Nat.mul_div_cancel_left]
+  <;> norm_num
+  <;> linarith"
+etaasymptotic_nonneg,1,temp0.7,True,2.04,":= by
+  intro b
+  simp [etaAsymptotic, Nat.div_eq_of_lt]
+  <;> induction b with
+  | zero => simp
+  | succ b ih =>
+    simp_all [Nat.div_eq_of_lt, Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> omega"
+etaasymptotic_nonneg,2,temp0.7,True,4.2,":= by
+  intro b
+  induction b with
+  | zero => simp [etaAsymptotic]
+  | succ b ih => simp_all [etaAsymptotic]
+  <;> norm_num
+  <;> positivity
+  <;> linarith
+  <;> nlinarith
+  <;> nlinarith"
+etaasymptotic_nonneg,3,temp0.7,True,4.45,":= by
+  intro b
+  simp [etaAsymptotic]
+  <;> norm_num
+  <;> rfl
+  <;> simp [Nat.factorial_succ]
+  <;> norm_num
+  <;> rfl
+  <;> simp [Nat.factorial_succ]"
+etaasymptotic_nonneg,4,temp0.7,True,4.36,":= by
+  intro b
+  simp [etaAsymptotic, Nat.div_eq_of_lt]
+  <;> aesop
+  <;> norm_num
+  <;> omega
+  <;> linarith
+  <;> ring
+  <;> aesop
+  <;> norm_num
+  <;> omega
+  <;> linarith
+  <;> ring"
+etaasymptotic_const,0,greedy,True,4.25,":= by
+  intro b₁ b₂
+  rfl
+  <;> simp_all [etaAsymptotic]
+  <;> aesop
+  <;> simp_all [etaAsymptotic]
+  <;> aesop"
+etaasymptotic_const,1,temp0.7,True,3.9,":= by
+  intro b₁ b₂
+  simp [etaAsymptotic]
+  -- The `simp` tactic simplifies the goal using the definition of `etaAsymptotic`.
+  -- Since `etaAsymptotic` is defined as a constant function that always returns `0`,
+  -- the simplification shows that `etaAsymptotic b₁` and `etaAsymptotic b₂` are both `"
+etaasymptotic_const,2,temp0.7,False,2.67,":= by
+  intro b₁ b₂
+  rw [etaAsymptotic]
+  <;> simp_all [Nat.factorial_succ, Nat.factorial_zero, Nat.factorial_one]
+  <;> norm_num
+  <;> rfl
+  <;> simp_all [Nat.factorial_succ, Nat.factorial_zero, Nat.factorial_one]
+  <;> norm_num
+  <;> rfl"
+etaasymptotic_const,3,temp0.7,False,1.99,":= theorem etaasymptotic_const_test : (b₁ b₂ : ℕ) → etaAsymptotic b₁ = etaAsymptotic b₂ := by
+  intro b₁ b₂
+  simp [etaAsymptotic]
+  <;> rfl
+  <;> simp_all
+  <;> rfl"
+etaasymptotic_const,4,temp0.7,True,4.2,":= by
+  intro b₁ b₂
+  <;> rfl
+  <;> simp_all [etaAsymptotic]
+  <;> aesop
+  <;> simp_all [etaAsymptotic]
+  <;> aesop"
+etaasymptotic_le_etahr,0,greedy,False,2.1,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- b cannot be zero since hb : 1 ≤ b
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaAsymptotic, etaHR] -- b = 1
+    | succ b =>
+      simp_all [etaAsymptotic, etaHR]
+      <;> omega"
+etaasymptotic_le_etahr,1,temp0.7,False,3.53,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- b cannot be zero since 1 ≤ b
+  | succ b ih =>
+    cases b with
+    | zero =>
+      -- Base case: b = 1
+      simp [etaAsymptotic, etaHR] -- Simplify the expressions for b = 1
+    | succ b =>
+      -- Inductive step: use the definitio"
+etaasymptotic_le_etahr,2,temp0.7,False,3.46,":= by
+  intro b hb
+  rcases b with (_ | _ | b)
+  -- For b = 0, the statement is vacuously true since 1 ≤ 0 is false.
+  <;> simp_all [etaAsymptotic, etaHR]
+  -- For b = 1, we need to show 1 ≤ 1, which is true.
+  <;> norm_num
+  -- For b ≥ 2, we need to show that the inequality holds.
+  <;> apply le_of"
+etaasymptotic_le_etahr,3,temp0.7,False,2.04,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaAsymptotic, etaHR]
+    | succ b =>
+      simp_all [etaAsymptotic, etaHR]
+      <;> norm_num
+      <;> linarith"
+etaasymptotic_le_etahr,4,temp0.7,False,3.45,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- b cannot be zero since hb : 1 ≤ b
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaAsymptotic, etaHR] -- b = 1
+    | succ b =>
+      simp_all [etaAsymptotic, etaHR]
+      -- For b ≥ 2, we need to show that etaAsymptotic b ≤ e"
+ranking_four_way,0,greedy,False,4.29,":= by
+  intro b hb
+  have h₁ : etaBetting b ≤ etaAsymptotic b := by
+    induction b with
+    | zero => contradiction
+    | succ b ih =>
+      cases b with
+      | zero => simp [etaBetting, etaAsymptotic]
+      | succ b =>
+        simp_all [etaBetting, etaAsymptotic, Nat.div_eq_of_lt]
+        <;> nor"
+ranking_four_way,1,temp0.7,False,4.22,":= by
+  intro b hb
+  have h1 : etaBetting b ≤ etaAsymptotic b := by
+    induction b with
+    | zero => contradiction
+    | succ b ih =>
+      cases b with
+      | zero => simp [etaBetting, etaAsymptotic]
+      | succ b =>
+        simp_all [etaBetting, etaAsymptotic, Nat.succ_le_iff]
+        <;> norm"
+ranking_four_way,2,temp0.7,False,4.19,":= by
+  intro b hb
+  have h₁ : etaBetting b ≤ etaAsymptotic b := by
+    induction b <;> simp_all [etaBetting, etaAsymptotic, etaHR, etaVector, Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> omega
+  have h₂ : etaAsymptotic b ≤ etaHR b := by
+    induction b <;> simp_all [etaBetting, etaAsymptotic, etaHR, "
+ranking_four_way,3,temp0.7,False,4.4,":= by
+  intro b hb
+  have h₁ : etaBetting b ≤ etaAsymptotic b := by
+    rcases b with (_ | _ | _ | _ | _ | _ | _ | _ | _ | _) <;> simp_all [etaBetting, etaAsymptotic, etaHR, etaVector]
+    <;> norm_num
+    <;> linarith
+  have h₂ : etaAsymptotic b ≤ etaHR b := by
+    rcases b with (_ | _ | _ | _ | _ "
+ranking_four_way,4,temp0.7,False,4.25,":= theorem ranking_four_way_test : (b : ℕ) → 1 ≤ b → etaBetting b ≤ etaAsymptotic b ∧ etaAsymptotic b ≤ etaHR b ∧ etaHR b ≤ etaVector b := by
+  intro b hb
+  rcases b with (_ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _) <;> simp_all [etaBetting,"
+slack_nonneg,0,greedy,False,4.24,":= by
+  intro σ bp hσ
+  simp_all [slack, abs_of_nonneg, le_of_lt]
+  <;> positivity
+  <;> linarith
+  <;> norm_num
+  <;> linarith
+  <;> norm_num"
+slack_nonneg,1,temp0.7,False,4.28,":= theorem slack_nonneg_test : (σ : ℝ) (bp : BitPrecision) → 0 ≤ σ → 0 ≤ slack σ bp := by
+  intro σ bp hσ
+  cases bp <;> simp_all [slack, abs_of_nonneg, abs_of_nonpos, le_refl]
+  <;> linarith
+  <;> norm_num
+  <;> linarith
+  <;> norm_num"
+slack_nonneg,2,temp0.7,False,4.24,":= by
+  intro σ bp hσ
+  simp_all [slack, BitPrecision]
+  <;> norm_num
+  <;> positivity
+  <;> linarith
+  <;> positivity
+  <;> linarith"
+slack_nonneg,3,temp0.7,False,4.43,":= by
+  intro σ bp hσ
+  simp [slack, abs_of_nonneg, hσ]
+  <;> positivity
+  <;> simp_all [abs_of_nonneg, hσ]
+  <;> positivity
+  <;> simp_all [abs_of_nonneg, hσ]"
+slack_nonneg,4,temp0.7,False,4.25,":= by
+  intro σ bp hσ
+  simp_all [slack]
+  <;>
+  positivity
+  <;>
+  norm_num"
+slack_antitone_in_scale,0,greedy,False,1.63,":= by
+  intro σ bp₁ bp₂ h
+  simp_all [slack, BitPrecision.scale, le_of_lt]
+  <;> gcongr
+  <;> simp_all [le_of_lt]
+  <;> linarith"
+slack_antitone_in_scale,1,temp0.7,False,4.14,":= by
+  intro σ bp₁ bp₂ h₁
+  simp_all [slack, abs_le, le_of_lt, sub_le_iff_le_add, sub_lt_iff_lt_add, le_sub_iff_add_le,
+    lt_sub_iff_add_lt, sub_le_iff_le_add, sub_lt_iff_lt_add, le_sub_iff_add_le,
+    lt_sub_iff_add_lt]
+  <;> cases' le_total 0 (bp₁.val - σ) with h h <;>
+    cases' le_total 0 (bp"
+slack_antitone_in_scale,2,temp0.7,False,4.38,":= by
+  intro σ bp₁ bp₂ h
+  cases bp₁ <;> cases bp₂ <;> simp_all [slack, le_refl, le_of_lt]
+  <;> norm_num <;> linarith
+  <;> norm_num <;> linarith"
+slack_antitone_in_scale,3,temp0.7,False,1.58,":= by
+  intro σ bp₁ bp₂ h
+  simp_all [slack, BitPrecision.scale, le_of_lt]
+  <;> gcongr
+  <;> simp_all [le_of_lt]
+  <;> linarith"
+slack_antitone_in_scale,4,temp0.7,False,1.94,":= by
+  intro σ bp₁ bp₂ h
+  simp [slack, h]
+  <;>
+  cases' bp₁ with s₁ m₁ <;> cases' bp₂ with s₂ m₂ <;> simp_all [BitPrecision.scale]
+  <;>
+  linarith"
+sharpslack_nonneg,0,greedy,False,4.29,":= by
+  intro c σ bp hc hσ
+  simp_all [sharpSlack]
+  <;> positivity
+  <;> linarith
+  <;> positivity
+  <;> linarith"
+sharpslack_nonneg,1,temp0.7,False,4.25,":= by
+  intro c σ bp hc hσ
+  simp_all [sharpSlack]
+  <;> positivity
+  <;> linarith
+  <;> nlinarith
+  <;> nlinarith"
+sharpslack_nonneg,2,temp0.7,False,4.28,":= by
+  intro c σ bp hc hσ
+  simp_all [sharpSlack]
+  <;> positivity
+  <;> linarith
+  <;> positivity
+  <;> linarith"
+sharpslack_nonneg,3,temp0.7,False,4.07,":= by
+  intro c σ bp hc hσ
+  simp_all [sharpSlack, pow_nonneg, mul_nonneg, Nat.zero_le, Nat.succ_le_succ_iff]
+  <;> positivity
+  <;> norm_num
+  <;> linarith
+  <;> nlinarith
+  <;> nlinarith"
+sharpslack_nonneg,4,temp0.7,False,4.16,":= by
+  intro c σ bp hc hσ
+  -- Use the definition of sharpSlack and the given non-negativity conditions to prove the inequality.
+  simp [sharpSlack, hc, hσ]
+  -- Since c and σ are non-negative, the expressions inside the max function are non-negative.
+  -- Therefore, the max of two non-negative num"
+sharpslack_mono_in_c,0,greedy,False,1.42,":= by
+  intro c₁ c₂ σ bp hσ hc
+  simp_all [sharpSlack, Nat.div_eq_of_lt]
+  <;> gcongr
+  <;> norm_num
+  <;> linarith"
+sharpslack_mono_in_c,1,temp0.7,False,4.3,":= by
+  intro c₁ c₂ σ bp h₀ h₁
+  simp_all [sharpSlack, Nat.div_eq_of_lt]
+  <;>
+    split_ifs <;>
+    norm_num <;>
+    linarith
+  <;>
+    linarith"
+sharpslack_mono_in_c,2,temp0.7,False,1.41,":= by
+  intro c₁ c₂ σ bp hσ h
+  simp_all [sharpSlack, hσ, h]
+  <;> gcongr
+  <;> norm_cast
+  <;> linarith"
+sharpslack_mono_in_c,3,temp0.7,False,2.16,":= by
+  intro c₁ c₂ σ bp hσ hc
+  simp_all [sharpSlack, le_refl, le_of_lt, sub_le_sub_iff_right]
+  <;> gcongr
+  <;> norm_cast
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+sharpslack_mono_in_c,4,temp0.7,False,4.21,":= by
+  intro c₁ c₂ σ bp h₁ h₂
+  cases bp <;> simp_all [sharpSlack, Nat.div_eq_of_lt]
+  <;> norm_num <;> linarith
+  <;> exact?
+  <;> exact?"
+realizedcoverageavg_singleton,0,greedy,False,4.16,":= by
+  intro impl claim
+  simp [realizedCoverageAvg, singletonAdversary, CoverageClaim, StoppingImpl, Martingale,
+    realizedCoverage, Nat.div_eq_of_lt, Nat.mod_eq_of_lt, Nat.succ_pos, Nat.zero_lt_one,
+    Nat.one_lt_two]
+  <;> aesop
+  <;> norm_num
+  <;> aesop
+  <;> norm_num"
+realizedcoverageavg_singleton,1,temp0.7,False,4.3,":= by
+  intro impl claim
+  simp [realizedCoverageAvg, singletonAdversary, mul_comm]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [mul_comm]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [mul_comm]"
+realizedcoverageavg_singleton,2,temp0.7,False,4.17,":= by
+  simp [realizedCoverageAvg, singletonAdversary, CoverageClaim.realizedCoverage,
+    CoverageClaim.expectedCoverage, Finset.sum_singleton, mul_comm]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all
+  <;> aesop
+  <;> simp_all"
+realizedcoverageavg_singleton,3,temp0.7,False,4.18,":= by
+  intro impl claim
+  simp [realizedCoverageAvg, singletonAdversary, CoverageClaim, StoppingImpl]
+  <;> aesop
+  <;> norm_num
+  <;> aesop
+  <;> norm_num"
+realizedcoverageavg_singleton,4,temp0.7,False,4.32,":= by
+  intro impl claim
+  simp [realizedCoverageAvg, singletonAdversary, CoverageClaim, StoppingImpl, Martingale, Finset.sum_singleton, Nat.cast_one]
+  <;> norm_num
+  <;> aesop
+  <;> simp_all [Finset.sum_singleton, Nat.cast_one]
+  <;> aesop
+  <;> simp_all [Finset.sum_singleton, Nat.cast_one]"
+realizedcoverageavg_bounded,0,greedy,False,4.24,":= by
+  intro impl adv claim
+  simp [realizedCoverageAvg, CoverageClaim, StoppingImpl, AdversaryFamily]
+  <;> norm_num
+  <;> apply le_of_eq
+  <;> rfl
+  <;> apply le_of_eq
+  <;> rfl"
+realizedcoverageavg_bounded,1,temp0.7,False,1.58,":= by
+  intro impl adv claim
+  -- Since the average is the sum of the probabilities of all possible outcomes divided by the number of possible outcomes,
+  -- and the maximum probability of any single outcome is 1, the average coverage cannot exceed 1.
+  exact?"
+realizedcoverageavg_bounded,2,temp0.7,False,2.12,":= by
+  intro impl adv claim
+  -- The average coverage is defined as the expectation of the coverage variable.
+  -- By definition, the coverage variable is bounded above by 1.
+  exact by
+    simp [realizedCoverageAvg, realizedCoverage]
+    -- Since the coverage variable is bounded above by 1, the av"
+realizedcoverageavg_bounded,3,temp0.7,False,4.24,":= by
+  intro impl adv claim
+  simp [realizedCoverageAvg, div_le_one]
+  <;> norm_num
+  <;> linarith
+  <;> exact?
+  <;> aesop
+  <;> norm_num
+  <;> aesop"
+realizedcoverageavg_bounded,4,temp0.7,False,0.46,":= by
+  intro impl adv claim
+  exact?"
+c_hr_sharp_pos,0,greedy,False,4.05,":= by
+  -- Use the fact that c_HR_sharp is defined as 1 / 2 * (1 - 1 / 2) which is positive.
+  norm_num [c_HR_sharp]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+c_hr_sharp_pos,1,temp0.7,False,4.26,":= by
+  -- Use the fact that `c_HR_sharp` is defined as `2 * Real.pi * (1 - 1 / 2)`
+  norm_num [c_HR_sharp]
+  -- `norm_num` simplifies the expression and confirms that it is positive
+  <;> linarith [Real.pi_pos]
+  -- `linarith` confirms that the simplified expression is positive given that `Real.pi`"
+c_hr_sharp_pos,2,temp0.7,False,4.24,":= by
+  -- Use the `norm_num` tactic to normalize the numerical expression and verify the inequality.
+  norm_num [c_HR_sharp]
+  -- Use the `positivity` tactic to confirm that the expression is positive.
+  <;> positivity
+  <;> norm_num
+  <;> linarith [Real.log_two_gt_d9]
+  <;> norm_num
+  <;> linarith"
+c_hr_sharp_pos,3,temp0.7,False,0.56,":= by
+  exact c_HR_sharp_pos"
+c_hr_sharp_pos,4,temp0.7,False,4.13,":= by
+  exact Nat.zero_lt_succ _
+  <;> norm_num
+  <;> simp_all [c_HR_sharp]
+  <;> norm_num
+  <;> simp_all [c_HR_sharp]"
+c_betting_sharp_pos,0,greedy,False,4.22,":= by
+  norm_num [c_betting_sharp]
+  <;> simp_all [c_betting_sharp]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+c_betting_sharp_pos,1,temp0.7,False,1.92,":= by
+  unfold c_betting_sharp
+  norm_num
+  <;> simp_all [Finset.sum_range_succ, Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rfl
+  <;> decide
+  <;> decide"
+c_betting_sharp_pos,2,temp0.7,False,0.84,":= by
+  -- Use the property of the betting sharp number being positive.
+  exact c_betting_sharp_pos"
+c_betting_sharp_pos,3,temp0.7,False,0.56,":= by
+  exact c_betting_sharp_pos"
+c_betting_sharp_pos,4,temp0.7,False,0.8,":= by
+  -- Use the property of c_betting_sharp being positive
+  exact c_betting_sharp_pos"
+c_vector_sharp_pos,0,greedy,False,4.13,":= by
+  exact Nat.zero_lt_one
+  <;> simp_all [c_vector_sharp]
+  <;> norm_num
+  <;> decide
+  <;> simp_all [c_vector_sharp]
+  <;> norm_num
+  <;> decide"
+c_vector_sharp_pos,1,temp0.7,False,1.66,":= by
+  exact?
+  <;> norm_num
+  <;> simp [c_vector_sharp]
+  <;> norm_num
+  <;> linarith [Real.log_pos (by norm_num : (1 : ℝ) < 2)]"
+c_vector_sharp_pos,2,temp0.7,False,4.24,":= by
+  norm_num [c_vector_sharp]
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> aesop
+  <;> norm_num
+  <;> aesop"
+c_vector_sharp_pos,3,temp0.7,False,4.33,":= by
+  unfold c_vector_sharp
+  norm_num
+  <;>
+    simp [mul_comm]
+  <;>
+    norm_num"
+c_vector_sharp_pos,4,temp0.7,False,4.66,":= by
+  norm_num [c_vector_sharp]
+  <;> simp [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rfl
+  <;> simp [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rfl"
+c_acs_sharp_pos,0,greedy,False,4.09,":= by
+  norm_num [c_aCS_sharp]
+  <;>
+  norm_num [c_aCS_sharp]
+  <;>"
+c_acs_sharp_pos,1,temp0.7,False,4.11,":= by
+  -- Use the fact that c_aCS_sharp is defined as a positive constant in the Lean environment.
+  exact by norm_num [c_aCS_sharp]
+  -- This tactic confirms that the constant c_aCS_sharp is indeed positive in the Lean environment.
+  <;> norm_num
+  <;> linarith [c_aCS_sharp_pos]
+  <;> linarith [c_"
+c_acs_sharp_pos,2,temp0.7,False,1.71,":= by
+  unfold c_aCS_sharp
+  norm_num
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+c_acs_sharp_pos,3,temp0.7,False,4.18,":= by
+  exact?
+  <;> norm_num
+  <;> simp_all [c_aCS_sharp]
+  <;> norm_num
+  <;> linarith"
+c_acs_sharp_pos,4,temp0.7,False,4.4,":= by
+  norm_num [c_aCS_sharp]
+  <;> norm_num [Real.pi_pos]
+  <;> linarith [Real.pi_pos]
+  <;> norm_num [Real.pi_pos]
+  <;> linarith [Real.pi_pos]"
+boundary_pos,0,greedy,False,4.18,":= by
+  intro c0 hc0 t
+  simp [boundary]
+  <;> positivity
+  <;> linarith
+  <;> norm_num
+  <;> linarith
+  <;> norm_num"
+boundary_pos,1,temp0.7,False,4.07,":= by
+  intro c0 hc0 t
+  simp [boundary]
+  <;> positivity
+  <;> linarith
+  <;> linarith"
+boundary_pos,2,temp0.7,False,4.18,":= by
+  intro c0 hc0 t
+  simp [boundary]
+  positivity
+  <;> linarith
+  <;> norm_num
+  <;> linarith
+  <;> norm_num"
+boundary_pos,3,temp0.7,False,4.15,":= by
+  intro c0 hc0 t
+  simp [boundary]
+  <;> positivity
+  <;> linarith
+  <;> nlinarith
+  <;> nlinarith"
+boundary_pos,4,temp0.7,False,0.91,":= by
+  intro c0 hc0 t
+  simp [boundary]
+  positivity
+  <;> linarith"
+boundary_antitone,0,greedy,False,4.27,":= by
+  intro c0 hc0 t₁ t₂ ht₁₂
+  simp_all [boundary, le_refl, le_of_lt]
+  <;>
+  (try cases' le_total 0 (t₁ - t₂) with h h <;>
+    cases' le_total 0 (t₁ + t₂) with h' h' <;>
+    simp_all [abs_of_nonneg, abs_of_nonpos, sub_nonneg, sub_nonpos]) <;>
+  (try nlinarith) <;>
+  (try linarith) <;>
+  (try nli"
+boundary_antitone,1,temp0.7,False,4.19,":= by
+  intro c0 hc0 t₁ t₂ ht₁₂
+  simp_all [boundary, le_of_lt]
+  <;> gcongr
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+boundary_antitone,2,temp0.7,False,2.39,":= theorem boundary_antitone_test : (c0 : ℝ) → 0 < c0 → ∀ t₁ t₂ : Time, t₁ ≤ t₂ → boundary c0 t₂ ≤ boundary c0 t₁ := by
+  intro c0 hc0 t₁ t₂ ht
+  simp_all [boundary, mul_comm]
+  <;> gcongr
+  <;> norm_num
+  <;> linarith"
+boundary_antitone,3,temp0.7,False,3.89,":= theorem boundary_antitone_test : (c0 : ℝ) → 0 < c0 → ∀ t₁ t₂ : Time, t₁ ≤ t₂ → boundary c0 t₂ ≤ boundary c0 t₁ := by
+  intro c0 hc0 t₁ t₂ ht
+  simp_all [boundary, sub_le_iff_le_add, add_comm]
+  <;>
+    nlinarith [mul_nonneg (sub_nonneg.mpr ht) (sub_nonneg.mpr ht),
+      mul_nonneg (sub_nonneg.mpr"
+boundary_antitone,4,temp0.7,False,4.11,":= by
+  intro c0 hc0 t₁ t₂ ht₁₂
+  simp_all [boundary, le_div_iff, mul_comm]
+  <;> gcongr
+  <;> norm_num
+  <;> linarith
+  <;> norm_num
+  <;> linarith"
+slacklower_nonneg,0,greedy,False,4.1,":= by
+  intro σ bp hσ
+  simp [slackLower]
+  positivity
+  <;> norm_num
+  <;> linarith
+  <;> positivity
+  <;> norm_num
+  <;> linarith
+  <;> positivity"
+slacklower_nonneg,1,temp0.7,False,4.2,":= by
+  intro σ bp hσ
+  exact?
+  <;> simp_all [slackLower]
+  <;> positivity
+  <;> linarith
+  <;> norm_num
+  <;> linarith
+  <;> norm_num"
+slacklower_nonneg,2,temp0.7,False,4.19,":= by
+  intro σ bp hσ
+  unfold slackLower
+  positivity
+  <;> simp_all [pow_nonneg]
+  <;> positivity
+  <;> linarith
+  <;> positivity
+  <;> linarith"
+slacklower_nonneg,3,temp0.7,False,4.21,":= by
+  intro σ bp hσ
+  simp_all [slackLower]
+  <;> positivity
+  <;> linarith
+  <;> norm_num
+  <;> linarith
+  <;> norm_num"
+slacklower_nonneg,4,temp0.7,False,0.52,":= by
+  intro σ bp hσ
+  exact?"
+slack_tight,0,greedy,False,2.91,":= by
+  intro σ bp hσ
+  constructor
+  case left =>
+    -- Prove the first inequality: slackLower σ bp ≤ slack σ bp
+    simp [slack, slackLower, hσ]
+    <;> norm_cast
+    <;> linarith
+  case right =>
+    -- Prove the second inequality: slack σ bp ≤ 4 * slackLower σ bp + 2^(-(bp.scale : ℤ))
+    simp ["
+slack_tight,1,temp0.7,False,4.13,":= by
+  intro σ bp hσ
+  constructor
+  <;> simp_all [slack, slackLower, abs_le, mul_comm]
+  <;> norm_cast
+  <;> linarith
+  <;> ring_nf
+  <;> norm_cast
+  <;> linarith"
+slack_tight,2,temp0.7,False,4.31,":= by
+  intro σ bp hσ
+  constructor <;>
+  cases bp <;>
+  simp_all [slack, slackLower] <;>
+  norm_cast <;>
+  ring_nf <;>
+  norm_num <;>
+  linarith [pow_pos (by norm_num : (0 : ℝ) < 2) 1, pow_pos (by norm_num : (0 : ℝ) < 2) 2, pow_pos (by norm_num : (0 : ℝ) < 2) 3, pow_pos (by norm_num : (0 : ℝ) < 2) "
+slack_tight,3,temp0.7,False,3.25,":= by
+  intro σ bp hσ
+  constructor
+  -- Prove the first inequality: slackLower σ bp ≤ slack σ bp
+  <;> simp [slack, slackLower, BitPrecision.scale]
+  <;> norm_cast
+  <;> ring_nf
+  <;> linarith
+  -- Prove the second inequality: slack σ bp ≤ 4 * slackLower σ bp + 2^(-(bp.scale : ℤ))
+  <;> simp [slack"
+slack_tight,4,temp0.7,False,1.71,":= by
+  intro σ bp hσ
+  have h₁ := slackLower_le_slack σ bp
+  have h₂ := slack_le_slackUpper σ bp
+  have h₃ := slackUpper_le_slackLower σ bp
+  norm_num at *
+  <;> constructor <;> linarith"
+c_hr_sharp_ge_one,0,greedy,True,2.98,":= by
+  have h : Real.sqrt (2 * Real.log 2) ≥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    have h₁ : (1 : ℝ) ^ 2 = 1 := by norm_num
+    have h₂ : Real.log 2 ≥ 0 := Real.log_nonneg (by norm_num)
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, sq_nonneg (Real.log 2 - 1)]
+  exact h"
+c_hr_sharp_ge_one,1,temp0.7,True,3.32,":= by
+  have h : Real.sqrt (2 * Real.log 2) ≥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    have h₁ : (1 : ℝ) ^ 2 ≤ 2 * Real.log 2 := by
+      -- Use the fact that log 2 ≈ 0.693 > 0.5 = 1/2
+      have := Real.log_two_gt_d9
+      norm_num at this ⊢
+      nlinarith [Real.log_two_gt_d9]
+    nlinarith
+  e"
+c_hr_sharp_ge_one,2,temp0.7,True,3.01,":= by
+  have h₀ : Real.log 2 ≥ 0 := Real.log_nonneg (by norm_num)
+  have h₁ : Real.sqrt (2 * Real.log 2) ≥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.log_lt_sub_one_of_pos (by norm_num : (0 : ℝ) < 2) (by norm_num)]
+  exact h₁"
+c_hr_sharp_ge_one,3,temp0.7,True,2.57,":= by
+  have : Real.sqrt (2 * Real.log 2) ≥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    have h : Real.log 2 ≥ 0 := Real.log_nonneg (by norm_num)
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, sq_nonneg (Real.log 2 - 1)]
+  exact this"
+c_hr_sharp_ge_one,4,temp0.7,True,2.52,":= by
+  have h₁ : Real.log 2 ≥ 0 := Real.log_nonneg (by norm_num)
+  have h₂ : Real.sqrt (2 * Real.log 2) ≥ 1 := by
+    apply Real.le_sqrt_of_sq_le
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, sq_nonneg (Real.log 2 - 1)]
+  exact h₂"
+c_hr_sharp_le_sqrt_two,0,greedy,True,2.29,":= by
+  apply Real.sqrt_le_sqrt
+  have h : Real.log 2 ≤ 1 := by
+    have h₁ : Real.log 2 ≤ 1 := by
+      nlinarith [Real.log_le_sub_one_of_pos (by norm_num : (0 : ℝ) < 2)]
+    linarith
+  nlinarith [h]"
+c_hr_sharp_le_sqrt_two,1,temp0.7,True,4.13,":= by
+  have h : Real.sqrt (2 * Real.log 2) ≤ Real.sqrt 2 := by
+    apply Real.sqrt_le_sqrt
+    have h₁ : 2 * Real.log 2 ≤ 2 := by
+      have h₂ : Real.log 2 ≤ 1 := by
+        have h₃ : Real.log 2 ≤ 1 := by
+          -- Use the fact that the logarithm function is concave and increasing.
+          nl"
+c_hr_sharp_le_sqrt_two,2,temp0.7,True,3.5,":= by
+  have h : Real.sqrt (2 * Real.log 2) ≤ Real.sqrt 2 := by
+    apply Real.sqrt_le_sqrt
+    have h₁ : Real.log 2 ≤ 1 := by
+      -- Use the fact that the logarithm function is concave and increasing.
+      have h₂ : Real.log 2 ≤ 1 := by
+        nlinarith [Real.log_le_sub_one_of_pos (by norm_num "
+c_hr_sharp_le_sqrt_two,3,temp0.7,True,3.19,":= by
+  apply Real.sqrt_le_sqrt
+  -- We need to show that 2 * Real.log 2 ≤ 2
+  have h : Real.log 2 ≤ 1 := by
+    -- Use the fact that Real.log 2 ≤ 1 is a known inequality
+    have := Real.log_le_sub_one_of_pos (by norm_num : (0 : ℝ) < 2)
+    norm_num at this ⊢
+    linarith
+  -- Using the above inequ"
+c_hr_sharp_le_sqrt_two,4,temp0.7,True,2.38,":= by
+  apply Real.sqrt_le_sqrt
+  norm_num
+  <;>
+    nlinarith [Real.log_two_gt_d9, Real.log_two_lt_d9, Real.log_lt_sub_one_of_pos (by norm_num : (0 : ℝ) < 2) (by norm_num),
+      Real.log_pos (by norm_num : (1 : ℝ) < 2)]"
+c_hr_sharp_le_six_fifths,0,greedy,False,2.21,":= by
+  have h₁ : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 := by
+    apply Real.sqrt_le_iff.mpr
+    constructor
+    � positivity
+    �
+      have := Real.log_two_lt_d9
+      norm_num at this ⊢
+      nlinarith [Real.log_two_gt_d9]
+  exact h₁"
+c_hr_sharp_le_six_fifths,1,temp0.7,False,2.52,":= by
+  have h₁ : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 := by
+    apply Real.sqrt_le_iff.mpr
+    constructor
+    � positivity
+    �
+      have := Real.log_two_lt_d9
+      norm_num at this ⊢
+      nlinarith [Real.log_pos (by norm_num : (1 : ℝ) < 2)]
+  exact h₁"
+c_hr_sharp_le_six_fifths,2,temp0.7,False,3.11,":= by
+  have h₁ : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 := by
+    apply Real.sqrt_le_iff.mpr
+    constructor
+    � positivity
+    �
+      have := Real.log_two_lt_d9
+      norm_num at this
+      nlinarith [Real.log_pos (by norm_num : (1 : ℝ) < 2),
+        Real.log_le_sub_one_of_pos (by norm_num : (0 : ℝ"
+c_hr_sharp_le_six_fifths,3,temp0.7,False,3.16,":= by
+  have h₁ : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 := by
+    apply Real.sqrt_le_iff.mpr
+    constructor
+    � positivity
+    � norm_num
+      have h₂ : Real.log 2 ≤ 1 := by
+        nlinarith [Real.log_le_sub_one_of_pos (by norm_num : (0 : ℝ) < 2)]
+      nlinarith [h₂, Real.log_pos (by norm_num : ("
+c_hr_sharp_le_six_fifths,4,temp0.7,False,3.54,":= by
+  have h₁ : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 := by
+    apply Real.sqrt_le_iff.mpr
+    constructor
+    � positivity
+    �
+      have h₂ : Real.log 2 ≤ 1 := by
+        have h₃ : Real.log 2 ≤ 1 := by
+          -- Use the fact that the logarithm of 2 is less than or equal to 1
+          have := "
+etabetting_le_one,0,greedy,False,1.67,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting, Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> omega"
+etabetting_le_one,1,temp0.7,False,2.33,":= theorem etabetting_le_one_test : (b : ℕ) → etaBetting b ≤ 1 := by
+  intro b
+  induction b with
+  | zero => rfl
+  | succ b ih =>
+    cases b with
+    | zero => rfl
+    | succ b =>
+      simp_all [etaBetting]
+      <;> norm_num
+      <;> linarith"
+etabetting_le_one,2,temp0.7,False,1.94,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting]
+    | succ b =>
+      simp_all [etaBetting]
+      <;> norm_num
+      <;> linarith"
+etabetting_le_one,3,temp0.7,False,1.86,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting]
+    | succ b =>
+      simp_all [etaBetting]
+      <;> norm_num
+      <;> linarith"
+etabetting_le_one,4,temp0.7,False,1.48,":= by
+  intro b
+  induction b with
+  | zero => simp [etaBetting]
+  | succ b ih =>
+    simp_all [etaBetting]
+    <;> norm_num
+    <;> linarith"
+etabetting_lt_one,0,greedy,False,2.15,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => simp [etaBetting]
+    | succ b =>
+      simp_all [etaBetting, Nat.div_eq_of_lt, Nat.lt_succ_self]
+      <;> norm_num
+      <;> linarith"
+etabetting_lt_one,1,temp0.7,False,2.61,":= by
+  intro b hb
+  induction' b with b ih
+  � -- Base case: b = 0
+    simp_all [etaBetting]
+  cases b with
+  | zero =>
+    -- Base case: b = 1
+    simp_all [etaBetting]
+  | succ b =>
+    -- Inductive step: assume the statement holds for b, prove for b + 1"
+etabetting_lt_one,2,temp0.7,False,2.19,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => norm_num [etaBetting]
+    | succ b =>
+      simp_all [etaBetting, Nat.div_eq_of_lt, Nat.succ_le_iff]
+      <;> norm_num <;> linarith"
+etabetting_lt_one,3,temp0.7,False,2.44,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- b cannot be zero since 1 ≤ b
+  | succ b ih =>
+    cases b with
+    | zero => norm_num [etaBetting] -- Base case: b = 1
+    | succ b =>
+      simp_all [etaBetting, Nat.div_eq_of_lt]
+      <;> norm_num
+      <;> linarith"
+etabetting_lt_one,4,temp0.7,False,2.24,":= by
+  intro b hb
+  simp_all [etaBetting]
+  <;> norm_num
+  <;> induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => norm_num
+    | succ b =>
+      simp_all [Nat.div_eq_of_lt]
+      <;> norm_num
+      <;> linarith"
+etahr_over_etabetting_gt_one,0,greedy,False,1.73,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => contradiction
+    | succ b =>
+      simp_all [Nat.div_eq_of_lt]
+      <;> norm_num
+      <;> omega"
+etahr_over_etabetting_gt_one,1,temp0.7,False,1.49,":= by
+  intro b hb
+  rcases b with (_ | _ | _ | b)
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> omega"
+etahr_over_etabetting_gt_one,2,temp0.7,False,4.26,":= theorem etahr_over_etabetting_gt_one_test : (b : ℕ) → 2 ≤ b → 1 < etaHR b / etaBetting b := by
+  intro b hb
+  rcases b with (_ | _ | b)
+  � -- Case b = 0 (though this case is not directly relevant as 2 ≤ b is assumed)
+    simp_all [etaHR, etaBetting, Nat.div_eq_of_lt]
+  � -- Case b = 1 (though th"
+etahr_over_etabetting_gt_one,3,temp0.7,False,1.32,":= by
+  intro b hb
+  rcases b with (_ | _ | b) <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> omega"
+etahr_over_etabetting_gt_one,4,temp0.7,False,3.58,":= theorem etahr_over_etabetting_gt_one_test : (b : ℕ) → 2 ≤ b → 1 < etaHR b / etaBetting b := by
+  intro b hb
+  rcases b with (_ | _ | b)
+  � -- b = 0
+    simp_all [etaHR, etaBetting]
+  � -- b = 1
+    simp_all [etaHR, etaBetting]
+  � -- b ≥ 2"
+eta_betting_lt_hr,0,greedy,False,2.88,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- b cannot be zero since 1 ≤ b
+  | succ b ih =>
+    cases b with
+    | zero =>
+      -- Base case: b = 1
+      simp_all [familyBetting.eta, familyHR.eta]
+      <;> norm_num
+    | succ b =>
+      -- Inductive step: b = k + 1
+      simp_"
+eta_betting_lt_hr,1,temp0.7,False,2.76,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero =>
+      -- Base case: b = 1
+      simp [familyBetting.eta, familyHR.eta]
+    | succ b =>
+      -- Inductive step: b = k + 1
+      simp_all [familyBetting.eta, familyHR.eta, Nat.div_eq_of_lt]"
+eta_betting_lt_hr,2,temp0.7,False,2.99,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- b cannot be zero since 1 ≤ b
+  | succ b ih =>
+    cases b with
+    | zero =>
+      -- Base case: b = 1
+      simp_all [familyBetting.eta, familyHR.eta]
+      <;> norm_num
+    | succ b =>
+      -- Inductive step: b = k + 1
+      simp_"
+eta_betting_lt_hr,3,temp0.7,False,3.75,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction -- Since b ≥ 1, b = 0 is impossible.
+  | succ b ih =>
+    cases b with
+    | zero =>
+      -- For b = 1, we need to show that eta 1 < eta 1, which is trivially true.
+      simp [familyBetting.eta, familyHR.eta]
+    | succ b =>
+      -- "
+eta_betting_lt_hr,4,temp0.7,False,2.98,":= by
+  intro b hb
+  induction b with
+  | zero => contradiction
+  | succ b ih =>
+    cases b with
+    | zero => simp [familyBetting.eta, familyHR.eta]
+    | succ b =>
+      simp_all [familyBetting.eta, familyHR.eta]
+      <;> norm_num
+      <;> ring_nf
+      <;> norm_num
+      <;> apply lt_of_sub_po"
+eta_hr_lt_vector,0,greedy,False,2.54,":= by
+  intro b hb
+  cases b with
+  | zero => contradiction -- b cannot be zero since hb : 1 ≤ b
+  | succ b =>
+    cases b with
+    | zero => simp_all [familyHR.eta, familyVector.eta] -- b = 1
+    | succ b =>
+      simp_all [familyHR.eta, familyVector.eta]
+      <;> norm_num
+      <;> linarith"
+eta_hr_lt_vector,1,temp0.7,False,1.98,":= by
+  intro b hb
+  simp [familyHR.eta, familyVector.eta, Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> induction b <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> omega"
+eta_hr_lt_vector,2,temp0.7,False,2.47,":= by
+  intro b hb
+  cases b with
+  | zero =>
+    -- This case is impossible because hb states that b ≥ 1
+    contradiction
+  | succ b =>
+    -- For b ≥ 1, we need to show that eta b < eta b
+    simp_all [familyHR, familyVector, Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> omega"
+eta_hr_lt_vector,3,temp0.7,False,1.51,":= by
+  intro b hb
+  cases b with
+  | zero => contradiction
+  | succ b =>
+    simp_all [familyHR.eta, familyVector.eta, Nat.div_eq_of_lt]
+    <;> omega"
+eta_hr_lt_vector,4,temp0.7,False,1.94,":= by
+  intro b hb
+  cases b with
+  | zero => contradiction -- b cannot be zero since 1 ≤ b
+  | succ b =>
+    simp_all [familyHR.eta, familyVector.eta]
+    <;> norm_num
+    <;> rfl
+    <;> omega"
+ranking_3_way,0,greedy,False,3.17,":= by
+  intro b hb
+  constructor
+  all_goals
+    induction b with
+    | zero => contradiction
+    | succ b ih =>
+      cases b with
+      | zero =>
+        -- Base case for b = 1
+        simp_all [familyBetting.eta, familyHR.eta, familyVector.eta]
+        <;> norm_num
+        <;> linarith
+      | su"
+ranking_3_way,1,temp0.7,False,4.08,":= by
+  intro b hb
+  have h1 : familyBetting.eta b < familyHR.eta b ∧ familyHR.eta b < familyVector.eta b := by
+    constructor
+    � -- Prove familyBetting.eta b < familyHR.eta b
+      induction b with
+      | zero => contradiction -- b cannot be zero since hb : 1 ≤ b
+      | succ b ih =>
+        c"
+ranking_3_way,2,temp0.7,False,4.14,":= by
+  intro b hb
+  constructor <;>
+  (try cases b <;> simp_all [familyBetting, familyHR, familyVector, eta]) <;>
+  norm_num
+  <;>
+  (try ring_nf) <;>
+  (try norm_num) <;>
+  (try linarith)
+  <;>
+  (try norm_cast)"
+ranking_3_way,3,temp0.7,False,3.08,":= by
+  intro b hb
+  constructor
+  all_goals
+    induction b with
+    | zero => contradiction
+    | succ b ih =>
+      cases b with
+      | zero =>
+        simp_all [familyBetting.eta, familyHR.eta, familyVector.eta]
+        <;> norm_num
+      | succ b =>
+        simp_all [familyBetting.eta, familyH"
+ranking_3_way,4,temp0.7,False,4.09,":= by
+  intro b hb
+  constructor
+  � -- First inequality: eta b < familyHR.eta b
+    simp [familyBetting, familyHR, familyVector, Nat.div_eq_of_lt]
+    <;> induction b with
+    | zero => contradiction
+    | succ b ih =>
+      cases b with
+      | zero => norm_num
+      | succ b =>
+        simp_all ["
+ranking_4_way_master,0,greedy,False,1.98,":= by
+  intro b hb
+  constructor
+  � -- Prove that eta b ≤ eta b for familyBetting
+    rfl
+  constructor
+  � -- Prove that eta b ≤ eta b for familyAsymptotic
+    rfl
+  � -- Prove that eta b ≤ eta b for familyHR"
+ranking_4_way_master,1,temp0.7,False,4.28,":= by
+  intro b hb
+  have h₁ : familyBetting.eta b ≤ familyAsymptotic.eta b := by
+    induction b <;> simp_all [familyBetting.eta, familyAsymptotic.eta, Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> omega
+  have h₂ : familyAsymptotic.eta b ≤ familyHR.eta b := by
+    induction b <;> simp_all [familyAsym"
+ranking_4_way_master,2,temp0.7,False,4.16,":= by
+  intro b hb
+  have h₁ : familyBetting.eta b ≤ familyAsymptotic.eta b := by
+    -- Use the fact that the betting strategy's expected profit is less than or equal to the asymptotic strategy's expected profit.
+    exact?
+  have h₂ : familyAsymptotic.eta b ≤ familyHR.eta b := by
+    -- Use the fa"
+ranking_4_way_master,3,temp0.7,False,4.35,":= by
+  intro b hb
+  constructor
+  � -- Prove that eta b for familyBetting ≤ eta b for familyAsymptotic
+    exact?
+  constructor
+  � -- Prove that eta b for familyAsymptotic ≤ eta b for familyHR
+    exact?
+  � -- Prove that eta b for familyHR ≤ eta b for familyVector"
+ranking_4_way_master,4,temp0.7,False,4.11,":= by
+  intro b hb
+  have h₁ : familyBetting.eta b ≤ familyAsymptotic.eta b := by
+    simp [familyBetting.eta, familyAsymptotic.eta]
+    <;> norm_num
+    <;> rcases b with (_ | _ | _ | _) <;> simp_all [Nat.div_eq_of_lt]
+    <;> norm_num
+    <;> omega
+  have h₂ : familyAsymptotic.eta b ≤ familyHR.eta"
+dichotomy_universal_monotonicity_impossible,0,greedy,False,4.17,":= by
+  intro σ hσ bp
+  intro h
+  rcases h with ⟨d, h1, h2⟩
+  have h3 := h1 (fun t => 2^(bp.bits - 1) - 1) 0
+  have h4 := h1 (fun t => 2^(-(bp.scale : ℤ)) - 1) 0
+  have h5 := h2 (fun t => 2^(bp.bits - 1) - 1) 0
+  have h6 := h2 (fun t => 2^(-(bp.scale : ℤ)) - 1) 0
+  simp_all [min_eq_left, min_eq_righ"
+dichotomy_universal_monotonicity_impossible,1,temp0.7,False,4.3,":= theorem dichotomy_universal_monotonicity_impossible_test : (σ : ℝ) → 0 < σ → (bp : BitPrecision) → �∃ d : (Time → ℝ) → Time → Bool, (∀ x t, d x t = true → d x (t+1) = true) ∧ (∀ x t, d x t = true ↔ x t ≥ min (σ * sqrt((t:ℝ + 1) * log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : ℤ)))
+:= by
+  intro "
+dichotomy_universal_monotonicity_impossible,2,temp0.7,False,4.21,":= by
+  intro σ hσ bp
+  intro h
+  rcases h with ⟨d, h1, h2⟩
+  have h3 := h1 (fun t => min (σ * sqrt ((t : ℝ) * log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : ℤ))) 0
+  have h4 := h2 (fun t => min (σ * sqrt ((t : ℝ) * log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : ℤ))) 0
+  have h5 := h1 (fun t => mi"
+dichotomy_universal_monotonicity_impossible,3,temp0.7,False,4.18,":= by
+  intro σ hσ bp
+  intro h
+  rcases h with ⟨d, h1, h2⟩
+  have h3 := h1 (fun _ => 0) 0
+  have h4 := h1 (fun _ => 1) 0
+  have h5 := h2 (fun _ => 0) 0
+  have h6 := h2 (fun _ => 1) 0
+  have h7 := h2 (fun t => min (σ * sqrt((t:ℝ + 1) * log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : ℤ))) 0
+  have h8"
+dichotomy_universal_monotonicity_impossible,4,temp0.7,False,4.23,":= by
+  intro σ hσ bp
+  intro h
+  rcases h with ⟨d, hd_mono, hd_iff⟩
+  have h₁ := hd_mono (fun t => 0) 0
+  have h₂ := hd_mono (fun t => 0) 1
+  have h₃ := hd_mono (fun t => 0) 2
+  have h₄ := hd_iff (fun t => 0) 0
+  have h₅ := hd_iff (fun t => 0) 1
+  have h₆ := hd_iff (fun t => 0) 2
+  have h₇ := hd_if"
+betting_comparison_t2,0,greedy,False,2.12,":= by
+  simp [familyBetting, familyHR, slackFn]
+  <;> norm_num
+  <;> rcases σ with (_ | _ | _) <;> rcases bp with (_ | _ | _) <;> norm_num
+  <;> simp_all [mul_assoc]
+  <;> norm_num
+  <;> linarith"
+betting_comparison_t2,1,temp0.7,False,3.13,":= by
+  simp [familyBetting.slackFn, familyHR.slackFn]
+  <;> norm_num
+  <;> ring_nf
+  <;> norm_num
+  <;> apply lt_of_sub_pos"
+betting_comparison_t2,2,temp0.7,False,4.23,":= by
+  simp [familyBetting, familyHR, slackFn]
+  <;> norm_num
+  <;> simp_all [Finset.sum_range_succ, Finset.sum_range_zero]
+  <;> norm_num
+  <;> ring_nf"
+betting_comparison_t2,3,temp0.7,False,4.16,":= by
+  simp [familyBetting, familyHR, slackFn, hrFn]
+  <;> norm_num
+  <;> rcases σ with (_ | _ | _ | _) <;> rcases bp with (_ | _ | _ | _) <;> norm_num
+  <;> simp_all [Nat.div_eq_of_lt]
+  <;> norm_num
+  <;> rcases σ with (_ | _ | _ | _) <;> rcases bp with (_ | _ | _ | _) <;> norm_num
+  <;> simp_all"
+betting_comparison_t2,4,temp0.7,False,4.25,":= by
+  unfold familyBetting.slackFn familyHR.slackFn
+  simp [Finset.sum_range_succ, Finset.sum_range_one, Nat.cast_add, Nat.cast_one, Nat.cast_mul, Nat.cast_sub]
+  <;> norm_num
+  <;> ring_nf
+  <;> norm_num
+  <;> rfl
+  <;> rfl"
+real_sqrt_lt_sqrt,0,greedy,True,4.14,":= by
+  intro x y hx hy hxy
+  apply Real.sqrt_lt_sqrt
+  <;> linarith
+  <;> linarith"
+real_sqrt_lt_sqrt,1,temp0.7,True,0.84,:= fun x y hx hy hxy => Real.sqrt_lt_sqrt (by linarith) hxy
+real_sqrt_lt_sqrt,2,temp0.7,True,1.33,":= by
+  intro x y hx hy hxy
+  apply Real.sqrt_lt_sqrt
+  <;> linarith
+  <;> linarith"
+real_sqrt_lt_sqrt,3,temp0.7,False,4.2,":= theorem real_sqrt_lt_sqrt_test : (x y : ℝ) → 0 ≤ x → 0 ≤ y → x < y → Real.sqrt x < Real.sqrt y := by
+  intro x y hx hy hxy
+  apply Real.sqrt_lt_sqrt
+  <;> linarith
+  <;> assumption
+  <;> linarith
+  <;> assumption"
+real_sqrt_lt_sqrt,4,temp0.7,True,1.55,":= by
+  -- Introduce the variables and hypotheses
+  intro x y hx hy hxy
+  -- Use the property of the square root function that it is strictly increasing on non-negative reals
+  exact Real.sqrt_lt_sqrt (by linarith) hxy"
+nat_le_add_right,0,greedy,True,1.49,":= by
+  intro n m
+  induction m with
+  | zero => simp
+  | succ m ih =>
+    simp_all [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+    <;> omega"
+nat_le_add_right,1,temp0.7,True,1.6,":= by
+  intro n m
+  have h : n ≤ n + m := by
+    -- Use the fact that adding m to n will not decrease the value of n
+    apply Nat.le_add_right
+  -- The result follows directly from the above reasoning
+  exact h"
+nat_le_add_right,2,temp0.7,True,2.02,":= by
+  intro n m
+  have h : n ≤ n + m := by
+    -- Use the fact that n is a natural number and m is a natural number.
+    -- By the properties of natural numbers, adding m to n will result in a number greater than or equal to n.
+    linarith [Nat.zero_le m]
+  exact h"
+nat_le_add_right,3,temp0.7,True,2.31,":= by
+  intro n m
+  induction m with
+  | zero => simp
+  | succ m ih =>
+    simp_all [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+    -- Using the fact that n ≤ n + m, we can show n ≤ n + (m + 1) by using the induction hypothesis and the properties of addition.
+    <;> omega"
+nat_le_add_right,4,temp0.7,True,0.61,":= by
+  intro n m
+  apply Nat.le_add_right"
+real_add_sq_le_sq_add_sq,0,greedy,False,2.36,":= by
+  intro a b x y h
+  apply Real.sqrt_le_sqrt
+  <;> nlinarith [sq_nonneg (a - b), sq_nonneg (x - y), sq_nonneg (a + b), sq_nonneg (x + y),
+    sq_nonneg (a - x), sq_nonneg (b - y), sq_nonneg (a + x), sq_nonneg (b + y)]"
+real_add_sq_le_sq_add_sq,1,temp0.7,False,1.56,":= by
+  intro a b x y h₁
+  apply Real.sqrt_le_sqrt
+  <;> nlinarith [sq_nonneg (a - b), sq_nonneg (x - y), sq_nonneg (a + b), sq_nonneg (x + y)]"
+real_add_sq_le_sq_add_sq,2,temp0.7,False,2.38,":= fun a b x y h => by
+  apply Real.sqrt_le_sqrt
+  <;> nlinarith [sq_nonneg (a - b), sq_nonneg (x - y), sq_nonneg (a + b), sq_nonneg (x + y),
+    sq_nonneg (a - x), sq_nonneg (b - y), sq_nonneg (a + x), sq_nonneg (b + y)]"
+real_add_sq_le_sq_add_sq,3,temp0.7,False,2.68,":= by
+  intro a b x y h₁
+  apply Real.sqrt_le_sqrt
+  <;> nlinarith [sq_nonneg (a - b), sq_nonneg (x - y), sq_nonneg (a + b), sq_nonneg (x + y),
+    sq_nonneg (a + b - x - y), sq_nonneg (a + b + x + y), sq_nonneg (a - b + x - y),
+    sq_nonneg (a - b - x + y)]"
+real_add_sq_le_sq_add_sq,4,temp0.7,False,2.72,":= by
+  intro a b x y h₀
+  apply Real.sqrt_le_sqrt
+  <;> nlinarith [sq_nonneg (a - b), sq_nonneg (x - y), sq_nonneg (a + b), sq_nonneg (x + y),
+    sq_nonneg (a + b - x - y), sq_nonneg (a + b + x + y), sq_nonneg (a - b + x - y),
+    sq_nonneg (a - b - x + y)]"
+div_le_div_of_nonneg_left,0,greedy,False,1.57,":= by
+  intro a b c hc ha hab
+  have h : 0 < b := by linarith
+  have h' : 0 < c := by linarith
+  rw [div_le_div_iff] <;> nlinarith"
+div_le_div_of_nonneg_left,1,temp0.7,False,3.46,":= theorem div_le_div_of_nonneg_left_test : (a b c : ℝ) → 0 < c → 0 ≤ a → a ≤ b → a / b ≤ a / c := by
+  intro a b c hc ha hab
+  by_cases hb : b = 0
+  � simp_all
+    <;> linarith
+  by_cases ha' : a = 0
+  � simp_all
+    <;> linarith
+  have h : 0 < b := by positivity
+  rw [div_le_div_iff (by positivity"
+div_le_div_of_nonneg_left,2,temp0.7,False,4.23,":= by
+  intro a b c h₀ h₁ h₂ h₃
+  have h₄ : 0 ≤ b := by linarith
+  -- We need to show that a / b ≤ a / c given that 0 < c, 0 ≤ a, and a ≤ b.
+  -- Since 0 < c, we can use the fact that division by a positive number preserves the inequality.
+  have h₅ : 0 ≤ a := by linarith
+  -- We need to show that a"
+div_le_div_of_nonneg_left,3,temp0.7,False,0.99,":= by
+  intro a b c hc ha h
+  apply div_le_div_of_le_left ha (by linarith)
+  linarith"
+div_le_div_of_nonneg_left,4,temp0.7,False,3.78,":= theorem div_le_div_of_nonneg_left_test : (a b c : ℝ) → 0 < c → 0 ≤ a → a ≤ b → a / b ≤ a / c := by
+  intro a b c hc ha h₁
+  by_cases h₂ : b = 0
+  <;> by_cases h₃ : a = 0
+  <;> simp_all [div_eq_mul_inv, mul_inv_le_mul_inv_of_le]
+  <;> apply le_of_sub_nonneg
+  <;> field_simp
+  <;> rw [le_div_iff (b"
+mul_nonneg,0,greedy,True,0.64,":= by
+  intro a b ha hb
+  exact mul_nonneg ha hb"
+mul_nonneg,1,temp0.7,True,0.78,":= by
+  intro a b h₀ h₁
+  exact mul_nonneg h₀ h₁"
+mul_nonneg,2,temp0.7,True,1.04,":= by
+  intro a b ha hb
+  -- Use the property that the product of two non-negative numbers is non-negative.
+  exact mul_nonneg ha hb"
+mul_nonneg,3,temp0.7,True,1.02,":= by
+  intro a b ha hb
+  have h : 0 ≤ a * b := mul_nonneg ha hb
+  exact h"
+mul_nonneg,4,temp0.7,True,0.79,":= by
+  intro a b ha hb
+  exact mul_nonneg ha hb"

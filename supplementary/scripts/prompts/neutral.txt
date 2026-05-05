@@ -1,0 +1,11 @@
+Close this theorem with a clean Lean 4 proof. Use any Mathlib tactic.
+
+# Theorem statement:
+{theorem_statement}
+
+# Constraints
+- Output ONLY the proof body starting with `:= by` or `:= <term>`.
+- Banned: sorry, admit.
+- Axioms limited to propext, Classical.choice, Quot.sound.
+
+# Proof body:

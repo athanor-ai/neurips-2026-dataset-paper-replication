@@ -1,0 +1,1625 @@
+[
+  {
+    "target_id": "quantization_error",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 287.3,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro s x\n  have h\u2081 : |x - quantizeReal s x| \u2264 (2 : \u211d)^(-(s : \u2124)) := by\n    have h\u2082 : |x - quantizeReal s x| \u2264 (2 : \u211d)^(-(s : \u2124)) := by\n      -- Use the property of the quantization error\n      "
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1015,
+        "candidate_head": ":= by intro s x\n  have h\u2081 : |x - quantizeReal s x| \u2264 (2 : \u211d)^(-(s : \u2124)) := by\n    have h\u2082 : |x - quantizeReal s x| \u2264 (2 : \u211d)^(-(s : \u2124)) := by\n      -- Use the property of the quantization error to bou"
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 2048
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 573,
+        "candidate_head": ":= by intro s x\n  have h\u2081 : |x - quantizeReal s x| \u2264 (2 : \u211d) ^ (-(s : \u2124)) := by\n    have h\u2082 : |x - quantizeReal s x| \u2264 (2 : \u211d) ^ (-(s : \u2124)) := by\n      -- Use the property of the quantization error to"
+      }
+    ]
+  },
+  {
+    "target_id": "quantizereal_lower_bound",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 74.3,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 173,
+        "candidate_head": ":= by intro s x hx\n  have h\u2081 : 0 \u2264 (2 : \u211d) ^ (-(s : \u2124)) := by\n    -- Prove that 2^(-s) is non-negative for any natural number s\n    positivity\n  have h\u2082 : 0 \u2264 quantizeReal s x := by\n    -- Prove that "
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 148,
+        "candidate_head": ":= by intro s x hx\n  have h\u2081 : 0 \u2264 quantizeReal s x := by\n    exact quantizeReal_nonneg x\n  have h\u2082 : (2 : \u211d) ^ (-(s : \u2124)) \u2265 0 := by\n    apply zpow_nonneg\n    norm_num\n  -- Since both terms are non-ne"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 167,
+        "candidate_head": ":= by intro s x hx\n  have h\u2081 : 0 \u2264 quantizeReal s x := by\n    -- Prove that the quantized value is non-negative\n    exact quantizeReal_nonneg s x\n  have h\u2082 : (2 : \u211d) ^ (-(s : \u2124)) > 0 := by\n    -- Prov"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 529,
+        "candidate_head": ":= by intro s x hx\n  have h\u2081 : 0 \u2264 quantizeReal s x := by\n    -- Prove that the quantized real number is non-negative\n    have h\u2082 : 0 \u2264 quantizeReal s x := by\n      -- Use the property that the quanti"
+      }
+    ]
+  },
+  {
+    "target_id": "etahr_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 80.0,
+    "capability": "trivial",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 85,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaHR b := by\n    -- Use the fact that `etaHR b` is a natural number and thus non-negative.\n    exact Nat.zero_le _\n  exact h\u2081"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 1154
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 64,
+        "candidate_head": ":= by intro b\n  have h : 0 \u2264 etaHR b := by\n    exact Nat.zero_le _\n  exact h"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 65,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaHR b := by\n    exact Nat.zero_le _\n  exact h\u2081"
+      }
+    ]
+  },
+  {
+    "target_id": "etahr_mono",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 127.8,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 141,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  have h\u2081 : \u2200 n : \u2115, etaHR n = n := by\n    intro n\n    induction n with\n    | zero => simp [etaHR]\n    | succ n ih =>\n      simp_all [etaHR, Nat.div_eq_of_lt]\n      <;> norm_num\n  "
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 86
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 531,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  -- Use the fact that `etaHR` is a monotonically increasing function of its input\n  have h\u2081 : etaHR b\u2081 \u2264 etaHR b\u2082 := by\n    -- Prove that `etaHR b\u2081 \u2264 etaHR b\u2082` using the monotonic"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  have h\u2081 : \u2200 b : \u2115, b \u2265 1 \u2192 etaHR b \u2265 1 := by\n    intro b hb\n    have h\u2082 : \u2200 b : \u2115, b \u2265 1 \u2192 etaHR b \u2265 1 := by\n      intro b hb\n      induction' hb with b hb IH\n      \u00b7 -- Base cas"
+      }
+    ]
+  },
+  {
+    "target_id": "etahr_le_slack",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 116.9,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 233,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : (\u03b7 : \u211d) * 2 ^ (-(bp.scale : \u2124)) * \u03c3 \u2264 slack \u03c3 bp := by\n    have h\u2082 : (\u03b7 : \u211d) * 2 ^ (-(bp.scale : \u2124)) * \u03c3 \u2264 slack \u03c3 bp := by\n      -- Use the fact that the slack is defi"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1072,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 \u03c3 := h\u03c3\n  have h\u2082 : 0 \u2264 (2 : \u211d) ^ (-(bp.scale : \u2124)) := by positivity\n  have h\u2083 : 0 \u2264 etaHR bp.bits * (2 : \u211d) ^ (-(bp.scale : \u2124)) := by\n    have h\u2084 : 0 \u2264 etaHR bp.bi"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 533,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 \u03c3 := h\u03c3\n  have h\u2082 : 0 \u2264 (2 : \u211d) ^ (-(bp.scale : \u2124)) := by positivity\n  have h\u2083 : (\u03b7 : \u211d) * (2 : \u211d) ^ (-(bp.scale : \u2124)) * \u03c3 \u2264 slack \u03c3 bp := by\n    -- Use the fact th"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 709
+      }
+    ]
+  },
+  {
+    "target_id": "etabetting_pos",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 53.1,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 170,
+        "candidate_head": ":= by intro b\n  have h : 0 < etaBetting b := by\n    -- Use the fact that `etaBetting b` is defined as `1` for all `b : \u2115`\n    have h\u2081 : etaBetting b = 1 := by\n      -- Prove that `etaBetting b = 1` fo"
+      },
+      {
+        "round": 2,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 180,
+        "candidate_head": ":= by intro b\n  have h : 0 < etaBetting b := by\n    -- We need to prove that 0 < etaBetting b for all b : \u2115\n    -- This is a placeholder for the actual proof, which would involve detailed analysis of "
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 259,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 < etaBetting b := by\n    -- Use the definition of `etaBetting` and properties of natural numbers to prove the statement.\n    -- Since `etaBetting` is a placeholder, we assu"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 115
+      }
+    ]
+  },
+  {
+    "target_id": "etabetting_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 44.3,
+    "capability": "trivial",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 89,
+        "candidate_head": ":= by intro b\n  have h : 0 \u2264 etaBetting b := by\n    -- Use the fact that `etaBetting` is a natural number to conclude that it is non-negative.\n    exact Nat.zero_le _\n  exact h"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 69,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaBetting b := by\n    exact Nat.zero_le _\n  exact h\u2081"
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 58
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 500
+      }
+    ]
+  },
+  {
+    "target_id": "etabetting_antitone",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 81.9,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 173,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  have h\u2081 : \u2200 b : \u2115, etaBetting b = 0 := by\n    intro b\n    induction b with\n    | zero => simp [etaBetting]\n    | succ b ih =>\n      simp_all [etaBetting, Nat.div_eq_of_lt]\n      "
+      },
+      {
+        "round": 2,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 578,
+        "candidate_head": ":= by sorry"
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 241
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 529,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  have h\u2081 : etaBetting b\u2082 \u2264 etaBetting b\u2081 := by\n    -- Use the fact that the function is antitone and the given condition b\u2081 \u2264 b\u2082\n    have h\u2082 : \u2200 b\u2081 b\u2082 : \u2115, b\u2081 \u2264 b\u2082 \u2192 etaBetting b\u2082"
+      }
+    ]
+  },
+  {
+    "target_id": "etabetting_le_etahr",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 67.8,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 449,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaBetting b \u2264 etaHR b := by\n    -- Use the fact that the function `etaBetting` is bounded above by `etaHR` for all `b \u2265 1`\n    have h\u2082 : \u2200 (b : \u2115), 1 \u2264 b \u2192 etaBetting b \u2264"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 525,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaBetting b \u2264 etaHR b := by\n    have h\u2082 : b \u2265 1 := by linarith\n    have h\u2083 : etaBetting b = 0 := by\n      -- Prove that etaBetting b = 0 for all b \u2265 1\n      have h\u2084 : \u2200 ("
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 88
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 227
+      }
+    ]
+  },
+  {
+    "target_id": "etavector_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 52.4,
+    "capability": "trivial",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 130,
+        "candidate_head": ":= by intro b\n  have h : 0 \u2264 etaVector b := by\n    -- Use the fact that the `etaVector` is a function that returns a non-negative integer.\n    -- This is a placeholder for the actual proof, which woul"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 48,
+        "candidate_head": ":= by intro b\n  exact Nat.zero_le _"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 125,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaVector b := by\n    -- Use the fact that the etaVector is non-negative for all natural numbers b\n    have h\u2082 : 0 \u2264 etaVector b := by\n      -- Use the definition of etaV"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 103,
+        "candidate_head": ":= by intro b\n  exact by\n    exact Nat.zero_le _\n  <;> simp_all [etaVector]\n  <;> aesop\n  <;> simp_all [etaVector]\n  <;> aesop\n  <;> simp_all [etaVector]\n  <;> aesop"
+      }
+    ]
+  },
+  {
+    "target_id": "etavector_mono",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 68.2,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 148,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  have h\u2081 : \u2200 n : \u2115, etaVector n = n := by\n    intro n\n    induction n with\n    | zero => simp [etaVector]\n    | succ n ih =>\n      simp_all [etaVector, Nat.succ_eq_add_one, add_as"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 263,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  have h\u2081 : etaVector b\u2081 \u2264 etaVector b\u2082 := by\n    -- Use the fact that the `etaVector` function is monotonically increasing with respect to the input.\n    have h\u2082 : \u2200 n : \u2115, etaVec"
+      },
+      {
+        "round": 3,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 257,
+        "candidate_head": ":= by sorry"
+      },
+      {
+        "round": 4,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 152,
+        "candidate_head": ":= by intro b\u2081 b\u2082 h\n  -- We need to prove that for any natural numbers b\u2081 and b\u2082 with b\u2081 \u2264 b\u2082, the etaVector of b\u2081 is less than or equal to the etaVector of b\u2082.\n  -- This is a placeholder for the actu"
+      }
+    ]
+  },
+  {
+    "target_id": "etavector_eq_sqrt_two_mul_etahr",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 95.4,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 261,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaVector b = Real.sqrt 2 * etaHR b := by\n    -- Use the given property of the `etaVector` function\n    have h\u2082 : \u2200 (b : \u2115), etaVector b = Real.sqrt 2 * etaHR b := by\n      i"
+      },
+      {
+        "round": 2,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 1003,
+        "candidate_head": ":= by intro b\n  sorry"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 346,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaVector b = Real.sqrt 2 * etaHR b := by\n    -- Use the given property of the eta vector and the eta-HR vector\n    have h\u2082 : \u2200 (b : \u2115), etaVector b = Real.sqrt 2 * etaHR b :"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 434
+      }
+    ]
+  },
+  {
+    "target_id": "etahr_le_etavector",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 65.0,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 148,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaHR b \u2264 etaVector b := by\n    -- Use the fact that the `etaVector` function is defined to be greater than or equal to `etaHR`\n    have h\u2082 : etaVector b \u2265 etaHR b := by\n    "
+      },
+      {
+        "round": 2,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 64,
+        "candidate_head": ":= by intro b\n  have h : etaHR b \u2264 etaVector b := by sorry\n  sorry"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 272,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaHR b \u2264 etaVector b := by\n    -- Use the fact that `etaVector` is a function that returns a value greater than or equal to `etaHR` for all `b`.\n    have h\u2082 : \u2200 (b : \u2115), eta"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 365,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaHR b \u2264 etaVector b := by\n    have h\u2082 : etaHR b = 0 := by\n      -- Prove that etaHR b = 0 for all b\n      have h\u2083 : \u2200 b : \u2115, etaHR b = 0 := by\n        intro b\n        -- Us"
+      }
+    ]
+  },
+  {
+    "target_id": "etaasymptotic_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 69.1,
+    "capability": "trivial",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 94,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaAsymptotic b := by\n    -- Use the fact that the eta asymptotic function is non-negative for all natural numbers b.\n    exact Nat.zero_le _\n  exact h\u2081"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 97,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaAsymptotic b := by\n    -- Use the fact that the etaAsymptotic function is always non-negative.\n    exact Nat.zero_le (etaAsymptotic b)\n  exact h\u2081"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 163,
+        "candidate_head": ":= by intro b\n  -- Use the fact that the etaAsymptotic function is non-negative for all natural numbers b.\n  have h : 0 \u2264 etaAsymptotic b := by\n    -- Since the definition of etaAsymptotic is not prov"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 637,
+        "candidate_head": ":= by intro b\n  have h\u2081 : 0 \u2264 etaAsymptotic b := by\n    -- Use the fact that the exponential function is always positive and the sum of non-negative terms is non-negative.\n    have h\u2082 : 0 \u2264 Real.exp ("
+      }
+    ]
+  },
+  {
+    "target_id": "etaasymptotic_const",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 4,
+    "wall_sec": 59.9,
+    "capability": "trivial",
+    "candidate_text": ":= by intro b\u2081 b\u2082\n  rfl",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 347,
+        "candidate_head": ":= by intro b\u2081 b\u2082\n  have h\u2081 : etaAsymptotic b\u2081 = 0 := by\n    -- Prove that the asymptotic value of any natural number is 0\n    have h\u2082 : \u2200 (n : \u2115), etaAsymptotic n = 0 := by\n      intro n\n      -- Use"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 161
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 144,
+        "candidate_head": ":= 0"
+      },
+      {
+        "round": 4,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 61,
+        "candidate_head": ":= by intro b\u2081 b\u2082\n  rfl"
+      }
+    ]
+  },
+  {
+    "target_id": "etaasymptotic_le_etahr",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 137.7,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaAsymptotic b \u2264 etaHR b := by\n    -- Use the fact that the asymptotic expansion is less than or equal to the harmonic series\n    have h\u2082 : \u2200 (b : \u2115), 1 \u2264 b \u2192 etaAsymptot"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 620,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : \u2200 (b : \u2115), 1 \u2264 b \u2192 etaAsymptotic b \u2264 etaHR b := by\n    intro b hb\n    -- Use the fact that the asymptotic bound is always less than or equal to the harmonic bound\n    have"
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 383
+      },
+      {
+        "round": 4,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 70,
+        "candidate_head": ":= by sorry"
+      }
+    ]
+  },
+  {
+    "target_id": "ranking_four_way",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 129.6,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1511,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaBetting b \u2264 etaAsymptotic b := by\n    have h\u2082 : \u2200 (b : \u2115), 1 \u2264 b \u2192 etaBetting b \u2264 etaAsymptotic b := by\n      intro b hb\n      have h\u2083 : b \u2265 1 := by linarith\n      have"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 447
+      },
+      {
+        "round": 3,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 143,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaBetting b \u2264 etaAsymptotic b := by\n    sorry\n  have h\u2082 : etaAsymptotic b \u2264 etaHR b := by\n    sorry\n  have h\u2083 : etaHR b \u2264 etaVector b := by\n    sorry\n  exact \u27e8h\u2081, h\u2082, h\u2083\u27e9"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 948,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaBetting b \u2264 etaAsymptotic b := by\n    -- Prove that the betting strategy is less than or equal to the asymptotic strategy\n    have h\u2081 : b \u2265 1 := by linarith\n    have h\u2082"
+      }
+    ]
+  },
+  {
+    "target_id": "slack_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 138.6,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 slack \u03c3 bp := by\n    -- Use the fact that the slack is defined as a non-negative quantity\n    have h\u2082 : 0 \u2264 slack \u03c3 bp := by\n      -- Use the definition of slack an"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 96,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  -- Use the fact that slack is non-negative by definition\n  exact slack_nonneg \u03c3 bp\n  <;> simp_all\n  <;> norm_num\n  <;> linarith"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 682,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 slack \u03c3 bp := by\n    -- We need to show that slack \u03c3 bp is non-negative.\n    -- Since slack \u03c3 bp is a sum of squares, it is always non-negative.\n    -- Specifically"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 156,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 slack \u03c3 bp := by\n    -- Use the definition of `slack` and the fact that `\u03c3` is non-negative to prove the inequality.\n    cases' bp with bp\n    \u00b7 -- Case: `bp` is `0"
+      }
+    ]
+  },
+  {
+    "target_id": "slack_antitone_in_scale",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 132.5,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro \u03c3 bp\u2081 bp\u2082 h\n  have h\u2081 : slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081 := by\n    -- Use the fact that the slack function is antitone in the scale parameter\n    have h\u2082 : slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081 := by\n      -"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 363,
+        "candidate_head": ":= by intro \u03c3 bp\u2081 bp\u2082 h\n  have h\u2081 : slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081 := by\n    -- We need to show that the slack for bp\u2082 is less than or equal to the slack for bp\u2081.\n    -- This is because the scale of bp\u2081 is"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 155,
+        "candidate_head": ":= by intro \u03c3 bp\u2081 bp\u2082 h\n  -- Use the fact that slack is a decreasing function of the scale\n  have h\u2081 : slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081 := by\n    -- Use the property of the slack function being antitone in t"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 350,
+        "candidate_head": ":= by intro \u03c3 bp\u2081 bp\u2082 h\n  have h\u2081 : slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081 := by\n    -- Use the fact that the slack function is monotonically decreasing in the bit precision\n    have h\u2082 : slack \u03c3 bp\u2082 \u2264 slack \u03c3 bp\u2081"
+      }
+    ]
+  },
+  {
+    "target_id": "sharpslack_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 60.8,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 115,
+        "candidate_head": ":= by intro c \u03c3 bp hc h\u03c3\n  have h\u2081 : 0 \u2264 sharpSlack c \u03c3 bp := by\n    -- Use the fact that the sharp slack is non-negative by definition\n    exact sharpSlack_nonneg c \u03c3 bp\n  exact h\u2081"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 368,
+        "candidate_head": ":= by intro c \u03c3 bp hc h\u03c3\n  -- Use the fact that the sum of non-negative terms is non-negative.\n  exact by\n    have h\u2081 : 0 \u2264 sharpSlack c \u03c3 bp := by\n      -- Prove that each term in the sum is non-nega"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 118,
+        "candidate_head": ":= by intro c \u03c3 bp hc h\u03c3\n  have h\u2081 : 0 \u2264 sharpSlack c \u03c3 bp := by\n    -- Use the property of the sharp slack function to prove non-negativity\n    exact sharpSlack_nonneg c \u03c3 bp\n  exact h\u2081"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 289
+      }
+    ]
+  },
+  {
+    "target_id": "sharpslack_mono_in_c",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 130.3,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 472,
+        "candidate_head": ":= by intro c\u2081 c\u2082 \u03c3 bp h\u03c3 h\u2081\n  have h\u2082 : sharpSlack c\u2081 \u03c3 bp \u2264 sharpSlack c\u2082 \u03c3 bp := by\n    -- Use the fact that the slack function is monotonically increasing in c\n    have h\u2083 : sharpSlack c\u2081 \u03c3 bp \u2264 s"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 165,
+        "candidate_head": ":= by intro c\u2081 c\u2082 \u03c3 bp h\u03c3 h\n  -- Use the fact that the slack function is monotonic in the first argument\n  have h\u2081 : sharpSlack c\u2081 \u03c3 bp \u2264 sharpSlack c\u2082 \u03c3 bp := by\n    -- Apply the monotonicity propert"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 113,
+        "candidate_head": ":= by intro c\u2081 c\u2082 \u03c3 bp h\u03c3 h\u2081\n  have h_main : sharpSlack c\u2081 \u03c3 bp \u2264 sharpSlack c\u2082 \u03c3 bp := by\n    sorry\n  sorry"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro c\u2081 c\u2082 \u03c3 bp h\u03c3 h\u2081\n  have h\u2082 : sharpSlack c\u2081 \u03c3 bp \u2264 sharpSlack c\u2082 \u03c3 bp := by\n    -- Use the fact that the slack is a monotonically increasing function in c\u2081 and c\u2082\n    have h\u2083 : c\u2081 \u2264 c\u2082 := h"
+      }
+    ]
+  },
+  {
+    "target_id": "realizedcoverageavg_singleton",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 80.5,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 320,
+        "candidate_head": ":= by intro impl claim\n  have h\u2081 : realizedCoverageAvg impl (singletonAdversary impl.mart) claim = 1 := by\n    -- Simplify the expression using the definition of `realizedCoverageAvg` and properties o"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 349,
+        "candidate_head": ":= by sorry"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 316,
+        "candidate_head": ":= by intro impl claim\n  have h\u2081 : realizedCoverageAvg impl (singletonAdversary impl.mart) claim = 1 := by\n    simp [realizedCoverageAvg, singletonAdversary, impl, claim, bp, \u03c3]\n    <;>\n    (try decid"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 301,
+        "candidate_head": ":= by have h\u2081 : \u2200 (impl : StoppingImpl \u03c3 bp) (claim : CoverageClaim), realizedCoverageAvg impl (singletonAdversary impl.mart) claim = 1 := by\n    intro impl claim\n    have h\u2082 : \u2200 (a : Adversary), real"
+      }
+    ]
+  },
+  {
+    "target_id": "realizedcoverageavg_bounded",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 142.1,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro impl adv claim\n  have h\u2081 : realizedCoverageAvg impl adv claim \u2264 1 := by\n    -- Use the fact that the average coverage is bounded by 1\n    have h\u2082 : realizedCoverageAvg impl adv claim \u2264 1 :"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 502
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 199,
+        "candidate_head": ":= by intro impl adv claim\n  have h\u2081 : \u2200 (impl : StoppingImpl \u03c3 bp) (adv : AdversaryFamily \u03c3) (claim : CoverageClaim), realizedCoverageAvg impl adv claim \u2264 1 := by\n    intro impl adv claim\n    -- We n"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 771
+      }
+    ]
+  },
+  {
+    "target_id": "c_hr_sharp_pos",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 20.4,
+    "capability": "friendly",
+    "candidate_text": ":= by have h\u2081 : 0 < c_HR_sharp := by\n    -- Use the fact that the constant `c_HR_sharp` is positive by definition.\n    exact c_HR_sharp_pos\n  -- The result follows directly from the established fact.\n  exact h\u2081",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 94,
+        "candidate_head": ":= by have h\u2081 : 0 < c_HR_sharp := by\n    -- Use the fact that the constant `c_HR_sharp` is positive by definition.\n    exact c_HR_sharp_pos\n  -- The result follows directly from the established fact.\n"
+      }
+    ]
+  },
+  {
+    "target_id": "c_betting_sharp_pos",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 20.2,
+    "capability": "trivial",
+    "candidate_text": ":= by have h : 0 < c_betting_sharp := by\n    -- Use the fact that the constant `c_betting_sharp` is positive by definition.\n    exact c_betting_sharp_pos\n  -- The result follows directly from the established fact.\n  exact h",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 93,
+        "candidate_head": ":= by have h : 0 < c_betting_sharp := by\n    -- Use the fact that the constant `c_betting_sharp` is positive by definition.\n    exact c_betting_sharp_pos\n  -- The result follows directly from the esta"
+      }
+    ]
+  },
+  {
+    "target_id": "c_vector_sharp_pos",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 112.9,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 260,
+        "candidate_head": ":= by have h\u2081 : 0 < c_vector_sharp := by\n    -- Use the fact that the square root of a positive number is positive.\n    have h\u2082 : 0 < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)\n    -- Use the fact"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 125,
+        "candidate_head": ":= by have h\u2081 : 0 < c_vector_sharp := by\n    -- Prove that c_vector_sharp is positive by using the fact that it is a positive integer.\n    have h\u2082 : c_vector_sharp = 1 := by\n      -- Prove that c_vect"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 77,
+        "candidate_head": ":= by -- Use the `decide` tactic to automatically verify the inequality.\n  decide\n  <;> simp_all [c_vector_sharp]\n  <;> norm_num\n  <;> aesop"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 2048
+      }
+    ]
+  },
+  {
+    "target_id": "c_acs_sharp_pos",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 20.9,
+    "capability": "friendly",
+    "candidate_text": ":= by have h\u2081 : 0 < c_aCS_sharp := by\n    -- Use the fact that the constant `c_aCS_sharp` is positive by definition.\n    exact c_aCS_sharp_pos\n  -- The result follows directly from the established fact.\n  exact h\u2081",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 95,
+        "candidate_head": ":= by have h\u2081 : 0 < c_aCS_sharp := by\n    -- Use the fact that the constant `c_aCS_sharp` is positive by definition.\n    exact c_aCS_sharp_pos\n  -- The result follows directly from the established fac"
+      }
+    ]
+  },
+  {
+    "target_id": "boundary_pos",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 136.7,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 304,
+        "candidate_head": ":= by intro c0 hc0 t\n  have h\u2081 : 0 < boundary c0 t := by\n    -- Use the definition of `boundary` and the given conditions to prove the inequality.\n    -- Since `boundary c0 t` is defined as `c0 * t`, "
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 2048
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 319,
+        "candidate_head": ":= by intro c0 hc0 t\n  have h\u2081 : 0 < c0 := hc0\n  have h\u2082 : 0 < boundary c0 t := by\n    -- Use the fact that the boundary is positive for any positive c0 and t\n    have h\u2083 : 0 < c0 := h\u2081\n    have h\u2084 : "
+      },
+      {
+        "round": 4,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 394,
+        "candidate_head": ":= by intro c0 hc0 t\n  -- We need to prove that boundary c0 t > 0.\n  -- Since boundary c0 t is defined as c0 * (1 - t), and c0 > 0, we need to show that 1 - t > 0.\n  -- However, t is of type Time, whi"
+      }
+    ]
+  },
+  {
+    "target_id": "boundary_antitone",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 91.8,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 164,
+        "candidate_head": ":= by intro c0 hc0 t\u2081 t\u2082 ht\n  have h\u2081 : boundary c0 t\u2082 \u2264 boundary c0 t\u2081 := by\n    -- Use the fact that the boundary function is antitone in time\n    have h\u2082 : boundary c0 t\u2082 \u2264 boundary c0 t\u2081 := by\n   "
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 998,
+        "candidate_head": ":= by intro c0 hc0 t\u2081 t\u2082 ht\n  have h\u2081 : boundary c0 t\u2082 \u2264 boundary c0 t\u2081 := by\n    -- Use the fact that the boundary function is antitone in time\n    have h\u2082 : \u2200 (t\u2081 t\u2082 : Time), t\u2081 \u2264 t\u2082 \u2192 boundary c0 t"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 209,
+        "candidate_head": ":= by intro c0 hc0 t\u2081 t\u2082 h\n  have h\u2081 : boundary c0 t\u2082 \u2264 boundary c0 t\u2081 := by\n    -- Use the fact that the boundary function is antitone with respect to time\n    have h\u2082 : boundary c0 t\u2082 \u2264 boundary c0 "
+      },
+      {
+        "round": 4,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 103,
+        "candidate_head": ":= by intro c0 hc0 t\u2081 t\u2082 ht\n  have h\u2081 : boundary c0 t\u2082 \u2264 boundary c0 t\u2081 := by\n    sorry\n  sorry"
+      }
+    ]
+  },
+  {
+    "target_id": "slacklower_nonneg",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 170.4,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 slackLower \u03c3 bp := by\n    -- Use the fact that the slack lower bound is non-negative by definition\n    exact by\n      -- Use the property of the slack lower bound t"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 2048
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 285,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : 0 \u2264 slackLower \u03c3 bp := by\n    -- Use the property of slackLower to show it is non-negative\n    have h\u2082 : 0 \u2264 slackLower \u03c3 bp := by\n      -- Prove that slackLower is non"
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 98
+      }
+    ]
+  },
+  {
+    "target_id": "slack_tight",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 159.9,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 752,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : slackLower \u03c3 bp \u2264 slack \u03c3 bp := by\n    -- Prove that slackLower \u03c3 bp \u2264 slack \u03c3 bp\n    have h\u2082 : slackLower \u03c3 bp \u2264 slack \u03c3 bp := by\n      -- Use the fact that slackLower"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 1242
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 937
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1178,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3\n  have h\u2081 : slackLower \u03c3 bp \u2264 slack \u03c3 bp := by\n    -- Prove that slackLower \u03c3 bp \u2264 slack \u03c3 bp using the given lemmas and properties.\n    have h\u2082 : slackLower \u03c3 bp \u2264 slack \u03c3 bp := b"
+      }
+    ]
+  },
+  {
+    "target_id": "c_hr_sharp_ge_one",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 25.4,
+    "capability": "friendly",
+    "candidate_text": ":= by have h\u2081 : Real.log 2 \u2265 0 := Real.log_nonneg (by norm_num)\n  have h\u2082 : Real.log 2 \u2265 1 / 2 := by\n    -- Prove that ln(2) \u2265 1/2 using numerical and algebraic properties\n    have := Real.log_two_gt_d9\n    have := Real.log_two_lt_d9\n    norm_num at *\n    <;> linarith\n  have h\u2083 : 2 * Real.log 2 \u2265 1 := by linarith\n  have h\u2084 : Real.sqrt (2 * Real.log 2) \u2265 1 := by\n    apply Real.le_sqrt_of_sq_le\n    nlinarith [Real.log_le_sub_one_of_pos (by norm_num : (0 : \u211d) < 2)]\n  exact h\u2084",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 216,
+        "candidate_head": ":= by have h\u2081 : Real.log 2 \u2265 0 := Real.log_nonneg (by norm_num)\n  have h\u2082 : Real.log 2 \u2265 1 / 2 := by\n    -- Prove that ln(2) \u2265 1/2 using numerical and algebraic properties\n    have := Real.log_two_gt_"
+      }
+    ]
+  },
+  {
+    "target_id": "c_hr_sharp_le_sqrt_two",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 25.2,
+    "capability": "friendly",
+    "candidate_text": ":= by have h\u2081 : Real.log 2 \u2264 1 := by\n    -- Prove that the natural logarithm of 2 is less than or equal to 1.\n    have := Real.log_two_lt_d9\n    norm_num at this \u22a2\n    <;> linarith\n  \n  have h\u2082 : 2 * Real.log 2 \u2264 2 := by\n    -- Prove that 2 times the natural logarithm of 2 is less than or equal to 2.\n    linarith\n  \n  have h\u2083 : Real.sqrt (2 * Real.log 2) \u2264 Real.sqrt 2 := by\n    -- Use the fact that the square root function is monotonically increasing to prove the inequality.\n    apply Real.sqrt_le_sqrt\n    linarith\n  \n  exact h\u2083",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 210,
+        "candidate_head": ":= by have h\u2081 : Real.log 2 \u2264 1 := by\n    -- Prove that the natural logarithm of 2 is less than or equal to 1.\n    have := Real.log_two_lt_d9\n    norm_num at this \u22a2\n    <;> linarith\n  \n  have h\u2082 : 2 * "
+      }
+    ]
+  },
+  {
+    "target_id": "c_hr_sharp_le_six_fifths",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 30.5,
+    "capability": "friendly",
+    "candidate_text": ":= by have h\u2081 : Real.log 2 \u2264 1 := by\n    -- Prove that the natural logarithm of 2 is less than or equal to 1.\n    have := Real.log_two_lt_d9\n    norm_num at this \u22a2\n    <;> linarith\n  \n  have h\u2082 : 0 \u2264 Real.log 2 := by\n    -- Prove that the natural logarithm of 2 is non-negative.\n    apply Real.log_nonneg\n    <;> norm_num\n  \n  have h\u2083 : 2 * Real.log 2 \u2264 (6 / 5 : \u211d) ^ 2 := by\n    -- Prove that 2 * Real.log 2 is less than or equal to (6 / 5)^2.\n    have h\u2084 : Real.log 2 \u2264 1 := h\u2081\n    have h\u2085 : 0 \u2264 Real.log 2 := h\u2082\n    nlinarith [Real.log_two_lt_d9]\n  \n  have h\u2084 : Real.sqrt (2 * Real.log 2) \u2264 6 / 5 := by\n    -- Use the fact that the square root of a number less than or equal to (6 / 5)^2 is less than or equal to 6 / 5.\n    apply Real.sqrt_le_iff.mpr\n    constructor\n    \u00b7 positivity\n    \u00b7 nlinarith [h\u2083]\n  \n  exact h\u2084",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 347,
+        "candidate_head": ":= by have h\u2081 : Real.log 2 \u2264 1 := by\n    -- Prove that the natural logarithm of 2 is less than or equal to 1.\n    have := Real.log_two_lt_d9\n    norm_num at this \u22a2\n    <;> linarith\n  \n  have h\u2082 : 0 \u2264 "
+      }
+    ]
+  },
+  {
+    "target_id": "etabetting_le_one",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 69.4,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 239,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaBetting b \u2264 1 := by\n    -- Use the fact that the `etaBetting` function is defined to be 0 for all `b`\n    have h\u2082 : etaBetting b = 0 := by\n      -- Prove that `etaBetting "
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 198,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaBetting b \u2264 1 := by\n    have h\u2082 : \u2200 b : \u2115, etaBetting b \u2264 1 := by\n      intro b\n      have h\u2083 : etaBetting b = 0 := by\n        -- Prove that the value of `etaBetting b` is"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 190,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaBetting b \u2264 1 := by\n    cases b with\n    | zero => simp [etaBetting]\n    | succ b =>\n      cases b with\n      | zero => simp [etaBetting]\n      | succ b =>\n        cases b"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 305,
+        "candidate_head": ":= by intro b\n  have h\u2081 : etaBetting b \u2264 1 := by\n    induction b with\n    | zero =>\n      -- Base case: when b = 0\n      norm_num [etaBetting]\n    | succ b ih =>\n      -- Inductive step: assume the st"
+      }
+    ]
+  },
+  {
+    "target_id": "etabetting_lt_one",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 75.4,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 378,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : etaBetting b < 1 := by\n    have h\u2082 : b \u2265 1 := by linarith\n    have h\u2083 : etaBetting b = 0 := by\n      -- Prove that etaBetting b = 0 for b \u2265 1\n      have h\u2084 : b \u2265 1 := by l"
+      },
+      {
+        "round": 2,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 53,
+        "candidate_head": ":= by sorry"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 314,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : \u03b7_betting b < 1 := by\n    have h\u2082 : b \u2265 1 := by linarith\n    -- Use the fact that \u03b7_betting is defined recursively and is always less than 1\n    have h\u2083 : \u2200 n : \u2115, n \u2265 1 \u2192"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 396,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : b \u2265 1 := by linarith\n  have h\u2082 : etaBetting b < 1 := by\n    -- We use the fact that for all b \u2265 1, etaBetting b is less than 1.\n    have h\u2083 : \u2200 (n : \u2115), n \u2265 1 \u2192 etaBetting"
+      }
+    ]
+  },
+  {
+    "target_id": "etahr_over_etabetting_gt_one",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 236.4,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : 1 < etaHR b / etaBetting b := by\n    have h\u2082 : b \u2265 2 := by linarith\n    have h\u2083 : etaHR b / etaBetting b > 1 := by\n      -- Use the fact that for b \u2265 2, the ratio is great"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1063,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : 2 \u2264 b := hb\n  have h\u2082 : 1 < etaHR b / etaBetting b := by\n    -- We need to prove that 1 < etaHR b / etaBetting b for b \u2265 2\n    -- This involves showing that etaHR b > etaB"
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 1253
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1603,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : 2 \u2264 b := hb\n  have h\u2082 : 1 < etaHR b / etaBetting b := by\n    have h\u2083 : b \u2265 2 := by linarith\n    have h\u2084 : etaHR b \u2265 b := by\n      -- Prove that etaHR b \u2265 b for b \u2265 2\n     "
+      }
+    ]
+  },
+  {
+    "target_id": "eta_betting_lt_hr",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 58.7,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 436,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b < familyHR.\u03b7 b := by\n    -- Use the fact that the eta function for familyBetting is less than the eta function for familyHR\n    have h\u2082 : familyBetting"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 136,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.\u03b7 b < familyHR.\u03b7 b := by\n    have h\u2082 : familyBetting.\u03b7 b = b := by\n      rfl\n    have h\u2083 : familyHR.\u03b7 b = b + 1 := by\n      rfl\n    rw [h\u2082, h\u2083]\n    <;> omega"
+      },
+      {
+        "round": 3,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 80,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b < familyHR.eta b := by sorry\n  sorry"
+      },
+      {
+        "round": 4,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 80,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b < familyHR.eta b := by sorry\n  sorry"
+      }
+    ]
+  },
+  {
+    "target_id": "eta_hr_lt_vector",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 76.7,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 434,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyHR.eta b < familyVector.eta b := by\n    have h\u2082 : b \u2265 1 := by linarith\n    have h\u2083 : familyHR.eta b = b := by\n      -- Prove that the eta function for familyHR is th"
+      },
+      {
+        "round": 2,
+        "verdict": "sorry",
+        "axiom_clean": null,
+        "tokens_out": 76,
+        "candidate_head": ":= by intro b hb\n  have h_main : familyHR.eta b < familyVector.eta b := by sorry\n  sorry"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 450,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyHR.eta b < familyVector.eta b := by\n    -- Use the fact that the family vector is strictly increasing and the family HR is strictly increasing\n    have h\u2082 : familyVe"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 132,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyHR.eta b < familyVector.eta b := by\n    have h\u2082 : familyHR.eta b = b := by\n      rfl\n    have h\u2083 : familyVector.eta b = b + 1 := by\n      rfl\n    rw [h\u2082, h\u2083]\n    <;>"
+      }
+    ]
+  },
+  {
+    "target_id": "ranking_3_way",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 109.5,
+    "capability": "trivial",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 289,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b < familyHR.eta b := by\n    have h\u2082 : familyBetting.eta b = 0 := by\n      -- Prove that the eta value for familyBetting is 0\n      rfl\n    have h\u2083 : fam"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 144,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b < familyHR.eta b := by\n    sorry\n  have h\u2082 : familyHR.eta b < familyVector.\u03b7 b := by\n    sorry\n  exact \u27e8h\u2081, h\u2082\u27e9\n  <;> simp_all\n  <;> norm_num\n  <;> lin"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1478,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.\u03b7 b < familyHR.\u03b7 b := by\n    -- Prove that familyBetting.\u03b7 b < familyHR.\u03b7 b\n    have h\u2081\u2081 : b \u2265 1 := hb\n    have h\u2081\u2082 : familyBetting.\u03b7 b < familyHR.\u03b7 b := by\n"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 329,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b < familyHR.eta b := by\n    -- Prove that familyBetting.eta b < familyHR.eta b\n    have h\u2082 : familyBetting.eta b = b := by\n      -- Prove that familyBet"
+      }
+    ]
+  },
+  {
+    "target_id": "ranking_4_way_master",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 176.5,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 600,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.\u03b7 b \u2264 familyAsymptotic.\u03b7 b := by\n    -- Prove that the \u03b7 of familyBetting is less than or equal to the \u03b7 of familyAsymptotic\n    have h\u2082 : familyBetting.\u03b7 b "
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1593,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.eta b \u2264 familyAsymptotic.\u03b7 b := by\n    -- Prove that the eta of the betting family is less than or equal to the eta of the asymptotic family.\n    have h\u2081 : f"
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 216
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 2048,
+        "candidate_head": ":= by intro b hb\n  have h\u2081 : familyBetting.\u03b7 b \u2264 familyAsymptotic.\u03b7 b := by\n    -- Prove that the \u03b7 function for familyBetting is less than or equal to that for familyAsymptotic\n    exact by\n      cas"
+      }
+    ]
+  },
+  {
+    "target_id": "dichotomy_universal_monotonicity_impossible",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 264.6,
+    "capability": "challenging",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1108,
+        "candidate_head": ":= by intro \u03c3 h\u03c3 bp\n  intro h\n  rcases h with \u27e8d, h\u2081, h\u2082\u27e9\n  have h\u2083 := h\u2082 (fun t => 0) 0\n  have h\u2084 := h\u2082 (fun t => 0) 1\n  have h\u2085 := h\u2082 (fun t => 0) 2\n  have h\u2086 := h\u2082 (fun t => 0) 3\n  have h\u2087 := h\u2081 (f"
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 2048
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 2048
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 1898,
+        "candidate_head": ":= by intro \u03c3 h\u03c3 bp\n  intro h\n  rcases h with \u27e8d, h\u2081, h\u2082\u27e9\n  have h\u2083 := h\u2082 (fun _ => 0) 0\n  have h\u2084 := h\u2082 (fun _ => 1) 0\n  have h\u2085 := h\u2082 (fun _ => 0) 1\n  have h\u2086 := h\u2082 (fun _ => 1) 1\n  norm_num [h\u03c3] at"
+      }
+    ]
+  },
+  {
+    "target_id": "betting_comparison_t2",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 85.6,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 146,
+        "candidate_head": ":= by have h\u2081 : familyBetting.slackFn \u03c3 bp = 0 := by\n    simp [familyBetting.slackFn, \u03c3, bp]\n    <;> norm_num\n    <;> rfl\n  \n  have h\u2082 : familyHR.slackFn \u03c3 bp = 1 := by\n    simp [familyHR.slackFn, \u03c3, "
+      },
+      {
+        "round": 2,
+        "verdict": "extraction_failed",
+        "tokens_out": 494
+      },
+      {
+        "round": 3,
+        "verdict": "extraction_failed",
+        "tokens_out": 42
+      },
+      {
+        "round": 4,
+        "verdict": "extraction_failed",
+        "tokens_out": 1570
+      }
+    ]
+  },
+  {
+    "target_id": "real_sqrt_lt_sqrt",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 22.5,
+    "capability": "trivial",
+    "candidate_text": ":= by intro x y hx hy hxy\n  have h\u2081 : 0 \u2264 x := hx\n  have h\u2082 : 0 \u2264 y := hy\n  have h\u2083 : x < y := hxy\n  have h\u2084 : Real.sqrt x < Real.sqrt y := by\n    apply Real.sqrt_lt_sqrt\n    \u00b7 linarith\n    \u00b7 linarith\n  exact h\u2084",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 137,
+        "candidate_head": ":= by intro x y hx hy hxy\n  have h\u2081 : 0 \u2264 x := hx\n  have h\u2082 : 0 \u2264 y := hy\n  have h\u2083 : x < y := hxy\n  have h\u2084 : Real.sqrt x < Real.sqrt y := by\n    apply Real.sqrt_lt_sqrt\n    \u00b7 linarith\n    \u00b7 linarith"
+      }
+    ]
+  },
+  {
+    "target_id": "nat_le_add_right",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 21.4,
+    "capability": "trivial",
+    "candidate_text": ":= by intro n m\n  have h : n \u2264 n + m := by\n    -- Use the fact that adding a non-negative number to n does not decrease its value.\n    have h\u2081 : n \u2264 n + m := by\n      -- Use the `omega` tactic to solve the inequality.\n      omega\n    exact h\u2081\n  exact h",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 110,
+        "candidate_head": ":= by intro n m\n  have h : n \u2264 n + m := by\n    -- Use the fact that adding a non-negative number to n does not decrease its value.\n    have h\u2081 : n \u2264 n + m := by\n      -- Use the `omega` tactic to solv"
+      }
+    ]
+  },
+  {
+    "target_id": "real_add_sq_le_sq_add_sq",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 65.2,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 258,
+        "candidate_head": ":= by intro a b x y h\n  have h\u2081 : 0 \u2264 a^2 + b^2 := by nlinarith\n  have h\u2082 : 0 \u2264 x^2 + y^2 := by nlinarith\n  have h\u2083 : 0 \u2264 Real.sqrt (a^2 + b^2) := Real.sqrt_nonneg (a^2 + b^2)\n  have h\u2084 : 0 \u2264 Real.sqr"
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 230,
+        "candidate_head": ":= by intro a b x y h\n  have h\u2081 : 0 \u2264 x ^ 2 + y ^ 2 := by nlinarith\n  have h\u2082 : 0 \u2264 a ^ 2 + b ^ 2 := by nlinarith\n  -- Use the property of square roots that if a \u2264 b, then sqrt(a) \u2264 sqrt(b) for non-ne"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 91,
+        "candidate_head": ":= by intro a b x y h\n  apply Real.sqrt_le_sqrt\n  exact h"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 268,
+        "candidate_head": ":= by intro a b x y h\n  have h\u2081 : 0 \u2264 a^2 + b^2 := by nlinarith\n  have h\u2082 : 0 \u2264 x^2 + y^2 := by nlinarith\n  have h\u2083 : 0 \u2264 Real.sqrt (a^2 + b^2) := Real.sqrt_nonneg (a^2 + b^2)\n  have h\u2084 : 0 \u2264 Real.sqr"
+      }
+    ]
+  },
+  {
+    "target_id": "div_le_div_of_nonneg_left",
+    "verdict": "type_fail",
+    "axiom_clean": null,
+    "rounds_used": 4,
+    "wall_sec": 131.5,
+    "capability": "friendly",
+    "candidate_text": "",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 645,
+        "candidate_head": ":= by intro a b c hc ha hab\n  have h\u2081 : a / b \u2264 a / c := by\n    by_cases hb : b = 0\n    \u00b7 -- If b = 0, then a / b is undefined, but Lean treats it as 0\n      simp_all [div_eq_mul_inv]\n      <;>\n      "
+      },
+      {
+        "round": 2,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 710,
+        "candidate_head": ":= by intro a b c hc h\u2080 h\u2081 h\u2082\n  have h\u2083 : 0 \u2264 a := h\u2080\n  have h\u2084 : a \u2264 b := h\u2082\n  have h\u2085 : 0 < c := hc\n  by_cases h\u2086 : b = 0\n  \u00b7 -- Case: b = 0\n    have h\u2087 : a = 0 := by\n      nlinarith\n    simp [h\u2086, h"
+      },
+      {
+        "round": 3,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 832,
+        "candidate_head": ":= by intro a b c hc ha hab\n  have h\u2081 : a / b \u2264 a / c := by\n    by_cases hb : b = 0\n    \u00b7 -- If b = 0, the inequality is undefined in the real numbers, but Lean will treat it as 0.\n      simp_all [div"
+      },
+      {
+        "round": 4,
+        "verdict": "type_fail",
+        "axiom_clean": null,
+        "tokens_out": 644,
+        "candidate_head": ":= by intro a b c hc ha hle\n  have h\u2081 : a / b \u2264 a / c := by\n    by_cases h : b = 0\n    \u00b7 -- If b = 0, the expression a / b is undefined, but Lean treats it as 0.\n      -- However, the inequality a / b"
+      }
+    ]
+  },
+  {
+    "target_id": "mul_nonneg",
+    "verdict": "closed",
+    "axiom_clean": true,
+    "rounds_used": 1,
+    "wall_sec": 19.6,
+    "capability": "trivial",
+    "candidate_text": ":= by intro a b ha hb\n  -- Use the property that the product of two non-negative numbers is non-negative.\n  exact mul_nonneg ha hb",
+    "transcript": [
+      {
+        "round": 1,
+        "verdict": "closed",
+        "axiom_clean": true,
+        "tokens_out": 78,
+        "candidate_head": ":= by intro a b ha hb\n  -- Use the property that the product of two non-negative numbers is non-negative.\n  exact mul_nonneg ha hb"
+      }
+    ]
+  }
+]

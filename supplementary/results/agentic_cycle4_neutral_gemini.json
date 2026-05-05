@@ -1,0 +1,2230 @@
+[
+  {
+    "target_id": "quantization_error",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3298,
+    "total_tokens_out": 16541,
+    "wall_sec": 186.61,
+    "candidate_text": ":= by\n  intro s x\n  first\n  | apply Quantization.quantization_error\n  | apply quantization_error\n  | apply HowardBridge.Quantization.quantization_error\n  | apply Quantization.quantizeReal_error\n  | apply quantizeReal_error\n  | apply Quantization.quantizationError\n  | apply quantizationError\n  | apply Quantization.error",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= quantization_error",
+        "candidate_chars": 21,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.32
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x\n  apply quantization_error",
+        "candidate_chars": 44,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 56.11
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= quantization_error",
+        "candidate_chars": 21,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.38
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x\n  first\n  | apply Quantization.quantization_error\n  | apply quantization_error\n  | apply HowardBridge.Quantization.quantization_error\n  | apply Quantization.quantizeReal_error\n  | ap",
+        "candidate_chars": 320,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 68.12
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "quantizereal_lower_bound",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 2327,
+    "total_tokens_out": 18602,
+    "wall_sec": 313.14,
+    "candidate_text": ":= by\n  intro s x hx\n  first\n  | exact quantizeReal_lower_bound s x hx\n  | exact quantizereal_lower_bound s x hx\n  | have h := quantizeReal_lower_bound s x; linarith\n  | have h := quantizereal_lower_bound s x; linarith\n  | have h := quantizeReal_lower_bound s x hx; linarith\n  | have h := quantizereal_lower_bound s x hx; linarith\n  | apply quantizeReal_lower_bound; exact hx\n  | apply quantizereal_lower_bound; exact hx",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro s x hx\n  have := quantizeReal_lower_bound s x\n  linarith",
+        "candidate_chars": 70,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 19.99
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x hx\n  unfold quantizeReal\n  positivity",
+        "candidate_chars": 55,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 95.44
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.07
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro s x hx\n  first\n  | exact quantizeReal_lower_bound s x hx\n  | exact quantizereal_lower_bound s x hx\n  | have h := quantizeReal_lower_bound s x; linarith\n  | have h := quantizereal_lower_b",
+        "candidate_chars": 420,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 40.88
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 3,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 2278,
+    "total_tokens_out": 5124,
+    "wall_sec": 82.12,
+    "candidate_text": ":= etaHR_nonneg",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\n  positivity",
+        "candidate_chars": 28,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 27.19
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etahr_nonneg",
+        "candidate_chars": 15,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.25
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= etaHR_nonneg",
+        "candidate_chars": 15,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 13.81
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_mono",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 206,
+    "total_tokens_out": 3175,
+    "wall_sec": 47.0,
+    "candidate_text": ":= by\n  intro b\u2081 b\u2082 h\n  apply etaHR_mono\n  exact h",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  apply etaHR_mono\n  exact h",
+        "candidate_chars": 50,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 28.11
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_le_slack",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3457,
+    "total_tokens_out": 9386,
+    "wall_sec": 122.28,
+    "candidate_text": ":= etaHR_le_slack",
+    "module": "Quantization",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intros\n  apply etahr_le_slack <;> assumption",
+        "candidate_chars": 52,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 47.71
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros\n  apply etaHR_le_slack\n  assumption",
+        "candidate_chars": 50,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.48
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= etahr_le_slack",
+        "candidate_chars": 17,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 15.14
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= etaHR_le_slack",
+        "candidate_chars": 17,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.63
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_pos",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 197,
+    "total_tokens_out": 473,
+    "wall_sec": 27.97,
+    "candidate_text": ":= etaBetting_pos",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etaBetting_pos",
+        "candidate_chars": 17,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 9.6
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1232,
+    "total_tokens_out": 2015,
+    "wall_sec": 48.77,
+    "candidate_text": ":= etaBetting_nonneg",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by intro b; positivity",
+        "candidate_chars": 25,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.11
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etaBetting_nonneg",
+        "candidate_chars": 20,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 7.52
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_antitone",
+    "drafter": "gemini",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1259,
+    "total_tokens_out": 4733,
+    "wall_sec": 70.45,
+    "candidate_text": ":= etaBetting_antitone",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun b\u2081 b\u2082 h => etaBetting_antitone h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.72
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etaBetting_antitone",
+        "candidate_chars": 22,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 31.79
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_le_etahr",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 206,
+    "total_tokens_out": 741,
+    "wall_sec": 16.12,
+    "candidate_text": ":= etaBetting_le_etaHR",
+    "module": "Quantization",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etaBetting_le_etaHR",
+        "candidate_chars": 22,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 7.85
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etavector_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1232,
+    "total_tokens_out": 2696,
+    "wall_sec": 50.67,
+    "candidate_text": ":= etaVector_nonneg",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by intro b; positivity",
+        "candidate_chars": 25,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.35
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etaVector_nonneg",
+        "candidate_chars": 19,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 14.74
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etavector_mono",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 207,
+    "total_tokens_out": 1906,
+    "wall_sec": 27.42,
+    "candidate_text": ":= by\n  intro b\u2081 b\u2082 h\n  apply etaVector_mono\n  exact h",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b\u2081 b\u2082 h\n  apply etaVector_mono\n  exact h",
+        "candidate_chars": 54,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 19.45
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etavector_eq_sqrt_two_mul_etahr",
+    "drafter": "gemini",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1291,
+    "total_tokens_out": 1552,
+    "wall_sec": 38.37,
+    "candidate_text": ":= etaVector_eq_sqrt_two_mul_etaHR",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etavector_eq_sqrt_two_mul_etahr",
+        "candidate_chars": 34,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.74
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etaVector_eq_sqrt_two_mul_etaHR",
+        "candidate_chars": 34,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 9.01
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_le_etavector",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 200,
+    "total_tokens_out": 15732,
+    "wall_sec": 108.09,
+    "candidate_text": ":= etaHR_le_etaVector",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etaHR_le_etaVector",
+        "candidate_chars": 21,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 100.0
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etaasymptotic_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1221,
+    "total_tokens_out": 2012,
+    "wall_sec": 49.17,
+    "candidate_text": ":= etaAsymptotic_nonneg",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by intro b; positivity",
+        "candidate_chars": 25,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.64
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etaAsymptotic_nonneg",
+        "candidate_chars": 23,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 7.42
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etaasymptotic_const",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 204,
+    "total_tokens_out": 367,
+    "wall_sec": 22.64,
+    "candidate_text": ":= fun b\u2081 b\u2082 => rfl",
+    "module": "Quantization",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun b\u2081 b\u2082 => rfl",
+        "candidate_chars": 19,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 5.01
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etaasymptotic_le_etahr",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 206,
+    "total_tokens_out": 15735,
+    "wall_sec": 107.71,
+    "candidate_text": ":= etaAsymptotic_le_etaHR",
+    "module": "Quantization",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etaAsymptotic_le_etaHR",
+        "candidate_chars": 25,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 100.13
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "ranking_four_way",
+    "drafter": "gemini",
+    "n_rounds_used": 2,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 1308,
+    "total_tokens_out": 1637,
+    "wall_sec": 45.61,
+    "candidate_text": ":= fun b hb => ranking_four_way b hb",
+    "module": "Quantization",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun b hb => \u27e8etaBetting_le_etaAsymptotic b hb, etaAsymptotic_le_etaHR b hb, etaHR_le_etaVector b hb\u27e9",
+        "candidate_chars": 103,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.2
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= fun b hb => ranking_four_way b hb",
+        "candidate_chars": 36,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 7.63
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slack_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3334,
+    "total_tokens_out": 9265,
+    "wall_sec": 124.14,
+    "candidate_text": ":= by\n  intros \u03c3 bp h\n  unfold slack\n  positivity",
+    "module": "Basic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun \u03c3 bp h => by positivity",
+        "candidate_chars": 30,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.37
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= slack_nonneg",
+        "candidate_chars": 15,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 8.76
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros \u03c3 bp h\n  apply slack_nonneg\n  exact h",
+        "candidate_chars": 52,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 36.16
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros \u03c3 bp h\n  unfold slack\n  positivity",
+        "candidate_chars": 49,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 32.08
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slack_antitone_in_scale",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3555,
+    "total_tokens_out": 11985,
+    "wall_sec": 140.07,
+    "candidate_text": ":= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  apply slack_antitone_in_scale\n  exact h",
+    "module": "Basic",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  apply slack_antitone_in_scale\n  exact h",
+        "candidate_chars": 67,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 24.29
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= ```lean\n:= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  first\n    | exact slack_antitone_in_scale \u03c3 bp\u2081 bp\u2082 h\n    | exact slack_antitone_in_scale \u03c3 h\n    | exact slack_antitone_in_scale h\n    | exact slack_antitone \u03c3 ",
+        "candidate_chars": 269,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 29.9
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  first\n    | exact slack_antitone_in_scale \u03c3 bp\u2081 bp\u2082 h\n    | exact slack_antitone_in_scale \u03c3 h\n    | exact slack_antitone_in_scale h\n    | apply slack_antitone_in_scale; ass",
+        "candidate_chars": 207,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.0
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp\u2081 bp\u2082 h\n  apply slack_antitone_in_scale\n  exact h",
+        "candidate_chars": 67,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 36.44
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "sharpslack_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3389,
+    "total_tokens_out": 8254,
+    "wall_sec": 118.28,
+    "candidate_text": ":= by\n  intro c \u03c3 bp hc h\u03c3\n  positivity",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by intros; positivity",
+        "candidate_chars": 24,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 15.98
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros\n  unfold sharpSlack\n  positivity",
+        "candidate_chars": 47,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.36
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c \u03c3 bp hc h\u03c3\n  simp [sharpSlack]\n  positivity",
+        "candidate_chars": 59,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 28.25
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c \u03c3 bp hc h\u03c3\n  positivity",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 29.13
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "sharpslack_mono_in_c",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3522,
+    "total_tokens_out": 20131,
+    "wall_sec": 212.74,
+    "candidate_text": ":= by\n  intros c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  unfold sharpSlack\n  gcongr",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intros\n  apply sharpSlack_mono_in_c <;> assumption",
+        "candidate_chars": 58,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 19.68
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  gcongr",
+        "candidate_chars": 40,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 114.35
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  unfold sharpSlack\n  gcongr <;> positivity",
+        "candidate_chars": 75,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 18.87
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros c\u2081 c\u2082 \u03c3 bp h\u03c3 hc\n  unfold sharpSlack\n  gcongr",
+        "candidate_chars": 60,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 24.02
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "realizedcoverageavg_singleton",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 2239,
+    "total_tokens_out": 5743,
+    "wall_sec": 210.69,
+    "candidate_text": ":= rfl",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun _ _ => rfl",
+        "candidate_chars": 17,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.24
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by simp [realizedCoverageAvg, singletonAdversary]",
+        "candidate_chars": 52,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 42.6
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.05
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= rfl",
+        "candidate_chars": 6,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 5.13
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "realizedcoverageavg_bounded",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3417,
+    "total_tokens_out": 27857,
+    "wall_sec": 248.49,
+    "candidate_text": ":= by\n  intro impl adv claim\n  apply realizedCoverageAvg_bounded",
+    "module": "SharpConstant",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun impl adv claim => realizedCoverageAvg_bounded impl adv claim",
+        "candidate_chars": 67,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 104.2
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros\n  apply realizedCoverageAvg_bounded",
+        "candidate_chars": 50,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.69
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros impl adv claim\n  first\n  | exact realizedCoverageAvg_bounded impl adv claim\n  | exact realizedCoverageAvg_le_one impl adv claim\n  | exact realizedCoverageAvg_le_1 impl adv claim\n  | app",
+        "candidate_chars": 482,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 20.62
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro impl adv claim\n  apply realizedCoverageAvg_bounded",
+        "candidate_chars": 64,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 75.05
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_pos",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3343,
+    "total_tokens_out": 2730,
+    "wall_sec": 63.62,
+    "candidate_text": ":= by positivity",
+    "module": "Sandwich",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= c_HR_sharp_pos",
+        "candidate_chars": 17,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 5.27
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= c_hr_sharp_pos",
+        "candidate_chars": 17,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 7.3
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= c_HR_sharp_pos",
+        "candidate_chars": 17,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.1
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by positivity",
+        "candidate_chars": 16,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.25
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_betting_sharp_pos",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3354,
+    "total_tokens_out": 4317,
+    "wall_sec": 77.87,
+    "candidate_text": ":= c_betting_sharp_pos",
+    "module": "Sandwich",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= c_betting_sharp_pos",
+        "candidate_chars": 22,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 7.58
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_betting_sharp\n  positivity",
+        "candidate_chars": 43,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 22.73
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_betting_sharp\n  norm_num",
+        "candidate_chars": 41,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 7.65
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= c_betting_sharp_pos",
+        "candidate_chars": 22,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.39
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_vector_sharp_pos",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3304,
+    "total_tokens_out": 3495,
+    "wall_sec": 69.22,
+    "candidate_text": ":= by norm_num [c_vector_sharp]",
+    "module": "Sandwich",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= c_vector_sharp_pos",
+        "candidate_chars": 21,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 15.94
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by norm_num",
+        "candidate_chars": 14,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.93
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= c_vector_sharp_pos",
+        "candidate_chars": 21,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.01
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by norm_num [c_vector_sharp]",
+        "candidate_chars": 31,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.86
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_acs_sharp_pos",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3345,
+    "total_tokens_out": 5907,
+    "wall_sec": 89.88,
+    "candidate_text": ":= by positivity",
+    "module": "Sandwich",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= c_aCS_sharp_pos",
+        "candidate_chars": 18,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 5.14
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  unfold c_aCS_sharp\n  positivity",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 23.62
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= c_aCS_sharp_pos",
+        "candidate_chars": 18,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.82
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by positivity",
+        "candidate_chars": 16,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.39
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "boundary_pos",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3323,
+    "total_tokens_out": 14171,
+    "wall_sec": 163.84,
+    "candidate_text": ":= by\n  intro c0 hc0 t\n  apply boundary_pos <;> assumption",
+    "module": "Adversarial",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= boundary_pos",
+        "candidate_chars": 15,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.53
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\n  apply boundary_pos\n  exact hc0",
+        "candidate_chars": 55,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 26.15
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\n  unfold boundary\n  positivity",
+        "candidate_chars": 53,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 35.14
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\n  apply boundary_pos <;> assumption",
+        "candidate_chars": 58,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 58.45
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "boundary_antitone",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3485,
+    "total_tokens_out": 19598,
+    "wall_sec": 206.88,
+    "candidate_text": ":= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  apply boundary_antitone <;> first | positivity | exact ht | assumption",
+    "module": "Adversarial",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= ```lean\n:= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  first\n    | exact boundary_antitone c0 hc0 ht\n    | exact boundary_antitone c0 hc0 t\u2081 t\u2082 ht\n    | exact boundary_antitone hc0 ht\n    | exact boundary_antiton",
+        "candidate_chars": 214,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 24.12
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  first\n  | exact boundary_antitone c0 hc0 ht\n  | exact boundary_antitone c0 hc0 t\u2081 t\u2082 ht\n  | exact boundary_antitone hc0 ht\n  | exact boundary_antitone hc0 t\u2081 t\u2082 ht",
+        "candidate_chars": 195,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 16.11
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  apply boundary_antitone <;> assumption",
+        "candidate_chars": 70,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 71.17
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro c0 hc0 t\u2081 t\u2082 ht\n  apply boundary_antitone <;> first | positivity | exact ht | assumption",
+        "candidate_chars": 102,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 61.89
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slacklower_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3332,
+    "total_tokens_out": 8362,
+    "wall_sec": 113.4,
+    "candidate_text": ":= by\n  intros \u03c3 bp h\u03c3\n  unfold slackLower\n  positivity",
+    "module": "Tight",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by intro \u03c3 bp h\u03c3; simp [slackLower]; positivity",
+        "candidate_chars": 50,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.35
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= ```lean\n:= by\n  intro \u03c3 bp h\u03c3\n  positivity",
+        "candidate_chars": 45,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 48.73
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\u03c3\n  positivity",
+        "candidate_chars": 34,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 8.64
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros \u03c3 bp h\u03c3\n  unfold slackLower\n  positivity",
+        "candidate_chars": 55,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 8.95
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "slack_tight",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3421,
+    "total_tokens_out": 10055,
+    "wall_sec": 128.84,
+    "candidate_text": ":= by\n  intro \u03c3 bp h\n  apply slack_tight\n  assumption",
+    "module": "Tight",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun \u03c3 bp h\u03c3 => slack_tight \u03c3 bp h\u03c3",
+        "candidate_chars": 37,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.01
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros\n  apply slack_tight\n  try assumption",
+        "candidate_chars": 51,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 25.76
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= slack_tight",
+        "candidate_chars": 14,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 21.89
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro \u03c3 bp h\n  apply slack_tight\n  assumption",
+        "candidate_chars": 53,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 38.42
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_ge_one",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 2130,
+    "total_tokens_out": 6339,
+    "wall_sec": 339.79,
+    "candidate_text": ":= by\n  rw [\u2190 Real.sqrt_one]\n  apply Real.sqrt_le_sqrt\n  have := Real.log_two_gt_d9\n  linarith",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.07
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.08
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by norm_num",
+        "candidate_chars": 14,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 12.4
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  rw [\u2190 Real.sqrt_one]\n  apply Real.sqrt_le_sqrt\n  have := Real.log_two_gt_d9\n  linarith",
+        "candidate_chars": 94,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 44.25
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_le_sqrt_two",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 207,
+    "total_tokens_out": 5484,
+    "wall_sec": 59.65,
+    "candidate_text": ":= by\n  apply Real.sqrt_le_sqrt\n  have h := Real.log_le_sub_one_of_pos (by norm_num : (0 : \u211d) < 2)\n  linarith",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  apply Real.sqrt_le_sqrt\n  have h := Real.log_le_sub_one_of_pos (by norm_num : (0 : \u211d) < 2)\n  linarith",
+        "candidate_chars": 109,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 42.49
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "c_hr_sharp_le_six_fifths",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 2331,
+    "total_tokens_out": 23397,
+    "wall_sec": 336.66,
+    "candidate_text": ":= ```lean\n:= by\n  have h_div_20 : Real.log ((20:\u211d)/19) = Real.log 20 - Real.log 19 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_19 : Real.log ((19:\u211d)/18) = Real.log 19 - Real.log 18 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_18 : Real.log ((18:\u211d)/17) = Real.log 18 - Real.log 17 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_17 : Real.log ((17:\u211d)/16) = Real.log 17 - Real.log 16 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_16 : Real.log ((16:\u211d)/15) = Real.log 16 - Real.log 15 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_15 : Real.log ((15:\u211d)/14) = Real.log 15 - Real.log 14 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_14 : Real.log ((14:\u211d)/13) = Real.log 14 - Real.log 13 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_13 : Real.log ((13:\u211d)/12) = Real.log 13 - Real.log 12 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_12 : Real.log ((12:\u211d)/11) = Real.log 12 - Real.log 11 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_11 : Real.log ((11:\u211d)/10) = Real.log 11 - Real.log 10 := Real.log_div (by norm_num) (by norm_num)\n\n  have h_two : Real.log 2 = Real.log 20 - Real.log 10 := by\n    have : (2:\u211d) = 20 / 10 := by norm_num\n    rw [this, Real.log_div (by norm_num) (by norm_num)]\n\n  have h_telescope : Real.log 2 = Real.log ((20:\u211d)/19) + Real.log ((19:\u211d)/",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by norm_num",
+        "candidate_chars": 14,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 17.94
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.05
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by norm_num",
+        "candidate_chars": 14,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 46.27
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= ```lean\n:= by\n  have h_div_20 : Real.log ((20:\u211d)/19) = Real.log 20 - Real.log 19 := Real.log_div (by norm_num) (by norm_num)\n  have h_div_19 : Real.log ((19:\u211d)/18) = Real.log 19 - Real.log 18 := Re",
+        "candidate_chars": 1361,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 116.86
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_le_one",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3348,
+    "total_tokens_out": 14050,
+    "wall_sec": 165.64,
+    "candidate_text": ":= ```lean\n:= by\n  intro b\n  exact etaBetting_le_one",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etaBetting_le_one",
+        "candidate_chars": 20,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 17.86
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b\n  apply etaBetting_le_one",
+        "candidate_chars": 41,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 39.62
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= etaBetting_le_one",
+        "candidate_chars": 20,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 37.35
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= ```lean\n:= by\n  intro b\n  exact etaBetting_le_one",
+        "candidate_chars": 52,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 36.92
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etabetting_lt_one",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 2358,
+    "total_tokens_out": 16274,
+    "wall_sec": 293.06,
+    "candidate_text": ":=",
+    "module": "Asymptotic",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etaBetting_lt_one",
+        "candidate_chars": 20,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 16.43
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  first\n  | exact etaBetting_lt_one b hb\n  | exact etaBetting_lt_one hb\n  | exact etaBetting_lt_one b\n  | exact etaBetting_lt_one",
+        "candidate_chars": 148,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 19.6
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  unfold etaBetting\n  dsimp only\n  try split_ifs\n  all_goals\n    first\n    | linarith\n    | push_cast; linarith\n    | nlinarith\n    | push_cast; nlinarith\n    | apply sub_lt_self; p",
+        "candidate_chars": 427,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 100.99
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.07
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "etahr_over_etabetting_gt_one",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3439,
+    "total_tokens_out": 8502,
+    "wall_sec": 118.63,
+    "candidate_text": ":= etahr_over_etabetting_gt_one",
+    "module": "Asymptotic",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= etahr_over_etabetting_gt_one",
+        "candidate_chars": 31,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 20.84
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= etaHR_over_etaBetting_gt_one",
+        "candidate_chars": 31,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 11.71
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  apply etaHR_over_etaBetting_gt_one\n  exact hb",
+        "candidate_chars": 66,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 39.38
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= etahr_over_etabetting_gt_one",
+        "candidate_chars": 31,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 10.58
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "eta_betting_lt_hr",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3430,
+    "total_tokens_out": 7386,
+    "wall_sec": 101.38,
+    "candidate_text": ":= by\n  intro b hb\n  apply eta_betting_lt_hr\n  exact hb",
+    "module": "MasterTheorem",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= eta_betting_lt_hr",
+        "candidate_chars": 20,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.66
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  apply eta_betting_lt_hr\n  exact hb",
+        "candidate_chars": 55,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 21.91
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= eta_betting_lt_hr",
+        "candidate_chars": 20,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 15.66
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  apply eta_betting_lt_hr\n  exact hb",
+        "candidate_chars": 55,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 20.62
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "eta_hr_lt_vector",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 1259,
+    "total_tokens_out": 8390,
+    "wall_sec": 357.83,
+    "candidate_text": ":=",
+    "module": "MasterTheorem",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by\n  intro b hb\n  unfold familyHR familyVector\n  dsimp only\n  omega",
+        "candidate_chars": 70,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 72.65
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.02
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= eta_hr_lt_vector",
+        "candidate_chars": 19,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.34
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.12
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "ranking_3_way",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3441,
+    "total_tokens_out": 27398,
+    "wall_sec": 229.54,
+    "candidate_text": ":= ranking_3_way",
+    "module": "MasterTheorem",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= ```lean\n:= by\n  intro b hb\n  exact \u27e8familyBetting_lt_familyHR b hb, familyHR_lt_familyVector b hb\u27e9",
+        "candidate_chars": 101,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 92.09
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= ranking_3_way",
+        "candidate_chars": 16,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 13.02
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  apply ranking_3_way <;> assumption",
+        "candidate_chars": 55,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 82.84
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= ranking_3_way",
+        "candidate_chars": 16,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 6.48
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "ranking_4_way_master",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3472,
+    "total_tokens_out": 15130,
+    "wall_sec": 169.14,
+    "candidate_text": ":= by\n  intro b hb\n  apply ranking_4_way_master\n  assumption",
+    "module": "MasterTheorem",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= ranking_4_way_master",
+        "candidate_chars": 23,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.33
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  apply ranking_4_way_master\n  exact hb",
+        "candidate_chars": 58,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 38.12
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= ranking_4_way_master",
+        "candidate_chars": 23,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 14.83
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro b hb\n  apply ranking_4_way_master\n  assumption",
+        "candidate_chars": 60,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 72.1
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "dichotomy_universal_monotonicity_impossible",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 1082,
+    "total_tokens_out": 15104,
+    "wall_sec": 512.55,
+    "candidate_text": ":= by\n  rintro \u03c3 _ bp \u27e8d, hmono, hiff\u27e9\n  let B (t : Time) : \u211d := min (\u03c3 * Real.sqrt ((t:\u211d + 1) * Real.log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : \u2124))\n  let x (t : Time) : \u211d := B t - (t : \u211d)\n  have h0 : x 0 \u2265 B 0 := by\n    dsimp [x]\n    linarith\n  have hd0 : d x 0 = true := (hiff x 0).mpr h0\n  have hd1 : d x 1 = true := hmono x 0 hd0\n  have h1 : x 1 \u2265 B 1 := (hiff x 1).mp hd1\n  dsimp [x] at h1\n  linarith",
+    "module": "Research",
+    "capability": "challenging",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.11
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.08
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.09
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  rintro \u03c3 _ bp \u27e8d, hmono, hiff\u27e9\n  let B (t : Time) : \u211d := min (\u03c3 * Real.sqrt ((t:\u211d + 1) * Real.log 2)) (2^(bp.bits - 1) - 1) - 2^(-(bp.scale : \u2124))\n  let x (t : Time) : \u211d := B t - (t : \u211d)\n  have",
+        "candidate_chars": 410,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 117.94
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "betting_comparison_t2",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3303,
+    "total_tokens_out": 3851,
+    "wall_sec": 74.44,
+    "candidate_text": ":= betting_comparison_t2",
+    "module": "BettingComparison",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= betting_comparison_t2 \u03c3 bp",
+        "candidate_chars": 29,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 15.56
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= betting_comparison_t2",
+        "candidate_chars": 24,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 7.6
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= betting_comparison_t2 \u03c3 bp",
+        "candidate_chars": 29,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 9.55
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= betting_comparison_t2",
+        "candidate_chars": 24,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 7.99
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "real_sqrt_lt_sqrt",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 215,
+    "total_tokens_out": 729,
+    "wall_sec": 15.19,
+    "candidate_text": ":= fun x y hx _ hxy => Real.sqrt_lt_sqrt hx hxy",
+    "module": "Mathlib",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun x y hx _ hxy => Real.sqrt_lt_sqrt hx hxy",
+        "candidate_chars": 47,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 7.57
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "nat_le_add_right",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 198,
+    "total_tokens_out": 1566,
+    "wall_sec": 24.03,
+    "candidate_text": ":= by intro n m; omega",
+    "module": "Mathlib",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= by intro n m; omega",
+        "candidate_chars": 22,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 16.03
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "real_add_sq_le_sq_add_sq",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 3605,
+    "total_tokens_out": 8694,
+    "wall_sec": 111.03,
+    "candidate_text": ":= fun _ _ _ _ h => Real.sqrt_le_sqrt h",
+    "module": "Mathlib",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun _ _ _ _ h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 8.72
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intro a b x y h\n  exact Real.sqrt_le_sqrt h",
+        "candidate_chars": 51,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 22.67
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":= fun _ _ _ _ h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 12.42
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= fun _ _ _ _ h => Real.sqrt_le_sqrt h",
+        "candidate_chars": 39,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 33.16
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "div_le_div_of_nonneg_left",
+    "drafter": "gemini",
+    "n_rounds_used": 4,
+    "final_lake_verdict": "type_fail",
+    "axiom_set_clean": null,
+    "total_tokens_in": 2399,
+    "total_tokens_out": 15868,
+    "wall_sec": 293.14,
+    "candidate_text": ":= by nlinarith",
+    "module": "Mathlib",
+    "capability": "friendly",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= ```lean\n:= by\n  intros\n  apply div_le_div_of_nonneg_left <;> assumption",
+        "candidate_chars": 74,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 65.22
+      },
+      {
+        "round": 2,
+        "temperature": 0.7,
+        "candidate_head": ":= by\n  intros\n  apply div_le_div_of_nonneg_left <;> assumption",
+        "candidate_chars": 63,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 37.43
+      },
+      {
+        "round": 3,
+        "temperature": 0.7,
+        "candidate_head": ":=",
+        "candidate_chars": 2,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 120.05
+      },
+      {
+        "round": 4,
+        "temperature": 0.7,
+        "candidate_head": ":= by nlinarith",
+        "candidate_chars": 15,
+        "build_ok": false,
+        "has_sorry": false,
+        "axiom_clean": null,
+        "wall_call_sec": 36.52
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  },
+  {
+    "target_id": "mul_nonneg",
+    "drafter": "gemini",
+    "n_rounds_used": 1,
+    "final_lake_verdict": "closed",
+    "axiom_set_clean": true,
+    "total_tokens_in": 205,
+    "total_tokens_out": 599,
+    "wall_sec": 24.61,
+    "candidate_text": ":= fun _ _ ha hb => mul_nonneg ha hb",
+    "module": "Mathlib",
+    "capability": "trivial",
+    "transcript": [
+      {
+        "round": 1,
+        "temperature": 0.0,
+        "candidate_head": ":= fun _ _ ha hb => mul_nonneg ha hb",
+        "candidate_chars": 36,
+        "build_ok": true,
+        "has_sorry": false,
+        "axiom_clean": true,
+        "wall_call_sec": 6.86
+      }
+    ],
+    "slate_sha": "db8833064e50"
+  }
+]
