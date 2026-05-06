@@ -26,7 +26,6 @@ DRAFTERS = [
     ("Claude Opus 4.6",    "opus_4_6_pass5"),
     ("DSPv2-7B neutral",   "dspv2_7b_neutral_pass5"),
     ("Goedel-V2 neutral",  "goedel_v2_q6k_neutral_pass5"),
-    ("Harmonic Aristotle", "aristotle_verdict"),
 ]
 
 PAPER_CLAIMS = {
@@ -35,9 +34,8 @@ PAPER_CLAIMS = {
     "Gemini 3 Pro":       22,
     "Mistral Large 3":     2,
     "Claude Opus 4.6":    13,
-    "DSPv2-7B neutral":    9,
+    "DSPv2-7B neutral":   10,
     "Goedel-V2 neutral":   5,
-    "Harmonic Aristotle": 48,
 }
 
 

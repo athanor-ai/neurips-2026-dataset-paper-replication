@@ -1,0 +1,37 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["274fe8e7e206b74c.olean"],
+  "m": false,
+  "i": "41ada65b346bf248.ilean",
+  "c": "c040971faf3137df.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Cli/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/batteries/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Qq/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/aesop/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/plausible/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean /home/azureuser/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/Tight.lean -o /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/Tight.olean -i /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/Tight.ilean -c /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/Tight.c --setup /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/Tight.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "HowardBridge/Tight.lean:123:7: unused variable `witness`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["HowardBridge.Tight:deps",
+   [["deps",
+     [["HowardBridge/HowardBridge:extraDep",
+       [["@HowardBridge:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["HowardBridge.Basic transitive imports (legacy)", "4979d84eaf141d63"],
+        ["HowardBridge.Basic:importAllArts", "45f2df6c33bcceef"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.30.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc",
+   "2c8d2623007dfc36"],
+  ["/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/Tight.lean",
+   "b72520c4702a5445"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: HowardBridge.Tight", "1fe5561b1420393a"],
+  ["Package.id?: (some HowardBridge)", "92513ecfb453484f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "9c83e9a3795a4042"}

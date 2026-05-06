@@ -1,0 +1,54 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["208363051b6fc230.olean"],
+  "m": false,
+  "i": "96250ea1662fd2df.ilean",
+  "c": "99513dd1a1c05cc8.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Cli/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/batteries/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Qq/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/aesop/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/plausible/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean /home/azureuser/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/BettingComparison.lean -o /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/BettingComparison.olean -i /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/BettingComparison.ilean -c /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/BettingComparison.c --setup /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/BettingComparison.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "HowardBridge/BettingComparison.lean:28:22: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/BettingComparison.lean:72:2: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/BettingComparison.lean:123:5: unused variable `hσ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/BettingComparison.lean:123:18: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/BettingComparison.lean:158:2: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```",
+   "level": "warning"}],
+ "inputs":
+ [["HowardBridge.BettingComparison:deps",
+   [["deps",
+     [["HowardBridge/HowardBridge:extraDep",
+       [["@HowardBridge:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["HowardBridge.Basic transitive imports (legacy)", "4979d84eaf141d63"],
+        ["HowardBridge.Basic:importAllArts", "45f2df6c33bcceef"],
+        ["HowardBridge.SharpConstant transitive imports (legacy)",
+         "2bf83ab187ef126c"],
+        ["HowardBridge.SharpConstant:importAllArts", "1075ac87860c54f3"],
+        ["Mathlib transitive imports (legacy)", "d40a91411625139b"],
+        ["Mathlib:importAllArts", "a6d191ca9538cc35"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.30.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc",
+   "2c8d2623007dfc36"],
+  ["/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/BettingComparison.lean",
+   "fb35cb2cb76411de"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: HowardBridge.BettingComparison", "a3b19201a3e12a01"],
+  ["Package.id?: (some HowardBridge)", "92513ecfb453484f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "c76599100ca58480"}

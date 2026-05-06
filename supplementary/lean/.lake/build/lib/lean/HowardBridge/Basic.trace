@@ -1,0 +1,40 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["5db681210ce87d93.olean"],
+  "m": false,
+  "i": "443aa91a581aed84.ilean",
+  "c": "ad34d5a5ada8053a.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Cli/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/batteries/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Qq/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/aesop/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/plausible/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean /home/azureuser/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/Basic.lean -o /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/Basic.olean -i /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/Basic.ilean -c /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/Basic.c --setup /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/Basic.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "HowardBridge/Basic.lean:36:19: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Basic.lean:290:5: unused variable `inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["HowardBridge.Basic:deps",
+   [["deps",
+     [["HowardBridge/HowardBridge:extraDep",
+       [["@HowardBridge:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["Mathlib transitive imports (legacy)", "d40a91411625139b"],
+        ["Mathlib:importAllArts", "a6d191ca9538cc35"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.30.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc",
+   "2c8d2623007dfc36"],
+  ["/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/Basic.lean",
+   "0589c38490fb501a"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: HowardBridge.Basic", "0f9946934e6bf077"],
+  ["Package.id?: (some HowardBridge)", "92513ecfb453484f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "b25a23df283a9f73"}

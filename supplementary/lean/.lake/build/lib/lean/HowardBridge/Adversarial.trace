@@ -1,0 +1,89 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["9f09011a3cad7822.olean"],
+  "m": false,
+  "i": "231bb88055efe221.ilean",
+  "c": "b40990d7807b365c.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Cli/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/batteries/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/Qq/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/aesop/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/plausible/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean /home/azureuser/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/Adversarial.lean -o /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/Adversarial.olean -i /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/lib/lean/HowardBridge/Adversarial.ilean -c /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/Adversarial.c --setup /tmp/neurips-2026-dataset-paper-replication/supplementary/lean/.lake/build/ir/HowardBridge/Adversarial.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "HowardBridge/Adversarial.lean:83:13: unused variable `bp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:83:33: unused variable `T`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:91:23: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:105:37: unused variable `hc0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:106:5: unused variable `D`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:119:13: unused variable `bp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:119:33: unused variable `T`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:120:5: unused variable `hσ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:120:18: unused variable `hc0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:133:18: unused variable `hc0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:137:30: unused variable `α`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:156:8: unused variable `witness`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:228:32: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:262:24: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:297:24: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:300:5: unused variable `hD`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "HowardBridge/Adversarial.lean:301:5: unused variable `h_gap`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["HowardBridge.Adversarial:deps",
+   [["deps",
+     [["HowardBridge/HowardBridge:extraDep",
+       [["@HowardBridge:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["HowardBridge.Basic transitive imports (legacy)", "4979d84eaf141d63"],
+        ["HowardBridge.Basic:importAllArts", "45f2df6c33bcceef"],
+        ["HowardBridge.Tight transitive imports (legacy)", "ce642748f3ca1d7a"],
+        ["HowardBridge.Tight:importAllArts", "1b7aa20513a57c24"],
+        ["Mathlib transitive imports (legacy)", "d40a91411625139b"],
+        ["Mathlib:importAllArts", "a6d191ca9538cc35"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.30.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc",
+   "2c8d2623007dfc36"],
+  ["/tmp/neurips-2026-dataset-paper-replication/supplementary/lean/HowardBridge/Adversarial.lean",
+   "1981ed85ab9fe3c1"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: HowardBridge.Adversarial", "c89349320d8dff26"],
+  ["Package.id?: (some HowardBridge)", "92513ecfb453484f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "413cb326b2328e98"}
