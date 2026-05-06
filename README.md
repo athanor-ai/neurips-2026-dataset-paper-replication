@@ -34,3 +34,7 @@ supplementary/
   reproduce.sh   one-command reproducer
   REPRODUCE.md   detailed reproduction notes
 ```
+
+## Dataset link
+
+https://huggingface.co/datasets/neurips-2026-avs-bench/formal-anytime-valid-stats

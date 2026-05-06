@@ -52,3 +52,10 @@ The companion library `formal-avs-lean` is pinned to:
 `reproduce.sh` reads `results/*.json` and `results/*.csv`, computes
 pass@N rates and Wilson CIs, and prints the headline tables. No
 network access required.
+
+## Dataset
+
+The benchmark dataset is hosted on HuggingFace:
+https://huggingface.co/datasets/neurips-2026-avs-bench/formal-anytime-valid-stats
+
+60 targets with per-drafter closure rates, Lean statements, and tier classifications (T0-T5).
