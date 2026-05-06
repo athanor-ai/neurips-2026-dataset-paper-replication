@@ -1,0 +1,1537 @@
+tid,drafter,att,sampler,v1_closed,v2_label,v2_strict_closed,wall_sec,candidate,rationale,slate_sha
+quantization_error,opus,0,greedy,False,novel-construction,False,9.81,":= by
+  intro s x
+  unfold quantizeReal
+  -- quantizeReal s x = ↑(round (x * 2^s)) * 2^(-(s : ℤ))
+  -- We need |x - ↑(round (x * 2^s)) * 2^(-(s : ℤ))| ≤ 2^(-(s : ℤ))
+  set n := s
+  set scale := (2 : ℝ) ^ (n : ℕ)
+  have hscale_pos : (0 : ℝ) < scale := pow_pos (by norm_num : (0 : ℝ) < 2) n
+  have hsca",body opens with `by` (tactic mode),db8833064e50
+quantization_error,opus,1,temp0.7,False,novel-construction,False,12.9,":= by
+  intro s x
+  unfold quantizeReal
+  -- quantizeReal s x = ↑(round (x * 2^s)) * 2^(-(s : ℤ))
+  -- We need |x - ↑(round (x * 2^s)) * 2^(-(s : ℤ))| ≤ 2^(-(s : ℤ))
+  set n := s
+  set scale := (2 : ℝ) ^ (n : ℕ)
+  have hscale_pos : (0 : ℝ) < scale := pow_pos (by norm_num : (0 : ℝ) < 2) n
+  have hsca",body opens with `by` (tactic mode),db8833064e50
+quantization_error,opus,2,temp0.7,False,novel-construction,False,13.88,":= by
+  intro s x
+  unfold quantizeReal
+  -- quantizeReal s x = ↑(round (x * 2^s)) * 2^(-(s : ℤ))
+  -- We need |x - ↑(round (x * 2^s)) * 2^(-(s : ℤ))| ≤ 2^(-(s : ℤ))
+  set scale := (2 : ℝ) ^ (s : ℕ) with hscale_def
+  have hscale_pos : (0 : ℝ) < scale := pow_pos (by norm_num : (0 : ℝ) < 2) s
+  have h",body opens with `by` (tactic mode),db8833064e50
+quantization_error,opus,3,temp0.7,False,novel-construction,False,9.29,":= by
+  intro s x
+  unfold quantizeReal
+  -- quantizeReal s x = ↑(round (x * 2^s)) * 2^(-(s : ℤ))
+  -- We need |x - ↑(round (x * 2^s)) * 2^(-(s : ℤ))| ≤ 2^(-(s : ℤ))
+  set n := s
+  set scale := (2 : ℝ) ^ (n : ℕ)
+  have hscale_pos : (0 : ℝ) < scale := pow_pos (by norm_num : (0 : ℝ) < 2) n
+  have hsca",body opens with `by` (tactic mode),db8833064e50
+quantization_error,opus,4,temp0.7,False,ill-formed,False,11.04,":= by
+  intro s x
+  unfold quantizeReal
+  -- quantizeReal s x = ↑(round (x * 2^s)) * 2^(-(s : ℤ))
+  -- We need |x - ↑(round (x * 2^s)) * 2^(-(s : ℤ))| ≤ 2^(-(s : ℤ))
+  set scale := (2 : ℝ) ^ (s : ℕ) with hscale_def
+  have hscale_pos : (0 : ℝ) < scale := pow_pos (by norm_num : (0 : ℝ) < 2) s
+  have h",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+quantizereal_lower_bound,opus,0,greedy,False,novel-construction,False,6.43,":= by
+  intro s x hx
+  unfold quantizeReal
+  simp only []
+  have h1 : (0 : ℝ) < (2 : ℝ) ^ (s : ℕ) := by positivity
+  have h2 : (0 : ℝ) ≤ x * (2 : ℝ) ^ (s : ℕ) := mul_nonneg hx (le_of_lt h1)
+  have h3 : (0 : ℝ) ≤ ⌊x * (2 : ℝ) ^ (s : ℕ)⌋ := by
+    exact_mod_cast Int.floor_nonneg.mpr h2
+  have h4 : (0 ",body opens with `by` (tactic mode),db8833064e50
+quantizereal_lower_bound,opus,1,temp0.7,False,novel-construction,False,8.56,":= by
+  intro s x hx
+  unfold quantizeReal
+  simp only []
+  have h1 : (0 : ℝ) < (2 : ℝ)^(s : ℤ) := by positivity
+  have h2 : (0 : ℝ) < (2 : ℝ)^(-(s : ℤ)) := by positivity
+  -- quantizeReal s x = ⌊x * 2^s⌋ * 2^(-s)
+  -- We need: ⌊x * 2^s⌋ * 2^(-s) + 2^(-s) ≥ 0
+  -- i.e., (⌊x * 2^s⌋ + 1) * 2^(-s) ≥ 0
+",body opens with `by` (tactic mode),db8833064e50
+quantizereal_lower_bound,opus,2,temp0.7,False,ill-formed,False,14.53,":= by
+  intro s x hx
+  unfold quantizeReal
+  simp only []
+  -- quantizeReal s x = ↑(⌊x * 2^s⌋) / 2^s
+  -- We need: ⌊x * 2^s⌋ / 2^s + 2^(-(s:ℤ)) ≥ 0
+  -- Note that 2^(-(s:ℤ)) = 1 / 2^s
+  -- So we need ⌊x * 2^s⌋ / 2^s + 1 / 2^s ≥ 0
+  -- i.e., (⌊x * 2^s⌋ + 1) / 2^s ≥ 0
+  -- Since x ≥ 0, x * 2^s ≥ 0, so",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+quantizereal_lower_bound,opus,3,temp0.7,False,novel-construction,False,10.16,":= by
+  intro s x hx
+  unfold quantizeReal
+  simp only []
+  -- quantizeReal s x = ↑(⌊x * 2^s⌋) / 2^s
+  -- We need: ⌊x * 2^s⌋ / 2^s + 2^(-(s:ℤ)) ≥ 0
+  -- Note that 2^(-(s:ℤ)) = 1 / 2^s
+  -- So we need ⌊x * 2^s⌋ / 2^s + 1 / 2^s ≥ 0
+  -- i.e., (⌊x * 2^s⌋ + 1) / 2^s ≥ 0
+  -- Since x ≥ 0, x * 2^s ≥ 0, so",body opens with `by` (tactic mode),db8833064e50
+quantizereal_lower_bound,opus,4,temp0.7,False,novel-construction,False,15.52,":= by
+  intro s x hx
+  unfold quantizeReal
+  simp only []
+  have h1 : (2 : ℝ) ^ (s : ℤ) > 0 := by positivity
+  have h2 : (2 : ℝ) ^ (-(s : ℤ)) > 0 := by positivity
+  have h_floor := Int.floor_le (x * (2 : ℝ) ^ (s : ℤ))
+  have h_cast : ↑⌊x * (2 : ℝ) ^ (s : ℤ)⌋ ≤ x * (2 : ℝ) ^ (s : ℤ) := h_floor
+  -- q",body opens with `by` (tactic mode),db8833064e50
+etahr_nonneg,opus,0,greedy,False,novel-construction,False,2.6,":= by
+  intro b
+  unfold etaHR
+  split
+  · linarith
+  · split
+    · linarith
+    · split",body opens with `by` (tactic mode),db8833064e50
+etahr_nonneg,opus,1,temp0.7,False,novel-construction,False,2.57,":= by
+  intro b
+  unfold etaHR
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etahr_nonneg,opus,2,temp0.7,False,novel-construction,False,2.52,":= by
+  intro b
+  unfold etaHR
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etahr_nonneg,opus,3,temp0.7,False,novel-construction,False,2.17,":= by
+  intro b
+  unfold etaHR
+  split
+  · linarith
+  · split
+    · linarith
+    · split",body opens with `by` (tactic mode),db8833064e50
+etahr_nonneg,opus,4,temp0.7,False,novel-construction,False,2.52,":= by
+  intro b
+  unfold etaHR
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etahr_mono,opus,0,greedy,False,novel-construction,False,3.4,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  apply sub_le_sub_left
+  apply div_le_div_of_nonneg_left
+  · positivity
+  · exact Nat.cast_add_one_pos b₂
+  · exact Nat.cast_add_one_pos b₁
+  · exact add_le_add_right (Nat.cast_le.mpr h) 1",body opens with `by` (tactic mode),db8833064e50
+etahr_mono,opus,1,temp0.7,False,novel-construction,False,3.55,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  apply sub_le_sub_left
+  apply div_le_div_of_nonneg_left
+  · positivity
+  · exact Nat.cast_add_one_pos b₂
+  · exact Nat.cast_add_one_pos b₁
+  · exact add_le_add_right (Nat.cast_le.mpr h) 1",body opens with `by` (tactic mode),db8833064e50
+etahr_mono,opus,2,temp0.7,False,novel-construction,False,3.53,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  apply div_le_div_of_nonneg_right
+  · exact Nat.cast_le.mpr (Nat.sub_le_sub_right (Nat.pow_le_pow_right (by norm_num : 1 ≤ 2) h) 1)
+  · positivity
+  · exact Nat.cast_le.mpr (Nat.sub_le_sub_right (Nat.pow_le_pow_right (by norm_num : 1 ≤ 2) h) 1)",body opens with `by` (tactic mode),db8833064e50
+etahr_mono,opus,3,temp0.7,False,novel-construction,False,3.59,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  apply sub_le_sub_left
+  apply div_le_div_of_nonneg_left
+  · positivity
+  · exact Nat.cast_add_one_pos b₂
+  · exact Nat.cast_add_one_pos b₁
+  · exact add_le_add_right (Nat.cast_le.mpr h) 1",body opens with `by` (tactic mode),db8833064e50
+etahr_mono,opus,4,temp0.7,False,novel-construction,False,4.06,":= by
+  intro b₁ b₂ h
+  unfold etaHR
+  apply sub_le_sub_left
+  apply div_le_div_of_nonneg_left
+  · positivity
+  · exact Nat.cast_add_one_pos b₂
+  · exact Nat.cast_add_one_pos b₁
+  · exact add_le_add_right (Nat.cast_le.mpr h) 1",body opens with `by` (tactic mode),db8833064e50
+etahr_le_slack,opus,0,greedy,False,ill-formed,False,5.4,":= by
+  intro σ bp hσ
+  unfold slack etaHR BitPrecision
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `etaHR`, `BitPrecision`, `slack`, and other components from the `HowardBridge.Quantization` library. These are not standard Mathlib definitions, an",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_le_slack,opus,1,temp0.7,False,ill-formed,False,5.48,":= by
+  intro σ bp hσ
+  unfold slack etaHR BitPrecision
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `etaHR`, `BitPrecision`, `slack`, and other components from the `HowardBridge.Quantization` library. These are not standard Mathlib definitions, an",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_le_slack,opus,2,temp0.7,False,ill-formed,False,6.75,":= by
+  intro σ bp hσ
+  unfold slack etaHR BitPrecision
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `etaHR`, `BitPrecision`, `slack`, and other components from the `HowardBridge.Quantization` module, as these are not standard Mathlib definitions. ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_le_slack,opus,3,temp0.7,False,ill-formed,False,6.51,":= by
+  intro σ bp hσ
+  unfold slack etaHR BitPrecision
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `etaHR`, `BitPrecision`, `slack`, and other components from the `HowardBridge.Quantization` library. These are not standard Mathlib definitions, an",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_le_slack,opus,4,temp0.7,False,ill-formed,False,5.43,":= by
+  intro σ bp hσ
+  unfold slack etaHR BitPrecision
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `etaHR`, `BitPrecision`, `slack`, and other components from the `HowardBridge.Quantization` module, as these are not standard Mathlib definitions. ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_pos,opus,0,greedy,False,ill-formed,False,5.55,":= by
+  intro b
+  unfold etaBetting
+  induction b with
+  | zero => simp; norm_num
+  | succ n ih =>
+    simp
+    sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it coul",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_pos,opus,1,temp0.7,False,ill-formed,False,4.6,":= by
+  intro b
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it could be. Given the name and the theorem statement `0 < etaBetting b` for all ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_pos,opus,2,temp0.7,False,novel-construction,False,3.31,":= by
+  intro b
+  unfold etaBetting
+  induction b with
+  | zero => simp; norm_num
+  | succ n ih => simp; positivity",body opens with `by` (tactic mode),db8833064e50
+etabetting_pos,opus,3,temp0.7,False,novel-construction,False,2.62,":= by
+  intro b
+  unfold etaBetting
+  induction b with
+  | zero => simp; norm_num
+  | succ n ih => simp; positivity",body opens with `by` (tactic mode),db8833064e50
+etabetting_pos,opus,4,temp0.7,False,novel-construction,False,3.25,":= by
+  intro b
+  unfold etaBetting
+  induction b with
+  | zero => norm_num
+  | succ n => norm_num",body opens with `by` (tactic mode),db8833064e50
+etabetting_nonneg,opus,0,greedy,False,novel-construction,False,2.87,":= by
+  intro b
+  unfold etaBetting
+  split <;> simp_all
+  · linarith
+  · split <;> simp_all
+    · linarith
+    · split <;> simp_all",body opens with `by` (tactic mode),db8833064e50
+etabetting_nonneg,opus,1,temp0.7,False,novel-construction,False,3.21,":= by
+  intro b
+  unfold etaBetting
+  split <;> simp_all
+  · linarith
+  · split <;> simp_all
+    · linarith
+    · split <;> simp_all",body opens with `by` (tactic mode),db8833064e50
+etabetting_nonneg,opus,2,temp0.7,False,novel-construction,False,3.26,":= by
+  intro b
+  unfold etaBetting
+  split <;> simp_all
+  · linarith
+  · split <;> simp_all
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etabetting_nonneg,opus,3,temp0.7,False,novel-construction,False,4.09,":= by
+  intro b
+  unfold etaBetting
+  split <;> simp_all
+  · split <;> simp_all
+    · split <;> simp_all
+      all_goals (try linarith)
+      all_goals (try norm_num)",body opens with `by` (tactic mode),db8833064e50
+etabetting_nonneg,opus,4,temp0.7,False,novel-construction,False,4.15,":= by
+  intro b
+  unfold etaBetting
+  split <;> simp_all
+  · linarith
+  · split <;> simp_all
+    · linarith
+    · split <;> simp_all",body opens with `by` (tactic mode),db8833064e50
+etabetting_antitone,opus,0,greedy,False,ill-formed,False,9.64,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it could be. Given the name ""etaBetting"" and that it's in a `HowardBridge.Q",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_antitone,opus,1,temp0.7,False,ill-formed,False,5.73,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it could be. Given the name ""etaBetting"" and that it's in `HowardBridge.Qua",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_antitone,opus,2,temp0.7,False,ill-formed,False,4.11,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it could be. Given the name and the theorem statement (antitone: larger inp",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_antitone,opus,3,temp0.7,False,ill-formed,False,5.32,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it could be. Given the name ""etaBetting"" and that it's in a `HowardBridge.Q",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_antitone,opus,4,temp0.7,False,ill-formed,False,6.88,":= by
+  intro b₁ b₂ h
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Since I don't have the definition of `etaBetting`, I need to reason about what it could be. Given the name ""etaBetting"" and that it's in `HowardBridge.Qua",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_le_etahr,opus,0,greedy,False,ill-formed,False,5.91,":= by
+  intro b hb
+  unfold etaBetting etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` and `etaHR` are.
+
+Since I don't have access to the actual definitions of `etaBetting` and `etaHR` from `HowardBridge.Quantization`, I need to construct a proof tha",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_le_etahr,opus,1,temp0.7,False,ill-formed,False,4.82,":= by
+  intro b hb
+  unfold etaBetting etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` and `etaHR` are.
+
+Since I don't have access to the actual definitions of `etaBetting` and `etaHR` from `HowardBridge.Quantization`, I need to provide a proof that ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_le_etahr,opus,2,temp0.7,False,ill-formed,False,4.29,":= by
+  intro b hb
+  unfold etaBetting etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` and `etaHR` are.
+
+Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to reason about what proof strategy would work. Let me",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_le_etahr,opus,3,temp0.7,False,ill-formed,False,6.19,":= by
+  intro b hb
+  unfold etaBetting etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` and `etaHR` are.
+
+Since I don't have access to the actual definitions of `etaBetting` and `etaHR` from `HowardBridge.Quantization`, I need to construct a proof tha",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_le_etahr,opus,4,temp0.7,False,ill-formed,False,3.98,":= by
+  intro b hb
+  unfold etaBetting etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` and `etaHR` likely are in the HowardBridge.Quantization context.
+
+Since I don't have access to the actual definitions, let me try a more general approach:
+
+:= by
+ ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etavector_nonneg,opus,0,greedy,False,novel-construction,False,2.52,":= by
+  intro b
+  unfold etaVector
+  split <;> simp_all <;> linarith",body opens with `by` (tactic mode),db8833064e50
+etavector_nonneg,opus,1,temp0.7,False,novel-construction,False,2.71,":= by
+  intro b
+  unfold etaVector
+  split <;> simp_all <;> linarith",body opens with `by` (tactic mode),db8833064e50
+etavector_nonneg,opus,2,temp0.7,False,novel-construction,False,2.49,":= by
+  intro b
+  unfold etaVector
+  split <;> simp_all <;> linarith",body opens with `by` (tactic mode),db8833064e50
+etavector_nonneg,opus,3,temp0.7,False,novel-construction,False,2.38,":= by
+  intro b
+  unfold etaVector
+  split <;> simp_all
+  · norm_num
+  · split <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etavector_nonneg,opus,4,temp0.7,False,novel-construction,False,2.29,":= by
+  intro b
+  unfold etaVector
+  split <;> simp_all <;> linarith",body opens with `by` (tactic mode),db8833064e50
+etavector_mono,opus,0,greedy,False,novel-construction,False,2.68,":= by
+  intro b₁ b₂ h
+  unfold etaVector
+  apply div_le_div_of_nonneg_right
+  · exact Nat.cast_le.mpr h
+  · norm_num",body opens with `by` (tactic mode),db8833064e50
+etavector_mono,opus,1,temp0.7,False,novel-construction,False,2.61,":= by
+  intro b₁ b₂ h
+  unfold etaVector
+  exact Nat.sub_le_sub_right h 1",body opens with `by` (tactic mode),db8833064e50
+etavector_mono,opus,2,temp0.7,False,novel-construction,False,2.7,":= by
+  intro b₁ b₂ h
+  unfold etaVector
+  apply div_le_div_of_nonneg_right
+  · exact Nat.cast_le.mpr h
+  · norm_num",body opens with `by` (tactic mode),db8833064e50
+etavector_mono,opus,3,temp0.7,False,novel-construction,False,3.26,":= by
+  intro b₁ b₂ h
+  unfold etaVector
+  apply Nat.div_le_div_right
+  exact Nat.pow_le_pow_right (Nat.succ_pos 1) h",body opens with `by` (tactic mode),db8833064e50
+etavector_mono,opus,4,temp0.7,False,novel-construction,False,3.51,":= by
+  intro b₁ b₂ h
+  unfold etaVector
+  apply div_le_div_of_nonneg_right
+  · exact Nat.cast_le.mpr h
+  · norm_num",body opens with `by` (tactic mode),db8833064e50
+etavector_eq_sqrt_two_mul_etahr,opus,0,greedy,False,novel-construction,False,2.46,":= by
+  intro b
+  unfold etaVector etaHR
+  ring",body opens with `by` (tactic mode),db8833064e50
+etavector_eq_sqrt_two_mul_etahr,opus,1,temp0.7,False,novel-construction,False,2.53,":= by
+  intro b
+  unfold etaVector etaHR
+  ring",body opens with `by` (tactic mode),db8833064e50
+etavector_eq_sqrt_two_mul_etahr,opus,2,temp0.7,False,novel-construction,False,2.32,":= by
+  intro b
+  unfold etaVector etaHR
+  ring",body opens with `by` (tactic mode),db8833064e50
+etavector_eq_sqrt_two_mul_etahr,opus,3,temp0.7,False,novel-construction,False,2.54,":= by
+  intro b
+  unfold etaVector etaHR
+  ring",body opens with `by` (tactic mode),db8833064e50
+etavector_eq_sqrt_two_mul_etahr,opus,4,temp0.7,False,novel-construction,False,2.56,":= by
+  intro b
+  unfold etaVector etaHR
+  ring",body opens with `by` (tactic mode),db8833064e50
+etahr_le_etavector,opus,0,greedy,False,novel-construction,False,3.1,":= by
+  intro b
+  unfold etaHR etaVector
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+etahr_le_etavector,opus,1,temp0.7,False,novel-construction,False,2.29,":= by
+  intro b
+  unfold etaHR etaVector
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+etahr_le_etavector,opus,2,temp0.7,False,novel-construction,False,2.73,":= by
+  intro b
+  unfold etaHR etaVector
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+etahr_le_etavector,opus,3,temp0.7,False,novel-construction,False,2.33,":= by
+  intro b
+  unfold etaHR etaVector
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+etahr_le_etavector,opus,4,temp0.7,False,novel-construction,False,2.52,":= by
+  intro b
+  unfold etaHR etaVector
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_nonneg,opus,0,greedy,False,novel-construction,False,3.33,":= by
+  intro b
+  unfold etaAsymptotic
+  split <;> simp_all
+  · norm_num
+  · split <;> norm_num
+  · split <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_nonneg,opus,1,temp0.7,False,novel-construction,False,3.29,":= by
+  intro b
+  unfold etaAsymptotic
+  split <;> simp_all
+  · norm_num
+  · split <;> norm_num
+  · split <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_nonneg,opus,2,temp0.7,False,novel-construction,False,3.57,":= by
+  intro b
+  unfold etaAsymptotic
+  split <;> simp_all
+  · norm_num
+  · split <;> norm_num
+  · split <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_nonneg,opus,3,temp0.7,False,novel-construction,False,2.56,":= by
+  intro b
+  unfold etaAsymptotic
+  split <;> simp_all
+  all_goals norm_num",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_nonneg,opus,4,temp0.7,False,novel-construction,False,4.16,":= by
+  intro b
+  unfold etaAsymptotic
+  split <;> simp_all
+  · norm_num
+  · split <;> norm_num
+  · split <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_const,opus,0,greedy,True,novel-construction,True,2.5,":= by
+  intro b₁ b₂
+  unfold etaAsymptotic
+  rfl",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_const,opus,1,temp0.7,True,novel-construction,True,2.3,":= by
+  intro b₁ b₂
+  unfold etaAsymptotic
+  rfl",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_const,opus,2,temp0.7,True,novel-construction,True,2.57,":= by
+  intro b₁ b₂
+  unfold etaAsymptotic
+  rfl",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_const,opus,3,temp0.7,True,novel-construction,True,2.95,":= by
+  intro b₁ b₂
+  unfold etaAsymptotic
+  rfl",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_const,opus,4,temp0.7,True,novel-construction,True,2.26,":= by
+  intro b₁ b₂
+  unfold etaAsymptotic
+  rfl",body opens with `by` (tactic mode),db8833064e50
+etaasymptotic_le_etahr,opus,0,greedy,False,ill-formed,False,8.61,":= by
+  intro b hb
+  unfold etaAsymptotic etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaAsymptotic` and `etaHR` are.
+
+Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to reason about what proof strategy would work. ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etaasymptotic_le_etahr,opus,1,temp0.7,False,ill-formed,False,7.12,":= by
+  intro b hb
+  unfold etaAsymptotic etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaAsymptotic` and `etaHR` are.
+
+Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to reason about what proof strategy would work. ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etaasymptotic_le_etahr,opus,2,temp0.7,False,ill-formed,False,5.81,":= by
+  intro b hb
+  unfold etaAsymptotic etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaAsymptotic` and `etaHR` are.
+
+Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to provide a proof that works. Let me try a more",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etaasymptotic_le_etahr,opus,3,temp0.7,False,ill-formed,False,7.76,":= by
+  intro b hb
+  unfold etaAsymptotic etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaAsymptotic` and `etaHR` are.
+
+Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to reason about what proof strategy would work. ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etaasymptotic_le_etahr,opus,4,temp0.7,False,ill-formed,False,6.35,":= by
+  intro b hb
+  unfold etaAsymptotic etaHR
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaAsymptotic` and `etaHR` are.
+
+Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to provide a proof that works. Let me try a more",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_four_way,opus,0,greedy,False,ill-formed,False,6.16,":= by
+  intro b hb
+  unfold etaBetting etaAsymptotic etaHR etaVector
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `etaBetting`, `etaAsymptotic`, `etaHR`, and `etaVector` from the `",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_four_way,opus,1,temp0.7,False,ill-formed,False,5.75,":= by
+  intro b hb
+  unfold etaBetting etaAsymptotic etaHR etaVector
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `etaBetting`, `etaAsymptotic`, `etaHR`, and `etaVector` from the `",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_four_way,opus,2,temp0.7,False,ill-formed,False,8.31,":= by
+  intro b hb
+  unfold etaBetting etaAsymptotic etaHR etaVector
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `etaBetting`, `etaAsymptotic`, `etaHR`, and `etaVector` from the `",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_four_way,opus,3,temp0.7,False,ill-formed,False,7.4,":= by
+  intro b hb
+  unfold etaBetting etaAsymptotic etaHR etaVector
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `etaBetting`, `etaAsymptotic`, `etaHR`, and `etaVector` from `Howa",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_four_way,opus,4,temp0.7,False,ill-formed,False,7.8,":= by
+  intro b hb
+  unfold etaBetting etaAsymptotic etaHR etaVector
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `etaBetting`, `etaAsymptotic`, `etaHR`, and `etaVector` from the `",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_nonneg,opus,0,greedy,False,ill-formed,False,4.39,":= by
+  intro σ bp hσ
+  unfold slack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slack` and `BitPrecision` likely are.
+
+Since I don't have the actual definitions from `HowardBridge.Quantization`, I need to reason about what they could be. However, without knowing ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_nonneg,opus,1,temp0.7,False,ill-formed,False,7.86,":= by
+  intro σ bp hσ
+  unfold slack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slack` and `BitPrecision` likely are.
+
+Since these are from `HowardBridge.Quantization` and I don't have the actual definitions, I need to reason about what they could be. However, wi",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_nonneg,opus,2,temp0.7,False,ill-formed,False,4.86,":= by
+  intro σ bp hσ
+  unfold slack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slack` and `BitPrecision` likely are.
+
+Since I don't have the actual definitions from `HowardBridge.Quantization`, I need to reason about what they could be. However, without knowing ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_nonneg,opus,3,temp0.7,False,ill-formed,False,5.45,":= by
+  intro σ bp hσ
+  unfold slack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slack` and `BitPrecision` likely are.
+
+Since I don't have the actual definitions from `HowardBridge.Quantization`, I need to reason about what they could be. Given the theorem name an",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_nonneg,opus,4,temp0.7,False,ill-formed,False,7.53,":= by
+  intro σ bp hσ
+  unfold slack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slack` and `BitPrecision` likely are.
+
+Since I don't have the actual definitions from `HowardBridge.Quantization`, I need to reason about what they could be. Given the theorem states ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_antitone_in_scale,opus,0,greedy,False,novel-construction,False,2.5,":= by
+  intro σ bp₁ bp₂ h
+  unfold slack
+  linarith",body opens with `by` (tactic mode),db8833064e50
+slack_antitone_in_scale,opus,1,temp0.7,False,novel-construction,False,2.42,":= by
+  intro σ bp₁ bp₂ h
+  simp only [slack]
+  linarith",body opens with `by` (tactic mode),db8833064e50
+slack_antitone_in_scale,opus,2,temp0.7,False,novel-construction,False,2.31,":= by
+  intro σ bp₁ bp₂ h
+  unfold slack
+  linarith",body opens with `by` (tactic mode),db8833064e50
+slack_antitone_in_scale,opus,3,temp0.7,False,novel-construction,False,2.42,":= by
+  intro σ bp₁ bp₂ h
+  unfold slack
+  linarith",body opens with `by` (tactic mode),db8833064e50
+slack_antitone_in_scale,opus,4,temp0.7,False,novel-construction,False,2.24,":= by
+  intro σ bp₁ bp₂ h
+  unfold slack
+  linarith",body opens with `by` (tactic mode),db8833064e50
+sharpslack_nonneg,opus,0,greedy,False,ill-formed,False,5.99,":= by
+  intro c σ bp hc hσ
+  unfold sharpSlack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `sharpSlack` likely is.
+
+Since I don't have the actual definition of `sharpSlack` available, I need to reason about what it could be. Given the context of HowardBridge.Quanti",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+sharpslack_nonneg,opus,1,temp0.7,False,ill-formed,False,4.76,":= by
+  intro c σ bp hc hσ
+  unfold sharpSlack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `sharpSlack` likely is.
+
+Since I don't have the actual definition of `sharpSlack` available, I need to reason about what it could be. Given the context of quantization and th",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+sharpslack_nonneg,opus,2,temp0.7,False,ill-formed,False,6.55,":= by
+  intro c σ bp hc hσ
+  unfold sharpSlack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `sharpSlack` likely is.
+
+Since I don't have the actual definition of `sharpSlack` from `HowardBridge.Quantization`, I need to reason about what it could be. Given the signatu",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+sharpslack_nonneg,opus,3,temp0.7,False,ill-formed,False,5.2,":= by
+  intro c σ bp hc hσ
+  unfold sharpSlack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `sharpSlack` likely is.
+
+Since I don't have the actual definition of `sharpSlack` available, I need to reason about what it could be. Given the context of quantization and th",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+sharpslack_nonneg,opus,4,temp0.7,False,ill-formed,False,6.65,":= by
+  intro c σ bp hc hσ
+  unfold sharpSlack
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `sharpSlack` likely is.
+
+Since I don't have the actual definition of `sharpSlack` from `HowardBridge.Quantization`, I need to reason about what it could be. Given the signatu",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+sharpslack_mono_in_c,opus,0,greedy,False,novel-construction,False,3.64,":= by
+  intro c₁ c₂ σ bp hσ hc
+  unfold sharpSlack
+  unfold slackBound
+  apply mul_le_mul_of_nonneg_right
+  · apply mul_le_mul_of_nonneg_right hc hσ
+  · exact le_of_lt (pow_pos (by norm_num : (0:ℝ) < 2) bp.bits)",body opens with `by` (tactic mode),db8833064e50
+sharpslack_mono_in_c,opus,1,temp0.7,False,novel-construction,False,3.64,":= by
+  intro c₁ c₂ σ bp hσ hc
+  unfold sharpSlack
+  unfold slackBound
+  apply mul_le_mul_of_nonneg_right
+  · apply mul_le_mul_of_nonneg_right hc hσ
+  · exact le_of_lt (pow_pos (by norm_num : (0:ℝ) < 2) bp.bits)",body opens with `by` (tactic mode),db8833064e50
+sharpslack_mono_in_c,opus,2,temp0.7,False,novel-construction,False,3.67,":= by
+  intro c₁ c₂ σ bp hσ hc
+  unfold sharpSlack
+  unfold quantBound
+  apply mul_le_mul_of_nonneg_right
+  · linarith
+  · apply mul_nonneg
+    · exact hσ
+    · exact pow_nonneg (by positivity) _",body opens with `by` (tactic mode),db8833064e50
+sharpslack_mono_in_c,opus,3,temp0.7,False,novel-construction,False,4.1,":= by
+  intro c₁ c₂ σ bp hσ hc
+  unfold sharpSlack
+  unfold quantBound
+  apply mul_le_mul_of_nonneg_right
+  · linarith
+  · apply mul_nonneg
+    · exact hσ
+    · exact le_of_lt (pow_pos (by norm_num : (0:ℝ) < 2) bp.bits)",body opens with `by` (tactic mode),db8833064e50
+sharpslack_mono_in_c,opus,4,temp0.7,False,novel-construction,False,5.23,":= by
+  intro c₁ c₂ σ bp hσ hc
+  unfold sharpSlack
+  unfold sharpSlackAux
+  simp only
+  apply mul_le_mul_of_nonneg_right
+  · apply mul_le_mul_of_nonneg_right hc hσ
+  · exact le_of_lt (pow_pos (by norm_num : (0:ℝ) < 2) bp.val)",body opens with `by` (tactic mode),db8833064e50
+realizedcoverageavg_singleton,opus,0,greedy,False,ill-formed,False,4.78,":= by
+  intro impl claim
+  unfold realizedCoverageAvg singletonAdversary
+  simp [realizedCoverage]
+  sorry
+
+I need to be honest - without access to the actual definitions of `realizedCoverageAvg`, `singletonAdversary`, `realizedCoverage`, `StoppingImpl`, `CoverageClaim`, and the other types/function",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_singleton,opus,1,temp0.7,False,ill-formed,False,5.11,":= by
+  intro impl claim
+  unfold realizedCoverageAvg singletonAdversary
+  simp [realizedCoverage]
+  sorry
+
+I need to be honest - without seeing the actual definitions of `realizedCoverageAvg`, `singletonAdversary`, `realizedCoverage`, `StoppingImpl`, `CoverageClaim`, and related types from the `How",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_singleton,opus,2,temp0.7,False,ill-formed,False,5.52,":= by
+  intro impl claim
+  unfold realizedCoverageAvg singletonAdversary
+  simp [realizedCoverage]
+  sorry
+
+I need to be honest - without seeing the actual definitions of `realizedCoverageAvg`, `singletonAdversary`, `realizedCoverage`, `StoppingImpl`, `CoverageClaim`, and related types from the `How",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_singleton,opus,3,temp0.7,False,ill-formed,False,5.16,":= by
+  intro impl claim
+  unfold realizedCoverageAvg singletonAdversary
+  simp [realizedCoverage]
+  sorry
+
+I need to be honest - without access to the actual definitions of `realizedCoverageAvg`, `singletonAdversary`, `realizedCoverage`, `StoppingImpl`, `CoverageClaim`, and the rest of the `HowardB",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_singleton,opus,4,temp0.7,False,ill-formed,False,5.25,":= by
+  intro impl claim
+  unfold realizedCoverageAvg singletonAdversary
+  simp [realizedCoverage]
+  sorry
+
+I need to be honest — without access to the actual definitions of `realizedCoverageAvg`, `singletonAdversary`, `realizedCoverage`, `StoppingImpl`, `CoverageClaim`, and the rest of the `HowardB",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_bounded,opus,0,greedy,False,ill-formed,False,5.83,":= by
+  intro impl adv claim
+  unfold realizedCoverageAvg
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `realizedCoverageAvg` likely is and how to prove it's bounded by 1.
+
+Without seeing the actual definition, I need to reason about what's available. Let me provide ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_bounded,opus,1,temp0.7,False,ill-formed,False,10.36,":= by
+  intro impl adv claim
+  unfold realizedCoverageAvg
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `realizedCoverageAvg` likely is and how to prove it's bounded by 1.
+
+Without knowing the exact definition, I'll try a more exploratory approach. But since I must p",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_bounded,opus,2,temp0.7,False,ill-formed,False,6.31,":= by
+  intro impl adv claim
+  unfold realizedCoverageAvg
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `realizedCoverageAvg` likely is and how to prove this.
+
+Without knowing the exact definition, I'll try a more general approach:
+
+:= by
+  intro impl adv claim
+  sim",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_bounded,opus,3,temp0.7,False,ill-formed,False,9.31,":= by
+  intro impl adv claim
+  unfold realizedCoverageAvg
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `realizedCoverageAvg` likely is and how to prove it's bounded by 1.
+
+Without knowing the exact definition, I'll try a more exploratory approach. But since I must p",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+realizedcoverageavg_bounded,opus,4,temp0.7,False,ill-formed,False,7.49,":= by
+  intro impl adv claim
+  unfold realizedCoverageAvg
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `realizedCoverageAvg` likely is and how to prove it's bounded by 1.
+
+Without seeing the exact definition, I'll try a more general approach:
+
+:= by
+  intro impl adv",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+c_hr_sharp_pos,opus,0,greedy,False,novel-construction,False,7.91,":= by
+  unfold c_HR_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_pos,opus,1,temp0.7,False,novel-construction,False,2.51,":= by
+  unfold c_HR_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_pos,opus,2,temp0.7,False,novel-construction,False,1.62,":= by
+  unfold c_HR_sharp
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_pos,opus,3,temp0.7,False,novel-construction,False,2.36,":= by
+  unfold c_HR_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_pos,opus,4,temp0.7,False,novel-construction,False,2.15,":= by
+  unfold c_HR_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_betting_sharp_pos,opus,0,greedy,False,novel-construction,False,4.94,":= I need to figure out what `c_betting_sharp` is defined as in the HowardBridge namespace. Since I don't have access to the actual definition, I need to reason about what it likely is based on the context of ""HowardBridge.Quantization"" and betting/sharp constants.
+
+Given that this is a positivity r","term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+c_betting_sharp_pos,opus,1,temp0.7,False,novel-construction,False,7.44,":= I need to figure out what `c_betting_sharp` is defined as in the HowardBridge namespace. Since I don't have access to the actual definition, I need to reason about what it likely is based on the context of ""HowardBridge.Quantization"" and betting/sharp constants.
+
+Given that this is a positivity r","term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+c_betting_sharp_pos,opus,2,temp0.7,False,novel-construction,False,4.35,":= I need to figure out what `c_betting_sharp` is defined as in the HowardBridge namespace. Since I don't have access to the actual definition, I need to reason about what it likely is.
+
+Given the context of ""HowardBridge.Quantization"" and ""c_betting_sharp"", this is likely a positive real constant. ","term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+c_betting_sharp_pos,opus,3,temp0.7,False,novel-construction,False,5.24,":= I need to figure out what `c_betting_sharp` is defined as in the HowardBridge namespace. Since I don't have access to the actual definition, I need to reason about what it likely is based on the context of ""HowardBridge.Quantization"" and betting/sharp constants.
+
+Given the naming convention, `c_b","term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+c_betting_sharp_pos,opus,4,temp0.7,False,novel-construction,False,5.36,":= I need to figure out what `c_betting_sharp` is defined as in the HowardBridge namespace. Since I don't have access to the actual definition, I need to reason about what it likely is based on the context (quantization theory, betting).
+
+Given that this is in a `HowardBridge.Quantization` context a","term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+c_vector_sharp_pos,opus,0,greedy,False,novel-construction,False,3.22,":= by
+  unfold c_vector_sharp
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+c_vector_sharp_pos,opus,1,temp0.7,False,novel-construction,False,2.41,":= by
+  unfold c_vector_sharp
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+c_vector_sharp_pos,opus,2,temp0.7,False,novel-construction,False,2.36,":= by
+  unfold c_vector_sharp
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+c_vector_sharp_pos,opus,3,temp0.7,False,novel-construction,False,2.27,":= by
+  unfold c_vector_sharp
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+c_vector_sharp_pos,opus,4,temp0.7,False,novel-construction,False,6.04,":= by
+  unfold c_vector_sharp
+  norm_num",body opens with `by` (tactic mode),db8833064e50
+c_acs_sharp_pos,opus,0,greedy,False,novel-construction,False,2.38,":= by
+  unfold c_aCS_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_acs_sharp_pos,opus,1,temp0.7,False,novel-construction,False,2.36,":= by
+  unfold c_aCS_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_acs_sharp_pos,opus,2,temp0.7,False,novel-construction,False,3.35,":= by
+  unfold c_aCS_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_acs_sharp_pos,opus,3,temp0.7,False,novel-construction,False,2.5,":= by
+  unfold c_aCS_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+c_acs_sharp_pos,opus,4,temp0.7,False,novel-construction,False,2.4,":= by
+  unfold c_aCS_sharp
+  positivity",body opens with `by` (tactic mode),db8833064e50
+boundary_pos,opus,0,greedy,False,novel-construction,False,2.74,":= by
+  intro c0 hc0 t
+  unfold boundary
+  positivity",body opens with `by` (tactic mode),db8833064e50
+boundary_pos,opus,1,temp0.7,False,novel-construction,False,2.67,":= by
+  intro c0 hc0 t
+  unfold boundary
+  positivity",body opens with `by` (tactic mode),db8833064e50
+boundary_pos,opus,2,temp0.7,False,novel-construction,False,2.16,":= by
+  intro c0 hc0 t
+  unfold boundary
+  positivity",body opens with `by` (tactic mode),db8833064e50
+boundary_pos,opus,3,temp0.7,False,novel-construction,False,3.32,":= by
+  intro c0 hc0 t
+  unfold boundary
+  positivity",body opens with `by` (tactic mode),db8833064e50
+boundary_pos,opus,4,temp0.7,False,novel-construction,False,2.25,":= by
+  intro c0 hc0 t
+  unfold boundary
+  positivity",body opens with `by` (tactic mode),db8833064e50
+boundary_antitone,opus,0,greedy,False,novel-construction,False,3.07,":= by
+  intro c0 hc0 t₁ t₂ h
+  unfold boundary
+  unfold Time at *
+  apply div_le_div_of_nonneg_left hc0
+  · linarith
+  · linarith",body opens with `by` (tactic mode),db8833064e50
+boundary_antitone,opus,1,temp0.7,False,novel-construction,False,2.96,":= by
+  intro c0 hc0 t₁ t₂ h
+  unfold boundary
+  unfold Time at *
+  apply div_le_div_of_nonneg_left hc0
+  · linarith
+  · linarith",body opens with `by` (tactic mode),db8833064e50
+boundary_antitone,opus,2,temp0.7,False,novel-construction,False,3.18,":= by
+  intro c0 hc0 t₁ t₂ h
+  unfold boundary
+  unfold Time at *
+  apply div_le_div_of_nonneg_left hc0
+  · linarith
+  · linarith",body opens with `by` (tactic mode),db8833064e50
+boundary_antitone,opus,3,temp0.7,False,novel-construction,False,4.06,":= by
+  intro c0 hc0 t₁ t₂ h
+  unfold boundary Time at *
+  apply div_le_div_of_nonneg_left hc0
+  · linarith
+  · linarith",body opens with `by` (tactic mode),db8833064e50
+boundary_antitone,opus,4,temp0.7,False,novel-construction,False,3.1,":= by
+  intro c0 hc0 t₁ t₂ h
+  unfold boundary
+  unfold Time at *
+  apply div_le_div_of_nonneg_left hc0
+  · linarith
+  · linarith",body opens with `by` (tactic mode),db8833064e50
+slacklower_nonneg,opus,0,greedy,False,ill-formed,False,4.63,":= by
+  intro σ bp hσ
+  unfold slackLower
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slackLower` likely is.
+
+Since I don't have the actual definition of `slackLower` available, I need to reason about what it could be. Given the context of `HowardBridge.Quantizati",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slacklower_nonneg,opus,1,temp0.7,False,ill-formed,False,4.44,":= by
+  intro σ bp hσ
+  unfold slackLower
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slackLower` likely is.
+
+Since I don't have the actual definition of `slackLower` or `BitPrecision` from the `HowardBridge.Quantization` module, I need to reason about what proof ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slacklower_nonneg,opus,2,temp0.7,False,ill-formed,False,3.93,":= by
+  intro σ bp hσ
+  unfold slackLower
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slackLower` likely is.
+
+Without knowing the exact definition of `slackLower`, I'll attempt a general approach:
+
+:= by
+  intro σ bp hσ
+  unfold slackLower
+  positivity",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slacklower_nonneg,opus,3,temp0.7,False,ill-formed,False,5.02,":= by
+  intro σ bp hσ
+  unfold slackLower
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slackLower` likely is.
+
+Since I don't have the actual definition of `slackLower` from `HowardBridge.Quantization`, I need to reason about what it could be. Given the theorem stat",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slacklower_nonneg,opus,4,temp0.7,False,ill-formed,False,4.58,":= by
+  intro σ bp hσ
+  unfold slackLower
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `slackLower` likely is.
+
+Without knowing the exact definition of `slackLower`, I need to reason about what it could be. Given the context of ""HowardBridge.Quantization"" and ""BitPr",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_tight,opus,0,greedy,False,ill-formed,False,8.18,":= by
+  intro σ bp hσ
+  unfold slack slackLower
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `slack`, `slackLower`, `BitPrecision`, and the `HowardBridge.Quantization` module. These are not standard Mathlib definitions, and without knowing their pr",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_tight,opus,1,temp0.7,False,ill-formed,False,5.76,":= by
+  intro σ bp hσ
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `slack`, `slackLower`, `BitPrecision`, and other components from `HowardBridge.Quantization`. These are not standard Mathlib definitions, and without their implementations, I cannot",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_tight,opus,2,temp0.7,False,ill-formed,False,5.9,":= by
+  intro σ bp hσ
+  unfold slack slackLower
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `slack`, `slackLower`, `BitPrecision`, and the `HowardBridge.Quantization` module. These are not standard Mathlib definitions, and without knowing their pr",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_tight,opus,3,temp0.7,False,ill-formed,False,5.34,":= by
+  intro σ bp hσ
+  unfold slack slackLower
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `slack`, `slackLower`, `BitPrecision`, and the `HowardBridge.Quantization` module. These are not standard Mathlib definitions, and without knowing their pr",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+slack_tight,opus,4,temp0.7,False,ill-formed,False,5.21,":= by
+  intro σ bp hσ
+  unfold slack slackLower
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `slack`, `slackLower`, `BitPrecision`, and other components from `HowardBridge.Quantization`. These are not standard Mathlib definitions, and without seein",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+c_hr_sharp_ge_one,opus,0,greedy,False,novel-construction,False,3.11,":= by
+  rw [ge_iff_le, ← Real.sqrt_one]
+  apply Real.sqrt_le_sqrt
+  linarith [Real.log_two_gt_half]",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_ge_one,opus,1,temp0.7,False,novel-construction,False,4.45,":= by
+  rw [ge_iff_le, ← Real.sqrt_one]
+  apply Real.sqrt_le_sqrt
+  linarith [Real.log_two_gt_half]",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_ge_one,opus,2,temp0.7,False,novel-construction,False,3.33,":= by
+  rw [ge_iff_le, ← Real.sqrt_one]
+  apply Real.sqrt_le_sqrt
+  linarith [Real.log_two_gt_half]",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_ge_one,opus,3,temp0.7,False,novel-construction,False,2.88,":= by
+  rw [ge_iff_le, ← Real.sqrt_one]
+  apply Real.sqrt_le_sqrt
+  linarith [Real.log_two_gt_half]",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_ge_one,opus,4,temp0.7,False,novel-construction,False,2.72,":= by
+  rw [ge_iff_le, ← Real.sqrt_one]
+  apply Real.sqrt_le_sqrt
+  linarith [Real.log_two_gt_half]",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_le_sqrt_two,opus,0,greedy,False,ill-formed,False,5.4,":= by
+  apply Real.sqrt_le_sqrt
+  suffices h : Real.log 2 ≤ 1 by linarith
+  have : Real.log 2 ≤ Real.log (Real.exp 1) := by
+    apply Real.log_le_log (by positivity)
+    exact le_of_lt (by
+      rw [Real.exp_one_gt_d9.le.antisymm (by norm_num) |>.symm |>.symm]
+      · exact Real.exp_one_gt_d9.le.tra",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+c_hr_sharp_le_sqrt_two,opus,1,temp0.7,False,ill-formed,False,4.89,":= by
+  apply Real.sqrt_le_sqrt
+  suffices h : Real.log 2 ≤ 1 by linarith
+  have : Real.log 2 ≤ Real.log (Real.exp 1) := by
+    apply Real.log_le_log (by positivity)
+    exact le_of_lt (by
+      rw [Real.exp_one_gt_d9.le.antisymm.symm |>.symm]
+      · exact Real.exp_one_gt_d9.le.lt_of_ne' (by norm_n",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+c_hr_sharp_le_sqrt_two,opus,2,temp0.7,False,ill-formed,False,3.62,":= by
+  apply Real.sqrt_le_sqrt
+  have h : Real.log 2 ≤ 1 := by
+    rw [← Real.exp_le_exp_iff_le (by positivity : (0:ℝ) < Real.exp (Real.log 2)) (by positivity : (0:ℝ) < Real.exp 1) |>.symm]
+    sorry
+  sorry",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+c_hr_sharp_le_sqrt_two,opus,3,temp0.7,False,novel-construction,False,4.27,":= by
+  apply Real.sqrt_le_sqrt
+  have h : Real.log 2 ≤ 1 := by
+    rw [← Real.log_exp 1]
+    apply Real.log_le_log (by positivity)
+    calc (2 : ℝ) = 2 := rfl
+    _ ≤ Real.exp 1 := by
+      have : Real.exp 1 = Real.exp 1 := rfl
+      nlinarith [Real.add_one_le_exp (by linarith : (0:ℝ) ≤ 1),
+       ",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_le_sqrt_two,opus,4,temp0.7,False,novel-construction,False,4.78,":= by
+  apply Real.sqrt_le_sqrt
+  have h : Real.log 2 ≤ 1 := by
+    rw [← Real.exp_le_exp]
+    rw [Real.exp_log (by norm_num : (2:ℝ) > 0)]
+    rw [Real.exp_one]
+    -- need e ≥ 2, i.e., 2 ≤ exp 1
+    exact le_of_lt (by norm_num [Real.exp_one_gt_d9])
+  linarith",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_le_six_fifths,opus,0,greedy,False,novel-construction,False,11.75,":= by
+  rw [show (6 : ℝ) / 5 = 6 / 5 from rfl]
+  rw [show (2 : ℝ) * Real.log 2 = 2 * Real.log 2 from rfl]
+  have h1 : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 ↔ 2 * Real.log 2 ≤ (6 / 5) ^ 2 := by
+    constructor
+    · intro h
+      have h6pos : (0 : ℝ) < 6 / 5 := by norm_num
+      calc 2 * Real.log 2 ≤ (R",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_le_six_fifths,opus,1,temp0.7,False,novel-construction,False,12.15,":= by
+  rw [show (6 : ℝ) / 5 = 6 / 5 from rfl]
+  rw [show (2 : ℝ) * Real.log 2 = 2 * Real.log 2 from rfl]
+  have h1 : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 ↔ 2 * Real.log 2 ≤ (6 / 5) ^ 2 := by
+    constructor
+    · intro h
+      have h6pos : (0 : ℝ) < 6 / 5 := by norm_num
+      calc 2 * Real.log 2 ≤ (R",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_le_six_fifths,opus,2,temp0.7,False,novel-construction,False,12.87,":= by
+  rw [show (6 : ℝ) / 5 = 6 / 5 from rfl]
+  rw [show (2 : ℝ) * Real.log 2 = 2 * Real.log 2 from rfl]
+  have h1 : Real.sqrt (2 * Real.log 2) ≤ 6 / 5 ↔ 2 * Real.log 2 ≤ (6 / 5) ^ 2 := by
+    constructor
+    · intro h
+      have h6pos : (0 : ℝ) < 6 / 5 := by norm_num
+      calc 2 * Real.log 2 ≤ (R",body opens with `by` (tactic mode),db8833064e50
+c_hr_sharp_le_six_fifths,opus,3,temp0.7,False,ill-formed,False,8.53,":= by
+  rw [show (6 : ℝ) / 5 = 6 / 5 from rfl]
+  rw [show (2 : ℝ) * Real.log 2 = 2 * Real.log 2 from rfl]
+  have h1 : Real.sqrt (2 * Real.log 2) ≥ 0 := Real.sqrt_nonneg _
+  have h2 : (6 : ℝ) / 5 ≥ 0 := by norm_num
+  rw [show (6 : ℝ) / 5 = (6 / 5 : ℝ) from rfl]
+  suffices h : 2 * Real.log 2 ≤ (6 / 5)",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+c_hr_sharp_le_six_fifths,opus,4,temp0.7,False,ill-formed,False,13.63,":= by
+  rw [show (6 : ℝ) / 5 = 6 / 5 from rfl]
+  rw [show (2 : ℝ) * Real.log 2 = 2 * Real.log 2 from rfl]
+  have h1 : Real.sqrt (2 * Real.log 2) ≥ 0 := Real.sqrt_nonneg _
+  have h2 : (6 : ℝ) / 5 ≥ 0 := by norm_num
+  rw [show (6 : ℝ) / 5 = (6 / 5 : ℝ) from rfl]
+  suffices h : 2 * Real.log 2 ≤ (6 / 5)",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_le_one,opus,0,greedy,False,novel-construction,False,2.75,":= by
+  intro b
+  unfold etaBetting
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etabetting_le_one,opus,1,temp0.7,False,novel-construction,False,2.71,":= by
+  intro b
+  unfold etaBetting
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etabetting_le_one,opus,2,temp0.7,False,novel-construction,False,2.42,":= by
+  intro b
+  unfold etaBetting
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etabetting_le_one,opus,3,temp0.7,False,novel-construction,False,2.56,":= by
+  intro b
+  unfold etaBetting
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etabetting_le_one,opus,4,temp0.7,False,novel-construction,False,3.37,":= by
+  intro b
+  unfold etaBetting
+  split
+  · linarith
+  · split
+    · linarith",body opens with `by` (tactic mode),db8833064e50
+etabetting_lt_one,opus,0,greedy,False,ill-formed,False,4.68,":= by
+  intro b hb
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Without knowing the exact definition of `etaBetting`, I need to reason about what it could be. Given the name and the context of ""HowardBridge.Quantization"",",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_lt_one,opus,1,temp0.7,False,ill-formed,False,10.19,":= by
+  intro b hb
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Without knowing the exact definition of `etaBetting`, I need to reason about what it could be. Given the name suggests ""eta betting"" and the theorem states i",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_lt_one,opus,2,temp0.7,False,ill-formed,False,6.73,":= by
+  intro b hb
+  unfold etaBetting
+  sorry
+
+I need to understand what `etaBetting` is first. Since I don't have access to the definition, let me try a different approach.
+
+:= by
+  intro b hb
+  simp [etaBetting]
+  sorry
+
+Let me reconsider. Since I cannot use `sorry`, I need to work with what's av",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_lt_one,opus,3,temp0.7,False,ill-formed,False,5.98,":= by
+  intro b hb
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Without knowing the exact definition of `etaBetting`, I need to reason about what it could be. Given the name and the theorem statement `etaBetting b < 1` fo",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etabetting_lt_one,opus,4,temp0.7,False,ill-formed,False,5.59,":= by
+  intro b hb
+  unfold etaBetting
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `etaBetting` likely is.
+
+Without knowing the exact definition of `etaBetting`, I need to reason about what it could be. Given the name and the context of ""HowardBridge.Quantization"",",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_over_etabetting_gt_one,opus,0,greedy,False,ill-formed,False,3.59,":= by
+  intro b hb
+  induction b with
+  | zero => omega
+  | succ n =>
+    cases n with
+    | zero => omega
+    | succ m =>
+      cases m with
+      | zero =>
+        -- b = 2
+        simp [etaHR, etaBetting]
+        norm_num
+      | succ k =>
+        -- b = k + 3, so b ≥ 3
+        simp [etaHR, etaBe",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_over_etabetting_gt_one,opus,1,temp0.7,False,novel-construction,False,3.55,":= by
+  intro b hb
+  unfold etaHR etaBetting
+  interval_cases b <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etahr_over_etabetting_gt_one,opus,2,temp0.7,False,novel-construction,False,2.27,":= by
+  intro b hb
+  unfold etaHR etaBetting
+  interval_cases b <;> norm_num",body opens with `by` (tactic mode),db8833064e50
+etahr_over_etabetting_gt_one,opus,3,temp0.7,False,ill-formed,False,3.52,":= by
+  intro b hb
+  induction b with
+  | zero => omega
+  | succ n =>
+    cases n with
+    | zero => omega
+    | succ m =>
+      cases m with
+      | zero =>
+        -- b = 2
+        simp [etaHR, etaBetting]
+        norm_num
+      | succ k =>
+        -- b = k + 3, so b ≥ 3
+        simp [etaHR, etaBe",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+etahr_over_etabetting_gt_one,opus,4,temp0.7,False,ill-formed,False,4.4,":= by
+  intro b hb
+  induction b with
+  | zero => omega
+  | succ n =>
+    cases n with
+    | zero => omega
+    | succ m =>
+      cases m with
+      | zero =>
+        -- b = 2
+        simp [etaHR, etaBetting]
+        norm_num
+      | succ k =>
+        -- b = k + 3, so b ≥ 3
+        simp [etaHR, etaBe",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_betting_lt_hr,opus,0,greedy,False,ill-formed,False,5.35,":= by
+  intro b hb
+  unfold familyBetting familyHR
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyBetting` and `familyHR` are. Since I don't have access to the actual definitions in HowardBridge.Quantization, I need to construct a proof that works g",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_betting_lt_hr,opus,1,temp0.7,False,ill-formed,False,6.0,":= by
+  intro b hb
+  unfold familyBetting familyHR
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyBetting` and `familyHR` are. Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to reason about what proof stru",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_betting_lt_hr,opus,2,temp0.7,False,ill-formed,False,7.12,":= by
+  intro b hb
+  unfold familyBetting familyHR
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyBetting` and `familyHR` are.
+
+Since I don't have access to the actual definitions in the HowardBridge namespace, I need to reason about what these coul",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_betting_lt_hr,opus,3,temp0.7,False,ill-formed,False,5.96,":= by
+  intro b hb
+  unfold familyBetting familyHR
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyBetting` and `familyHR` are. Since I don't have access to the actual definitions in HowardBridge.Quantization, I need to construct a proof that works g",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_betting_lt_hr,opus,4,temp0.7,False,ill-formed,False,6.06,":= by
+  intro b hb
+  unfold familyBetting familyHR
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyBetting` and `familyHR` are. Since I don't have access to the actual definitions in `HowardBridge.Quantization`, I need to reason about what proof stru",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_hr_lt_vector,opus,0,greedy,False,ill-formed,False,6.24,":= by
+  intro b hb
+  unfold familyHR familyVector
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `familyHR`, `familyVector`, and their `eta` fields, I need to reason abou",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_hr_lt_vector,opus,1,temp0.7,False,ill-formed,False,4.93,":= by
+  intro b hb
+  unfold familyHR familyVector
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyHR`, `familyVector`, and `eta` likely are in the HowardBridge namespace.
+
+Without knowing the exact definitions, I'll try a more exploratory approach. B",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_hr_lt_vector,opus,2,temp0.7,False,ill-formed,False,6.23,":= by
+  intro b hb
+  unfold familyHR familyVector
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyHR` and `familyVector` are.
+
+Since I don't have access to the actual definitions, let me try a more exploratory approach. But the constraint says I must",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_hr_lt_vector,opus,3,temp0.7,False,ill-formed,False,4.81,":= by
+  intro b hb
+  unfold familyHR familyVector
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what `familyHR`, `familyVector`, and `eta` likely are in the HowardBridge namespace.
+
+Since I don't have access to the actual definitions, I need to reason about wh",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+eta_hr_lt_vector,opus,4,temp0.7,False,ill-formed,False,5.78,":= by
+  intro b hb
+  unfold familyHR familyVector
+  simp only
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions might be.
+
+Since I don't have access to the actual definitions of `familyHR`, `familyVector`, and their `eta` fields, I need to reason about ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_3_way,opus,0,greedy,False,ill-formed,False,3.2,":= by
+  intro b hb
+  -- We need to unfold the definitions and prove the inequalities
+  -- Since we don't know the exact definitions, let's try to explore
+  simp only [familyBetting, familyHR, familyVector]
+  sorry",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_3_way,opus,1,temp0.7,False,ill-formed,False,3.97,":= by
+  intro b hb
+  -- We need to unfold the definitions of familyBetting.eta, familyHR.eta, familyVector.eta
+  -- Since we don't know the exact definitions, let's try to work with what we have
+  -- First, let's try simp and norm_num approaches
+  sorry",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_3_way,opus,2,temp0.7,False,ill-formed,False,5.22,":= by
+  intro b hb
+  -- We need to unfold the definitions and prove the inequalities
+  -- Since we don't know the exact definitions, let's try to explore
+  simp only [familyBetting, familyHR, familyVector]
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitio",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_3_way,opus,3,temp0.7,False,ill-formed,False,5.61,":= by
+  intro b hb
+  simp only [familyBetting, familyHR, familyVector]
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Without knowing the exact definitions of `familyBetting`, `familyHR`, `familyVector` and their `.eta` fields, I need to",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_3_way,opus,4,temp0.7,False,ill-formed,False,6.89,":= by
+  intro b hb
+  -- We need to unfold the definitions and prove the inequalities
+  -- Since we don't know the exact definitions, let's try to figure them out
+  -- by using simp and norm_num tactics
+  sorry
+
+I need to be honest - I cannot produce a valid proof without knowing the definitions of `",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_4_way_master,opus,0,greedy,False,novel-construction,False,2.57,":= by
+  intro b hb
+  constructor
+  · exact familyBetting_le_familyAsymptotic b hb
+  constructor
+  · exact familyAsymptotic_le_familyHR b hb
+  · exact familyHR_le_familyVector b hb",body opens with `by` (tactic mode),db8833064e50
+ranking_4_way_master,opus,1,temp0.7,False,novel-construction,False,3.22,":= by
+  intro b hb
+  constructor
+  · exact familyBetting_le_familyAsymptotic b hb
+  constructor
+  · exact familyAsymptotic_le_familyHR b hb
+  · exact familyHR_le_familyVector b hb",body opens with `by` (tactic mode),db8833064e50
+ranking_4_way_master,opus,2,temp0.7,False,novel-construction,False,2.78,":= by
+  intro b hb
+  exact ⟨familyBetting_le_familyAsymptotic b hb, familyAsymptotic_le_familyHR b hb, familyHR_le_familyVector b hb⟩",body opens with `by` (tactic mode),db8833064e50
+ranking_4_way_master,opus,3,temp0.7,False,ill-formed,False,6.57,":= by
+  intro b hb
+  constructor
+  · exact fun n => by
+      simp [familyBetting, familyAsymptotic]
+      sorry
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Since I don't have access to the actual definitions of `familyBetting`, `famil",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+ranking_4_way_master,opus,4,temp0.7,False,ill-formed,False,2.41,":= by
+  intro b hb
+  induction b with
+  | zero => omega
+  | succ n =>
+    cases n with
+    | zero =>
+      simp [familyBetting, familyAsymptotic, familyHR, familyVector]
+      constructor
+      · sorry
+      constructor
+      · sorry",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+dichotomy_universal_monotonicity_impossible,opus,0,greedy,False,novel-construction,False,19.49,":= by
+  intro σ hσ bp
+  intro ⟨d, hmono, hiff⟩
+  -- We derive a contradiction by finding x, t such that d x t = true but d x (t+1) = false
+  -- The threshold min(σ * sqrt((t+1) * log 2), 2^(bits-1) - 1) - 2^(-scale)
+  -- can decrease as t increases (the min can switch from the sqrt branch to the con",body opens with `by` (tactic mode),db8833064e50
+dichotomy_universal_monotonicity_impossible,opus,1,temp0.7,False,novel-construction,False,16.74,":= by
+  intro σ hσ bp
+  intro ⟨d, hmono, hiff⟩
+  -- We derive a contradiction by finding x, t such that d x t = true but d x (t+1) = false
+  -- The threshold min(σ * sqrt((t+1) * log 2), 2^(bits-1) - 1) - 2^(-scale) can decrease as t increases
+  -- if the min switches from the second branch to the f",body opens with `by` (tactic mode),db8833064e50
+dichotomy_universal_monotonicity_impossible,opus,2,temp0.7,False,novel-construction,False,16.1,":= by
+  intro σ hσ bp
+  intro ⟨d, hmono, hiff⟩
+  -- We derive a contradiction by finding x, t such that d x t = true but d x (t+1) = false
+  -- The threshold min(σ * sqrt((t+1) * log 2), 2^(bits-1) - 1) - 2^(-scale)
+  -- can decrease as t increases (the min can switch from the sqrt branch to the con",body opens with `by` (tactic mode),db8833064e50
+dichotomy_universal_monotonicity_impossible,opus,3,temp0.7,False,novel-construction,False,15.86,":= by
+  intro σ hσ bp
+  intro ⟨d, hmono, hiff⟩
+  -- We derive a contradiction by finding x, t such that d x t = true but d x (t+1) = false
+  -- The key insight: the threshold min(σ√((t+1)ln2), 2^(bits-1)-1) - 2^(-scale)
+  -- is NOT necessarily monotone in t (it's bounded by 2^(bits-1)-1 - 2^(-scale)",body opens with `by` (tactic mode),db8833064e50
+dichotomy_universal_monotonicity_impossible,opus,4,temp0.7,False,novel-construction,False,17.31,":= by
+  intro σ hσ bp
+  intro ⟨d, hmono, hiff⟩
+  -- We derive a contradiction by finding x, t such that d x t = true but d x (t+1) = false
+  -- The threshold min(σ * sqrt((t+1) * log 2), 2^(bits-1) - 1) - 2^(-scale)
+  -- can decrease as t increases (since sqrt grows but min with a constant cap means",body opens with `by` (tactic mode),db8833064e50
+betting_comparison_t2,opus,0,greedy,False,ill-formed,False,4.7,":= by
+  unfold familyBetting familyHR SlackFamily.slackFn
+  simp
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Without knowing the exact definitions of `familyBetting`, `familyHR`, `SlackFamily.slackFn`, `σ`, and `bp`, I cannot produce ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+betting_comparison_t2,opus,1,temp0.7,False,ill-formed,False,5.59,":= by
+  unfold familyBetting familyHR SlackFamily.slackFn
+  simp
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Without knowing the exact definitions of `familyBetting`, `familyHR`, `SlackFamily.slackFn`, `σ`, and `bp`, I cannot produce ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+betting_comparison_t2,opus,2,temp0.7,False,ill-formed,False,5.1,":= by
+  unfold familyBetting familyHR SlackFamily.slackFn
+  simp
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Without knowing the exact definitions of `familyBetting`, `familyHR`, `SlackFamily.slackFn`, `σ`, and `bp`, I cannot produce ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+betting_comparison_t2,opus,3,temp0.7,False,ill-formed,False,5.75,":= by
+  unfold familyBetting familyHR SlackFamily.slackFn
+  simp
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Without knowing the exact definitions of `familyBetting`, `familyHR`, `SlackFamily.slackFn`, `σ`, and `bp`, I cannot produce ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+betting_comparison_t2,opus,4,temp0.7,False,ill-formed,False,5.61,":= by
+  unfold familyBetting familyHR SlackFamily.slackFn
+  simp
+  sorry
+
+I need to reconsider since `sorry` is banned. Let me think about what these definitions likely are.
+
+Without seeing the actual definitions of `familyBetting`, `familyHR`, `SlackFamily.slackFn`, `σ`, and `bp`, I cannot produce ",body contains `sorry` token (would emit sorryAx axiom; not axiom-clean),db8833064e50
+real_sqrt_lt_sqrt,opus,0,greedy,True,novel-construction,True,2.21,":= by
+  intro x y hx hy hxy
+  exact Real.sqrt_lt_sqrt hx hxy",body opens with `by` (tactic mode),db8833064e50
+real_sqrt_lt_sqrt,opus,1,temp0.7,True,novel-construction,True,2.5,":= by
+  intro x y hx hy hxy
+  exact Real.sqrt_lt_sqrt hx hxy",body opens with `by` (tactic mode),db8833064e50
+real_sqrt_lt_sqrt,opus,2,temp0.7,True,novel-construction,True,2.35,":= by
+  intro x y hx hy hxy
+  exact Real.sqrt_lt_sqrt hx hxy",body opens with `by` (tactic mode),db8833064e50
+real_sqrt_lt_sqrt,opus,3,temp0.7,True,novel-construction,True,2.03,":= by
+  intro x y hx hy hxy
+  exact Real.sqrt_lt_sqrt hx hxy",body opens with `by` (tactic mode),db8833064e50
+real_sqrt_lt_sqrt,opus,4,temp0.7,True,novel-construction,True,1.97,":= by
+  intro x y hx hy hxy
+  exact Real.sqrt_lt_sqrt hx hxy",body opens with `by` (tactic mode),db8833064e50
+nat_le_add_right,opus,0,greedy,True,novel-construction,True,1.84,:= fun n m => Nat.le_add_right n m,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+nat_le_add_right,opus,1,temp0.7,True,novel-construction,True,2.33,:= fun n m => Nat.le_add_right n m,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+nat_le_add_right,opus,2,temp0.7,True,novel-construction,True,1.95,:= fun n m => Nat.le_add_right n m,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+nat_le_add_right,opus,3,temp0.7,True,novel-construction,True,2.25,:= fun n m => Nat.le_add_right n m,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+nat_le_add_right,opus,4,temp0.7,True,novel-construction,True,1.97,:= fun n m => Nat.le_add_right n m,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+real_add_sq_le_sq_add_sq,opus,0,greedy,False,novel-construction,False,2.53,":= by
+  intro a b x y h
+  exact Real.sqrt_le_sqrt h",body opens with `by` (tactic mode),db8833064e50
+real_add_sq_le_sq_add_sq,opus,1,temp0.7,False,novel-construction,False,4.99,":= by
+  intro a b x y h
+  exact Real.sqrt_le_sqrt h",body opens with `by` (tactic mode),db8833064e50
+real_add_sq_le_sq_add_sq,opus,2,temp0.7,False,novel-construction,False,2.46,":= by
+  intro a b x y h
+  exact Real.sqrt_le_sqrt h",body opens with `by` (tactic mode),db8833064e50
+real_add_sq_le_sq_add_sq,opus,3,temp0.7,False,novel-construction,False,2.14,":= by
+  intro a b x y h
+  exact Real.sqrt_le_sqrt h",body opens with `by` (tactic mode),db8833064e50
+real_add_sq_le_sq_add_sq,opus,4,temp0.7,False,novel-construction,False,2.07,":= by
+  intro a b x y h
+  exact Real.sqrt_le_sqrt h",body opens with `by` (tactic mode),db8833064e50
+div_le_div_of_nonneg_left,opus,0,greedy,False,novel-construction,False,2.99,":= by
+  intro a b c hc ha hab
+  by_cases ha0 : a = 0
+  · subst ha0; simp
+  · have ha_pos : 0 < a := lt_of_le_of_ne ha (Ne.symm ha0)
+    have hb_pos : 0 < b := lt_of_lt_of_le ha_pos hab
+    rw [div_le_div_iff hb_pos hc]
+    exact mul_le_mul_of_nonneg_left hab (le_of_lt hc)",body opens with `by` (tactic mode),db8833064e50
+div_le_div_of_nonneg_left,opus,1,temp0.7,False,novel-construction,False,3.8,":= by
+  intro a b c hc ha hab
+  by_cases ha0 : a = 0
+  · subst ha0; simp
+  · have ha_pos : 0 < a := lt_of_le_of_ne ha (Ne.symm ha0)
+    have hb_pos : 0 < b := lt_of_lt_of_le ha_pos hab
+    rw [div_le_div_iff hb_pos hc]
+    exact mul_le_mul_of_nonneg_left hab (le_of_lt hc)",body opens with `by` (tactic mode),db8833064e50
+div_le_div_of_nonneg_left,opus,2,temp0.7,False,novel-construction,False,4.86,":= by
+  intro a b c hc ha hab
+  by_cases ha0 : a = 0
+  · subst ha0; simp
+  · have ha_pos : 0 < a := lt_of_le_of_ne ha (Ne.symm ha0)
+    have hb_pos : 0 < b := lt_of_lt_of_le ha_pos hab
+    rw [div_le_div_iff hb_pos hc]
+    exact mul_le_mul_of_nonneg_left hab (le_of_lt hc)",body opens with `by` (tactic mode),db8833064e50
+div_le_div_of_nonneg_left,opus,3,temp0.7,False,novel-construction,False,3.46,":= by
+  intro a b c hc ha hab
+  by_cases ha0 : a = 0
+  · subst ha0; simp
+  · have ha_pos : 0 < a := lt_of_le_of_ne ha (Ne.symm ha0)
+    have hb_pos : 0 < b := lt_of_lt_of_le ha_pos hab
+    rw [div_le_div_iff hb_pos hc]
+    exact mul_le_mul_of_nonneg_left hab (le_of_lt hc)",body opens with `by` (tactic mode),db8833064e50
+div_le_div_of_nonneg_left,opus,4,temp0.7,False,novel-construction,False,3.43,":= by
+  intro a b c hc ha hab
+  by_cases ha0 : a = 0
+  · subst ha0; simp
+  · have ha_pos : 0 < a := lt_of_le_of_ne ha (Ne.symm ha0)
+    have hb_pos : 0 < b := lt_of_lt_of_le ha_pos hab
+    rw [div_le_div_iff hb_pos hc]
+    exact mul_le_mul_of_nonneg_left hab (le_of_lt hc)",body opens with `by` (tactic mode),db8833064e50
+mul_nonneg,opus,0,greedy,True,novel-construction,True,2.26,:= fun a b ha hb => mul_nonneg ha hb,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+mul_nonneg,opus,1,temp0.7,True,novel-construction,True,2.34,:= fun a b ha hb => mul_nonneg ha hb,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+mul_nonneg,opus,2,temp0.7,True,novel-construction,True,2.2,:= fun a b ha hb => mul_nonneg ha hb,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+mul_nonneg,opus,3,temp0.7,True,novel-construction,True,2.6,:= fun a b ha hb => mul_nonneg ha hb,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
+mul_nonneg,opus,4,temp0.7,True,novel-construction,True,1.9,:= fun a b ha hb => mul_nonneg ha hb,"term-mode body that is not a bare library identifier (anonymous constructor, lambda, multi-statement, etc.)",db8833064e50
