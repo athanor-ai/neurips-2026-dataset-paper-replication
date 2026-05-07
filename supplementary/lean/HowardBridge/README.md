@@ -1,6 +1,6 @@
 # HowardBridge — NeurIPS 2026 bridge theorem scaffold
 
-Branch: `asabi/neurips-howard-bridge-scaffold`. Tracks ATH-458.
+Branch: scaffold. Tracks the companion library.
 
 ## What this is
 

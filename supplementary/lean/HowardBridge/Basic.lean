@@ -292,7 +292,7 @@ theorem howard_bridge
     ∃ realized_alpha : ℝ,
       realized_alpha ≤ claim.alpha + slack σ bp
       ∧ 0 ≤ realized_alpha := by
-  -- Proof strategy (asabi/Aristotle/Opus, ATH-458 Phase 0):
+  -- Proof strategy (Aristotle, Phase 0):
   -- 1. Decompose the realized α into (ideal α) + (bit-precision error).
   -- 2. Bound the ideal α by the Howard 2021 martingale inequality.
   -- 3. Bound the bit-precision error by the slack function, using
