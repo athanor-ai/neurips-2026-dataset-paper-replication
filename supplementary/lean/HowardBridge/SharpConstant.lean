@@ -1,5 +1,5 @@
 /-
-HowardBridge.SharpConstant — the T1 theorem for the NeurIPS 2026 paper:
+HowardBridge.SharpConstant — the T1 theorem for the Formal-AVS benchmark paper
 "Deployable anytime-valid inference: machine-checked implementations
 with the companion library".
 

@@ -1,6 +1,6 @@
 /-
-HowardBridge.BettingComparison — the T2 theorem for the NeurIPS 2026
-paper: "Deployable anytime-valid inference: machine-checked
+HowardBridge.BettingComparison — the T2 theorem for the Formal-AVS
+benchmark paper "Deployable anytime-valid inference: machine-checked
 implementations".
 
 Axiom-audit target: {propext, Classical.choice, Quot.sound} only.

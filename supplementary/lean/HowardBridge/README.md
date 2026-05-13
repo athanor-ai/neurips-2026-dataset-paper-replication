@@ -1,11 +1,11 @@
-# HowardBridge — NeurIPS 2026 bridge theorem scaffold
+# HowardBridge — bridge theorem scaffold for the Formal-AVS benchmark
 
 Branch: scaffold. Tracks the companion library.
 
 ## What this is
 
-A Lean 4 scaffold for the bridge theorem stated in the NeurIPS 2026
-paper *Deployable anytime-valid inference: machine-checked
+A Lean 4 scaffold for the bridge theorem stated in the Formal-AVS
+benchmark paper *Deployable anytime-valid inference: machine-checked
 implementations*:
 
 > Let `impl` be a bit-precise implementation of a Howard-Ramdas
@@ -51,6 +51,6 @@ LLM residuals: capped at $15.
 
 ## Related
 
-- ATH-458 — parent ticket (NeurIPS 2026 paper)
-- ATH-451 / ATH-452 — paper-priority gates (this paper uses shared
-  infra, not the IP-gated research code)
+- Parent tracking ticket for the Formal-AVS benchmark paper.
+- Paper-priority gating: this paper uses shared infrastructure,
+  not the IP-gated research code.

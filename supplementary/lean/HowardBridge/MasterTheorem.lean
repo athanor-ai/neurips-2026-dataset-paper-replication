@@ -1,5 +1,5 @@
 /-
-HowardBridge.MasterTheorem — the unified theorem for the NeurIPS 2026
+HowardBridge.MasterTheorem — the unified theorem for the Formal-AVS
 paper: "Deployable anytime-valid inference: machine-checked
 implementations".
 
@@ -138,8 +138,8 @@ family, incurs coverage slack at most `F.slackFn σ bp`. The
 sandwich-style bounds regain tightness that the binary indicator
 blocked in rounds 3–7.
 
-**Paper framing:** this is *the* Master Theorem for the NeurIPS
-submission. The single-trajectory `MasterUpperValid` above is retained
+**Paper framing:** this is *the* Master Theorem for the Formal-AVS
+benchmark paper. The single-trajectory `MasterUpperValid` above is retained
 only as §5 refutation-gallery content. -/
 def MasterUpperValidAvg (F : AdmissibleFamily) : Prop :=
   ∀ (σ : ℝ) (_hσ : 0 < σ) (bp : BitPrecision)

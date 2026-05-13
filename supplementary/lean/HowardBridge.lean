@@ -1,5 +1,5 @@
 -- Top-level module for the HowardBridge scaffold.
--- NeurIPS 2026 Datasets & Benchmarks paper:
+-- Formal-AVS benchmark paper:
 -- formal-avs-lean companion library for the Formal-AVS benchmark.
 
 import HowardBridge.Basic

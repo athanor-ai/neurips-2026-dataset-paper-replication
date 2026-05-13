@@ -1,6 +1,6 @@
 /-
 HowardBridge.Adversarial — non-trivial adversarial witness for the
-tight lower bound (ATH-473, Phase 1a of NeurIPS 2026 paper).
+tight lower bound (Phase 1a of the Formal-AVS benchmark paper).
 
 Replaces the trivial (constant-zero martingale, always-continue) witness
 in `HowardBridge.Tight.howard_bridge_lower` with a genuine

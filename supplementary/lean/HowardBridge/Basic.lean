@@ -1,5 +1,5 @@
 /-
-HowardBridge.Basic — scaffold for the NeurIPS 2026 paper:
+HowardBridge.Basic — scaffold for the Formal-AVS benchmark paper:
 "Deployable anytime-valid inference: machine-checked implementations".
 
 Bridge theorem: a fixed-point / bounded-precision implementation of a
