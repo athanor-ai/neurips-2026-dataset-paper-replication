@@ -1,7 +1,7 @@
 /-
 HowardBridge.Sandwich — exact sandwich bounds for the four family rates.
 
-**Stage 3b (2026-04-22, ATH-477 continuation).** 2026-04-22:
+**Stage 3b (2026-04-22 continuation).** 2026-04-22:
 "Our other papers gave exact sandwich bounds to two systems. That's our
 speciality, can we do it?" — yes.
 

@@ -1,7 +1,7 @@
 /-
 HowardBridge.Impossibility — rate optimality of the betting family.
 
-**Stage 3 (2026-04-22, ATH-477 continuation).** Goes beyond the
+**Stage 3 (2026-04-22 continuation).** Goes beyond the
 structural Master Theorem and the four-way ranking to prove a
 genuinely NEW result: the betting rate `η_betting(b) =
 1/√(b · log 2 + 1)` is asymptotically OPTIMAL among admissible

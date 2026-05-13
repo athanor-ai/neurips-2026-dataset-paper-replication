@@ -28,29 +28,17 @@ Scaffold compiles (`lake env lean HowardBridge/Basic.lean` — no
 errors, 4 sorry warnings + unused-variable warnings). Every theorem
 has a sorried proof pending Aristotle + LLM closure.
 
-## Next step (Phase 0)
+## Next step
 
-SDK drives closure:
-
-```bash
-solve/core/run.sh --vertical sysverilog-fleet \
-    --target howard_bridge_obf \
-    --verifier lean,aristotle \
-    --model openai/kimi-k2.5 \
-    --max-iter 3
-```
-
-The SDK calls Aristotle first on every sorry, LLM fallback on
-residuals, axiom audit gated at ship time.
-
-## Budget
-
-Scaffold: $0 (already done).
-Aristotle first pass: $0 (free).
-LLM residuals: capped at $15.
+Closure pipeline: a prover (Aristotle) attempts every `sorry` first,
+an LLM drafter fills residuals where the prover does not converge,
+and the axiom audit gates anything that ships. The driver is generic
+over the choice of prover and drafter.
 
 ## Related
 
-- Parent tracking ticket for the Formal-AVS benchmark paper.
-- Paper-priority gating: this paper uses shared infrastructure,
-  not the IP-gated research code.
+The bridge scaffold uses shared verification infrastructure rather
+than any single proprietary code path. The released artifact in this
+repository is intentionally a self-contained snapshot: it builds with
+`lake exe cache get && lake build` against the pinned Mathlib commit
+in `lakefile.lean`.

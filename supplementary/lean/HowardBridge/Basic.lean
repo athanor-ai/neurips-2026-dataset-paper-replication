@@ -8,7 +8,7 @@ realizes the stated coverage bound, up to an additive bit-precision
 slack ε(b, F, M).
 
 This file states the theorem and scaffolds the helper lemmas. Proofs
-are sorried pending Aristotle + Opus residual closure (ATH-458).
+are sorried pending prover and LLM residual closure.
 
 Axiom-audit target: {propext, Classical.choice, Quot.sound} only. Any
 closure tactic that uses native_decide on a non-decidable prop must
@@ -92,7 +92,7 @@ structure StoppingImpl (σ : ℝ) (bp : BitPrecision) where
 /-- The four bit-level invariants `I1..I4` that our bridge theorem
 says are together sufficient for coverage up to slack.
 
-**2026-04-22 revision (ATH-477, Aristotle refutation fix).** The
+**2026-04-22 revision (Aristotle refutation fix).** The
 original `True` placeholders allowed any implementation to satisfy
 the invariants, which collapsed the Master Theorem: `UpperValid 0`
 became trivially true. Each invariant now carries substantive
@@ -122,7 +122,7 @@ structure BitInvariants (σ : ℝ) (bp : BitPrecision)
   boundary_sane : ∀ (horizon : Time),
     impl.decide impl.mart.process horizon = false →
     impl.mart.process horizon ≤ σ + (2 : ℝ)^(-(bp.scale : ℤ))
-  /-- I5 quantized-decision-consistency (ATH-477 round-6 Goldilocks
+  /-- I5 quantized-decision-consistency (round-6 Goldilocks
   form): `decide t = true` iff the martingale has crossed a *bounded*
   Howard–Ramdas-style threshold by step `t`, where the threshold is
   capped at `2^{b-1} − 1` (the max representable signed value under
@@ -268,7 +268,7 @@ theorem slack_limit_zero (σ : ℝ) (bits : ℕ) :
   obtain ⟨ B, hB ⟩ := h_eps; use B; intro bp hbits hscale; specialize hB bp.scale hscale; unfold slack; aesop;
 
 /-
-REMOVED 2026-04-22 (ATH-477): `howard_bridge_trivial_invariants` lemma
+REMOVED 2026-04-22: `howard_bridge_trivial_invariants` lemma
 was a `trivial`-filled constructor for `BitInvariants`. Aristotle's
 refutation of `MasterSharpSlack` identified the same trivialization:
 once `BitInvariants` has substantive content, no universal constructor

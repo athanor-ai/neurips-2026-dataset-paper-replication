@@ -3,14 +3,14 @@ HowardBridge.Quantization — the shared quantization-transport lemma
 used to derive each family's rate `η_F` from a single reusable
 argument.
 
-**Stage 2 (2026-04-22, ATH-477 follow-up).** Replaces the hand-wavy
+**Stage 2 (2026-04-22 follow-up).** Replaces the hand-wavy
 rate assignments `η_HR(b) = √(b log 2)`, `η_betting(b) = 1/√(b log 2 + 1)`
 etc. with a derivation from first principles. The core lemma:
 
   For any real number `x` and fractional scale `s ∈ ℕ`, the quantization
   `⌊x · 2^s⌋ / 2^s` differs from `x` by at most `2^{-s}`.
 
-This is elementary but load-bearing. Each family-specific rate then
+This is elementary but essential. Each family-specific rate then
 follows from applying quantization-transport to the family's
 decision boundary (additive for self-normalized, log-scale for
 betting, vector-norm for WRWS25, standardized for asymptotic).

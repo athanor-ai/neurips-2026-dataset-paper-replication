@@ -165,7 +165,7 @@ theorem howard_bridge_lower_nontrivial
   exact fun impl inv => ⟨ _, le_rfl, hsl ⟩
 
 /-!
-## Deep-witness rebuild (2026-04-22 pivot, ATH-477)
+## Deep-witness rebuild (2026-04-22 pivot)
 
 The theorems above close axiom-audit-clean but their CONTENT is
 structural: the "pigeonhole" witness is a ceiling expression and the

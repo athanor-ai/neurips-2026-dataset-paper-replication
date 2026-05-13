@@ -88,8 +88,7 @@ noncomputable def realizedCoverage
   if impl.decide impl.mart.process claim.horizon then 1 else 0
 
 /-!
-## Finite-family adversarial averaging (2026-04-22 pivot, ATH-477 /
-ATH-490)
+## Finite-family adversarial averaging (2026-04-22 pivot)
 
 Round-7 Aristotle identified that `realizedCoverage ∈ {0, 1}` is a
 binary indicator and cannot be sandwich-bounded by a continuous family
@@ -101,7 +100,7 @@ sub-Gaussian martingales. The resulting value is a rational in
 bounds. This is a valid probabilistic semantics (uniform distribution
 over a finite adversary family) without requiring Mathlib's
 `ProbabilityMeasure` infrastructure. The continuous-measure extension
-is future work (ATH-490 `leanstat` epic).
+is future work.
 -/
 
 /-- A finite family of adversarial sub-Gaussian martingales at
@@ -271,9 +270,8 @@ there is an admissible adversary forcing the realised α above
 `α + sharpSlack c' σ bp`.
 
 *Status: scaffolded.* The witness construction is the subject of
-`HowardBridge.Adversarial` (ATH-473 deep-Lean work); the existence
-claim here is a lifting of that construction into the lower-valid
-family. -/
+`HowardBridge.Adversarial`; the existence claim here is a lifting of
+that construction into the lower-valid family. -/
 theorem T1_lower
     (c' : ℝ) (_hc'_lt : c' < c_HR)
     (h_lv : LowerValid c') :
@@ -349,11 +347,12 @@ The key lemmas routed to Aristotle in this file (Phase 1a+):
 
   3. `LowerValid_positive` (TODO) — the adversarial construction of
      `HowardBridge.Adversarial` produces a positive lower-valid
-     constant. **Medium difficulty, blocked on ATH-473 deep witness.**
+     constant. **Medium difficulty, blocked on the deep adversarial
+     witness construction.**
 
   4. `c_HR_computable` (TODO) — explicit numerical bound on `c_HR`.
      Derived from (2) and (3); sharpness proven by constructing adversary
-     saturating the upper bound up to `o(1)`. **Deep, Aristotle-load-bearing.**
+     saturating the upper bound up to `o(1)`. **Deep, requires Aristotle.**
 
   5. `c_HR_exact` (STRETCH) — closed-form expression for `c_HR`, e.g.
      `c_HR = √(2 log 2)` (conjectured). **Open question — if Aristotle
