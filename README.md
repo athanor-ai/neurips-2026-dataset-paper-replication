@@ -1,7 +1,5 @@
 # Replication package — Formal-AVS: A Lean Benchmark for Anytime-Valid CS Theorem Proving
 
-NeurIPS 2026 Datasets & Benchmarks submission.
-
 ## One command
 
 ```bash
